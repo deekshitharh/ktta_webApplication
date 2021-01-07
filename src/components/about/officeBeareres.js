@@ -15,7 +15,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import Slider from "react-slick";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import Titlize from "../../commons/genricComponents/titlize";
 import { commons } from "../../commons";
 import GenricOfficebearers from "../../genricSceen/officebeares";
@@ -63,4 +63,4 @@ class Officebearers extends React.Component {
   }
 }
 
-export default withStyles(newsStyles)(Officebearers);
+export default withStyles(customStyles)(Officebearers);

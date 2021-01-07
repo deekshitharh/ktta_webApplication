@@ -7,7 +7,7 @@ import BaseDialog from "./baseDialouge"
 import IconButton from '@material-ui/core/IconButton';
 
 import Grid from "@material-ui/core/Grid";
-import newsStyle from '../../../styles/newsStyle'
+import newsStyle from '../../../styles/genricStyle'
 import MaterialTable, { MTableToolbar } from "material-table";
 import { tableIcons } from "../../../formdata";
 import playerDetailscol from "../../../formdata"

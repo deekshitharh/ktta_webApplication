@@ -7,7 +7,7 @@ import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Container from "@material-ui/core/Container";
 
 import Hidden from "@material-ui/core/Hidden";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -57,4 +57,4 @@ class Mobileview extends Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(Mobileview));
+export default withRouter(withStyles(customStyles)(Mobileview));

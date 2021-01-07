@@ -347,4 +347,4 @@ class ViewUserEntries extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(ViewUserEntries);
+export default withStyles(customStyles)(ViewUserEntries);

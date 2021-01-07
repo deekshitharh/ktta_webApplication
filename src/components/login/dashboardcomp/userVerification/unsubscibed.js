@@ -3,7 +3,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/newsStyle";
 
 import SnackPopup from "../../../../commons/genricComponents/snackbar"
 import Paper from "@material-ui/core/Paper";
@@ -366,4 +366,4 @@ class ViewUserEntries extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(ViewUserEntries);
+export default withStyles(customStyles)(ViewUserEntries);

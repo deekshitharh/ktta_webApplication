@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import Typography from "@material-ui/core/Typography";
-import newsStyles from "../../../styles/newsStyle"
+import customStyles from "../../../styles/genricStyle"
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -586,4 +586,4 @@ class Dashboard extends Component {
 }
 
 
-export default withRouter(withStyles(newsStyles)(Dashboard));
+export default withRouter(withStyles(customStyles)(Dashboard));

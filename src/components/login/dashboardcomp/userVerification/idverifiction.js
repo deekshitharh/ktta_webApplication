@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 
 import Paper from "@material-ui/core/Paper";
 
@@ -200,4 +200,4 @@ class Idverification extends React.Component {
   }
 }
 
-export default withStyles(newsStyles)(Idverification);
+export default withStyles(customStyles)(Idverification);

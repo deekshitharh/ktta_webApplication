@@ -6,7 +6,7 @@ import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 
 
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 
 
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -134,5 +134,5 @@ class RefreshLoader extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(RefreshLoader);
+export default withStyles(customStyles)(RefreshLoader);
 

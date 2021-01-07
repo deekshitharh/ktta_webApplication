@@ -3,7 +3,7 @@ import BaseDialog from "../../players/dialouges/baseDialouge"
 import Login from '../login';
 import { withStyles } from "@material-ui/core/styles";
 import SentimentVeryDissatisfiedIcon from '@material-ui/icons/SentimentVeryDissatisfied';
-import newsStyles from "../../../styles/newsStyle"
+import customStyles from "../../../styles/genricStyle"
 import { Link, withRouter, Router } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import { sessioncommons} from "../../../commons"
@@ -64,4 +64,4 @@ class Logout extends React.Component {
 }
 
 
-export default withRouter(withStyles(newsStyles)(Logout));
+export default withRouter(withStyles(customStyles)(Logout));

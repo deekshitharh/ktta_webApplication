@@ -3,7 +3,7 @@ import CircularProgress from "@material-ui/core/CircularProgress";
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -160,4 +160,4 @@ class SceduleTournament extends React.Component {
   }
 }
 
-export default withStyles(newsStyles)(SceduleTournament);
+export default withStyles(customStyles)(SceduleTournament);

@@ -18,7 +18,7 @@ import { API_URL } from "../../globalUrls";
 import Typography from "@material-ui/core/Typography";
 import { Link, withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import Topbar from "../landingPage/TopBar";
 import { commons } from "../../commons";
 //import { APIService } from "../service";
@@ -205,4 +205,4 @@ class Legal extends React.Component {
         );
     }
 }
-export default withRouter(withStyles(newsStyles)(Legal));
+export default withRouter(withStyles(customStyles)(Legal));

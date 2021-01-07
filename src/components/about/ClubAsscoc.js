@@ -6,7 +6,7 @@ import Topbar from "../landingPage/TopBar";
 
 import CssBaseline from "@material-ui/core/CssBaseline";
 
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 import {aboutMenu }from "../../formdata"
 
 
@@ -153,4 +153,4 @@ class ClubAssociation extends Component {
     }
 }
 
-export default withRouter(withStyles(newsStyles)(ClubAssociation));
+export default withRouter(withStyles(customStyles)(ClubAssociation));

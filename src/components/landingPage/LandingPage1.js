@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 import Sponsers from "./Sponsers";
 import { withStyles } from "@material-ui/core/styles";
 import { Link, withRouter, Router } from "react-router-dom";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import banner1 from "../../images/tball.jpg";
 import BannerImage from "../../commons/genricComponents/imageClass";
 import FacebookWidget from "../socialMediaExtracts/faceBook";
@@ -84,4 +84,4 @@ class LandingPage1 extends Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(LandingPage1));
+export default withRouter(withStyles(customStyles)(LandingPage1));

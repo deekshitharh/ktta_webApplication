@@ -18,7 +18,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 //import Titleize from 'react-titleize';
 import Topbar from "../../landingPage/TopBar";
 import Paper from "@material-ui/core/Paper";
-import newsStyles from "../../../styles/newsStyle";
+import customStyles from "../../../styles/genricStyle";
 
 import MaterialTable, { Column } from "material-table";
 import { selectButtons, tableIcons, coloums } from "../../../formdata";
@@ -153,4 +153,4 @@ class ViewDraws extends React.Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(ViewDraws));
+export default withRouter(withStyles(customStyles)(ViewDraws));

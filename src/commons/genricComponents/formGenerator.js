@@ -11,7 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import { Link, withRouter } from "react-router-dom";
 
 import Titlize from "./titlize"
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 const styles = theme => ({
     container: {
         display: "flex",
@@ -285,6 +285,6 @@ class FormGenerator extends React.Component {
 
 }
 
-export default withRouter(withStyles(newsStyles)(FormGenerator));
+export default withRouter(withStyles(customStyles)(FormGenerator));
 
 

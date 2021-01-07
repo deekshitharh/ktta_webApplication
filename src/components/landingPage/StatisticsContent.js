@@ -15,7 +15,7 @@ import List from "@material-ui/core/List";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import { Link, withRouter, Router } from "react-router-dom";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 
 
 
@@ -42,4 +42,4 @@ class StatisticsContent extends Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(StatisticsContent));
+export default withRouter(withStyles(customStyles)(StatisticsContent));

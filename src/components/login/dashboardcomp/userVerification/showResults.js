@@ -3,7 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import Container from '@material-ui/core/Container';
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 import Fontawsome from "../../../../commons/genricComponents/fontAwsomicon"
 import Paper from "@material-ui/core/Paper";
 import { ApiCall } from "../../../../APIService";
@@ -223,4 +223,4 @@ class displaydraws extends React.Component {
     }
 
 }
-export default withRouter( withStyles(newsStyles)(displaydraws));
+export default withRouter( withStyles(customStyles)(displaydraws));

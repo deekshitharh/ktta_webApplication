@@ -2,13 +2,13 @@ import React from 'react';
 
 import { Route, Redirect } from 'react-router-dom';
 
-import newsStyles from "./styles/newsStyle";
+import customStyles from "./styles/genricStyle";
 import { withStyles } from '@material-ui/core/styles';
 
 import { checkToken } from './AUTHSevice';
 function renderComponent(Component, defaultProps, customProps) {
     let props = { ...defaultProps, ...customProps };
-    let StyledComponent = withStyles(newsStyles)(Component);
+    let StyledComponent = withStyles(customStyles)(Component);
     return <StyledComponent {...props} />;
 }
 

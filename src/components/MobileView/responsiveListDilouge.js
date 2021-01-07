@@ -7,7 +7,7 @@ import BaseDialog from "../players/dialouges/baseDialouge"
 import IconButton from '@material-ui/core/IconButton';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import Grid from "@material-ui/core/Grid";
-import newsStyle from '../../styles/newsStyle'
+import newsStyle from '../../styles/genricStyle'
 import MaterialTable, { MTableToolbar } from "material-table";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";

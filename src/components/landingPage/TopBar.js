@@ -19,7 +19,7 @@ import { ApiCall } from "../../APIService";
 import { API_URL } from "../../globalUrls";
 import { commons } from "../../commons";
 // color:#d90404
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import {
   List,
   AppBar,
@@ -440,4 +440,4 @@ class Topbar extends Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(Topbar));
+export default withRouter(withStyles(customStyles)(Topbar));

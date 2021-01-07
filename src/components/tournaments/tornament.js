@@ -25,7 +25,7 @@ import Container from '@material-ui/core/Container';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
 import Grid from "@material-ui/core/Grid";
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 import RefreshLoader from "../../commons/genricComponents/pageloader"
 import CommitieData from "./commitedetails"
 import { ApiCall } from "../../APIService";
@@ -408,4 +408,4 @@ class Tournament extends React.Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(Tournament));
+export default withRouter(withStyles(customStyles)(Tournament));

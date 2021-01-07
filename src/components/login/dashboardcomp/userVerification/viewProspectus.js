@@ -18,7 +18,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 //import Titleize from 'react-titleize';
 
 import Paper from "@material-ui/core/Paper";
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 
 
 
@@ -104,4 +104,4 @@ class viewProspectus extends React.Component {
     }
 }
 
-export default withRouter(withStyles(newsStyles)(viewProspectus));
+export default withRouter(withStyles(customStyles)(viewProspectus));

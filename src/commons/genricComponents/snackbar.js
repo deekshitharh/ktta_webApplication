@@ -4,7 +4,7 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { withStyles } from "@material-ui/core/styles";
 
 import { Link, withRouter } from "react-router-dom";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 class SnackPopup extends React.Component {
     constructor(props) {
         super(props);
@@ -43,6 +43,6 @@ class SnackPopup extends React.Component {
 
 }
 
-export default withRouter(withStyles(newsStyles)(SnackPopup));
+export default withRouter(withStyles(customStyles)(SnackPopup));
 
 

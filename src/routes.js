@@ -11,7 +11,7 @@ import newsInfo from "./components/news/newsinfo";
 import PlayerRanking from "./components/players/ranking";
 import DetailedNews from "./components/news/detailednews";
 import { withStyles } from "@material-ui/core/styles";
-import newsStyles from "./styles/newsStyle";
+import customStyles from "./styles/genricStyle";
 import Entriesdraws from "./components/tournaments/viewsDraws"
 import Login from "./components/login/login"
 import Dashboard from "./components/login/dashboardcomp/dashboard"
@@ -30,7 +30,7 @@ function renderComponent(Component, defaultProps, customProps) {
   console.log(" routes..default", defaultProps)
   let props = { ...defaultProps, ...customProps };
   console.log(" props.default", props)
-  let StyledComponent = withStyles(newsStyles)(Component);
+  let StyledComponent = withStyles(customStyles)(Component);
   return <StyledComponent {...props} />;
 }
 

@@ -12,7 +12,7 @@ import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
-import newsStyles from "../../../styles/newsStyle";
+import customStyles from "../../../styles/genricStyle";
 import Container from '@material-ui/core/Container';
 import MaterialTable, { MTableToolbar } from "material-table";
 import Titlize from "../../../commons/genricComponents/titlize";
@@ -191,4 +191,4 @@ class Viewentries extends React.Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(Viewentries));
+export default withRouter(withStyles(customStyles)(Viewentries));

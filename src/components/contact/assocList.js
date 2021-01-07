@@ -6,7 +6,7 @@ import GridListTileBar from '@material-ui/core/GridListTileBar';
 import { commons } from "../../commons";
 import { registred_association} from '../../formdata';
 import Paper from '@material-ui/core/Paper';
-import newsStyles from '../../styles/newsStyle'
+import customStyles from '../../styles/genricStyle'
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
@@ -127,4 +127,4 @@ import Fontawsome from "../../commons/genricComponents/fontAwsomicon"
         );
     }
 }
-export default withStyles(newsStyles)(SingleLineGridList);
+export default withStyles(customStyles)(SingleLineGridList);

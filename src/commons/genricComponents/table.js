@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, withRouter } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import newsStyle from '../../styles/newsStyle'
+import newsStyle from '../../styles/genricStyle'
 import MaterialTable, { Column } from "material-table";
 import { tableIcons } from "../../formdata"
 

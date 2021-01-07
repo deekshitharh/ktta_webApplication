@@ -11,7 +11,7 @@ import Typography from "@material-ui/core/Typography";
 import { formFileds } from "../../formdata";
 import { Link, withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import Topbar from "../../components/landingPage/TopBar";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
@@ -244,4 +244,4 @@ class Login extends React.Component {
     );
   }
 }
-export default withRouter(withStyles(newsStyles)(Login));
+export default withRouter(withStyles(customStyles)(Login));

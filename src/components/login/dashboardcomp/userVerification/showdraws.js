@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 
 import Container from '@material-ui/core/Container';
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 import Divider from '@material-ui/core/Divider';
 import Titlize from "../../../../commons/genricComponents/titlize";
 import { ApiCall } from "../../../../APIService";
@@ -525,4 +525,4 @@ this.setState({
   }
 
 }
-export default withStyles(newsStyles)(showdraws);
+export default withStyles(customStyles)(showdraws);

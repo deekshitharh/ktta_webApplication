@@ -3,7 +3,7 @@ import CircularProgress from '@material-ui/core/CircularProgress';
 import React, { Component } from "react";
 import Button from "@material-ui/core/Button";
 
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 import FormGenerator from "../../../../commons/genricComponents/formGenerator"
 import SnackPopup from "../../../../commons/genricComponents/snackbar"
 import Paper from "@material-ui/core/Paper";
@@ -387,4 +387,4 @@ class userInfo extends React.Component {
     }
 
 }
-export default withStyles(newsStyles)(userInfo);
+export default withStyles(customStyles)(userInfo);

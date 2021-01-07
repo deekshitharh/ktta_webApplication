@@ -14,7 +14,7 @@ import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
 import Titlize from "../commons/genricComponents/titlize";
-import newsStyles from "../styles/newsStyle";
+import customStyles from "../styles/genricStyle";
 import LinesEllipsis from "react-lines-ellipsis";
 import ReactHtmlParser, {
     processNodes,
@@ -270,4 +270,4 @@ class GenricOfficebearers extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(GenricOfficebearers);
+export default withStyles(customStyles)(GenricOfficebearers);

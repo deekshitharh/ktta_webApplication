@@ -2,7 +2,7 @@
 
 import React, { Component } from "react";
 
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -35,4 +35,4 @@ class RegisteredClubs extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(RegisteredClubs);
+export default withStyles(customStyles)(RegisteredClubs);

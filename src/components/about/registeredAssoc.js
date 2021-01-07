@@ -19,7 +19,7 @@ import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
 import Slider from "react-slick";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import RoomIcon from "@material-ui/icons/Room";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import withStyles from "@material-ui/core/styles/withStyles";
@@ -173,4 +173,4 @@ class RegisterdAssoc extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(RegisterdAssoc);
+export default withStyles(customStyles)(RegisterdAssoc);

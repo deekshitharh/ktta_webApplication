@@ -14,7 +14,7 @@ import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 
 import Titlize from "../../commons/genricComponents/titlize";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import Link from "@material-ui/core/Link";
 import { withRouter } from "react-router-dom";
 import { TextField } from "@material-ui/core";
@@ -274,4 +274,4 @@ class ResponsiveRanking extends React.Component {
   }
 }
 
-export default withRouter(withStyles(newsStyles)(ResponsiveRanking));
+export default withRouter(withStyles(customStyles)(ResponsiveRanking));

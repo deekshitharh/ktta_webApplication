@@ -2,7 +2,7 @@ import { red, green } from "@material-ui/core/colors";
 
 const drawerWidth = 20;
 const d2 = 240;
-const newsStyles = (theme) => ({
+const customStyles = (theme) => ({
   ctLegend: {
     position: "relative",
     zIndex: 10,
@@ -626,4 +626,4 @@ const newsStyles = (theme) => ({
 
 });
 
-export default newsStyles;
+export default customStyles;

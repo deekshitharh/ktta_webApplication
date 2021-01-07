@@ -6,7 +6,7 @@ import FormGenerator from "../../commons/genricComponents/formGenerator";
 import { formFileds } from "../../formdata"
 import Container from '@material-ui/core/Container';
 import formValidation from "../../commons/formfunction";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import Stepper from "@material-ui/core/Stepper";
 import Step from "@material-ui/core/Step";
 import StepLabel from "@material-ui/core/StepLabel";
@@ -317,4 +317,4 @@ class registerSteps extends React.Component {
   }
 }
 
-export default withStyles(newsStyles)(registerSteps);
+export default withStyles(customStyles)(registerSteps);

@@ -4,7 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 
-import newsStyles from "../../../styles/newsStyle"
+import customStyles from "../../../styles/newsStyle"
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
@@ -252,4 +252,4 @@ return false
     }
 }
 
-export default withStyles(newsStyles)(ViewEntries);
+export default withStyles(customStyles)(ViewEntries);

@@ -15,7 +15,7 @@ import Box from "@material-ui/core/Box";
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 import {tournamentmenu} from "../../formdata"
 import Hidden from "@material-ui/core/Hidden";
 import Mobileview from "../MobileView/mobileView"
@@ -176,4 +176,4 @@ class Entriesdraws extends Component {
     }
 }
 
-export default withRouter(withStyles(newsStyles)(Entriesdraws));
+export default withRouter(withStyles(customStyles)(Entriesdraws));

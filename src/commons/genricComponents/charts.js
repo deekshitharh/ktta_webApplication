@@ -5,7 +5,7 @@ var delays2 = 80,
   durations2 = 500;
 
 import { Link, withRouter, Router } from "react-router-dom";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
@@ -182,5 +182,5 @@ const Graph = () => {
 //   },
 // };
 
-export default withRouter(withStyles(newsStyles)(Statistics));
+export default withRouter(withStyles(customStyles)(Statistics));
 //export default playerStat;

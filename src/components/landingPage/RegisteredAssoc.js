@@ -10,7 +10,7 @@ import Avatar from '@material-ui/core/Avatar';
 
 import { Link, withRouter } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 
 import CardMedia from "@material-ui/core/CardMedia";
 import Grid from "@material-ui/core/Grid";
@@ -105,4 +105,4 @@ const gridRows = 2;
     );
   }
 }
-export default withRouter(withStyles(newsStyles)(RegisteredAssoc));
+export default withRouter(withStyles(customStyles)(RegisteredAssoc));

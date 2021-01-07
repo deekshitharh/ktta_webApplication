@@ -1,7 +1,7 @@
 import React from 'react';
 import BaseDialog from "../players/dialouges/baseDialouge"
 import { withStyles } from "@material-ui/core/styles";
-import newsStyles from "../../styles/newsStyle"
+import customStyles from "../../styles/genricStyle"
 import { Link, withRouter, Router } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
@@ -135,4 +135,4 @@ class CommitieData extends React.Component {
 }
 
 
-export default withRouter(withStyles(newsStyles)(CommitieData));
+export default withRouter(withStyles(customStyles)(CommitieData));

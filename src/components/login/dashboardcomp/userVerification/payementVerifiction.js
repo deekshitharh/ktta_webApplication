@@ -4,7 +4,7 @@ import { sessioncommons } from "../../../../commons"
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 
-import newsStyles from "../../../../styles/newsStyle"
+import customStyles from "../../../../styles/newsStyle"
 
 
 import Paper from "@material-ui/core/Paper";
@@ -133,4 +133,4 @@ class Payementverification extends React.Component {
     }
 }
 
-export default withStyles(newsStyles)(Payementverification);
+export default withStyles(customStyles)(Payementverification);

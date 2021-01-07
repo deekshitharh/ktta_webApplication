@@ -1,7 +1,7 @@
 import Typography from "@material-ui/core/Typography";
 import React, { Component } from "react";
 
-import newsStyles from "../../styles/newsStyle";
+import customStyles from "../../styles/genricStyle";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 
@@ -36,6 +36,6 @@ return (
     );
   }
 }
-export default withRouter(withStyles(newsStyles)(RegisteredClubs));
+export default withRouter(withStyles(customStyles)(RegisteredClubs));
 
 

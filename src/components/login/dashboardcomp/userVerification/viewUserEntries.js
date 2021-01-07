@@ -5,7 +5,7 @@ import Button from "@material-ui/core/Button";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import TableContainer from "@material-ui/core/TableContainer";
-import newsStyles from "../../../../styles/newsStyle";
+import customStyles from "../../../../styles/genricStyle";
 import Table from "@material-ui/core/Table";
 import TableRow from "@material-ui/core/TableRow";
 import SnackPopup from "../../../../commons/genricComponents/snackbar";
@@ -523,4 +523,4 @@ class ViewUserEntries extends React.Component {
   }
 }
 
-export default withStyles(newsStyles)(ViewUserEntries);
+export default withStyles(customStyles)(ViewUserEntries);
