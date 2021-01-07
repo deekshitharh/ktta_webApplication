@@ -42,7 +42,7 @@ const gridRows = 3;
             loading: false
         };
     }
-
+//api fo getting news
     loadNewsData = () => {
         let apiData = {};
         apiData.tableName = "news";

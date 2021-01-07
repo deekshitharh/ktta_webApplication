@@ -1,9 +1,9 @@
 import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
 import "./App.css";
 import AppRoutes from "./routes";
-import { blue, indigo } from "@material-ui/core/colors";
+
 import Theme from "./styles/customTheme.js";
-import { Desktop, Tablet, Mobile, Default } from "./views";
+import { Desktop, Tablet, Mobile } from "./views";
 
 // import { sessioncommons } from "./commons"
 // import {clients} from "./config/clientConfig"

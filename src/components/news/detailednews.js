@@ -31,12 +31,12 @@ class DetailedNews extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      news_id: this.props.match.params.id,
+      news_id: this.props.match.params.id,//id from  news info
       filepath: "",
       newsDetails:[]
     };
   }
-
+//api for getting detail news
   loadetailedData = () => {
     const { news_id}=this.state
     let apiData = {};
