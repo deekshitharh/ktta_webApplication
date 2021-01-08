@@ -1,4 +1,4 @@
-import banner1 from "../images/banners.jpg";
+import banner1 from "../images/tball.jpg";
 import defaultLogo from "../images/default.jpg";
 const bannerList = [{ page: "home", banner: banner1 },{page: "topBar" ,banner: defaultLogo }];
 

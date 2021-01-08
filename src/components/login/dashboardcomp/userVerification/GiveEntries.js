@@ -25,7 +25,7 @@ import Container from "@material-ui/core/Container";
 
 import RefreshLoader from "../../../../commons/genricComponents/pageloader";
 let selectionFlag = false;
-class ViewUserEntries extends React.Component {
+class subscribeEvent extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -523,4 +523,4 @@ class ViewUserEntries extends React.Component {
   }
 }
 
-export default withStyles(customStyles)(ViewUserEntries);
+export default withStyles(customStyles)(subscribeEvent);

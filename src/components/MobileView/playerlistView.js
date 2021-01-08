@@ -110,7 +110,7 @@ class ResponsivePlayerList extends React.Component {
     render() {
         const { classes } = this.props;
         const { value, playerval,playerList, open, loading,  playerName } = this.state;
-console.log("dummy", JSON.stringify( playerval))
+
         return (
             <React.Fragment>
                 <CssBaseline />

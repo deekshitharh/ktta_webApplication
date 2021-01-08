@@ -104,19 +104,16 @@ class registerSteps extends React.Component {
     const formvalues = [...this.state.formData];
     formvalues.map((obj) => {
 
-      // {
-      //     data[obj.key] = obj.dvalue;
-      // }
+     
       data[obj.key] = obj.value
 
     });
 
     let apiData = {};
     apiData.type = "regotp";
-    // apiData.client_key = "ktta";
-    apiData.caller = "caller",
+    apiData.caller = "caller";
       apiData.apiKey = "apikey";
-    apiData.emailId = data.emailAddress,
+    apiData.emailId = data.emailAddress;
       this.setState({ loading: true });
     ApiCall("POST", apiData, "core")
       .then(res => res.json())

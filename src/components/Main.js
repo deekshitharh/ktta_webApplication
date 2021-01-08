@@ -4,7 +4,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 
 import Paper from '@material-ui/core/Paper';
-import LandingPage1 from "./landingPage/LandingPage1";
+import Home from "./landingPage/home";
 
 
 
@@ -17,7 +17,7 @@ class Main extends Component {
     console.log("main", this.props)
     return (
       <React.Fragment>
-        <LandingPage1 handlechange={handlechange} classes={classes}/>
+        <Home handlechange={handlechange} classes={classes}/>
 
         {/* <CssBaseline />
         // <Topbar classes={classes}/>

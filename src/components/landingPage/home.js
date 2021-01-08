@@ -17,9 +17,9 @@ import { Link, withRouter, Router } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import banner1 from "../../images/tball.jpg";
 import BannerImage from "../../commons/genricComponents/imageClass";
-import FacebookWidget from "../socialMediaExtracts/faceBook";
+import MediaWidget from "../socialMediaExtracts/mediaExtracts";
 import Theme from "../../styles/customTheme";
-class LandingPage1 extends Component {
+class Home extends Component {
 
   constructor(props) {
     super(props);
@@ -56,7 +56,7 @@ class LandingPage1 extends Component {
             </Grid>
           </Grid>
           <Grid container>
-            <FacebookWidget classes={classes} />
+            <MediaWidget classes={classes} />
           </Grid>
 
           <Grid container container alignItems="stretch">
@@ -84,4 +84,4 @@ class LandingPage1 extends Component {
   }
 }
 
-export default withRouter(withStyles(customStyles)(LandingPage1));
+export default withRouter(withStyles(customStyles)(Home));

@@ -10,15 +10,11 @@ import Grid from "@material-ui/core/Grid";
 import newsStyle from '../../../styles/genricStyle'
 import MaterialTable, { MTableToolbar } from "material-table";
 import { tableIcons } from "../../../formdata";
-import playerDetailscol from "../../../formdata"
+import {playerDetailscol}  from "../../../formdata"
 import CloseIcon from '@material-ui/icons/Close';
 
 
-const columns = [
-    { field: "id", title: "SL No" },
-    { field: "tournamentName", title: "Tournament Name" },
-    { field: "points", title: "Points" }
-]
+
 
 
 class TableDialog extends Component {
@@ -31,7 +27,7 @@ class TableDialog extends Component {
                     <MaterialTable
                         title=""
                         isLoading={loading}
-                        columns={columns}
+                        columns={playerDetailscol}
                         data={data}
                         icons={tableIcons}
                         options={{

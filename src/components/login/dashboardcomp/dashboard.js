@@ -38,7 +38,7 @@ import Container from '@material-ui/core/Container';
 import Badge from '@material-ui/core/Badge';
 import Downloadpdf from "../../tournaments/ViewsDraws/drawsDialouge";
 import NotificationsIcon from '@material-ui/icons/Notifications';
-import ViewUserEntries from "../dashboardcomp/userVerification/viewUserEntries"
+import subscribeEvent from "../dashboardcomp/userVerification/GiveEntries"
 import {
    
     AppBar,

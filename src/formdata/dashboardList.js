@@ -10,7 +10,7 @@ import FileCopyIcon from '@material-ui/icons/FileCopy';
 import AssessmentIcon from '@material-ui/icons/Assessment';
 import AccessTimeIcon from '@material-ui/icons/AccessTime';
 import EditIcon from '@material-ui/icons/Edit';
-import ViewUserEntries from "../components/login/dashboardcomp/userVerification/viewUserEntries"
+import subscribeEvent from "../components/login/dashboardcomp/userVerification/GiveEntries"
 import SceduleTournament from "../components/login/dashboardcomp/userVerification/scheduletour"
 import userProfile from "../components/login/dashboardcomp/userVerification/userProfile"
 import viewProspectus from "../components/login/dashboardcomp/userVerification/viewProspectus"
@@ -23,7 +23,7 @@ export const dashboardData = [
     label: "GIVE ENTRIES",
     pathname: "/",
     value: 0,
-    component: ViewUserEntries,
+    component: subscribeEvent,
     icon: <AssignmentIcon />
   },
   {

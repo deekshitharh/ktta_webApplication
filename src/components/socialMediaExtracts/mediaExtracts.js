@@ -30,7 +30,7 @@ const Twitter = () => {
   );
 }
 
-export default class FacebookWidget extends Component {
+export default class MediaWidget extends Component {
   render() {
     const { classes } = this.props;
 

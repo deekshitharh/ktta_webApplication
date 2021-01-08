@@ -10,8 +10,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
-import switchbox from "../../formdata/switchvalues";
+
 import { sessioncommons } from "../../commons"
 import { clients } from "../../config/clientConfig"
 import RefreshLoader from "../../commons/genricComponents/pageloader"

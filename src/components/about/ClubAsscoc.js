@@ -116,7 +116,7 @@ class ClubAssociation extends Component {
                                                             data-key={index}
 
 
-                                                            classes={{ root: classes.tabItem }}
+                                                          
                                                             label={item.label}
 
                                                         />

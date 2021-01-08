@@ -2,11 +2,8 @@ import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Link, withRouter } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
-
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Container from "@material-ui/core/Container";
-
-import Hidden from "@material-ui/core/Hidden";
 import customStyles from "../../styles/genricStyle";
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
@@ -26,7 +23,7 @@ class Mobileview extends Component {
 
   render() {
     const { classes, menulist } = this.props;
-    // const { menulist } = this.state;
+    
 
     return (
   

@@ -33,21 +33,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../commons";
 
-// const columns = [
-//   { field: "slNo", title: "SL No" },
-//   {
-//     field: "userName", title: "Name",
-//     render: rowData => <Link onClick={(e)=>this.handleDetailDisplay(rowData._id)}>
-//       {rowData.userName}
-//     </Link>
 
-//   },
-//   { field: "academy", title: "Academy" },
-//   { field: "city", title: "City" },
-//   { field: "stateName", title: "State" },
-//   { field: "rank", title: "Rank" },
-//   { field: "totPoints", title: "Point" },
-// ];
 
 const IconLeftExpansionPanelSummary = withStyles({
   expandIcon: {
