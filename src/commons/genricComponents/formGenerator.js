@@ -1,16 +1,15 @@
 import React from 'react'
 import TextField from '@material-ui/core/TextField';
 import Grid from "@material-ui/core/Grid"
-import { MenuItem } from '@material-ui/core';
+
 import InputAdornment from '@material-ui/core/InputAdornment';
 import IconButton from '@material-ui/core/IconButton';
 import Visibility from '@material-ui/icons/Visibility';
 import VisibilityOff from '@material-ui/icons/VisibilityOff';
-import moment from "moment";
-import { withStyles } from "@material-ui/core/styles";
-import { Link, withRouter } from "react-router-dom";
 
-import Titlize from "./titlize"
+import { withStyles } from "@material-ui/core/styles";
+import {  withRouter } from "react-router-dom";
+
 import customStyles from "../../styles/genricStyle";
 const styles = theme => ({
     container: {
@@ -36,7 +35,7 @@ class FormGenerator extends React.Component {
 
     componentDidMount() {
         if (this.props.formList) this.setState({ formList: this.props.formList })
-      // else if (this.props.groups) this.setState({ groups: this.props.groups})
+     
     }
 
     componentDidUpdate(prevProps) {
@@ -44,12 +43,9 @@ class FormGenerator extends React.Component {
             if (this.props.formList) this.setState({ formList: this.props.formList })
         }
 
-        // else if (prevProps.groups !== this.props.groups)
-        // {
-        //     if (this.props.groups) this.setState({ groups: this.props.groups })
-        // }
+      
     }
-
+//show hidden password
     handleClickShowPassword = (item) => {
      
         if (!this.props.groups) {
@@ -83,7 +79,7 @@ class FormGenerator extends React.Component {
 
   
 
-
+//dropdown data
     showDropDown = (nestedItem) => {
         if (nestedItem && nestedItem.key == "clubNameId") {
   

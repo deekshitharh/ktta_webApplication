@@ -8,7 +8,7 @@ import React, { Component } from "react";
 
 
 
-
+//genric api message display component
 function InfoComponent(props) {
 
     return (

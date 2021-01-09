@@ -120,31 +120,7 @@ export const schedule = [
             "round": "SF",
 
         },
-        // {
-        //     "time": "",
-        //     "event": "YOUTH BOYS",
-        //     "round": "Rd. 1",
-
-        // },
-        // {
-        //     "time": "15.30",
-        //     "event": "	MEN SINGLES",
-        //     "round": "SF",
-
-        // },
-        // {
-        //     "time": "16.30",
-        //     "event": "	WOMEN SINGLES",
-        //     "round": "FINALS",
-
-        // },
-        // {
-        //     "time": "17.00",
-        //     "event": "MEN SINGLES",
-        //     "round": "FINALS",
-
-        // },
-
+      
 
 
         ]

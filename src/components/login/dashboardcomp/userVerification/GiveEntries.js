@@ -16,7 +16,7 @@ import { sessioncommons } from "../../../../commons";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { eventsuscriptionlist } from "../../../../formdata";
-import TableDisplay from "../../../../commons/genricComponents/table";
+
 import MaterialTable, { MTableToolbar } from "material-table";
 import { tableIcons } from "../../../../formdata";
 import { commons } from "../../../../commons";
@@ -262,11 +262,7 @@ class subscribeEvent extends React.Component {
   };
 
   displayRazorpay = async () => {
-    // let loggeduser = sessioncommons.getUser();
-    // return  <Payment/>
-    // this.setState({
-    //   showpayment:true
-    // });
+  
 
     let loggeduser = sessioncommons.getUser();
     const res = await this.loadScript(
@@ -368,7 +364,7 @@ class subscribeEvent extends React.Component {
     params.type = "eventSubscribe";
       params.caller = "caller";
       params.apiKey = "apikey";
-    params.data = {
+      params.data = {
       userId: loggeduser.userId,
       tournamentId: tournamentdata.tournamentId,
       subscribeID: result.subscribeId,

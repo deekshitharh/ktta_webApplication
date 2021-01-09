@@ -128,7 +128,7 @@ class Legal extends React.Component {
                         <Grid
                           container
                           style={{ marginTop: 10 }}
-                          // className={classes.grid}
+                        
                         >
                           <Grid
                             item

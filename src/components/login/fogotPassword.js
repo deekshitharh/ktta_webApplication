@@ -77,7 +77,7 @@ class FogotPassword extends React.Component {
     const { formData } = this.state;
     let filteredata = [formData.find((item) => item.id === "email")];
 
-    let formInputDataValid = await formValidation.validatelogin(filteredata);
+    let formInputDataValid = await formValidation.genricFromValidation(filteredata);
     let result = formInputDataValid.find((item) => {
       if (item.error.length) return item;
       // this.setState({ "otpbutton": false, });
@@ -144,7 +144,7 @@ class FogotPassword extends React.Component {
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
 
-    formData = await formValidation.validatePasswodData(
+    formData = await formValidation.genricFromValidation(
       formData,
       this.state.otpcode
     );
@@ -249,7 +249,7 @@ class FogotPassword extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              // className={classes.grid}
+           
             >
               <Avatar
                 style={{

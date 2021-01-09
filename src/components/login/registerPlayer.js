@@ -130,74 +130,7 @@ class playerRegister extends React.Component {
     this.props.history.push("/login");
   };
 
-  // showotpval = async () => {
-  //   const { formData } = this.state
-  //   let filteredata = [formData.find(item => item.id === "email")]
 
-  //   let formInputDataValid = await formValidation.validatelogin(filteredata);
-  //   let result = formInputDataValid.find((item) => {
-
-  //     if (item.error.length)
-  //       return item;
-  //     // this.setState({ "otpbutton": false, });
-  //   })
-
-  //   this.setState({ "otpbutton": false, "otpMessage": "", "pwdMessage": "" },
-
-  //   );
-
-  //   if (result == undefined) {
-
-  //     this.setState({ "otpbutton": true, },
-
-  //     );
-
-  //   }
-  // }
-
-  // generateOtp = () => {
-
-  //   this.setState({
-
-  //     "otpStatus": false, "otpMessage": "", "pwdStatus": false, "pwdMessage": false
-  //   })
-  //   const data = {};
-  //   const formvalues = [...this.state.formData];
-  //   formvalues.map((obj) => {
-
-  //     // {
-  //     //     data[obj.key] = obj.dvalue;
-  //     // }
-  //     data[obj.key] = obj.value
-
-  //   });
-
-  //   let apiData = {};
-  //   apiData.type = "regotp";
-  //   // apiData.client_key = "ktta";
-  //   apiData.caller = "caller",
-  //     apiData.apiKey = "apikey";
-  //   apiData.emailId = data.emailAddress,
-  //     this.setState({ loading: true });
-  //   ApiCall("POST", apiData, "core")
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (res.status === "failure") {
-  //         this.setState({ otpbutton: false, loading: false, "otpMessage": res.registerStatus })
-  //         this.resetForm();
-  //       }
-
-  //       if (res.status === "success") {
-  //         this.setState({ otpbutton: false, loading: false, "otpStatus": true, "otpMessage": res.message })
-
-  //       }
-  //       else if (res.errors) {
-  //         this.setState({ loading: false, "otpMessage": res.errors.toString() })
-  //       }
-  //     }).catch(error => {
-  //       commons.errorLog(error)
-  //     });
-  // }
 
   loadScript = (src) => {
     return new Promise((resolve) => {
@@ -328,7 +261,7 @@ class playerRegister extends React.Component {
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
     let data = commons.displayfileds(formData);
-    formData = await formValidation.validatePasswodData(
+    formData = await formValidation.genricFromValidation(
       formData,
       this.state.otpcode
     );
@@ -410,7 +343,7 @@ class playerRegister extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              // className={classes.grid}
+              
             >
               <RefreshLoader style="overlay" loading={loading} />
             </Grid>

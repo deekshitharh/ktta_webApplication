@@ -1,10 +1,11 @@
 import moment from "moment";
 
 const commons = {}
-
+//genic api error
 commons.errorLog = (e) => {
     console.log(e)
 }
+//filter date past/present/future in tounament file
 commons.checkDate = (input1, input2,input3) => {
     
     let curDate = new Date();
@@ -19,7 +20,7 @@ commons.checkDate = (input1, input2,input3) => {
         return "future"
     
 }
-
+//genric function to filter form fileds to send as params to api
 commons.displayfileds = (formvalues) => {
     const data = {};
   
@@ -35,7 +36,7 @@ commons.displayfileds = (formvalues) => {
     return data
 }
 
-
+//format the date used in tournament file
 commons.formatDate = (inputDate) => {
     inputDate = inputDate.split(" ");
     inputDate = inputDate[2] + " " + inputDate[1] + " " + inputDate[0];
@@ -54,8 +55,8 @@ commons.genricGrid = (apidata, gridrows, gridColumns)=>{
 
     return genricData
 }
-
-commons.fildata= (apidata) => {
+//initial grids shown in draws
+commons.gridData= (apidata) => {
 
   
 
@@ -68,12 +69,13 @@ commons.fildata= (apidata) => {
     return genricData
 }
 
-
+//format the date used in tournament file
 commons.formatterDate = (inputDate) => {
     inputDate = inputDate.substring(0, 10).split(/\D/g)
     inputDate = inputDate[2] + "-" + inputDate[1] + "-" + inputDate[0]
     return inputDate
 }
+//abbrevtion used in registered clubs and registered association 
 commons.abrrevatedData = (val) => {
     const data = val.substring(0, 4)
     return data.toUpperCase()
@@ -87,7 +89,7 @@ commons.shuffleArray = (array) => {
      }
      return array;
 }
-
+//check futuredate
 commons.checkFuturedate = (date) => {
     var today = new Date().getTime(),
         idate = date.split("-");
@@ -99,7 +101,7 @@ commons.checkFuturedate = (date) => {
 
 
 }
-
+//array sort in home page for registred clubs/association on abrrevation data
 commons.sortArray = (array, type) => {
 
   return array.sort((a, b) => {

@@ -136,7 +136,7 @@ class Entriesdraws extends Component {
 
 
 
-                                                            data-key={index}
+                                                        
 
 
                                                             classes={{ root: classes.tabItem }}

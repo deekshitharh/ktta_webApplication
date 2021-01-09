@@ -1,71 +1,7 @@
-
-const formValidation = {}
-const fileSizeLimit = 1 * 1000 * 1000;
 import {regularExpData} from "../formdata"
 import {commons} from "../commons"
-// formValidation.validateFormData = (formvalues) => {
-
-//     formvalues.map(el => {
-//         let value = el["value"];
-
-//         let logObj = regularExpData.find(obj => obj["name"] === el["id"])
-
-//         if (logObj && logObj.regExp) {
-
-//             if (value != undefined && value.length > 0) {
-//                 let status = (value).match(logObj["regExp"]) ? true : false;
-//                 if (status) {
-//                     el["error"] = "";
-
-//                 }
-//                 else
-//                     el['error'] = logObj["defMsg"]
-//             }
-
-//             else
-//                 el['error'] = logObj["emptmsg"]
-//         }
-//         else
-//             el["error"] = "";
-
-//     });
-
-//     return formvalues
-
-// }
-
-
-formValidation.verifyPassword = (obj) => {
-    let passwordObj = obj.find(obj => obj.key.toLowerCase() === "password");
-    let confirmPasswordObj = obj.find(obj => obj.key.toLowerCase() === "confirmpassword");
-    if(passwordObj && confirmPasswordObj && passwordObj.value !== confirmPasswordObj.value) {
-        obj.find(item => {
-            if (item.key.toLowerCase()==="confirmpassword")
-                item.error="Reconfirm the password"
-            
-            else {
-                item.error = ""
-
-            }
-        })
-  
-
-    }
-
- 
-
-
-    return obj
-}
-
- formValidation.chunkArray = (chunk_size, arr) => {
-    
-    return arr.map(function (e, i) {
-        return i % chunk_size === 0 ? arr.slice(i, i + chunk_size) : null;
-    }).filter(function (e) { return e; });
-
-}
-
+const formValidation = {}
+const fileSizeLimit = 1 * 1000 * 1000;
 
 formValidation.validatelogin = async (obj) => {
     
@@ -131,7 +67,40 @@ formValidation.validatelogin = async (obj) => {
     return obj;
 }
 
-formValidation.validatePasswodData = async (obj,x) => {
+//password vadiation
+formValidation.verifyPassword = (obj) => {
+    let passwordObj = obj.find(obj => obj.key.toLowerCase() === "password");
+    let confirmPasswordObj = obj.find(obj => obj.key.toLowerCase() === "confirmpassword");
+    if(passwordObj && confirmPasswordObj && passwordObj.value !== confirmPasswordObj.value) {
+        obj.find(item => {
+            if (item.key.toLowerCase()==="confirmpassword")
+                item.error="Reconfirm the password"
+            
+            else {
+                item.error = ""
+
+            }
+        })
+  
+
+    }
+
+ 
+
+
+    return obj
+}
+//splitting the from 
+ formValidation.chunkArray = (chunk_size, arr) => {
+    
+    return arr.map(function (e, i) {
+        return i % chunk_size === 0 ? arr.slice(i, i + chunk_size) : null;
+    }).filter(function (e) { return e; });
+
+}
+
+ //formvalidation
+formValidation.genricFromValidation = async (obj,x) => {
 
     obj.map(item => {
         if (item.value != undefined && item.value != null && item.type !== "number" && item.value.toString().length) {
@@ -141,7 +110,7 @@ formValidation.validatePasswodData = async (obj,x) => {
         let value = item["value"];
 
         if (item.type == "number" && item.value.toString().length > 0) item.value = parseInt(value)
-        // if (item.type == "number" && item.value.toString().length == 0) item.value = 0
+       
 
 
 
@@ -164,22 +133,19 @@ formValidation.validatePasswodData = async (obj,x) => {
        
         }
 
-        // if (item.verify) {
-        //     if (item.value==x) {
-        //         item["error"] = "";
-
-        //     }
-        //     else
-        //         item['error'] = "invalid otp";
-        // }
+      
         
 
-        if (item.required) {
+            if (item.required) {
 
             if (item.value == undefined ||
                 (item.value != undefined && item.value.toString().length === 0)
             ) {
                 item["error"] = item.displayName + " required";
+            }
+
+            else {
+                item["error"]=""
             }
         }
 
@@ -188,10 +154,7 @@ formValidation.validatePasswodData = async (obj,x) => {
         let fieldObj = regularExpData.find(obj => obj.name.toLowerCase() === item["key"].toLowerCase())
         if (fieldObj && fieldObj.regExp) {
 
-            if (value!= undefined && value.toString().length > 0
-                //&& (item.type === "number" && item.value != 0)
-
-            ) {
+          
                 let status = fieldObj.regExp.test(value) ? true : false;
                 if (status) {
                   item["error"] = "";
@@ -211,7 +174,7 @@ formValidation.validatePasswodData = async (obj,x) => {
                 }
                 else
                     item['error'] = fieldObj.message;
-            }
+            
 
         }
 
@@ -225,7 +188,7 @@ formValidation.validatePasswodData = async (obj,x) => {
     obj = await formValidation.verifyPassword(obj);
      return obj;
 }
-
+//file validation
 formValidation.validateFile = (file) => {
 
     let resJson = { "status": true, "msg": "" }

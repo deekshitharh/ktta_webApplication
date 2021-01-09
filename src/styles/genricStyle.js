@@ -1,6 +1,4 @@
-import { red, green } from "@material-ui/core/colors";
 
-const drawerWidth = 20;
 const d2 = 240;
 const customStyles = (theme) => ({
   ctLegend: {
@@ -301,13 +299,7 @@ const customStyles = (theme) => ({
     padding: 20,
   },
 
-  // buttonend: {
-  //   justifyContent: "flex-end"
-  // },
-  buttonend: {
-    textDecoration: "none",
-    padding: "5px",
-  },
+  
   newscardaction: {
     justifyContent: "flex-end",
   },
@@ -362,9 +354,7 @@ const customStyles = (theme) => ({
 
   tornamentcard: { marginBottom: 10 },
 
-  description: {
-    textAlign: "left",
-  },
+ 
   buttonend: {
     justifyContent: "flex-end",
   },
@@ -470,11 +460,6 @@ const customStyles = (theme) => ({
     textAlign: "left",
   },
 
-  grid: {
-    width: 1200,
-    marginTop: 5,
-    margin: 0,
-  },
 
 
 

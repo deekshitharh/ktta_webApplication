@@ -252,7 +252,7 @@ class Tournament extends React.Component {
             align="center"
             justify="center"
             container
-            // className={classes.grid}
+          
           >
             <RefreshLoader style="overlay" loading={loading} />
 

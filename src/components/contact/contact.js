@@ -64,7 +64,7 @@ class Contact extends React.Component {
   handleFormSubmit = async (e) => {
     const formvalues = [...this.state.formdata];
  
-    let formInputDataValid =  await formValidation.validatelogin(formvalues);
+    let formInputDataValid =  await formValidation.genricFromValidation(formvalues);
   
     let result = formInputDataValid.find((item) => {
       
@@ -159,7 +159,7 @@ class Contact extends React.Component {
                     
                     container
                     
-                  // className={classes.grid}
+                 
                  >
                 <Grid item md={6}>
                   <form noValidate autoComplete="off">

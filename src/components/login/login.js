@@ -63,7 +63,7 @@ class Login extends React.Component {
   handleFormSubmit = async (e) => {
     e.preventDefault();
     const formvalues = [...this.state.formdata];
-    let formInputDataValid = await formValidation.validatelogin(formvalues);
+    let formInputDataValid = await formValidation.genricFromValidation(formvalues);
 
     let result = formInputDataValid.find((item) => {
       if (item.error.length) return item;
@@ -140,7 +140,7 @@ class Login extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              // className={classes.grid}
+             
             >
               <Avatar
                 style={{

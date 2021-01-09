@@ -1,6 +1,6 @@
 const uiCommons = {}
 
-
+//genric grid layout function
 uiCommons.getGrid = (noOfColumns) =>
 {
     let gridResponse = {};

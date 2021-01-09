@@ -1,21 +1,15 @@
 import Chartist from "chartist";
 import Legend from "chartist-plugin-legend";
 
-var delays2 = 80,
-  durations2 = 500;
-
 import { Link, withRouter, Router } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
-import Typography from "@material-ui/core/Typography";
-import Paper from "@material-ui/core/Paper";
-import Divider from "@material-ui/core/Divider";
-import Grid from "@material-ui/core/Grid";
-import Titlize from "../../commons/genricComponents/titlize";
-import Container from "@material-ui/core/Container";
-import Fontawsome from "../../commons/genricComponents/fontAwsomicon";
+
 import { useEffect } from "react";
+var delays2 = 80,
+  durations2 = 500;
+
 
 var delays2 = 80,
   durations2 = 500;

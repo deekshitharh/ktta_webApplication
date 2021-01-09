@@ -103,7 +103,7 @@ class showdraws extends React.Component {
     let update = [...this.state.drawmatchRecords]
 
 
-    const clubData = commons.fildata(this.state.rowdata)
+    const clubData = commons.gridData(this.state.rowdata)
     this.setState({
       datainitil: clubData
     })

@@ -48,7 +48,7 @@ class ResponsiveRanking extends React.Component {
     params.type = "playerRankData";
     params.eventName = name;
     params.playerId = id;
-    // params.client_key = "ktta";
+  
     params.caller = "caller";
     params.apiKey = "apikey";
     params.sportID = "interestedDomainName";
