@@ -6,7 +6,6 @@ import {  withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Paper from "@material-ui/core/Paper";
-import { sessioncommons } from "../../commons";
 import { ApiCall } from "../../APIService";
 import formValidation from "../../commons/formfunction";
 import Container from "@material-ui/core/Container";
@@ -135,7 +134,6 @@ class playerRegister extends React.Component {
   };
 
   displayRazorpay = async (formdata) => {
-    let loggeduser = sessioncommons.getUser();
     const res = await this.loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
@@ -226,7 +224,7 @@ class playerRegister extends React.Component {
       .then((res) => res.json())
       .then((res) => {
         if (res && res.data) {
-          if (res.data.status == "failure") {
+          if (res.data.status === "failure") {
             this.setState({ pwdMessage: res.message, loading: false });
             this.resetForm();
           } else {
@@ -288,7 +286,7 @@ class playerRegister extends React.Component {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
           this.showotpval();
-        } else if (item.key === e.target.name && item.type == "string")
+        } else if (item.key === e.target.name && item.type === "string")
           item.value = e.target.value;
       }
     });

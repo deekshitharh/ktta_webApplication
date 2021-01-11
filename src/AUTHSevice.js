@@ -1,4 +1,3 @@
-import APIService from "./APIService";
 import { sessioncommons } from "./commons"
 const ANONY_USER = { "status": false, "user": null }
 const VALID_USER = { "status": true, "user": null }

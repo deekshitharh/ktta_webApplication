@@ -1,4 +1,3 @@
-import InboxIcon from '@material-ui/icons/MoveToInbox';
 import React from "react";
 
 import HomeIcon from '@material-ui/icons/Home';

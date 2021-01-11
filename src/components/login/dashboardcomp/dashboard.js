@@ -122,7 +122,7 @@ class Dashboard extends Component {
       
       
         
-        let loggeduser = sessioncommons.getUser();
+     
         let fileVal = formValidation.validateFile(this.state.uploadedFile);
         this.setState({ message: fileVal });
         if (fileVal) {
@@ -279,7 +279,7 @@ class Dashboard extends Component {
 
                 .then(res => res.json())
                 .then((res) => {
-                    if (res && res.status == "success" && res.getData) {
+                    if (res && res.status === "success" && res.getData) {
 
                         this.setState({
                             loading: false,

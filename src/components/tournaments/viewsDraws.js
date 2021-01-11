@@ -1,38 +1,24 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Topbar from "../landingPage/TopBar";
-import MenuIcon from "@material-ui/icons/Menu";
-import IconButton from "@material-ui/core/IconButton";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ListItem from "@material-ui/core/ListItem";
-import ListItemText from "@material-ui/core/ListItemText";
-import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
-import PropTypes from "prop-types";
-import ViewEntries from "./ViewsDraws/viewEntries"
-import Box from "@material-ui/core/Box";
-import Collapse from "@material-ui/core/Collapse";
-import ExpandLess from "@material-ui/icons/ExpandLess";
-import ExpandMore from "@material-ui/icons/ExpandMore";
+
 import customStyles from "../../styles/genricStyle"
 import {tournamentmenu} from "../../formdata"
-import Hidden from "@material-ui/core/Hidden";
-import Mobileview from "../MobileView/mobileView"
+
 
 
 
 import {
-    List,
+   
     AppBar,
     Toolbar,
-    Paper,
     Tabs,
     Tab,
-    Popper,
-    MenuList,
-    MenuItem,
-    InputBase
+    
 } from "@material-ui/core";
 
 
@@ -83,7 +69,7 @@ class Entriesdraws extends Component {
 
     render() {
         const { classes } = this.props;
-        const { value, activeIndex, data } = this.state;
+        const { value, activeIndex } = this.state;
     
         return (
             <React.Fragment>

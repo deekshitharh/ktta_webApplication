@@ -1,4 +1,3 @@
-import React, { Component } from "react";
 import ViewEntries  from "../components/tournaments/ViewsDraws/viewEntries";
 
 import ViewDraws from "../components/tournaments/ViewsDraws/draws";

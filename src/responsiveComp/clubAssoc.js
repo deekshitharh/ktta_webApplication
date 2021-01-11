@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react';
-import { Desktop, Tablet, Mobile, Default } from "../views"
+import React from 'react';
+import { Desktop, Tablet, Mobile } from "../views"
 import ClubAssociation from "../components/about/ClubAsscoc"
 import { aboutMenu } from "../formdata"
 import Topbar from "../components/landingPage/TopBar"

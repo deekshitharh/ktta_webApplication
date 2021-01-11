@@ -76,7 +76,7 @@ class Topbar extends Component {
 
   handleDrawerClick1 = (event, item, index) => {
    
-    const { nestedclick } = this.state;
+    //const { nestedclick } = this.state;
     this.setState({
       nestedclick: index,
     });
@@ -148,7 +148,7 @@ class Topbar extends Component {
 
 
   handleClick1 = (event, index) => {
-    const { nestedclick } = this.state;
+    //const { nestedclick } = this.state;
    
     
     this.setState({ nestedclick: index });
@@ -307,9 +307,7 @@ class Topbar extends Component {
                       maxWidth: "100%",
                       //backgroundSize: "cover",
                       // backgroundPositionX: 'left',
-                      background: `url(${
-                        API_URL + `${filepath}` + "/" + `${value.logo}`
-                      } )  bottom no-repeat `,
+                      background: `url(${API_URL + `${filepath}` + "/" + `${value.logo}`} )  bottom no-repeat `,
                       backgroundPosition: "left",
                       backgroundSize: "contain",
                     }}

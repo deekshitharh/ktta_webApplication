@@ -4,15 +4,11 @@ import Tournament from "./components/tournaments/tornament";
 import Officebearers from "./components/about/officeBeareres";
 import Main from "./components/Main";
 import Legal from "./components/legal/legal"
-import ClubAssociation  from "./components/about/ClubAsscoc";
 import Contact from "./components/contact/contact";
-import PlayerList from "./components/players/playerList";
 import newsInfo from "./components/news/newsinfo";
-import PlayerRanking from "./components/players/ranking";
 import DetailedNews from "./components/news/detailednews";
 import { withStyles } from "@material-ui/core/styles";
 import customStyles from "./styles/genricStyle";
-import Entriesdraws from "./components/tournaments/viewsDraws"
 import Login from "./components/login/login"
 import Dashboard from "./components/login/dashboardcomp/dashboard"
 import FogotPassword from "./components/login/fogotPassword"
@@ -22,8 +18,6 @@ import clubAssoc from "./responsiveComp/clubAssoc"
 import  showdraws from "./components/login/dashboardcomp/userVerification/showdraws"
 import playerRankViews from "./responsiveComp/ranking"
 import playerListViews from "./responsiveComp/playerList"
-import playerRegistration from "./responsiveComp/regsteps"
-import { sessioncommons } from "./commons" 
 import ViewsDraws from "./responsiveComp/viewsDraws"
 import PrivateRoute from "./PrivateRoutes"
 function renderComponent(Component, defaultProps, customProps) {

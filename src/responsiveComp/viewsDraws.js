@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
-import { Desktop, Tablet, Mobile, Default } from "../views"
-import ClubAssociation from "../components/about/ClubAsscoc"
-import { aboutMenu } from "../formdata"
+import React from 'react';
+import { Desktop, Tablet, Mobile } from "../views"
+
 import Topbar from "../components/landingPage/TopBar"
 import { tournamentmenu } from "../formdata"
 import Entriesdraws from "../components/tournaments/viewsDraws"

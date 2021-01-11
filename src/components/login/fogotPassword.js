@@ -1,25 +1,18 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { formFileds } from "../../formdata";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-import { Link, withRouter } from "react-router-dom";
+import {withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Topbar from "../../components/landingPage/TopBar";
-import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
-import { sessioncommons } from "../../commons";
 import { ApiCall } from "../../APIService";
 import formValidation from "../../commons/formfunction";
 import Container from "@material-ui/core/Container";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import FieldIcon from "../../commons/genricComponents/fieldIcon";
+
 import { changePasswordForm } from "../../formdata";
 import FormGenerator from "../../commons/genricComponents/formGenerator";
 import Avatar from "@material-ui/core/Avatar";
@@ -85,7 +78,7 @@ class FogotPassword extends React.Component {
 
     this.setState({ otpbutton: false, otpMessage: "", pwdMessage: "" });
 
-    if (result == undefined) {
+    if (result === undefined) {
       this.setState({ otpbutton: true });
     }
   };
@@ -220,9 +213,9 @@ class FogotPassword extends React.Component {
   };
 
   render() {
-    const { classes, sideBar } = this.props;
+    const { classes } = this.props;
     const {
-      formData,
+    
       otpStatus,
       pwdStatus,
       otpMessage,

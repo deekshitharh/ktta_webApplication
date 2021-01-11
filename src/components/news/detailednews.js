@@ -74,6 +74,7 @@ class DetailedNews extends React.Component {
                   >
                     <img
                       style={{ width: 400, height: 200 }}
+                      alt=""
                       src={
                         value.image
                           ? API_URL + `${filepath}` + "/" + `${value.image}`
@@ -92,7 +93,7 @@ class DetailedNews extends React.Component {
                   <Grid item md={12} xs={12} sm={12}>
                     <Paper className={classes.paper}>
                       <Typography variant="h6">
-                        {value.description != "null"
+                        {value.description !== null
                           ? ReactHtmlParser(value.description)
                           : ""}
                       </Typography>

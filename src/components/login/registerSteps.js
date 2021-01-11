@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 
-import React, { Component } from "react";
+import React  from "react";
 import Button from "@material-ui/core/Button";
 import FormGenerator from "../../commons/genricComponents/formGenerator";
 import { formFileds } from "../../formdata"
@@ -15,19 +15,18 @@ import Topbar from "../../components/landingPage/TopBar";
 import Grid from "@material-ui/core/Grid";
 import { ApiCall } from "../../APIService";
 import { commons } from "../../commons";
-import StepContent from '@material-ui/core/StepContent';
-import { Link, withRouter } from "react-router-dom";
+
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { sessioncommons } from "../../commons";
+
 import { steps } from "../../formdata";
 import FormControlLabel from '@material-ui/core/FormControlLabel';
 import Checkbox from '@material-ui/core/Checkbox';
 import Avatar from "@material-ui/core/Avatar";
-import Box from '@material-ui/core/Box';
+
 class registerSteps extends React.Component {
   constructor(props) {
     super(props);
@@ -78,7 +77,7 @@ class registerSteps extends React.Component {
     );
 
 
-    if (result == undefined) {
+    if (result === undefined) {
 
       this.setState({ "otpbutton": true, },
 
@@ -184,7 +183,7 @@ class registerSteps extends React.Component {
  
 
   componentDidMount() {
-    const value = formFileds.filter(word => word.id =="email")
+    const value = formFileds.filter(word => word.id ==="email")
     let formDataControl = [...JSON.parse(JSON.stringify(value))];
     // const formDataControl = [...changePasswordForm];
 
@@ -197,7 +196,7 @@ class registerSteps extends React.Component {
   render() {
     const { classes, orientation } = this.props;
 
-    const { activeStep, checked, stepperdata,formData, otpStatus, registredClub, pwdStatus, otpMessage, otpbutton, pwdMessage, dialogOpen, loading } = this.state;
+    const { activeStep, checked, stepperdata, otpStatus,otpbutton, otpMessage } = this.state;
 
     
 
@@ -224,7 +223,7 @@ class registerSteps extends React.Component {
                     })}
                   </Stepper>
                
-                  {(activeStep == 1) ? this.changeStep(1) :
+                  {(activeStep === 1) ? this.changeStep(1) :
                    
                     
                       <Container maxWidth="sm">

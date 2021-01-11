@@ -13,10 +13,7 @@ import GenicRegisteredClubs from "../../genricSceen/registerdClub"
 
 
  class RegisteredClubs extends React.Component {
-  constructor(props) {
-    super(props);
-   
-  }
+ 
 
    
   

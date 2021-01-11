@@ -1,4 +1,4 @@
-import { MuiThemeProvider, createMuiTheme } from "@material-ui/core/styles";
+import { MuiThemeProvider } from "@material-ui/core/styles";
 import "./App.css";
 import AppRoutes from "./routes";
 
@@ -12,8 +12,7 @@ import React, { useEffect } from "react";
 const Responsive = (props) => {
   const [themeState, setThemeState] = React.useState("dark");
  
-  const storedTheme = localStorage.getItem("theme");
-
+  
   useEffect(() => {
     localStorage.setItem("theme", "dark");
     setThemeState("dark");

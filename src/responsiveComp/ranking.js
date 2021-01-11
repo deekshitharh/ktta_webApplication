@@ -1,10 +1,9 @@
-import React, { useEffect } from 'react';
-import { Desktop, Tablet, Mobile, Default } from "../views"
+import React from 'react';
+import { Desktop, Tablet, Mobile} from "../views"
 import ResponsiveRanking from "../components/MobileView/rankingView"
 
-import Topbar from "../components/landingPage/TopBar"
+
 import PlayerRanking from "../components/players/ranking"
-import Mobileview from "../components/MobileView/mobileView"
 const playerRankViews = (props) => {
     const { classes } = props;
 

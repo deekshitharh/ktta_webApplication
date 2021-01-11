@@ -1,5 +1,4 @@
 
-import Idverification from "../components/login/dashboardcomp/userVerification/idverifiction"
 
 import playerRegister from "../components/login/registerPlayer"
 export const steps = [

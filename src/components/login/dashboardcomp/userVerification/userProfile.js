@@ -168,7 +168,7 @@ class userInfo extends React.Component {
             const data = {};
             const formvalues = this.state.formData;
             formvalues.map((obj) => {
-                if (obj.key == "dateOfBirth")
+                if (obj.key === "dateOfBirth")
                 
                     data[obj.id] = moment(obj.value).format('DD MMM YYYY');
                 else {
@@ -249,7 +249,7 @@ class userInfo extends React.Component {
                     item.value = e.target.value;
                  
                 }
-                else if (item.key === e.target.name && item.type == "string") item.value = e.target.value;
+                else if (item.key === e.target.name && item.type === "string") item.value = e.target.value;
 
             }
 
@@ -303,7 +303,7 @@ class userInfo extends React.Component {
                           
                    
 
-                    {(message.length) ? (<SnackPopup message={message} type="success" />) : (emessage.length) ? (<SnackPopup message={emessage + " " +"try after some time!!"} type="error" />) : ""}
+                    {(message.length) ? (<SnackPopup message={message} type="success" />) : (emessage.length) ? (<SnackPopup message={`${emessage} Please try after some time!!` } type="error" />) : ""}
 
                     <Button onClick={this.verifyForm} disabled={(loading || emessage.length)? true : false}
                                 style={{ marginTop: 10 }}>

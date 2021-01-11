@@ -1,8 +1,6 @@
 
-import React from 'react'
 import { createMuiTheme } from '@material-ui/core/styles';
-import { red} from "@material-ui/core/colors";
-import { orange, pink, green } from "@material-ui/core/colors";
+
 import { darkTheme } from "./themefile/darktheme";
 import { lightTheme } from "./themefile/lightTheme"
 // import {Theme} from "./themefile/lightTheme"
@@ -21,7 +19,7 @@ const drawerWidth = 200;
 
 const Theme = (themeStatus) => {
     console.log("hello1", themeStatus)
-    const themeSettings = (themeStatus == "light") ? lightTheme : darkTheme;
+    const themeSettings = (themeStatus === "light") ? lightTheme : darkTheme;
     const theme1 =
         createMuiTheme({
        

@@ -48,7 +48,7 @@ class SceduleTournament extends React.Component {
   }
 
   fetchSchedule = () => {
-    const { result, checkedFees } = this.state;
+ 
 
     let tournamentdata = sessioncommons.getTournament();
     let params = {};

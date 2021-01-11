@@ -51,13 +51,14 @@ export default class MediaWidget extends Component {
                       }}
                     />
                   </Grid>
-                  <Grid md={12}
+                  <Grid 
                     sm={12} xs={12} md={12}
                   >
                     <iframe
                       src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/KarnatakaTT/%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
                       width="340" height="500"
                       scrolling="no"
+                      title="facebook"
                       frameBorder="0"
                       allowfullscreen="true"
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
@@ -108,6 +109,7 @@ export default class MediaWidget extends Component {
                       allowtransparency="true"
                       allowfullscreen="true"
                       frameBorder="0"
+                      title="instagram"
                       width="340"
                       height="500"
                       scrolling="yes"

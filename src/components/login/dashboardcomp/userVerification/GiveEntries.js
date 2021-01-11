@@ -75,7 +75,7 @@ class subscribeEvent extends React.Component {
           });
 
           let feeTotal;
-          const feeList = [];
+        
           const oldSubId = [];
           res.data.forEach((e) => {
             if (e.hasOwnProperty("eventParticipants")) {

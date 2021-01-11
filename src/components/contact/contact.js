@@ -114,7 +114,7 @@ class Contact extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { formdata, requestStatus, reqmsg } = this.state;
+    const { formdata, requestStatus } = this.state;
     
 
     return (

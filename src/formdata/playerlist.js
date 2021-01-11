@@ -1,5 +1,5 @@
  import Link from '@material-ui/core/Link'
-import React, { Component } from "react";
+import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Titlize from "../commons/genricComponents/titlize"
 

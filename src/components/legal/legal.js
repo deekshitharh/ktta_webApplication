@@ -1,30 +1,21 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 //import AuthService from "../service/AuthService";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
-import InfoIcon from "@material-ui/icons/Info";
 import Paper from "@material-ui/core/Paper";
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-    htmlparser2,
-} from "react-html-parser";
+import ReactHtmlParser from "react-html-parser";
 import { withStyles } from "@material-ui/core/styles";
-import VisibilityIcon from "@material-ui/icons/Visibility";
 import { ApiCall } from "../../APIService";
 import { API_URL } from "../../globalUrls";
 import Typography from "@material-ui/core/Typography";
-import { Link, withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Topbar from "../landingPage/TopBar";
-import { commons } from "../../commons";
 //import { APIService } from "../service";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
-import Collapse from "@material-ui/core/Collapse";
 import Titlize from "../../commons/genricComponents/titlize";
 class Legal extends React.Component {
     constructor(props) {
@@ -57,7 +48,7 @@ class Legal extends React.Component {
 
             .then((res) => {
 
-                if (res && res.status == "success" && res.getData) {
+                if (res && res.status === "success" && res.getData) {
 
                     this.setState({
                         legalData: res["getData"],

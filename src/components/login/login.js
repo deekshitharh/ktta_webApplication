@@ -63,15 +63,19 @@ class Login extends React.Component {
     let formInputDataValid = await formValidation.genricFromValidation(formvalues);
 
     let result = formInputDataValid.find((item) => {
+     
       if (item.error.length) return item;
     });
 
     this.setState({ formdata: formInputDataValid });
-    if (result == undefined) {
+    if (result === undefined) {
       const data = {};
       const formvalues = [...this.state.formdata];
       formvalues.map((obj) => {
-        data[obj.id] = obj.value;
+        return(
+        data[obj.id] = obj.value
+        
+        )
       });
 
       let apiData = {};
@@ -166,7 +170,7 @@ class Login extends React.Component {
                       <TextField
                         key={index}
                         variant="outlined"
-                        autoFocus={formval.id == "email" ? true : false}
+                        autoFocus={formval.id ==="email" ? true : false}
                         margin="normal"
                         required={formval.required ? formval.required : false}
                         multiline={
