@@ -1,6 +1,6 @@
 
 
-import React, { Component } from "react";
+import React from "react";
 
 import customStyles from "../../styles/genricStyle"
 
@@ -14,16 +14,12 @@ import GenicRegisteredClubs from "../../genricSceen/registerdClub"
 
 
 class RegisteredClubs extends React.Component {
-    constructor(props) {
-        super(props);
-        
-    }
-
+  
 
 
 
     render() {
-        const { classes } = this.props;
+       
      
       
         return (

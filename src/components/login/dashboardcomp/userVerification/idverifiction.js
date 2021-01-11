@@ -1,6 +1,6 @@
 import Typography from "@material-ui/core/Typography";
 
-import React, { Component } from "react";
+import React from "react";
 import Button from "@material-ui/core/Button";
 
 import customStyles from "../../../../styles/genricStyle";
@@ -8,7 +8,7 @@ import customStyles from "../../../../styles/genricStyle";
 import Paper from "@material-ui/core/Paper";
 
 import Grid from "@material-ui/core/Grid";
-import purple from "@material-ui/core/colors/purple";
+
 
 import { sessioncommons } from "../../../../commons";
 import formValidation from "../../../../commons/formfunction";
@@ -87,7 +87,7 @@ class Idverification extends React.Component {
 
   onSubmit = (e) => {
     e.preventDefault();
-    const { uploadedFile, error, requestStatus } = this.state;
+    const { uploadedFile, error } = this.state;
     let validFile = formValidation.validateFile(uploadedFile);
     this.setState({ error: validFile });
 
@@ -140,7 +140,7 @@ class Idverification extends React.Component {
   render() {
     const { classes } = this.props;
     const { error, iduploaded, uploadedstatus, requestStatus } = this.state;
-    console.log("idverification component (child1)" + iduploaded);
+   
 
     return (
       <React.Fragment>

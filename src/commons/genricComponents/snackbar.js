@@ -3,7 +3,7 @@ import Snackbar from '@material-ui/core/Snackbar';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 import { withStyles } from "@material-ui/core/styles";
 
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 class SnackPopup extends React.Component {
     constructor(props) {

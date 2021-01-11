@@ -1,5 +1,4 @@
-import Fontawsome from "../commons/genricComponents/fontAwsomicon"
-import React, { Component } from "react";
+
 export const drawresults = [
 
     {

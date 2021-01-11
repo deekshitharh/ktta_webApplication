@@ -339,7 +339,7 @@ const customStyles = (theme) => ({
   },
 
   dashboardpaper: {
-   // backgroundColor: "#ff0000a3",
+   
     padding: theme.spacing(4),
    // background: "linear-gradient(to right, #ff0000a3 50%, black 50%)" ,
 
@@ -350,7 +350,7 @@ const customStyles = (theme) => ({
     marginTop: 14,
   },
 
- // cardheader: { backgroundColor: "grey" },
+ 
 
   tornamentcard: { marginBottom: 10 },
 
@@ -359,18 +359,7 @@ const customStyles = (theme) => ({
     justifyContent: "flex-end",
   },
 
-  // button: {
-  //   fontSize: 15,
-
-  //   border: "1px solid #000000",
-  //   width: 110,
-  //   marginBottom: 11,
-  //   marginRight: 50,
-
-  //   border: "1px solid #000000",
-
-  //   padding: 2
-  // },
+ 
 
   label: {
     color: "#000000",
@@ -383,7 +372,7 @@ const customStyles = (theme) => ({
     width: 400,
     display: "flex",
     flexDirection: "column",
-    // justifyContent: "space-between"
+   
   },
 
   cssOutlinedInput: {
@@ -436,14 +425,7 @@ const customStyles = (theme) => ({
   liststyle: {
     paddingLeft: 10,
   },
-  // contactlink: {
-  //   fontSize: 17,
-  //   textDecoration: "none! important",
-  //   color: "#FF0000",
-  //   marginTop: 20,
-  //   marginBottom: 20,
-  //   paddingLeft: 10,
-  // },
+
   bannertext: {
     position: "absolute",
     bottom: "40%",

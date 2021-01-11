@@ -238,7 +238,7 @@ class FogotPassword extends React.Component {
         <Topbar index={3} />
         <div className={classes.root}>
           <Paper className={classes.paper}>
-            <RefreshLoader style="overlay" loading={loading} />
+            <RefreshLoader display="overlay" loading={loading} />
             <Grid
               justify="center"
               alignItems="center"

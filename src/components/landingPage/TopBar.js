@@ -3,15 +3,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import { Link, withRouter } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
-
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
-import { Typography, Switch, Box, Button } from "@material-ui/core";
+import { Typography, Switch, Box} from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
 import { menuData } from "../../formdata";
-
 import Collapse from "@material-ui/core/Collapse";
 import ExpandLess from "@material-ui/icons/ExpandLess";
 import ExpandMore from "@material-ui/icons/ExpandMore";
@@ -30,7 +28,7 @@ import {
   Popper,
   MenuList,
   MenuItem,
-  InputBase,
+ 
 } from "@material-ui/core";
 
 import pageBanner from "../../config/bannerConfig";
@@ -170,15 +168,12 @@ class Topbar extends Component {
 
   renderMenu = () => {
     const {
-      anchorEl,
-      x,
+     
       open,
       nestedclick,
-      filepath,
-      logopath,
-      menuList,
+     
       value,
-      currentLabel,
+    
     } = this.state;
     return menuData && menuData.length ? (
       <List>
@@ -256,15 +251,14 @@ class Topbar extends Component {
 
     const {
       anchorEl,
-      x,
+      
       open,
       darkState,
-      nestedclick,
+    
       filepath,
       logopath,
       menuList,
-      value,
-      currentLabel,
+      
     } = this.state;
     const defaultlogo = pageBanner("topBar");
   

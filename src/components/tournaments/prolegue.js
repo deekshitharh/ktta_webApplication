@@ -1,19 +1,17 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+
 
 import Grid from "@material-ui/core/Grid";
-import Checkbox from "@material-ui/core/Checkbox";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
+
+
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
+
 
 import { sessioncommons } from "../../commons"
 import { clients } from "../../config/clientConfig"
-import RefreshLoader from "../../commons/genricComponents/pageloader"
+
 class LeagueInfo extends React.Component {
   // const[alignment, setAlignment] = React.useState('left');
 
@@ -55,7 +53,7 @@ class LeagueInfo extends React.Component {
   };
 
   render() {
-    const { classes ,loading} = this.props;
+   
     const { value } = this.state;
    
     return (

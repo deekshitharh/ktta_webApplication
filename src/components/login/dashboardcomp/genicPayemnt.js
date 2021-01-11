@@ -1,6 +1,5 @@
-import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import React, { Component } from "react";
+import React from "react";
 class Payment extends React.Component {
     // const[alignment, setAlignment] = React.useState('left');
 
@@ -91,8 +90,7 @@ class Payment extends React.Component {
     };
 
     render() {
-        const { classes, loading } = this.props;
-        const { value } = this.state;
+      
 
         return (
             <React.Fragment>

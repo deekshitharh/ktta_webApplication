@@ -1,6 +1,6 @@
 import { urls } from "./globalUrls";
 
-
+//generic api call function
  export const ApiCall = (methodType, content, urlType) => {
   
    let methodURL = urls[urlType];
@@ -16,7 +16,7 @@ import { urls } from "./globalUrls";
   });
 };
 
-
+//generic api call upload file function
 export const fileCall = (methodType, content, urlType) => {
 
   let methodURL = urls[urlType];

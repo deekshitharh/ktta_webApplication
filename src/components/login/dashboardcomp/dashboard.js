@@ -2,14 +2,9 @@ import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 import Typography from "@material-ui/core/Typography";
 import customStyles from "../../../styles/genricStyle"
-import Stepper from '@material-ui/core/Stepper';
-import Step from '@material-ui/core/Step';
-import StepLabel from '@material-ui/core/StepLabel';
 import Topbar from "../../landingPage/TopBar";
-import { borders } from '@material-ui/system';
 import ExitToAppIcon from '@material-ui/icons/ExitToApp';
 import Logout from "../../login/dashboardcomp/logout"
-import SportsTennisIcon from '@material-ui/icons/SportsTennis';
 import MenuIcon from '@material-ui/icons/Menu';
 import ChevronLeftIcon from '@material-ui/icons/ChevronLeft';
 import Grid from "@material-ui/core/Grid";
@@ -30,26 +25,16 @@ import List from '@material-ui/core/List';
 import { fileCall } from "../../../APIService"
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import IconButton from '@material-ui/core/IconButton';
 import { dashboardData } from "../../../formdata" 
-import { steps } from "../../../formdata"
 import Container from '@material-ui/core/Container';
-import Badge from '@material-ui/core/Badge';
 import Downloadpdf from "../../tournaments/ViewsDraws/drawsDialouge";
-import NotificationsIcon from '@material-ui/icons/Notifications';
-import subscribeEvent from "../dashboardcomp/userVerification/GiveEntries"
 import {
    
-    AppBar,
-    Toolbar,
+   
     Paper,
-    Tabs,
-    Tab,
-    Popper,
-    MenuList,
-    MenuItem,
-    InputBase
+   
 } from "@material-ui/core";
 import SnackPopup from "../../../commons/genricComponents/snackbar"
 import { sessioncommons } from "../../../commons"
@@ -135,7 +120,7 @@ class Dashboard extends Component {
     onSubmit = (e) => {
         e.preventDefault();
       
-        let { error }=this.state
+      
         
         let loggeduser = sessioncommons.getUser();
         let fileVal = formValidation.validateFile(this.state.uploadedFile);
@@ -272,7 +257,7 @@ class Dashboard extends Component {
 
 
     componentDidMount() {
-        const { tournamentId } = this.state;
+       
         this.setState({ pdfopen: false });
         let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
        
@@ -337,15 +322,15 @@ class Dashboard extends Component {
 
     render() {
         const { classes } = this.props;
-        const { activeStep, download ,pdata, uploadedstatus, notup, uploaded, message, open, loading, name, requestStatus, error, iduploaded, stepperdata, idstatus, paymentstatus, value,
+        const {  download ,pdata, uploadedstatus, notup, uploaded, message, open, loading, value,
               pdfopen,
             validPdf,
             ViewPdf,
             prosvalue,
-            tournamentId,} = this.state
+           } = this.state
       
       
-        const fixedHeightPaper = clsx(classes.paper, classes.fixedHeight);
+       
         const tname = sessioncommons.getTournament()
         return (
             <React.Fragment>
@@ -457,7 +442,7 @@ class Dashboard extends Component {
                                             {pdata &&
                                                 <Grid align="center" justify="center" container >
                                                     <Grid>
-                                                        <RefreshLoader style="normal" loading={loading} />
+                                                        <RefreshLoader display="normal" loading={loading} />
                                                     </Grid>
                                                 </Grid>}
 
@@ -502,7 +487,7 @@ class Dashboard extends Component {
                                                         <CardContent>
 
 
-                                                            <RefreshLoader style="normal" loading={loading} />
+                                                            <RefreshLoader display="normal" loading={loading} />
 
                                                             <Grid item md={12} sm={12} xs={12}>
 

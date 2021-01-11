@@ -1,8 +1,8 @@
 import InboxIcon from '@material-ui/icons/MoveToInbox';
-import React, { Component } from "react";
-import RedeemIcon from '@material-ui/icons/Redeem';
+import React from "react";
+
 import HomeIcon from '@material-ui/icons/Home';
-import PeopleIcon from '@material-ui/icons/People';
+
 import TodayIcon from '@material-ui/icons/Today';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import ContactsIcon from '@material-ui/icons/Contacts';

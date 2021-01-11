@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import Grid from "@material-ui/core/Grid";
 import Topbar from "../landingPage/TopBar";
 
@@ -13,16 +13,13 @@ import {aboutMenu }from "../../formdata"
 
 
 import {
-    List,
+ 
     AppBar,
     Toolbar,
-    Paper,
+   
     Tabs,
     Tab,
-    Popper,
-    MenuList,
-    MenuItem,
-    InputBase
+   
 } from "@material-ui/core";
 
 
@@ -30,8 +27,7 @@ import {
 class ClubAssociation extends Component {
     state = {
         value:this.props.location.asssocval?this.props.location.asssocval: 0,
-        //activeIndex: 0,
-
+      
     };
 
     handleChange = (event, index
@@ -39,9 +35,10 @@ class ClubAssociation extends Component {
        
         this.setState({
             value: index,
-            //activeIndex: index
+          
         });
     };
+    //display component
     showComp = (index) => {
 
 
@@ -60,7 +57,7 @@ class ClubAssociation extends Component {
 
     render() {
         const { classes } = this.props;
-        const { value, activeIndex} = this.state;
+        const { value} = this.state;
     
 
         return (

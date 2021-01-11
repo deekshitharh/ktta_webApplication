@@ -1,33 +1,22 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import Table from "@material-ui/core/Table";
-import CardActionArea from "@material-ui/core/CardActionArea";
-import CardActions from "@material-ui/core/CardActions";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import SnackPopup from "../../commons/genricComponents/snackbar"
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
-import FaceIcon from "@material-ui/icons/Face";
-import SubjectIcon from "@material-ui/icons/Subject";
-import MessageIcon from "@material-ui/icons/Message";
-import Card from "@material-ui/core/Card";
-import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
+
 import fields from "../../formdata/formvalues";
-import { Link, withRouter } from "react-router-dom";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Topbar from "../landingPage/TopBar";
 import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
-import InputAdornment from "@material-ui/core/InputAdornment";
+
 import MapContainer from "../typo/map";
 import formValidation from "../../commons/formfunction";
 import Container from '@material-ui/core/Container';
 import FieldIcon from "../../commons/genricComponents/fieldIcon"
 import { ApiCall } from "../../APIService";
-import { commons } from "../../commons";
+
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -43,7 +32,7 @@ class Contact extends React.Component {
     let data = [...JSON.parse(JSON.stringify(fields))];
     this.setState({ formdata: data });
   }
-
+//form reset
   resetForm = () => {
     let data = [...JSON.parse(JSON.stringify(fields))];
     this.setState({ formdata:data });
@@ -52,15 +41,14 @@ class Contact extends React.Component {
   handleChange = e => {
 
     const formvalues = [...this.state.formdata];
-
-    formvalues.find(el => {
+          formvalues.find(el => {
       if ( el && el.id === e.target.id) el.value = e.target.value;
     });
 
 
     this.setState({ formdata: formvalues });
   };
-
+//api call for form submit
   handleFormSubmit = async (e) => {
     const formvalues = [...this.state.formdata];
  
@@ -71,7 +59,7 @@ class Contact extends React.Component {
       if (item.error.length) return item;
     })
    this.setState({ formdata: formInputDataValid });
-    if (result == undefined) {
+    if (result === undefined) {
       const data = {};
       const formvalues = [...this.state.formdata];
       formvalues.map((obj) => {
@@ -84,18 +72,16 @@ class Contact extends React.Component {
         params.subject = data.subject;
       params.description = data.Messege;
 
-      // params.tableName = "officebearers";
-      // //params.client_key = "ktta";
-      // params.type = "getData";
+      
 
       ApiCall("POST", params, "contactus")
         .then(response => response.json())
         .then(data => {
-          // console.log("data .. " + JSON.stringify(data));
+       
           if (data.mailStatus) {
 
             this.setState({
-              // emailresponse: "Mail sent",
+            
               reqmsg: true,
               requestStatus: data.mailStatus
             });

@@ -1,27 +1,21 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 import ScheduleIcon from '@material-ui/icons/Schedule';
 import Card from "@material-ui/core/Card";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-import fields from "../../formdata/formvalues";
 import { Link, withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Topbar from "../landingPage/TopBar";
 import Paper from "@material-ui/core/Paper";
-import Icon from "@material-ui/core/Icon";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
 import { sessioncommons } from "../../commons"
-import leagueData from "../../formdata/leagueList"
 import RoomIcon from "@material-ui/icons/Room";
 import CardActions from '@material-ui/core/CardActions';
 import Button from '@material-ui/core/Button';
 import LeagueInfo from "./prolegue"
 import { } from "../../APIService"
 import { commons } from "../../commons";
-import Container from '@material-ui/core/Container';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
 import Grid from "@material-ui/core/Grid";
@@ -218,7 +212,7 @@ class Tournament extends React.Component {
 
   handleChildUpdate(tourType) {
 
-    const { tournamentData, tourval } = this.state
+    const {  tourval } = this.state
 
     if (tourType === "ranking")
 
@@ -233,8 +227,8 @@ class Tournament extends React.Component {
   }
   render() {
     const { classes } = this.props;
-    const { tournamentData, tournamentval, emessage, tourType, open, loading, tname, commitiedata, commitie } = this.state;
-    const x = tournamentData.length
+    const { tournamentData, tourType, open, loading, tname, commitiedata} = this.state;
+   
 
     return (
       <React.Fragment>
@@ -254,7 +248,7 @@ class Tournament extends React.Component {
             container
           
           >
-            <RefreshLoader style="overlay" loading={loading} />
+            <RefreshLoader display="overlay" loading={loading} />
 
             <Paper className={classes.tourpaper}>
               {tournamentData.length ? (
@@ -282,7 +276,7 @@ class Tournament extends React.Component {
                                 <Typography gutterBottom variant="body1">
                                   {" "}
                                   <b>
-                                    {value.eventName != "null"
+                                    {value.eventName !== null
                                       ? value.eventName
                                       : ""}
                                   </b>

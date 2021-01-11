@@ -1,9 +1,9 @@
 import LinearProgress from "@material-ui/core/LinearProgress";
-import Typography from "@material-ui/core/Typography";
+
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
+import React from "react";
+
 
 
 import customStyles from "../../styles/genricStyle"
@@ -42,10 +42,10 @@ class RefreshLoader extends React.Component {
         }
     }
 
-    showloader = (style,loading) =>
+    showloader = (display ,loading) =>
     {
    
-        if ( style=="overlay" && loading)
+        if ( display ==="overlay" && loading)
         {
             return <div style={{
                 height: "100%",
@@ -73,7 +73,7 @@ class RefreshLoader extends React.Component {
         
       
         
-        else if (style == "normal" && loading)
+        else if (display === "normal" && loading)
         {
             return <div>
 
@@ -85,7 +85,7 @@ class RefreshLoader extends React.Component {
     
     showlinear = (type,loading) => {
 
-        if (type== "linear" && loading) {
+        if (type=== "linear" && loading) {
             return <div>
                 <div>
                     <LinearProgress variant="determinate" value={this.state.completed} /></div>
@@ -101,18 +101,18 @@ class RefreshLoader extends React.Component {
    
 
     render() {
-        const { classes,loading,type,value,style } = this.props;
+        const {loading,type,display } = this.props;
 
 
 
         return (
             <React.Fragment>
                 <CssBaseline />
-                {style && loading ?
+                {display && loading ?
                     <div
                        
                     >
-                        {this.showloader(style,loading)}
+                        {this.showloader(display,loading)}
                     
                     </div> :
 

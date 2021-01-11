@@ -1,11 +1,8 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Checkbox from "@material-ui/core/Checkbox";
-import Box from "@material-ui/core/Box";
+
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { Route, Redirect } from "react-router-dom";
+
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import { formFileds } from "../../formdata";
@@ -21,7 +18,7 @@ import Avatar from "@material-ui/core/Avatar";
 import LockOutlinedIcon from "@material-ui/icons/LockOutlined";
 import formValidation from "../../commons/formfunction";
 import SnackPopup from "../../commons/genricComponents/snackbar";
-import moment from "moment";
+
 import { commons } from "../../commons";
 import FieldIcon from "../../commons/genricComponents/fieldIcon";
 
@@ -121,7 +118,7 @@ class Login extends React.Component {
 
   render() {
     const { classes } = this.props;
-    const { formdata, loginData, reqmsg, requestStatus, loading } = this.state;
+    const { formdata, requestStatus} = this.state;
 
     return (
       <React.Fragment>

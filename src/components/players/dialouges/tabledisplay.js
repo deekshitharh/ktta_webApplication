@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
-import Button from "@material-ui/core/Button";
+
 import BaseDialog from "./baseDialouge"
 import IconButton from '@material-ui/core/IconButton';
 
@@ -19,7 +19,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 class TableDialog extends Component {
     render() {
-        const { classes, data, playername, loading, onClose} = this.props;
+        const {  data, playername, loading, onClose} = this.props;
 
         return (
             <BaseDialog {...this.props}>

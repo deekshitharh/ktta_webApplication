@@ -1,13 +1,13 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
+
 import Container from "@material-ui/core/Container";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Topbar from "../landingPage/TopBar";
-import Paper from "@material-ui/core/Paper";
-import { AccordionSummary } from '@material-ui/core'
+
+
 import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
@@ -16,12 +16,11 @@ import Titlize from "../../commons/genricComponents/titlize";
 import customStyles from "../../styles/genricStyle";
 import Link from "@material-ui/core/Link";
 import { withRouter } from "react-router-dom";
-import { TextField } from "@material-ui/core";
-import LinearProgress from "@material-ui/core/LinearProgress";
+
 import ResponsiveDailouge from "./responsiveDialouge";
 import MaterialTable, { MTableToolbar } from "material-table";
 import { selectButtons, tableIcons } from "../../formdata";
-import Button from "@material-ui/core/Button";
+
 import { ApiCall } from "../../APIService";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
@@ -206,7 +205,7 @@ class ResponsiveRanking extends React.Component {
                             render: (rowData) => (
                               <Typography component="div">
                                 <Link
-                                  href="javascript:void(0)"
+                                 
                                   onClick={(e) =>
                                     this.handleDetailDisplay(
                                       rowData.userId,

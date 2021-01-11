@@ -24,9 +24,9 @@ commons.checkDate = (input1, input2,input3) => {
 commons.displayfileds = (formvalues) => {
     const data = {};
   
-    formvalues.map((obj) => {
+    formvalues.forEach((obj) => {
 
-        if (obj.id == "DOB")
+        if (obj.id === "DOB")
             data[obj.id] = moment(obj.value).format('DD MMM YYYY');
         else {
             data[obj.id] = obj.value
@@ -114,7 +114,7 @@ commons.sortArray = (array, type) => {
         //   if (a.clubName > b.clubName) return 1;
         //   return 0;
       }
-      else if (type == "assoc") {
+      else if (type === "assoc") {
           if (a.abbrevationAssociation < b.abbrevationAssociation) return -1;
           if (a.abbrevationAssociation > b.abbrevationAssociation) return 1;
           return 0;

@@ -2,7 +2,7 @@ import React from 'react';
 import BaseDialog from "../players/dialouges/baseDialouge"
 import { withStyles } from "@material-ui/core/styles";
 import customStyles from "../../styles/genricStyle"
-import { Link, withRouter, Router } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import CardHeader from "@material-ui/core/CardHeader";
@@ -12,19 +12,14 @@ import Fontawsome from "../../commons/genricComponents/fontAwsomicon"
 import Titlize from "../../commons/genricComponents/titlize";
 
 class CommitieData extends React.Component {
-    constructor(props) {
-        super(props)
-        // localStorage.clear();
-        // this.props.history.push('/login');
-       
-    }
+  
 
   
 
 
 
     render() {
-        const { classes,data,name} = this.props;
+        const { data,name} = this.props;
        
         return (
             <BaseDialog

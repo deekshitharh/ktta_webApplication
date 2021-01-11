@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+
 import RegisteredAssoc from "../components/about/registeredAssoc";
 
 import RegisteredClubs from "../components/about/registeredClub";

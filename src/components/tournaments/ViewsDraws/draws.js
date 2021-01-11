@@ -1,27 +1,13 @@
 import React from "react";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import Card from "@material-ui/core/Card";
-import { Link, withRouter } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
 import Downloadpdf from "./drawsDialouge";
-
-import { makeStyles } from "@material-ui/core/styles";
-
 import Grid from "@material-ui/core/Grid";
-
 import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 //import Titleize from 'react-titleize';
-import Topbar from "../../landingPage/TopBar";
 import Paper from "@material-ui/core/Paper";
 import customStyles from "../../../styles/genricStyle";
-
-import MaterialTable, { Column } from "material-table";
-import { selectButtons, tableIcons, coloums } from "../../../formdata";
+import { selectButtons } from "../../../formdata";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { ApiCall } from "../../../APIService";
@@ -109,9 +95,9 @@ class ViewDraws extends React.Component {
 
         <div className={classes.root}>
           <Grid container justify="center">
-            <RefreshLoader style="overlay" loading={loading} />
+            <RefreshLoader display="overlay" loading={loading} />
             <Paper>
-              <Grid md={12} sm={12}>
+              <Grid  item md={12} sm={12}>
                 {buttonArr.map((item, index) => {
                   return (
                     <ToggleButtonGroup

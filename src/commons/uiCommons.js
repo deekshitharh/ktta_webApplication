@@ -20,6 +20,8 @@ uiCommons.getGrid = (noOfColumns) =>
             gridResponse.sm = 12
             gridResponse.xs = 12            
             break;
+            default:
+               return false
 
     }
 

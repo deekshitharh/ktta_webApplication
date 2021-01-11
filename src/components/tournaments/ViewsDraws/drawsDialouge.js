@@ -1,19 +1,16 @@
 import React, { Component } from 'react';
-import CssBaseline from "@material-ui/core/CssBaseline";
-import MaterialTable, { Column } from "material-table";
-import Grid from "@material-ui/core/Grid";
-import { tableIcons } from "../../../formdata";
+
 import withStyles from '@material-ui/core/styles/withStyles';
 import Dialog from '@material-ui/core/Dialog';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogContentText from '@material-ui/core/DialogContentText';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import newsStyle from '../../../styles/genricStyle'
-import playerDetails from "../../../formdata"
+
 import DialogActions from "@material-ui/core/DialogActions";
 import Button from "@material-ui/core/Button";
 import Typography from "@material-ui/core/Typography";
-import { ApiCall } from "../../../APIService";
+
 
 
 
@@ -77,7 +74,7 @@ class Downloadpdf extends Component {
 
     render() {
 
-        const { classes, ViewPdf, open, view, test, onClose, tounamentgroup} = this.props;
+        const { ViewPdf, open, view, test, onClose, tounamentgroup} = this.props;
       //  const { tournamentId, ViewPdf, tounamentgroup } = this.state
     
      

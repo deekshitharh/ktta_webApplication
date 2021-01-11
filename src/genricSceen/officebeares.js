@@ -1,31 +1,24 @@
-import React, { Component } from "react";
+import React from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link, withRouter } from "react-router-dom";
-import Slider from "react-slick/lib";
+
+
 import Card from "@material-ui/core/Card";
-import CardActions from "@material-ui/core/CardActions";
-import CardActionArea from "@material-ui/core/CardActionArea";
+
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
 import Titlize from "../commons/genricComponents/titlize";
 import customStyles from "../styles/genricStyle";
-import LinesEllipsis from "react-lines-ellipsis";
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-    htmlparser2
-} from "react-html-parser";
-import Button from "@material-ui/core/Button";
+
 import Topbar from "../components/landingPage/TopBar";
 //import {newsData} from "../../formdata"
 import RefreshLoader from "../commons/genricComponents/pageloader";
-import { uiCommons } from "../commons";
+
 import { ApiCall } from "../APIService";
 import { API_URL } from "../globalUrls";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";

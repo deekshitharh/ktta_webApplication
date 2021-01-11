@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
 import Container from "@material-ui/core/Container";
@@ -9,20 +9,14 @@ import ExpansionPanel from "@material-ui/core/ExpansionPanel";
 import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 class Mobileview extends Component {
-  constructor(props) {
-    super(props);
 
-    // this.state = {
-    //     menulist: aboutMenu
-    // };
-  }
 
   componentDidMount() {
     window.scrollTo(0, 0);
   }
 
   render() {
-    const { classes, menulist } = this.props;
+    const {  menulist } = this.props;
     
 
     return (

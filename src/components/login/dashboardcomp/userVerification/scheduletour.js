@@ -1,16 +1,9 @@
-import Typography from "@material-ui/core/Typography";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import React, { Component } from "react";
-import Button from "@material-ui/core/Button";
+
+import React from "react";
+
 
 import customStyles from "../../../../styles/genricStyle";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
-import SnackPopup from "../../../../commons/genricComponents/snackbar";
+
 import Paper from "@material-ui/core/Paper";
 import { ApiCall } from "../../../../APIService";
 import Grid from "@material-ui/core/Grid";
@@ -19,11 +12,11 @@ import { commons } from "../../../../commons";
 import { sessioncommons } from "../../../../commons";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { eventsuscriptionlist } from "../../../../formdata";
 
-import MaterialTable, { MTableToolbar } from "material-table";
+
+import MaterialTable from "material-table";
 import { tableIcons } from "../../../../formdata";
-import RefreshLoader from "../../../../commons/genricComponents/pageloader";
+
 import { schedule } from "../../../../formdata";
 class SceduleTournament extends React.Component {
   constructor(props) {
@@ -87,13 +80,11 @@ class SceduleTournament extends React.Component {
   render() {
     const { classes } = this.props;
     const {
-      eventlist,
-      eventSchedule,
+    
       eventData,
-      result,
+     
       loading,
-      subsciptionData,
-      checkedEvent,
+     
     } = this.state;
 
     return (

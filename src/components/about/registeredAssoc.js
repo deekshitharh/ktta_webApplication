@@ -1,34 +1,29 @@
 import Typography from "@material-ui/core/Typography";
 
-import React, { Component } from "react";
-import Topbar from "../landingPage/TopBar"; 
+import React from "react";
+
 import PhoneIcon from '@material-ui/icons/Phone';
 import { registred_association } from "../../formdata";
 
 import Titlize from "../../commons/genricComponents/titlize";
 
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import { borders } from '@material-ui/system';
+
 import Slide from '@material-ui/core/Slide';
 import CardHeader from '@material-ui/core/CardHeader';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
-import CardActions from "@material-ui/core/CardActions";
+
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import Slider from "react-slick";
+
 import customStyles from "../../styles/genricStyle";
 import RoomIcon from "@material-ui/icons/Room";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import ReactHtmlParser, {
-    processNodes,
-    convertNodeToElement,
-    htmlparser2
-} from "react-html-parser";
+
 import { commons } from "../../commons";
 
 const transitionDuration = 1000;
@@ -41,7 +36,7 @@ class RegisterdAssoc extends React.Component {
             registredAssoc: registred_association
         };
   }
-  
+  //abbravation function  for associationName
   abrrevatedData = (val) => {
     const data = val.substring(0, 4)
     return data.toUpperCase()
@@ -49,10 +44,6 @@ class RegisterdAssoc extends React.Component {
 
 
 
-    //    registredClubsdata = () => {
-    //      const  clubData=  registered_clubs.map(el => { return  el.data});
-    //         this.setState({ registredClub: clubData });
-    //     }
 
 
     render() {

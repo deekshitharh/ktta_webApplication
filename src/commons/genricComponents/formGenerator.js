@@ -11,17 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import {  withRouter } from "react-router-dom";
 
 import customStyles from "../../styles/genricStyle";
-const styles = theme => ({
-    container: {
-        display: "flex",
-        flexWrap: "wrap"
-    },
-  
-    menu: {
-        width: 200,
-       
-    }
-});
+
 class FormGenerator extends React.Component {
     constructor(props) {
         super(props);
@@ -51,10 +41,10 @@ class FormGenerator extends React.Component {
         if (!this.props.groups) {
             let formDataInput = [...this.state.formList];
             let showPassword;
-            if (item && item.type == "password" && item.showPassword) showPassword = item.showPassword;
+            if (item && item.type === "password" && item.showPassword) showPassword = item.showPassword;
             item.showPassword = (!showPassword)
             formDataInput.find(nestedItem => {
-                if (nestedItem.key == "password" && nestedItem.key === item.key) nestedItem = item;
+                if (nestedItem.key === "password" && nestedItem.key === item.key) nestedItem = item;
             })
 
             this.setState({ formList: formDataInput })
@@ -64,11 +54,11 @@ class FormGenerator extends React.Component {
         {
             let formDataInput = [...this.state.groups];
             let showPassword;
-            if (item && item.type == "password" && item.showPassword) showPassword = item.showPassword;
+            if (item && item.type === "password" && item.showPassword) showPassword = item.showPassword;
             item.showPassword = (!showPassword)
             formDataInput.map(nestedItem => {
                 nestedItem.find((option, index) => {
-                    if (option.key == "password" && option.key === item.key) option = item;
+                    if (option.key === "password" && option.key === item.key) option = item;
                 })
                
             })
@@ -81,7 +71,7 @@ class FormGenerator extends React.Component {
 
 //dropdown data
     showDropDown = (nestedItem) => {
-        if (nestedItem && nestedItem.key == "clubNameId") {
+        if (nestedItem && nestedItem.key === "clubNameId") {
   
            // const {registredClub} =this.state
             //let genricData = [];
@@ -119,8 +109,8 @@ class FormGenerator extends React.Component {
 
     render() {
 
-        const { onChange, classes,variant, otp } = this.props;
-        const { formList, groups ,data} = this.state;
+        const { onChange, classes,variant } = this.props;
+        const { formList} = this.state;
         
         let content = ""
         if (this.props.groupBy) {
@@ -136,7 +126,7 @@ class FormGenerator extends React.Component {
                             const styleObj = {};
                             if (item.hidden) styleObj["display"] = "none";
 
-                            if (item.titleCase) item.value = item.value
+                            
                                                    
                                                 
                             if (item.upperCase) item.value = item.value.toUpperCase()
@@ -166,13 +156,13 @@ class FormGenerator extends React.Component {
                                     rowsMax={item.rowsMax}
                                    //disabled={!editMode || item.disabled}
                                     rows={item.rows}
-                                    type={(item.type !== "select" && item.type !== "password") ? item.type : ((item.type == "password" && item.showPassword) ? 'text' : 'password')}
+                                    type={(item.type !== "select" && item.type !== "password") ? item.type : ((item.type === "password" && item.showPassword) ? 'text' : 'password')}
                                     format="dd/MM/yyyy"
                                     error={(item.error && item.error.length) ? true : false}
                                     helperText={item.error}
                                     InputProps={{
                                         endAdornment: (
-                                            (item.type == "password") ? (<InputAdornment position="end">
+                                            (item.type === "password") ? (<InputAdornment position="end">
                                                 <IconButton
                                                     onClick={() => this.handleClickShowPassword(item)}
                                                 >
@@ -216,7 +206,7 @@ class FormGenerator extends React.Component {
                     hidden={item.hidden ? true : false}
                             label={item.displayName ? item.displayName :""}
                     name={item.key}
-                    type={(item.type !== "select" && item.type !== "password") ? item.type : ((item.type == "password" && item.showPassword) ? 'text' : 'password')}
+                    type={(item.type !== "select" && item.type !== "password") ? item.type : ((item.type === "password" && item.showPassword) ? 'text' : 'password')}
                     fullWidth
                          
                     margin="normal"
@@ -232,7 +222,7 @@ class FormGenerator extends React.Component {
                     InputLabelProps={{ shrink: true }}
                     InputProps={{
                         endAdornment: (
-                            (item.type == "password") ? (<InputAdornment position="end">
+                            (item.type === "password") ? (<InputAdornment position="end">
                                 <IconButton
                                     onClick={() => this.handleClickShowPassword(item)}
                                 >

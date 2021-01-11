@@ -1,18 +1,17 @@
 import React, { Component } from "react";
-import { makeStyles } from '@material-ui/core/styles';
+
 import GridList from '@material-ui/core/GridList';
 import GridListTile from '@material-ui/core/GridListTile';
-import GridListTileBar from '@material-ui/core/GridListTileBar';
+
 import { commons } from "../../commons";
-import { registred_association} from '../../formdata';
-import Paper from '@material-ui/core/Paper';
+
 import customStyles from '../../styles/genricStyle'
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 import Card from '@material-ui/core/Card';
 import Grid from "@material-ui/core/Grid";
 import Titlize from "../../commons/genricComponents/titlize";
-import { withRouter } from "react-router-dom";
+
 import Link from '@material-ui/core/Link'
 import CardContent from '@material-ui/core/CardContent';
 import Divider from '@material-ui/core/Divider';
@@ -27,11 +26,11 @@ import Fontawsome from "../../commons/genricComponents/fontAwsomicon"
             DaData:[]
          };
      }
-
+//api call district association
      loadDaData = () => {
          let apiData = {};
          apiData.tableName = "contact";
-        // apiData.client_key = localStorage.getItem("api_key")
+      
          apiData.type = "getData";
 
          ApiCall("POST", apiData, "getData")

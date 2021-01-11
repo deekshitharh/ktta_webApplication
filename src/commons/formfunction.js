@@ -6,13 +6,13 @@ const fileSizeLimit = 1 * 1000 * 1000;
 formValidation.validatelogin = async (obj) => {
     
     obj.map(item => {
-        if (item.value != undefined && item.value != null && item.type !== "number" && item.value.toString().length) {
-            item.value = (typeof (item["value"]) == "string") ? item["value"].trim() : item["value"]
+        if (item.value !== undefined && item.value !== null && item.type !== "number" && item.value.toString().length) {
+            item.value = (typeof (item["value"]) === "string") ? item["value"].trim() : item["value"]
 
         }
         let value = item["value"];
 
-        if (item.type == "number" && item.value.toString().length > 0) item.value = parseInt(value)
+        if (item.type === "number" && item.value.toString().length > 0) item.value = parseInt(value)
         // if (item.type == "number" && item.value.toString().length == 0) item.value = 0
 
 
@@ -21,8 +21,8 @@ formValidation.validatelogin = async (obj) => {
         item.error = ""
         if (item.required) {
 
-            if (item.value == undefined ||
-                (item.value != undefined && item.value.toString().length === 0)
+            if (item.value === undefined ||
+                (item.value !== undefined && item.value.toString().length === 0)
             ) {
                 item["error"] = item.displayName + " required";
             }
@@ -39,7 +39,7 @@ formValidation.validatelogin = async (obj) => {
    
         if (fieldObj && fieldObj.regExp) {
 
-            if (value != undefined && value.toString().length > 0
+            if (value !== undefined && value.toString().length > 0
                 //&& (item.type === "number" && item.value != 0)
 
             ) {
@@ -103,20 +103,20 @@ formValidation.verifyPassword = (obj) => {
 formValidation.genricFromValidation = async (obj,x) => {
 
     obj.map(item => {
-        if (item.value != undefined && item.value != null && item.type !== "number" && item.value.toString().length) {
-            item.value = (typeof (item["value"]) == "string") ? item["value"].trim() : item["value"]
+        if (item.value !== undefined && item.value !== null && item.type !== "number" && item.value.toString().length) {
+            item.value = (typeof (item["value"]) === "string") ? item["value"].trim() : item["value"]
 
         }
         let value = item["value"];
 
-        if (item.type == "number" && item.value.toString().length > 0) item.value = parseInt(value)
+        if (item.type === "number" && item.value.toString().length > 0) item.value = parseInt(value)
        
 
 
 
         item.error = ""
 
-        if (item.type == "date") {
+        if (item.type === "date") {
            
      
             var idate = commons.checkFuturedate(item.value);
@@ -138,8 +138,8 @@ formValidation.genricFromValidation = async (obj,x) => {
 
             if (item.required) {
 
-            if (item.value == undefined ||
-                (item.value != undefined && item.value.toString().length === 0)
+            if (item.value === undefined ||
+                (item.value !== undefined && item.value.toString().length === 0)
             ) {
                 item["error"] = item.displayName + " required";
             }
@@ -160,7 +160,7 @@ formValidation.genricFromValidation = async (obj,x) => {
                   item["error"] = "";
                     if (item.verify)
                     {
-                        if (item.value == x) {
+                        if (item.value === x) {
                             item["error"] = "";
 
                         }
@@ -192,7 +192,7 @@ formValidation.genricFromValidation = async (obj,x) => {
 formValidation.validateFile = (file) => {
 
     let resJson = { "status": true, "msg": "" }
-    if (file == null) {
+    if (file === null) {
         resJson["status"] = false;
         resJson["msg"] = "File cannot be empty"
     }

@@ -1,34 +1,19 @@
 import Typography from "@material-ui/core/Typography";
-import React, { Component } from "react";
-import { registered_clubs } from "../../formdata";
+import React from "react";
 
-import CardContent from "@material-ui/core/CardContent";
-import CardHeader from "@material-ui/core/CardHeader";
-import RoomIcon from "@material-ui/icons/Room";
-import PhoneIcon from "@material-ui/icons/Phone";
 import Paper from "@material-ui/core/Paper";
-import CardMedia from "@material-ui/core/CardMedia";
-import Grid from "@material-ui/core/Grid";
-import Card from "@material-ui/core/Card";
-import withStyles from "@material-ui/core/styles/withStyles";
-import CssBaseline from "@material-ui/core/CssBaseline";
-import MailOutlineIcon from "@material-ui/icons/MailOutline";
 
-import ReactHtmlParser, {
-  processNodes,
-  convertNodeToElement,
-  htmlparser2,
-} from "react-html-parser";
-import Box from "@material-ui/core/Box";
-import ChevronRightIcon from "@material-ui/icons/ChevronRight";
+import Grid from "@material-ui/core/Grid";
+
+
+
 import { ApiCall } from "../../APIService";
 import Divider from "@material-ui/core/Divider";
-import { uiCommons } from "../../commons";
+
 import { API_URL } from "../../globalUrls";
 import { commons } from "../../commons";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
-const gridColumns = 3;
-const gridRows = 1;
+
 
 export default class Sponsers extends React.Component {
   constructor(props) {
@@ -42,7 +27,7 @@ export default class Sponsers extends React.Component {
   loadSponsersData = () => {
     let apiData = {};
     apiData.tableName = "sponsers";
-    //apiData.client_key = "ktta";
+    
     apiData.type = "getData";
 
     ApiCall("POST", apiData, "getData")
@@ -98,7 +83,7 @@ export default class Sponsers extends React.Component {
                           width: 100,
                           marginTop: 20,
                         }}
-                        src={API_URL + `${filepath}` + "/" + `${newsRow.image}`}
+                       alt="" src={API_URL + `${filepath}` + "/" + `${newsRow.image}`}
                       ></img>
                     </Grid>
                   );

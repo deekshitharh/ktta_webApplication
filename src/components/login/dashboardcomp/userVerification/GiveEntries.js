@@ -1,6 +1,5 @@
-import Typography from "@material-ui/core/Typography";
-import CircularProgress from "@material-ui/core/CircularProgress";
-import React, { Component } from "react";
+
+import React from "react";
 import Button from "@material-ui/core/Button";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
@@ -11,19 +10,15 @@ import TableRow from "@material-ui/core/TableRow";
 import SnackPopup from "../../../../commons/genricComponents/snackbar";
 import Paper from "@material-ui/core/Paper";
 import { ApiCall } from "../../../../APIService";
-import Grid from "@material-ui/core/Grid";
 import { sessioncommons } from "../../../../commons";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import { eventsuscriptionlist } from "../../../../formdata";
 
-import MaterialTable, { MTableToolbar } from "material-table";
+
+import MaterialTable from "material-table";
 import { tableIcons } from "../../../../formdata";
 import { commons } from "../../../../commons";
-import Payment from "../genicPayemnt";
-import Container from "@material-ui/core/Container";
 
-import RefreshLoader from "../../../../commons/genricComponents/pageloader";
 let selectionFlag = false;
 class subscribeEvent extends React.Component {
   constructor(props) {
@@ -192,10 +187,10 @@ class subscribeEvent extends React.Component {
         ro.subscibedEvent = selectedAll;
         if (selectedAll) {
           if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
-            const z = subsribedlist.push(ro.eventfee);
+            subsribedlist.push(ro.eventfee);
             feeTotal = 0;
           } else {
-            const z = feeList.push(ro.eventfee);
+             feeList.push(ro.eventfee);
 
             feeTotal = JSON.stringify(
               feeList.reduce(
@@ -225,10 +220,10 @@ class subscribeEvent extends React.Component {
       if (ro._id === r._id) ro.subscibedEvent = e.target.checked;
       if (ro.subscibedEvent) {
         if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
-          const z = subsribedlist.push(ro.eventfee);
+           subsribedlist.push(ro.eventfee);
           feeTotal = 0;
         } else {
-          const z = feeList.push(ro.eventfee);
+            feeList.push(ro.eventfee);
 
           feeTotal = JSON.stringify(
             feeList.reduce(
@@ -400,15 +395,13 @@ class subscribeEvent extends React.Component {
     const { classes } = this.props;
     const {
       eventlist,
-      showpayment,
-      emptyuser,
-      order_id,
+     
       displayName,
       checkedFees,
       result,
       loading,
       subsciptionData,
-      checkedEvent,
+     
     } = this.state;
 
     return (
@@ -429,20 +422,15 @@ class subscribeEvent extends React.Component {
                 field: "eventfee",
                 title: "EventFees",
 
-                // render: (rowData) => this.handlefee(rowData.abbName),
+              
               },
               {
                 title: "Total",
                 align: "right",
-                // render: (rowData) => this.handlefee(rowData.abbName),
+              
               },
             ]}
-            // localization={{
-            //   toolbar: {
-            //     nRowsSelected: `Amount to be paid: ${checkedFees}`,
-            //     color: "green"
-            //   }
-            // }}
+          
 
             data={eventlist}
             isLoading={loading}
@@ -456,9 +444,7 @@ class subscribeEvent extends React.Component {
               selection: true,
               paging: false,
               filtering: false,
-              // filtering: true,
-
-              // filtering: true,
+              
               headerStyle: {
                 backgroundColor: "#f44336a6",
                 color: "#FFF",

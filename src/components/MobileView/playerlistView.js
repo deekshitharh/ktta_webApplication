@@ -1,29 +1,23 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
 
-import Grid from "@material-ui/core/Grid";
-import Checkbox from "@material-ui/core/Checkbox";
-import { withStyles } from "@material-ui/core/styles";
+
+
 import Typography from "@material-ui/core/Typography";
-import Box from "@material-ui/core/Box";
-import ToggleButton from "@material-ui/lab/ToggleButton";
-import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
+
 import CssBaseline from "@material-ui/core/CssBaseline";
-import FormControlLabel from "@material-ui/core/FormControlLabel";
-import Switch from "@material-ui/core/Switch";
+
 //import playerlist from "../../formdata/playerlist";
 import Topbar from "../landingPage/TopBar";
-import Paper from "@material-ui/core/Paper";
-import RefreshLoader from "../../commons/genricComponents/pageloader"
+
+
 import Titlize from "../../commons/genricComponents/titlize"
 import Container from '@material-ui/core/Container';
 import { ApiCall } from "../../APIService";
 import MaterialTable, { MTableToolbar } from "material-table";
-import { selectButtons, tableIcons } from "../../formdata";
+import {  tableIcons } from "../../formdata";
 import ResponsiveListDailouge from "./responsiveListDilouge";
 import Link from '@material-ui/core/Link';
-import { playerval } from "../../formdata"
-import { playerList } from "../../formdata"
+
 import { commons } from "../../commons";
 
 
@@ -108,9 +102,9 @@ class ResponsivePlayerList extends React.Component {
 
 
     render() {
-        const { classes } = this.props;
-        const { value, playerval,playerList, open, loading,  playerName } = this.state;
-
+        
+        const { playerval,playerList, open, loading,  playerName } = this.state;
+console.log("dummy", JSON.stringify( playerval))
         return (
             <React.Fragment>
                 <CssBaseline />
@@ -170,7 +164,7 @@ class ResponsivePlayerList extends React.Component {
                                 rowStyle: {
                                     textAlign: "left",
                                 },
-                                filtering: true,
+                               
                                
                             }}
 

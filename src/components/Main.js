@@ -1,9 +1,8 @@
 import React, { Component } from "react";
-import CssBaseline from "@material-ui/core/CssBaseline";
 
 
 
-import Paper from '@material-ui/core/Paper';
+
 import Home from "./landingPage/home";
 
 

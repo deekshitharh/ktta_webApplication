@@ -24,8 +24,9 @@ import { editData } from "./editDetils";
 import { dashboardData} from  "./dashboardList"
 import { registred_clubs} from "./registeredclub"
 import { mresults} from "./matchdata"
+import {playerList} from "./playerlist"
 export {
-    drawresults, registred_clubs,
+    drawresults, registred_clubs,playerList,
     dashboardData, mresults ,schedule,  editData,  eventsuscriptionlist, registration, changePasswordForm, regularExpData,  menuData, standingData, statisticsData, selectButtons, tableIcons,
     registred_association, playerDetailscol, tournamentmenu, aboutMenu, formFileds,  steps,
 }

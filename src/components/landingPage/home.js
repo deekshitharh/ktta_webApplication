@@ -8,30 +8,26 @@ import Grid from "@material-ui/core/Grid";
 import StatisticsContent from "./StatisticsContent";
 import OfficeBearers from "./OfficeBearers";
 import RegisteredClubs from "./RegistredCulb";
-import Paper from "@material-ui/core/Paper";
+
 import RegisteredAssoc from "./RegisteredAssoc";
-import Typography from "@material-ui/core/Typography";
 import Sponsers from "./Sponsers";
 import { withStyles } from "@material-ui/core/styles";
-import { Link, withRouter, Router } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import banner1 from "../../images/tball.jpg";
 import BannerImage from "../../commons/genricComponents/imageClass";
 import MediaWidget from "../socialMediaExtracts/mediaExtracts";
-import Theme from "../../styles/customTheme";
 class Home extends Component {
 
-  constructor(props) {
-    super(props);
-  }
+
 
   tokenChange = (themeColor) => {
     this.props.handlechange(themeColor)
     console.log("landing", themeColor, this.props )
-    // Theme(themeColor)
+   
   };
 
-  // "style={{background:'#b7b7b7'}}"
+  
   render() {
     const { classes } = this.props;
     return (
@@ -59,7 +55,7 @@ class Home extends Component {
             <MediaWidget classes={classes} />
           </Grid>
 
-          <Grid container container alignItems="stretch">
+          <Grid container alignItems="stretch">
             <Grid item md={6} sm={12} xs={12} style={{ padding: "10px" }}>
               <RegisteredClubs classes={classes} />
             </Grid>

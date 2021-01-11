@@ -1,19 +1,15 @@
 import React from "react";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
 
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import Card from "@material-ui/core/Card";
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import { ApiCall } from "../../../APIService";
-import { makeStyles } from "@material-ui/core/styles";
+
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import customStyles from "../../../styles/genricStyle";
-import Container from '@material-ui/core/Container';
+
 import MaterialTable, { MTableToolbar } from "material-table";
 import Titlize from "../../../commons/genricComponents/titlize";
 import { selectButtons, tableIcons } from "../../../formdata";
@@ -100,7 +96,7 @@ class Viewentries extends React.Component {
       value,
       loading,
       ViewEntries,
-      tournamentId,
+     
       tableIcons,
     } = this.state;
 

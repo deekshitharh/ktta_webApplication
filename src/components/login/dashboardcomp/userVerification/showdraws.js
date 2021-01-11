@@ -1,37 +1,34 @@
-import React, { Component } from "react";
+import React from "react";
 
 import Container from '@material-ui/core/Container';
 import customStyles from "../../../../styles/genricStyle";
 import Divider from '@material-ui/core/Divider';
 import Titlize from "../../../../commons/genricComponents/titlize";
-import { ApiCall } from "../../../../APIService";
+
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Table from '@material-ui/core/Table';
 import TableBody from '@material-ui/core/TableBody';
 import TableCell from '@material-ui/core/TableCell';
-import TableContainer from '@material-ui/core/TableContainer';
+
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import { commons } from "../../../../commons";
 import Fontawsome from "../../../../commons/genricComponents/fontAwsomicon"
 import { uiCommons } from "../../../../commons";
-import RefreshLoader from "../../../../commons/genricComponents/pageloader"
-import moment from "moment";
+
 //import { drawresults, mresults, } from "../../../../formdata"
-import { editData } from "../../../../formdata"
-import { Route, Redirect } from 'react-router-dom';
+
 import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
-import IconButton from '@material-ui/core/IconButton';
-import MenuIcon from '@material-ui/icons/Menu';
+
 import Paper from "@material-ui/core/Paper";
 import Box from '@material-ui/core/Box';
 import { sessioncommons } from "../../../../commons"
 const gridColumns = 3;
-const gridRows = 2;
+
 
 class showdraws extends React.Component {
   constructor(props) {
@@ -112,7 +109,7 @@ class showdraws extends React.Component {
 
       Object.keys(el.players).forEach((key) => {
         const val = el.players[key];
-        if (val == "()") {
+        if (val === "()") {
           el.players[key] = ""
         }
       });
@@ -220,9 +217,9 @@ this.setState({
 
 
   render() {
-    const { classes, sideBar } = this.props;
+    const { classes,  } = this.props;
     let gridColumnData = uiCommons.getGrid(gridColumns);
-    const { userProfile, drawinfo, datainitil, rowdata, matchresults, selected, rowmatchdata, drawmatchRecords, drawdata, drawresults, loading, message, emessage } = this.state;
+    const {  drawinfo, datainitil, rowdata,  selected, rowmatchdata} = this.state;
     const personGroupedByColor = this.groupBy(rowmatchdata, 'row');
     const ELEMENT_DATA = Object.values(personGroupedByColor).map(rowItem => {
       return this.showdatval(rowItem, "row");
@@ -247,7 +244,7 @@ this.setState({
               style={{ flex: 1 }}
               size="small"
               aria-label="a dense table"
-              aria-label="simple table"
+           
             >
              
               <TableHead  >
@@ -261,7 +258,7 @@ this.setState({
                           style={{cursor:"pointer"}}
                           onClick={() => this.handleClick(outerElement, index)}
                       >
-                        <Box borderColor={selected == index ? "#1f4287" : ""}  border={selected == index ? 2 : ""}>{outerElement.roundName}</Box>
+                        <Box borderColor={selected === index ? "#1f4287" : ""}  border={selected === index ? 2 : ""}>{outerElement.roundName}</Box>
                        
                         </TableCell>
                       

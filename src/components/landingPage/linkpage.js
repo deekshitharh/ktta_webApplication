@@ -1,22 +1,15 @@
 import React, { Component } from "react";
 import Button from '@material-ui/core/Button';
 
-import { Link, withRouter } from "react-router-dom";
-import Icon from '@material-ui/core/Icon';
+import { Link} from "react-router-dom";
 
-import Typography from "@material-ui/core/Typography";
 import ChevronRightIcon from '@material-ui/icons/ChevronRight';
-import clubAssociation from "../about/ClubAsscoc"
+
 
 class ViewMorePage extends Component {
 
 
-    constructor(props) {
-        super(props);
-
-
-
-    }
+   
 
     componentDidMount() { }
 
@@ -26,7 +19,7 @@ class ViewMorePage extends Component {
 
     render() {
 
-        const { classes, pathname, title ,index } = this.props;
+        const {  pathname, title ,index } = this.props;
         return (
            
                     

@@ -1,31 +1,19 @@
 import React from "react";
-import { makeStyles } from "@material-ui/core/styles";
-import IconButton from "@material-ui/core/IconButton";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
-import { formFileds } from "../../formdata";
 import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
-
-import { Link, withRouter } from "react-router-dom";
+import {  withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
-import Topbar from "../../components/landingPage/TopBar";
-import TextField from "@material-ui/core/TextField";
 import Paper from "@material-ui/core/Paper";
 import { sessioncommons } from "../../commons";
 import { ApiCall } from "../../APIService";
 import formValidation from "../../commons/formfunction";
 import Container from "@material-ui/core/Container";
-import Stepper from "@material-ui/core/Stepper";
-import Step from "@material-ui/core/Step";
-import StepLabel from "@material-ui/core/StepLabel";
-import FieldIcon from "../../commons/genricComponents/fieldIcon";
-import moment from "moment";
+
 import Card from "@material-ui/core/Card";
 import CardHeader from "@material-ui/core/CardHeader";
 import CardContent from "@material-ui/core/CardContent";
-import CardActions from "@material-ui/core/CardActions";
 import { commons } from "../../commons";
 import { registration, registred_clubs } from "../../formdata";
 import FormGenerator from "../../commons/genricComponents/formGenerator";
@@ -35,7 +23,7 @@ import RefreshLoader from "../../commons/genricComponents/pageloader";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-import LockOpenIcon from "@material-ui/icons/LockOpen";
+
 import { DialogActions } from "@material-ui/core";
 class playerRegister extends React.Component {
   constructor(props) {
@@ -257,6 +245,7 @@ class playerRegister extends React.Component {
   };
 
   verifyForm = async (e) => {
+    debugger
     e.preventDefault();
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
@@ -307,17 +296,13 @@ class playerRegister extends React.Component {
   };
 
   render() {
-    const { classes, sideBar } = this.props;
+    const { classes } = this.props;
     const {
       formData,
-      paymentid,
-      regfees,
-      otpStatus,
-      registredClub,
+     
       registredClubdu,
       pwdStatus,
-      otpMessage,
-      otpbutton,
+     
       pwdMessage,
       dialogOpen,
       loading,
@@ -345,7 +330,7 @@ class playerRegister extends React.Component {
               }}
               
             >
-              <RefreshLoader style="overlay" loading={loading} />
+              <RefreshLoader display="overlay" loading={loading} />
             </Grid>
 
             <Container maxWidth="sm">

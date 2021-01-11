@@ -1,38 +1,37 @@
 import Typography from "@material-ui/core/Typography";
 import Slide from '@material-ui/core/Slide';
 
-import React, { Component } from "react";
-import Topbar from "../components/landingPage/TopBar"; 
+import React from "react";
+
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import RefreshLoader from "../commons/genricComponents/pageloader";
 
 
 import Paper from "@material-ui/core/Paper";
-import Box from "@material-ui/core/Box";
-import { borders } from '@material-ui/system';
 
-import CardActions from "@material-ui/core/CardActions";
+
+
 import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
+
 import Grid from "@material-ui/core/Grid";
 import Card from "@material-ui/core/Card";
-import Slider from "react-slick";
+
 import customStyles from "../styles/genricStyle";
 import PhoneIcon from '@material-ui/icons/Phone';
 import RoomIcon from "@material-ui/icons/Room";
-import PropTypes from "prop-types";
+
 import CardHeader from '@material-ui/core/CardHeader';
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import Titlize from "../commons/genricComponents/titlize";
 import withStyles from "@material-ui/core/styles/withStyles";
-import CssBaseline from "@material-ui/core/CssBaseline";
+
 import { registred_clubs } from "../formdata";
 import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
-import LinearProgress from '@material-ui/core/LinearProgress';
+
 import { uiCommons } from "../commons";
 import { ApiCall } from "../APIService";
-import { API_URL } from "../globalUrls";
+
 import { commons } from "../commons";
 const transitionDuration = 1000;
 const gridColumns = 4;
@@ -66,7 +65,7 @@ class GenicRegisteredClubs extends React.Component {
         ApiCall("POST", params, "core")
             .then((res) => res.json())
             .then((res) => {
-                if (res && res.status == "success" && res.data) {
+                if (res && res.status === "success" && res.data) {
               
                     this.setState({
                         loading: false,
@@ -98,7 +97,7 @@ class GenicRegisteredClubs extends React.Component {
 
     render() {
         const { classes, type } = this.props;
-        const { registredClub, message, loading, registredClubdu } = this.state
+        const { message, loading, registredClubdu } = this.state
 
         const clubData = commons.genricGrid(registredClubdu, gridRows, gridColumns)
         var random = commons.sortArray(registredClubdu, "acadamy");
@@ -120,7 +119,7 @@ class GenicRegisteredClubs extends React.Component {
 
                         <Grid align="center" justify="center" container>
                             <Grid>
-                                <RefreshLoader style="normal" loading={loading} />
+                                <RefreshLoader display="normal" loading={loading} />
                             </Grid>
 
                             {clubData.map((clubRow, clubIndex) => {

@@ -6,7 +6,7 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 
 class Footer extends Component {
     render() {
-        const { classes } = this.props;
+       
         return (
             <div >
                 <Grid

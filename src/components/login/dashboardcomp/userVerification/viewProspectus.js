@@ -1,29 +1,11 @@
 import React from "react";
-import CardContent from "@material-ui/core/CardContent";
-import CardMedia from "@material-ui/core/CardMedia";
-
-import ScheduleIcon from "@material-ui/icons/Schedule";
-import Card from "@material-ui/core/Card";
-import { Link, withRouter } from "react-router-dom";
-
+import { withRouter } from "react-router-dom";
 import Downloadpdf from "../../../tournaments/ViewsDraws/drawsDialouge";
-
-import { makeStyles } from "@material-ui/core/styles";
-
-import Grid from "@material-ui/core/Grid";
-
 import { withStyles } from "@material-ui/core/styles";
-import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 //import Titleize from 'react-titleize';
-
-import Paper from "@material-ui/core/Paper";
 import customStyles from "../../../../styles/genricStyle";
 
-
-
-import { ApiCall } from "../../../../APIService";
-import { commons } from "../../../../commons";
 class viewProspectus extends React.Component {
     constructor(props) {
         super(props);
@@ -72,13 +54,12 @@ class viewProspectus extends React.Component {
     render() {
         const { classes } = this.props;
         const {
-            buttonArr,
+          
             value,
             open,
             validPdf,
             ViewPdf,
-            loading,
-            tournamentId,
+           
         } = this.state;
 
        
