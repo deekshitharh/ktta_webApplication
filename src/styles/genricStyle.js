@@ -1,4 +1,4 @@
-
+//genric style setting for the all the component
 const d2 = 240;
 const customStyles = (theme) => ({
   ctLegend: {
@@ -50,8 +50,8 @@ const customStyles = (theme) => ({
   },
   drawsChildren:{
     display: "flex",
-                                                flexDirection: "column",
-                                                justifyContent: "space-around"
+   flexDirection: "column",
+  justifyContent: "space-around"
   },
   root: {
     flexGrow: 1,
@@ -63,6 +63,13 @@ const customStyles = (theme) => ({
   loginsubmit: {
     margin: theme.spacing(3, 0, 2),
   },
+
+drawstable:
+{
+width:"50%",
+borderSpacing: "0 5px",
+borderCollapse: "separate"
+},
 
   appBar: {
     position: "relative",

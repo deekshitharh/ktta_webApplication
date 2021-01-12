@@ -17,23 +17,10 @@ import CardHeader from '@material-ui/core/CardHeader';
 import Card from "@material-ui/core/Card";
 import ScoreIcon from '@material-ui/icons/Score';
 import RoomIcon from '@material-ui/icons/Room';
-
+import {rankingResponsiveTable  } from "../../formdata";
 
 import Titlize from "../../commons/genricComponents/titlize";
-
-const columns = [
- 
-    {
-        field: "tournamentName", title: "Tournament Name" ,cellStyle: {
-            width: "100%",
-
-        }},
-    {
-        field: "points", title: "Points", cellStyle: {
-            width: "100%",
-
-        } }
-]
+//mobile view component for player ranking 
 
 
 class ResponsiveDailouge extends Component {
@@ -137,11 +124,11 @@ class ResponsiveDailouge extends Component {
                         <MaterialTable
                             title=""
                             isLoading={loading}
-                            columns={columns}
+                            columns={rankingResponsiveTable}
                             data={detaildata}
                             icons={icons}
                             options={{
-                                // filtering: true,
+                              
                                 searchFieldAlignment: "left",
                              
                              

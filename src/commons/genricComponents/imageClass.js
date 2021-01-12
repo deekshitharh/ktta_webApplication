@@ -5,7 +5,7 @@ import React from 'react';
 
 
 
-
+//function for banner image
 function BannerImage(props) {
 
    return <div style={{

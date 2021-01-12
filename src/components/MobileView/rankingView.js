@@ -25,7 +25,7 @@ import { ApiCall } from "../../APIService";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../commons";
-
+//mobile view component for Ranking
 class ResponsiveRanking extends React.Component {
   constructor(props) {
     super(props);
@@ -41,7 +41,7 @@ class ResponsiveRanking extends React.Component {
       ranking: [],
     };
   }
-
+//function to display the player details on click of playername
   handleDetailDisplay = (id, name, username) => {
     var params = {};
     params.type = "playerRankData";
@@ -73,7 +73,7 @@ class ResponsiveRanking extends React.Component {
       open: false,
     });
   };
-
+//api call for players under each event category
   componentDidMount() {
     var params = {};
     params.type = "assocRank";
@@ -115,7 +115,6 @@ class ResponsiveRanking extends React.Component {
       params.sportID = "interestedDomainName";
     params.filterData = "userId";
 
-    // this.onButtonclick(value)
     this.setState({ value: value, loading: true });
 
     ApiCall("POST", params, "core")

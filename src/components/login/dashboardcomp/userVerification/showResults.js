@@ -40,7 +40,7 @@ class displaydraws extends React.Component {
 
 
 
-
+//set the draw results in local storage. 
     handleClick =(x) => {
        
 
@@ -54,63 +54,11 @@ class displaydraws extends React.Component {
         this.props.history.push(`/showdraws/${x}`);
        
     
-    //    
-    //     let loggeduser = sessioncommons.getTournament();
-    //     let params = {};
-
-      
-    //     params.type ="matchresults"
-
-    //     params.apiKey = "apikey";
-    //     params.caller = "caller";
-        
-       
-    //     params.data= {
-    //         "tournamentId": loggeduser.tournamentId,
-    //             "eventName": x
-
-
-    //     }
-    //     this.setState({ loading: true });
-    //     ApiCall("POST", params, "core")
-    //         .then(res => res.json())
-    //         .then(res => {
-    //             if (res.status === "success" && res.result) {
-                 
-               
-
-
-    //                 this.setState({ "matchresults":res, loading: false, })
-                
-    //             }
-    //             else if (res.status === "failure") {
-
-    //                 this.setState({
-
-
-    //                     "emessage": res.response, loading: false 
-
-    //                 });
-    //             }
-
-
-
-    //         }).catch(error => {
-    //             commons.errorLog(error)
-    //         });
-
-
-
-     
-    };
-
-  
-    
-
+    }
 
     componentDidMount() {
         this.setState({ data: mresults })
-        //this.loadshowResults()
+        
       
        
 }
@@ -140,12 +88,10 @@ class displaydraws extends React.Component {
                 <div className={classes.root}>
                   
                         <Table
-                             style={{width:"50%",
-                        borderSpacing: "0 5px",
-                       borderCollapse: "separate"
+                          className={classes.drawstable}
                     
-                    }}
-                            //  className={classes.table}
+                
+                            
                             size="small"
                             aria-label="simple table"
                         >

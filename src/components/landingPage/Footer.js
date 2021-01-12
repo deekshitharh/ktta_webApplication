@@ -2,8 +2,9 @@ import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import CopyrightIcon from '@material-ui/icons/Copyright';
-
-
+import withStyles from "@material-ui/core/styles/withStyles";
+import customStyles from "../../styles/genricStyle";
+import { withRouter } from "react-router-dom";
 class Footer extends Component {
     render() {
        
@@ -36,5 +37,5 @@ class Footer extends Component {
 }
 
 
+export default withRouter( withStyles(customStyles)(Footer));
 
-export default Footer;

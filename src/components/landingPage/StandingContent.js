@@ -30,8 +30,7 @@ export default class StandingContent extends Component {
               <Divider />
               <TableContainer component={Paper}>
                 <Table
-                //  style={{flex:1}}
-                //  className={classes.table}
+              
                 
                   aria-label="simple table"
                 >

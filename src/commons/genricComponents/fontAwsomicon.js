@@ -30,7 +30,7 @@ const showIcon = (name,size,style) => {
 };
 
 
-
+//function for fontawesome component
 function Fontawsome(props) {
 
     return showIcon(props.name,props.size, props.style)

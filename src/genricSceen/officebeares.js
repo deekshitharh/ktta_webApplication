@@ -24,7 +24,7 @@ import { API_URL } from "../globalUrls";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { commons } from "../commons";
 import InfoComponent from "../commons/genricComponents/infoComponent";
-
+//genric component for dispalying the data in landing page  and detailing page of officebearers component
 class GenricOfficebearers extends React.Component {
     constructor(props) {
         super(props);
@@ -34,6 +34,8 @@ class GenricOfficebearers extends React.Component {
             loading: false,
         };
     }
+
+    //api to get officebearers data
     loadOfficebearersData = () => {
         var params = {};
 

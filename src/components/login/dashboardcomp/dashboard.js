@@ -91,7 +91,7 @@ class Dashboard extends Component {
         this.setState({
             value: Found.value,
          
-            //activeIndex: index
+         
         });
     };
     showComp = (index) => {
@@ -108,15 +108,10 @@ class Dashboard extends Component {
         this.setState({
             download: true,
 
-            //activeIndex: index
+           
         });
     }
-    // validate = async (e)  =>
-    // {
-    //     const { uploadedFile, error, requestStatus } = this.state;
-    //     let validFile = await formValidation.validateFile(uploadedFile);
-    //     this.setState({ error: validFile });
-    // }
+
     onSubmit = (e) => {
         e.preventDefault();
       
@@ -133,7 +128,7 @@ class Dashboard extends Component {
                 this.setState({ "message": fileVal.msg })
                 let loggeduser = sessioncommons.getUser()
                 let params = {};
-                // params.client_key = "ktta";
+               
                 params.playerName = loggeduser.userName;
                 params.affiliationId = loggeduser.affiliationId;
                 params.playerEmail = loggeduser.emailAddress;
@@ -169,12 +164,7 @@ class Dashboard extends Component {
                         }, 1000);
                     })
 
-                    // .then((res) => {
-                    //     this.setState({
-                    //         uploaded: true,
-                    //         notup:false
-                    //     });
-                    // })
+              
                     .catch((error)=>{
                         this.setState({
                             loading: false,
@@ -198,15 +188,15 @@ class Dashboard extends Component {
         });
     };
 
-
+//reset file data
     onReset() {
-       // this.refs.file.value = "";
+        this.refs.file.value = "";
         this.setState({
             uploaded: true,
             notup: false
         });
     }
-
+//check if player uploded the doc
     checkidverification = () => {
     
         let loggeduser = sessioncommons.getUser()
@@ -268,11 +258,11 @@ class Dashboard extends Component {
             pdfopen: true,
             validPdf: true,
         });
-        //this.checkidverification()
+     
         {
             let apiData = {};
             apiData.tableName = "playerdetails";
-            //apiData.client_key = "ktta";
+           
             apiData.type = "getData"
             this.setState({ pdata:true, loading: true });
             ApiCall("POST", apiData, "getData")
@@ -290,11 +280,7 @@ class Dashboard extends Component {
 
                     }
 
-                    // else
-                    //     this.setState({
-                            
-                    //         message: res.message
-                    //     })
+                  
 
                     sessioncommons.setplayerSession(res["getData"])
                  
@@ -337,8 +323,7 @@ class Dashboard extends Component {
                 <CssBaseline />
                 <Topbar index={3} />
                 <div className={classes.rootDashboard}>
-                    {/* <Grid container justify="center"> */}
-                
+                 
                     <Drawer
                         variant="permanent"
                         classes={{

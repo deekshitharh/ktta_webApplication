@@ -9,15 +9,14 @@ import { sessioncommons} from "../../../commons"
 class Logout extends React.Component {
     constructor(props) {
         super(props)
-        // localStorage.clear();
-        // this.props.history.push('/login');
+    
         this.state = {
             open: true,
 
        
         };
     }
-
+//remove logged in session details
     handlelogout = () => {
         
       

@@ -44,7 +44,7 @@ class subscribeEvent extends React.Component {
       displayName: "Event Details",
     };
   }
-
+//load the event list for the given userid
   updateData = () => {
     let loggeduser = sessioncommons.getUser();
     let tournamentdata = sessioncommons.getTournament();
@@ -221,7 +221,7 @@ class subscribeEvent extends React.Component {
       if (ro.subscibedEvent) {
         if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
            subsribedlist.push(ro.eventfee);
-          feeTotal = 0;
+        
         } else {
             feeList.push(ro.eventfee);
 
@@ -242,25 +242,13 @@ class subscribeEvent extends React.Component {
     });
   };
 
-  loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
 
+//function payment gateway(razor pay)
   displayRazorpay = async () => {
   
 
     let loggeduser = sessioncommons.getUser();
-    const res = await this.loadScript(
+    const res = await commons.loadScript (
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
@@ -268,7 +256,7 @@ class subscribeEvent extends React.Component {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-
+//function to get order_id to pass to options
     await this.loadpaymentdata();
 
     const options = {
@@ -281,7 +269,7 @@ class subscribeEvent extends React.Component {
 
       handler: (response) => {
         if (response.razorpay_payment_id) {
-          this.calculate(response.razorpay_payment_id);
+          this.calculate(response.razorpay_payment_id);//calculate the fees
         }
       },
       prefill: {
@@ -296,7 +284,7 @@ class subscribeEvent extends React.Component {
     });
     paymentObject.open();
   };
-
+//api call for  oder_id for payment 
   loadpaymentdata = async () => {
     let loggeduser = sessioncommons.getUser();
     let timeStamp = loggeduser.affiliationId + "_" + Math.floor(Date.now());
@@ -314,7 +302,7 @@ class subscribeEvent extends React.Component {
         commons.errorLog(error);
       });
   };
-
+//fee calculation function
   calculate = (transactionID) => {
     const newSubId = [];
     let unSubId = [];
@@ -344,11 +332,12 @@ class subscribeEvent extends React.Component {
         result: result,
       },
       () => {
-        this.onSubmit(transactionID);
+        this.onSubmit(transactionID);//api call to sever to store the trnsaction id 
       }
     );
   };
-
+  
+  //api call to sever to store the transaction id 
   onSubmit = async (transactionID) => {
     const { result, checkedFees } = this.state;
 
@@ -383,7 +372,7 @@ class subscribeEvent extends React.Component {
       })
 
       .then((res) => {
-        this.updateData();
+        this.updateData();//call the event list api with the upated subscibed/unsubscibed events for the logged user.
       })
 
       .catch((error) => {

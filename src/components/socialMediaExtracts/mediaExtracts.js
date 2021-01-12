@@ -4,6 +4,7 @@ import Grid from "@material-ui/core/Grid";
 import Container from '@material-ui/core/Container';
 import Fontawsome from "../../commons/genricComponents/fontAwsomicon"
 import  { useEffect } from 'react'
+//function to load twitter url
 const Twitter = () => {
   useEffect(() => {
     const script = document.createElement("script");
@@ -17,7 +18,6 @@ const Twitter = () => {
         <a
           className="twitter-timeline"
           data-height="500"
-         
           data-chrome="noheader nofooter noborders"
           href="https://twitter.com/KarnatakaTT"
         >
@@ -60,7 +60,7 @@ export default class MediaWidget extends Component {
                       scrolling="no"
                       title="facebook"
                       frameBorder="0"
-                      allowfullscreen="true"
+                      allowFullScreen={true}
                       allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
                     </iframe>
                   </Grid>
@@ -101,13 +101,13 @@ export default class MediaWidget extends Component {
                       }}
                     />
                   </Grid>
-                  <Grid md={12}>
+                  <Grid item md={12}>
                     <iframe
                       className="instagram-media instagram-media-rendered"
                       id="instagram-embed-0"
                       src="https://www.instagram.com/p/Bp_yvXjAgO4/embed/?cr=1&amp;v=12&amp;wp=284&amp;rd=http%3A%2F%2Fkarnatakatt.com&amp;rp=%2F#%7B%22ci%22%3A0%2C%22os%22%3A3741.24500004109%2C%22ls%22%3A3263.645000057295%2C%22le%22%3A3296.7000000644475%7D"
                       allowtransparency="true"
-                      allowfullscreen="true"
+                      allowFullScreen={true}
                       frameBorder="0"
                       title="instagram"
                       width="340"

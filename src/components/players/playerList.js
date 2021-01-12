@@ -22,7 +22,7 @@ import { commons } from "../../commons";
 
 
 class PlayerList extends React.Component {
-    // const[alignment, setAlignment] = React.useState('left');
+  
 
     constructor(props) {
         super(props);
@@ -34,7 +34,7 @@ class PlayerList extends React.Component {
     }
 
  
-
+//api call for player list
   componentDidMount() {
     var params = {};
     params.type = "playerlist";
@@ -42,7 +42,7 @@ class PlayerList extends React.Component {
     params.apiKey = "apiKey";
     params.filterData = "userId";
     params.filterBy = "Association";
-    //params.client_key = "ktta";
+   
     this.setState({ loading: true });
     ApiCall("POST", params, "core")
       .then(res => {
@@ -52,12 +52,6 @@ class PlayerList extends React.Component {
         return res;
       })
       .then((res) => res.json())
-      // .then(res => {
-      //   if (!res["status"]) {
-      //     console.log("api error" + res["status"])
-      //   }
-      //   return res;
-      // })
       .then((res) => {
         this.setState({
           loading: false,
@@ -72,7 +66,7 @@ class PlayerList extends React.Component {
   
 
 
-   
+   //function call for dob formating
     formatDate = (inputDate) => {
         inputDate = inputDate.substring(0, 10).split(/\D/g)
         inputDate = inputDate[2] + "-" + inputDate[1] + "-" + inputDate[0]

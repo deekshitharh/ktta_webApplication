@@ -14,7 +14,7 @@ import { formFileds } from "./formFields"
 import { steps } from "./verificationsteps"
 import { regularExpData } from "./regex"
 
-
+import {rankingResponsiveTable} from "./rankingRespTableData"
 import { registration} from "./registerPlayer"
 import { eventsuscriptionlist } from "./eventsubscriptionlist"
 import {changePasswordForm} from "./changePasswordFrom"
@@ -26,7 +26,7 @@ import { registred_clubs} from "./registeredclub"
 import { mresults} from "./matchdata"
 import {playerList} from "./playerlist"
 export {
-    drawresults, registred_clubs,playerList,
+    drawresults,rankingResponsiveTable, registred_clubs,playerList,
     dashboardData, mresults ,schedule,  editData,  eventsuscriptionlist, registration, changePasswordForm, regularExpData,  menuData, standingData, statisticsData, selectButtons, tableIcons,
     registred_association, playerDetailscol, tournamentmenu, aboutMenu, formFileds,  steps,
 }

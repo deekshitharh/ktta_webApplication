@@ -28,7 +28,7 @@ import { commons } from "../commons";
 import InfoComponent from "../commons/genricComponents/infoComponent";
 const gridColumns = 2;
 const gridRows = 3;
-
+//genric component for dispalying the data in landing page  and detailing page of news component
  class GenricNewsContent extends Component {
     constructor(props) {
         super(props);

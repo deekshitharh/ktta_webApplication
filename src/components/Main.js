@@ -18,12 +18,7 @@ class Main extends Component {
       <React.Fragment>
         <Home handlechange={handlechange} classes={classes}/>
 
-        {/* <CssBaseline />
-        // <Topbar classes={classes}/>
-        // <Banner classes={classes}/>
-        // <NewsSlider classes={classes}/>
-        // <AboutInfo classes={classes}/>
-        // <Footer classes={classes}/> */}
+ 
       </React.Fragment>
     );
   }

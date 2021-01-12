@@ -46,7 +46,7 @@ class showdraws extends React.Component {
     }
 
   }
-
+//filling the dots based dot value
   getDots = (x) => {
     let icon = <Fontawsome
       name="circle"
@@ -56,12 +56,13 @@ class showdraws extends React.Component {
 
 
   }
+  //fill the values with "-" if both scores are 0 in both sets in matchRecords data
   getg = (val) => {
 
     return Array(val).fill("-")
 
   }
-
+ //reduce function to group the rows based on roundMatchDetails
   groupBy = (array, key) => {
     return array.reduce((result, currentValue) => {
       // If an array already present for key, push it to the array. Else create an array and push the object
@@ -75,7 +76,7 @@ class showdraws extends React.Component {
   };
 
  
-
+//reducer function to  to get indivisual ow details
   showdatval = (xs, key) => {
     return xs.reduce((rv, x) => {
       rv["round" + x.col] = this.getDots(x.dots);
@@ -106,7 +107,7 @@ class showdraws extends React.Component {
     })
 
     update.forEach(el => {
-
+//function to replace the player name () with empty value on component load
       Object.keys(el.players).forEach((key) => {
         const val = el.players[key];
         if (val === "()") {
@@ -118,24 +119,9 @@ class showdraws extends React.Component {
 
     })
 
-    // this.state.drawmatchRecords.forEach(el => {
-    //     Object.keys(el.scores).forEach(key=> {
-    //         const val = el.scores[key];
-    //        val.forEach(x =>{
-    //            if (x === "0")
+ 
 
-    //            {
-    //                val[x]="-"
-    //               }
-
-    //         })
-    //         (this.state.drawmatchRecords)
-    //         })
-
-    //  })
-
-
-
+//check if arrays contins same values
     const containsAll = (a1, a2) => {
       return a1.every(arr2Item => a2.includes(arr2Item))
     }
@@ -165,7 +151,7 @@ class showdraws extends React.Component {
 
   }
 
-
+//click handler to change the data based on rounds
   handleClick = (r,index) => {
    
   
@@ -192,15 +178,15 @@ this.setState({
   selected:index
     });
   }
-
+//displaying function to display  draw details based on roundNumber
   showdata = (outerElement) => {
 
     let result = this.state.drawmatchRecords.filter(word => word.roundNumber === outerElement.roundNumber);
     return result
   }
 
-
-  showinner = (winner, players) => {
+//displaying winner from matchRecords data
+  displayWinner = (winner, players) => {
 
     if (winner.length) {
       var found = Object.values(players).find((key) => {
@@ -220,8 +206,8 @@ this.setState({
     const { classes,  } = this.props;
     let gridColumnData = uiCommons.getGrid(gridColumns);
     const {  drawinfo, datainitil, rowdata,  selected, rowmatchdata} = this.state;
-    const personGroupedByColor = this.groupBy(rowmatchdata, 'row');
-    const ELEMENT_DATA = Object.values(personGroupedByColor).map(rowItem => {
+    const detailsGroupedByRow = this.groupBy(rowmatchdata, 'row');
+    const ELEMENT_DATA = Object.values(detailsGroupedByRow).map(rowItem => {
       return this.showdatval(rowItem, "row");
     });
 
@@ -340,7 +326,7 @@ this.setState({
                       className={classes.drawsChildren}
                     >
                       {displayDraws.map((x) => {
-                        let showWinner = this.showinner(
+                        let showWinner = this.displayWinner(
                           x.winner,
                           x.players
                         );

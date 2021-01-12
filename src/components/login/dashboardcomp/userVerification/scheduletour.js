@@ -46,7 +46,7 @@ class SceduleTournament extends React.Component {
       eventData: sceduledArray,
     });
   }
-
+//api call for fetching match schedule based on tounamnet ID
   fetchSchedule = () => {
  
 

@@ -35,7 +35,7 @@ class Viewentries extends React.Component {
       loading: false,
     };
   }
-
+//api call for the entries made in each category
   componentDidMount() {
     const { tournamentId, value } = this.state;
     var params = {};
@@ -72,8 +72,7 @@ class Viewentries extends React.Component {
     params.type = "list";
  
 
-   // params.client_key = "ktta";
-
+   
     this.setState({ value: value, loading: true });
 
     ApiCall("POST", params, "core")

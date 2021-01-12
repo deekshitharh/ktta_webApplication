@@ -31,7 +31,7 @@ const gridRows = 2;
     };
    }
    
-
+//abbravation for registred_association
    abrrevatedData = (val) => {
      const data = val.substring(0, 4)
      return data.toUpperCase()

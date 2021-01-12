@@ -13,7 +13,7 @@ const icons = {
     password: LockOutlinedIcon
     
 };
-
+//function for material ui component 
 const showIcon = (name ) => {
  
     const Icon = icons[name];

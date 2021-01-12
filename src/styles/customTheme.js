@@ -7,18 +7,10 @@ import { lightTheme } from "./themefile/lightTheme"
 const drawerWidth = 200;
 
 
-// const darkTheme = {
-//     'cardHeader': "black"
-
-// }
-
-// const lightTheme = {
-//     'cardHeader': "#e0e0e0"
-// }
 
 
 const Theme = (themeStatus) => {
-    console.log("hello1", themeStatus)
+  
     const themeSettings = (themeStatus === "light") ? lightTheme : darkTheme;
     const theme1 =
         createMuiTheme({

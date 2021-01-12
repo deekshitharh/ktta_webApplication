@@ -8,7 +8,7 @@ import React, { Component } from "react";
 
 import { useEffect } from "react";
 
-
+//graph componet (chartist)
 
 var delays2 = 80,
   durations2 = 500;

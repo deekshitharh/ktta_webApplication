@@ -32,7 +32,7 @@ class Tournament extends React.Component {
     this.state = {
       loading: false,
       emessage:"",
-      //   tornamentData: eventData, tourType: "ranking",
+  
       tournamentData: [],
       eventList: [],
       commitie: false,
@@ -46,12 +46,11 @@ class Tournament extends React.Component {
     this.handleChildUpdate = this.handleChildUpdate.bind(this)
 
   }
-
+//api call to display the tounamnet list "upcomming/past"
   loadTournamentData = () => {
 
     let params = {};
-    // params.client_key = "TSA";
-    // params.client_key = localStorage.getItem("api_key")
+   
     params.type = "upcoming";
     params.filterData = "userId";
     params.apiKey = "apikey";
@@ -93,20 +92,7 @@ class Tournament extends React.Component {
 
 
 
-      //   if (!res["status"]) {
-      //     // console.log("api error" + res["status"]);
-      //   }
-      //   return res;
-      // })
-      // .then((res) => {
-      //   // console.log("hello" + res);
-      //   this.setState({
-      //     loading: false,
-      //     tournamentData: res["resultID"],
-      //     tourval: res["resultID"],
-      //     tournamentval: res["tournamentList"],
-      //     tname: ""
-      //   });
+     
       })
 
 
@@ -120,51 +106,17 @@ class Tournament extends React.Component {
 
   componentDidMount = () => {
     this.loadTournamentData();
-    //this.fetchPlyer()
+   
   };
 
-  //   fetchPlyer=()=>{
-  //   let apiData = {};
-  //   apiData.tableName = "playerdetails";
-  //   //apiData.client_key = "ktta";
-  //   apiData.type = "getData"
-  //   ApiCall("POST", apiData, "getData")
-
-  //     .then(res => res.json())
-  //     .then(res => {
-  //       if (!res["status"]) {
-  //         // console.log("api error" + res["status"])
-  //       }
-
-  //       return res;
-  //     })
-  //     .then(res => {
-
-  //       this.setState({
-  //         playerDetails: res["getData"],
-
-  //       });
-
-
-  //       sessioncommons.setplayerSession(res["getData"])
-
-
-
-  //     })
-
-
-  //     .catch(error => {
-  //       commons.errorLog(error)
-  //     });
-
-  // }
-
-
+  
 
   onsubmitdata = (tdata) => {
-    const { tournamentval } = this.state
-    const tounamentDetail = tournamentval.find(item => item.tournamentName === tdata);
-    sessioncommons.setTournament(tounamentDetail)
+    debugger
+   let  tournamentval ={};
+    tournamentval.tournamentId = tdata._id;
+    tournamentval.tournamentName = tdata.eventName;
+    sessioncommons.setTournament(tournamentval)
     this.props.history.push({
       pathname: '/login',
     });
@@ -178,7 +130,7 @@ class Tournament extends React.Component {
 
     });
   };
-
+//api function to get committie data
   showCommitie = (id, name) => {
 
 
@@ -209,7 +161,7 @@ class Tournament extends React.Component {
 
   };
 
-
+//update the  type and fetch the tournamnet data based client key "ranking/leugue"
   handleChildUpdate(tourType) {
 
     const {  tourval } = this.state
@@ -358,7 +310,7 @@ class Tournament extends React.Component {
                             {tournamentType === "future" ? (
                               <Button
                                 onClick={() =>
-                                  this.onsubmitdata(value.eventName)
+                                  this.onsubmitdata(value)
                                 }
                               >
                                 Register

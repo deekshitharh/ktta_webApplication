@@ -24,12 +24,12 @@ class DetailedNews extends React.Component {
       newsDetails: [],
     };
   }
-  //api for getting detail news
+  //api for getting detail news based on id
   loadetailedData = () => {
     const { news_id } = this.state;
     let apiData = {};
     apiData.tableName = "news";
-    // apiData.client_key = "ktta";
+   
     apiData.type = "getDataById";
 
     apiData.id = news_id;
@@ -70,7 +70,7 @@ class DetailedNews extends React.Component {
                     md={12}
                     xs={12}
                     sm={12}
-                    //  style={{ height: "100%", width: 400,objectFit:"cover"}}
+                 
                   >
                     <img
                       style={{ width: 400, height: 200 }}

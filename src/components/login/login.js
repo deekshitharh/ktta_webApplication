@@ -44,19 +44,19 @@ class Login extends React.Component {
       this.props.history.push({
         pathname: "/dashboard",
       });
-      // <Redirect to={{ pathname: '/dashboard' }} />
+     
     } else {
       let data = cloneArray(formFileds);
       this.setState({ formdata: data });
     }
   }
-
+//redirection to dashboad on success
   handleSuccessfulAuth() {
     this.props.history.push({
       pathname: "/dashboard",
     });
   }
-
+//api call for login data
   handleFormSubmit = async (e) => {
     e.preventDefault();
     const formvalues = [...this.state.formdata];
@@ -80,7 +80,7 @@ class Login extends React.Component {
 
       let apiData = {};
       apiData.type = "userLogin";
-      //apiData.client_key = "ktta";
+    
       apiData.caller = "caller";
        apiData.apiKey = "apikey";
       apiData.userName = data.email;
@@ -107,7 +107,7 @@ class Login extends React.Component {
         });
     }
   };
-
+//change handler for input fileds of form.
   handleChange = (e) => {
     const formvalues = [...this.state.formdata];
 

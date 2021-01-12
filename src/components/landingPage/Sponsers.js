@@ -23,7 +23,7 @@ export default class Sponsers extends React.Component {
       filepath: "",
     };
   }
-
+//api call fo sponsers data
   loadSponsersData = () => {
     let apiData = {};
     apiData.tableName = "sponsers";

@@ -23,8 +23,7 @@ class Idverification extends React.Component {
     super(props);
 
     this.state = {
-      // playerdata: sessioncommons.getplayerDetails(),
-      // loggeduser: sessioncommons.getUser(),
+      
       uploadedFile: null,
       error: {},
       requestStatus: "",
@@ -37,7 +36,7 @@ class Idverification extends React.Component {
     parentupdate = (idstatus)=>{
         this.props.update("idverification", idstatus);
     }
-
+//check if  the user uplaoded documents, based on  the affiliationId of the logged user.
   checkidverification = () => {
     let loggeduser = sessioncommons.getUser()
     let playerdata =  sessioncommons.getplayerDetails()
@@ -76,15 +75,15 @@ class Idverification extends React.Component {
 
    
   };
-
+//reset function if file validation fails.
   onReset() {
-    this.refs.file.value = "";
+    //this.refs.file.value = "";
     this.setState({
       uploadedFile: null,
       error: {},
     });
   }
-
+//file upload function 
   onSubmit = (e) => {
     e.preventDefault();
     const { uploadedFile, error } = this.state;

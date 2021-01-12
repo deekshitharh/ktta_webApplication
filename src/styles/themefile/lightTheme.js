@@ -1,3 +1,6 @@
+//theme setting for darkTheme
+
+
 export const lightTheme = {
     'cardHeader': "#e0e0e0",
     "divider": "#FF0000",

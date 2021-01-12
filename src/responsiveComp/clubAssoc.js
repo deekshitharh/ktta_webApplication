@@ -5,6 +5,7 @@ import { aboutMenu } from "../formdata"
 import Topbar from "../components/landingPage/TopBar"
 
 import Mobileview from "../components/MobileView/mobileView"
+//genric component to display the registered association in mobile/desktop/tablet
 const clubAssoc = (props) => {
     const { classes } = props;
 

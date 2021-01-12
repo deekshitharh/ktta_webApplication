@@ -20,6 +20,23 @@ commons.checkDate = (input1, input2,input3) => {
         return "future"
     
 }
+
+//genric function for payment script
+commons.loadScript = (src) => {
+    return new Promise((resolve) => {
+      const script = document.createElement("script");
+      script.src = src;
+      script.onload = () => {
+        resolve(true);
+      };
+      script.onerror = () => {
+        resolve(false);
+      };
+      document.body.appendChild(script);
+    });
+  };
+
+
 //genric function to filter form fileds to send as params to api
 commons.displayfileds = (formvalues) => {
     const data = {};
@@ -36,13 +53,13 @@ commons.displayfileds = (formvalues) => {
     return data
 }
 
-//format the date used in tournament file
+//format date used in tournament.js file
 commons.formatDate = (inputDate) => {
     inputDate = inputDate.split(" ");
     inputDate = inputDate[2] + " " + inputDate[1] + " " + inputDate[0];
     return inputDate;
 }
-
+//  data for news/clubs/association landing page based on gridrows
 commons.genricGrid = (apidata, gridrows, gridColumns)=>{
 
     const x = commons.shuffleArray(apidata)
@@ -55,7 +72,7 @@ commons.genricGrid = (apidata, gridrows, gridColumns)=>{
 
     return genricData
 }
-//initial grids shown in draws
+//data array that needs to displayed in draws compone 
 commons.gridData= (apidata) => {
 
   
@@ -80,7 +97,7 @@ commons.abrrevatedData = (val) => {
     const data = val.substring(0, 4)
     return data.toUpperCase()
 }
-
+//check shuffle array function fo displying random data each time load
 commons.shuffleArray = (array) => {
     for (let i = array.length - 1; i >0; i--)
     {

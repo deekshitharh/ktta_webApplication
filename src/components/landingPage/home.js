@@ -20,7 +20,7 @@ import MediaWidget from "../socialMediaExtracts/mediaExtracts";
 class Home extends Component {
 
 
-
+//theme change functionality
   tokenChange = (themeColor) => {
     this.props.handlechange(themeColor)
     console.log("landing", themeColor, this.props )

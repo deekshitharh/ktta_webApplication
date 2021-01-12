@@ -22,11 +22,10 @@ import { commons } from "../../commons";
 
 
 
-
+//mobile view component for PlayerList
 
 class ResponsivePlayerList extends React.Component {
-    // const[alignment, setAlignment] = React.useState('left');
-
+    
     constructor(props) {
         super(props);
 
@@ -103,8 +102,8 @@ class ResponsivePlayerList extends React.Component {
 
     render() {
         
-        const { playerval,playerList, open, loading,  playerName } = this.state;
-console.log("dummy", JSON.stringify( playerval))
+        const {playerList, open, loading,  playerName } = this.state;
+
         return (
             <React.Fragment>
                 <CssBaseline />

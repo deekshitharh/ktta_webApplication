@@ -4,6 +4,8 @@ import ResponsiveRanking from "../components/MobileView/rankingView"
 
 
 import PlayerRanking from "../components/players/ranking"
+//genric component to display the PlayerRanking in mobile/desktop/tablet
+
 const playerRankViews = (props) => {
     const { classes } = props;
 

@@ -16,8 +16,7 @@ const style = {
 export class MapContainer extends Component {
   constructor(props) {
     super(props);
-  
-    this.state = {
+      this.state = {
       showingInfoWindow: false,
       activeMarker: {},
       selectedPlace: {},
@@ -27,7 +26,7 @@ export class MapContainer extends Component {
     };
 
   }
-
+ //function to set association data which is sent as prop to SingleLineGridList
   handleViewMap = asocdata =>{
  
   this.setState({
@@ -35,19 +34,13 @@ export class MapContainer extends Component {
     });
   }
 
-  // shouldComponentUpdate(nextProps, nextState) {
-  //   if (this.state == nextState) {
-  //     return false;
-  //   } else {
-  //     return true;
-  //   }
-  // }
 
+//function for  marker clicked
   onMarkerClick = (props, marker, e) =>
     this.setState({
-      selectedPlace: props,
-      activeMarker: marker,
-      showingInfoWindow: true,
+      selectedPlace:props,
+      activeMarker:marker,
+      showingInfoWindow:true,
       
     });
 
@@ -61,7 +54,7 @@ export class MapContainer extends Component {
   };
 
  
-
+//function for displaying map markers
   displayMarkers = (assocval) => {
     const { mapcode, initialAssoc}=this.state
       return (

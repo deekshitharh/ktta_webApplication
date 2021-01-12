@@ -157,7 +157,7 @@ class FormGenerator extends React.Component {
                                    //disabled={!editMode || item.disabled}
                                     rows={item.rows}
                                     type={(item.type !== "select" && item.type !== "password") ? item.type : ((item.type === "password" && item.showPassword) ? 'text' : 'password')}
-                                    format="dd/MM/yyyy"
+                                    format="dd/mm/yyyy"
                                     error={(item.error && item.error.length) ? true : false}
                                     helperText={item.error}
                                     InputProps={{

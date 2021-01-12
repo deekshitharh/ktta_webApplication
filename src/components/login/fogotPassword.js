@@ -44,17 +44,18 @@ class FogotPassword extends React.Component {
   }
 
   componentDidMount() {
+    //password change fields
     let formDataControl = [...JSON.parse(JSON.stringify(changePasswordForm))];
-    // const formDataControl = [...changePasswordForm];
+  
 
     this.setState({
       formData: formDataControl,
     });
   }
-
+//form reset
   resetForm = () => {
     let formDataControl = [...JSON.parse(JSON.stringify(changePasswordForm))];
-    // const formDataControl = [...changePasswordForm];
+  
 
     this.setState({
       formData: formDataControl,
@@ -65,7 +66,7 @@ class FogotPassword extends React.Component {
     this.setState({ dialogOpen: false });
     this.props.history.push("/login");
   };
-
+//otp valdiation
   showotpval = async () => {
     const { formData } = this.state;
     let filteredata = [formData.find((item) => item.id === "email")];
@@ -73,7 +74,7 @@ class FogotPassword extends React.Component {
     let formInputDataValid = await formValidation.genricFromValidation(filteredata);
     let result = formInputDataValid.find((item) => {
       if (item.error.length) return item;
-      // this.setState({ "otpbutton": false, });
+  
     });
 
     this.setState({ otpbutton: false, otpMessage: "", pwdMessage: "" });
@@ -82,7 +83,7 @@ class FogotPassword extends React.Component {
       this.setState({ otpbutton: true });
     }
   };
-
+//api call for otp generation
   generateOtp = () => {
     this.setState({
       otpStatus: false,
@@ -98,7 +99,7 @@ class FogotPassword extends React.Component {
 
     let apiData = {};
     apiData.type = "forgot";
-    //apiData.client_key = "ktta";
+  
     apiData.caller = "caller";
      apiData.apiKey = "apikey";
     apiData.emailId = data.email;
@@ -131,7 +132,7 @@ class FogotPassword extends React.Component {
         commons.errorLog(error);
       });
   };
-
+//api call for submitting new password
   verifyForm = async (e) => {
     e.preventDefault();
     this.setState({ pwdMessage: "" });
@@ -157,7 +158,7 @@ class FogotPassword extends React.Component {
 
       let apiData = {};
       apiData.type = "newpass";
-      //apiData.client_key = "ktta";
+    
       apiData.caller = "caller"; 
       apiData.apiKey = "apikey";
       apiData.verificationCode = data.otp;
@@ -186,7 +187,7 @@ class FogotPassword extends React.Component {
         });
     }
   };
-
+ //change handler for input fileds of form.
   onChange = (e) => {
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });

@@ -29,7 +29,7 @@ function renderComponent(Component, defaultProps, customProps) {
 }
 
 
-
+//route component for handling routes
 const AppRoutes = (props1) => {
   console.log("appproutes",props1)
   return (

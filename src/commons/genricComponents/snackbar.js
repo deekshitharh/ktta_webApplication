@@ -5,7 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 import {  withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
-class SnackPopup extends React.Component {
+//genric snack bar component
+ class SnackPopup extends React.Component {
     constructor(props) {
         super(props);
         this.state = {

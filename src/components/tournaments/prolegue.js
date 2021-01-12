@@ -25,18 +25,17 @@ class LeagueInfo extends React.Component {
   }
 
 
-  // parentupdate = (value) => {
-  //   handleChildUpdate(value)
-  // }
+
 
 
   componentDidMount() {
-    sessioncommons.setLocalStorage("api_key", clients["ranking"]);
+    sessioncommons.setApiKey("api_key", clients["ranking"]);
   }
 
+  //change handler for togglebutton
   onChange = (event, value) => {
 
-    sessioncommons.setLocalStorage("api_key", clients[value]);
+    sessioncommons.setApiKey("api_key", clients[value]);
     this.props.loadtdata()
     
     

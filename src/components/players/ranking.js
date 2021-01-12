@@ -56,13 +56,14 @@ class PlayerRanking extends React.Component {
       ranking: [],
     };
   }
+//function to display the player details on click of playername
 
   handleDetailDisplay = (id, name, username) => {
     var params = {};
     params.type = "playerRankData";
     params.eventName = name;
     params.playerId = id;
-    // params.client_key = "ktta";
+  
     params.caller = "caller";
     params.apiKey = "apikey";
     params.sportID = "interestedDomainName";
@@ -93,9 +94,7 @@ class PlayerRanking extends React.Component {
     var params = {};
     params.type = "assocRank";
     params.eventName = this.state.value;
-
-    // params.client_key = "ktta";
-    params.caller = "caller";
+      params.caller = "caller";
       params.apiKey = "apikey";
       params.sportID = "interestedDomainName";
     params.filterData = "userId";
@@ -109,16 +108,10 @@ class PlayerRanking extends React.Component {
         return res;
       })
       .then((res) => res.json())
-      // .then(res => {
-      //   if (!res["status"]) {
-      //     console.log("api error" + res["status"])
-      //   }
-      //   return res;
-      // })
+
       .then((res) => {
         this.setState({
           loading: false,
-
           ranking: res["data"],
         });
       })

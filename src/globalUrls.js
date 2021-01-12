@@ -1,7 +1,7 @@
 export const API_URL = "http://www.goto5s.com/";
 export const RAZORPAY_URL = "https://checkout.razorpay.com/v1/checkout.js"
-//export const API_URL = "http:/localhost:80/ktta/";
 
+//url list object based on api type
 export const urls = {
   getData: API_URL + "getData.php",
   core: API_URL + "coreapi.php",

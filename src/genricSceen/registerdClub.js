@@ -37,6 +37,7 @@ const transitionDuration = 1000;
 const gridColumns = 4;
 const gridRows = 2;
 
+//genric component for dispalying the data in landing page  and detailing page of RegisteredClubs component
 
 class GenicRegisteredClubs extends React.Component {
     constructor(props) {
@@ -50,12 +51,12 @@ class GenicRegisteredClubs extends React.Component {
     }
 
 
-
+//api to get registered club data
     loadClubData = () => {
      
         let params = {};
 
-        //params.client_key = "ktta";
+       
         params.type = "academylist";
 
         params.apiKey = "apikey";

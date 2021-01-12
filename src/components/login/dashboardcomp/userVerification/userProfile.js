@@ -40,8 +40,8 @@ class userInfo extends React.Component {
 
 
 
-
-    loadClubData = () => {
+//api to fetch user data
+    loadUserData = () => {
        
         let loggeduser = sessioncommons.getUser();
         let params = {};
@@ -109,7 +109,7 @@ class userInfo extends React.Component {
 
      
     };
-
+//user data fileds
     loadform=()=>{
     let formDataControl = [...JSON.parse(JSON.stringify(editData))];
     this.setState(
@@ -117,7 +117,7 @@ class userInfo extends React.Component {
             "userProfile": formDataControl,
         },
         () => {
-            this.loadClubData();
+            this.loadUserData();
         }
     );
     }
@@ -130,22 +130,12 @@ class userInfo extends React.Component {
        
 }
 
-    // resetForm = () => {
-    //     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-    //     // const formDataControl = [...changePasswordForm];
 
-    //     this.setState({
-    //         "formData": formDataControl,
-    //         "otpStatus": false,
-
-    //     })
-    // };
-  
 
 
    
 
-
+//updated user data submitting to sever
    
     verifyForm = async (e) => {
 
@@ -176,8 +166,7 @@ class userInfo extends React.Component {
                 }
             });
 
-            console.log("helo finl data", data)
-
+           
             var result = {};
             var params = {};
             params.apiKey = "apikey";
@@ -191,7 +180,7 @@ class userInfo extends React.Component {
             result.phoneNumber = data.phoneNo
             result.dateOfBirth = data.DOB;
 
-            //result.interestedSport']="8va5A8N3EKAeKtmeB";
+      
           
             result.pinCode = data.pinCode;
             result.address = data.address;

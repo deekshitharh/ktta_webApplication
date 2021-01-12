@@ -56,8 +56,8 @@ class registerSteps extends React.Component {
     }));
     
   };
-
-  showotpval = async () => {
+//email veification
+  validateEmail = async () => {
     const { formData } = this.state
     let filteredata = [formData.find(item => item.id === "email")]
 
@@ -91,7 +91,7 @@ class registerSteps extends React.Component {
     }
   }
 
-
+//otp generation
   generateOtp = () => {
 
 
@@ -159,7 +159,7 @@ class registerSteps extends React.Component {
         if (item.key === e.target.name && item.id === "email") {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
-          this.showotpval()
+          this.validateEmail()
         }
 
 
@@ -169,7 +169,7 @@ class registerSteps extends React.Component {
 
 
   }
-
+//handle change for stepper
   changeStep = (activeStep) => {
    
     let { stepperdata}=this.state
@@ -185,7 +185,7 @@ class registerSteps extends React.Component {
   componentDidMount() {
     const value = formFileds.filter(word => word.id ==="email")
     let formDataControl = [...JSON.parse(JSON.stringify(value))];
-    // const formDataControl = [...changePasswordForm];
+  
 
     this.setState({
       "formData": formDataControl,

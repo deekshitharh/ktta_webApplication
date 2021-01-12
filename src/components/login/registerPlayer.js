@@ -48,11 +48,11 @@ class playerRegister extends React.Component {
 
     this.handleDialog = this.handleDialog.bind(this);
   }
-
+//api call for club data  which is used in dropdown  in registration form
   loadClubData = () => {
     let params = {};
 
-    //params.client_key = "ktta";
+  
     params.type = "academylist";
 
     params.apiKey = "apikey";
@@ -78,11 +78,11 @@ class playerRegister extends React.Component {
   };
 
   componentDidMount() {
-    //this.loadClubData();
+      //registration change fields
     let emailvalue = this.state.emailfield;
 
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-    // const formDataControl = [...changePasswordForm];
+   
 
     formDataControl.map((item, index) => {
       if (item.key === "emailAddress") {
@@ -95,11 +95,12 @@ class playerRegister extends React.Component {
     });
   }
 
+//clear fileds if registration fails
   resetForm = () => {
     let emailvalue = this.state.emailfield;
 
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-    // const formDataControl = [...changePasswordForm];
+   
 
     formDataControl.map((item, index) => {
       if (item.key === "emailAddress") {
@@ -112,6 +113,8 @@ class playerRegister extends React.Component {
       otpStatus: false,
     });
   };
+
+  //dialog for  registration completion message
   handleDialog = () => {
     this.setState({ dialogOpen: false });
     this.props.history.push("/login");
@@ -119,22 +122,10 @@ class playerRegister extends React.Component {
 
 
 
-  loadScript = (src) => {
-    return new Promise((resolve) => {
-      const script = document.createElement("script");
-      script.src = src;
-      script.onload = () => {
-        resolve(true);
-      };
-      script.onerror = () => {
-        resolve(false);
-      };
-      document.body.appendChild(script);
-    });
-  };
 
+//displaying payement modal
   displayRazorpay = async (formdata) => {
-    const res = await this.loadScript(
+    const res = await commons.loadScript (
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
@@ -142,12 +133,9 @@ class playerRegister extends React.Component {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-
+//function to get order_id to pass to options 
     await this.loadpaymentdata();
-
-    // console.log(data)
-
-    const options = {
+     const options = {
       key: "rzp_live_kApuBzXGZuYXGG",
       currency: "INR",
       amount: (parseInt(this.state.regfees) * 100).toString(),
@@ -174,7 +162,7 @@ class playerRegister extends React.Component {
     });
     paymentObject.open();
   };
-
+//api call for  oder_id for payment 
   loadpaymentdata = async () => {
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
@@ -195,14 +183,12 @@ class playerRegister extends React.Component {
       });
   };
 
+//api call to server to store the transaction_id/form fileds
   submitfom = async (id, amount) => {
     const formvalues = this.state.formData;
-
     let data = commons.displayfileds(formvalues);
-
     let apiData = {};
     apiData.type = "playerreg";
-
     apiData.caller = "caller";
     apiData.apiKey = "apikey";
     apiData.userName = data.name;
@@ -217,7 +203,6 @@ class playerRegister extends React.Component {
     apiData.role = "Player";
     apiData.academy = "none";
     apiData.associationId = "";
-    //apiData.phoneNumber = data.phoneNo
     apiData.dob = data.DOB;
     this.setState({ loading: true });
     await ApiCall("POST", apiData, "core")
@@ -241,9 +226,9 @@ class playerRegister extends React.Component {
         commons.errorLog(error);
       });
   };
-
+//function for form validation
   verifyForm = async (e) => {
-    debugger
+    
     e.preventDefault();
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
@@ -252,7 +237,7 @@ class playerRegister extends React.Component {
       formData,
       this.state.otpcode
     );
-    console.log("cnjdk", formData);
+ 
     let result = formData.find((item) => {
       if (item && item.error.length) return item;
     });
@@ -264,6 +249,7 @@ class playerRegister extends React.Component {
     }
   };
 
+  //change handler for input fileds of form.
   onChange = (e) => {
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });
@@ -276,10 +262,10 @@ class playerRegister extends React.Component {
         if (item.key === e.target.name && item.type !== "string")
           item.value = e.target.value;
         if (item.type === "date") {
-          //let formatDate = moment(e.target.value).format('DD MMM YYYY');
+       
           item.value = e.target.value;
 
-          //console.log("mokme", moment(e.target.value).format('DD MMM YYYY'))
+         
         }
 
         if (item.key === e.target.name && item.id === "email") {
