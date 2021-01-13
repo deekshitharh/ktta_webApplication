@@ -25,7 +25,7 @@ import CommitieData from "./commitedetails"
 import { ApiCall } from "../../APIService";
 import { Link as CoreLink } from '@material-ui/core';
 import InfoComponent from "../../commons/genricComponents/infoComponent"
-
+//displying the tounamnet list user cn register/view
 class Tournament extends React.Component {
   constructor(props) {
     super(props);

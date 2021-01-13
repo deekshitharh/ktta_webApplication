@@ -1,4 +1,4 @@
-
+//steps schema for player registration
 
 import playerRegister from "../components/login/registerPlayer"
 export const steps = [

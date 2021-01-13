@@ -1,5 +1,5 @@
 
-
+// dummy api  response for top player ranking
 export const standingData = [
    
    {

@@ -1,3 +1,4 @@
+//form schema for player registration
 export const registration = [
     {
         id: "email",

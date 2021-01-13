@@ -1,3 +1,5 @@
+//regular expression rules for form fileds
+
 export const regularExpData = [
    
    

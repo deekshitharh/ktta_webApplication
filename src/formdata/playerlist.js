@@ -2,7 +2,7 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Titlize from "../commons/genricComponents/titlize"
-
+//genric table fields for player list
 export const playerList =
     [
         { field: "slNo", title: "SL No" },

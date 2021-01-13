@@ -1,3 +1,4 @@
+ //button schema for event category for player ranking 
  export const selectButtons = [
   {
     

@@ -14,7 +14,7 @@ import Typography from "@material-ui/core/Typography";
 
 
 
-
+//downloding draws  pdf component for event category
 class Downloadpdf extends Component {
 
 

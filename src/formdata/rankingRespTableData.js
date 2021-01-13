@@ -1,3 +1,5 @@
+//genric table fields for ranking in mobile view
+
 export const rankingResponsiveTable  = [
  
     {

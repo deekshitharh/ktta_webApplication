@@ -1,18 +1,8 @@
 
+//form schema for login
 
 export const formFileds = [
-    // {
-    //     id: "email",
-    //     label: "Email-Id",
-    //     type: "email",
-        
-    //     required:true,
-    //     adorment: "email",
-     
-    //     value: "",
-    //     error: "",
-       
-    // },
+    
 
     {
         "id": "email", "displayName": "Email", "order": 1, "key": "emailAddress", adorment: "email", label: "Email-Id",
@@ -25,16 +15,5 @@ export const formFileds = [
         "type": "password", "error": "", "value": "", label: "Password", "required": true
     },
 
-    // {
-    //     id: "password",
-    //     label: "Password",
-    //     adorment: "password",
-    //     type: "password",
-    //     value: "",
-    //     required:true,
-     
-
-    //     error: "",
-        
-    // },
+ 
 ];

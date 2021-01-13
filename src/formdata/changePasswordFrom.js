@@ -1,3 +1,4 @@
+//form schema for passwod change
 export const changePasswordForm = [
     {
         "id": "email", "displayName": "Email", "order": 1, "key": "email",

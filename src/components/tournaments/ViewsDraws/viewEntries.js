@@ -17,7 +17,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../../commons";
 
-
+//compoent for viewing entries for each event category
 class Viewentries extends React.Component {
   // const[alignment, setAlignment] = React.useState('left');
 

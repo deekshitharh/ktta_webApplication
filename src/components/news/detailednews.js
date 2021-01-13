@@ -15,6 +15,7 @@ import Divider from "@material-ui/core/Divider";
 import { commons } from "../../commons";
 
 import ReactHtmlParser from "react-html-parser";
+//detailing component of newsPage 
 class DetailedNews extends React.Component {
   constructor(props) {
     super(props);

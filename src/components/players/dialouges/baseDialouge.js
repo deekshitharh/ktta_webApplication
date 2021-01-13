@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 
 
 
-
+//geniric dilouge component
 class BaseDialog extends Component {
 
 

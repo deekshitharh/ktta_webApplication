@@ -13,6 +13,7 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { ApiCall } from "../../../APIService";
 import RefreshLoader from "../../../commons/genricComponents/pageloader";
 import { commons } from "../../../commons";
+//downloding draws  view component
 class ViewDraws extends React.Component {
   constructor(props) {
     super(props);
@@ -88,7 +89,7 @@ class ViewDraws extends React.Component {
       tournamentId,
     } = this.state;
 
-    console.log("iddd" + tournamentId);
+    
 
     return (
       <React.Fragment>

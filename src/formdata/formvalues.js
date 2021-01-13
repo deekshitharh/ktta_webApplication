@@ -1,16 +1,8 @@
 
+//form schema for contact us
 
 const fileds = [
-  // {
-  //   id: "name",
-  //   label: "Name",
-  //   value: "",
-  //   type: "text",
-  //   required: true,
-  //   adorment: "account",
 
-  //   error: "",
-  // },
   {
     "id": "name", "displayName": "Name", "order": 1, "key": "userName", adorment: "account", label: "Name",
     "type": "string", "error": "", "value": "", "required": true
@@ -23,16 +15,7 @@ const fileds = [
   },
 
 
-  // {
-  //   id: "email",
-  //   label: "Email-Id",
-  //   type: "email",
-  //   required: true,
-  //   adorment: "email",
-
-  //   value: "",
-  //   error: "",
-  // },
+ 
   {
     id: "subject",
     "displayName": "subject",

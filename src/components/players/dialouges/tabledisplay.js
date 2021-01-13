@@ -15,7 +15,7 @@ import CloseIcon from '@material-ui/icons/Close';
 
 
 
-
+//dialouge compnoent for detiling view of player detils used in player rank component
 
 class TableDialog extends Component {
     render() {
