@@ -1,3 +1,4 @@
+// dummy api  response for   registred_clubs
 export const registred_clubs = [
     {
         "_id": "HEYkg9G72uvz3fvD3",

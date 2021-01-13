@@ -1,8 +1,7 @@
+
+//dummmy api response for registred_association
  export const registred_association = [
-    // "status": "success",
-    // "message": "DA for given userId undefined",
-    // "result": true,
-    // "data": [
+  
         {
             "_id": "9oEHwfiDEng6B45ri",
             "interestedDomainName": [
