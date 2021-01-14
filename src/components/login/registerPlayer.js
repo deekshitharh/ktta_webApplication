@@ -284,9 +284,9 @@ class playerRegister extends React.Component {
     const {
       formData,
      
-      registredClubdu,
+      
       pwdStatus,
-     
+      registredClub,
       pwdMessage,
       dialogOpen,
       loading,
@@ -335,7 +335,7 @@ class playerRegister extends React.Component {
                 />
                 <CardContent>
                   <FormGenerator
-                    data={registredClubdu}
+                    data={registredClub}
                     groups={role_groups}
                     groupBy={2}
                     onChange={this.onChange}

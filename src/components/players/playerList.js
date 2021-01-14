@@ -37,14 +37,11 @@ class PlayerList extends React.Component {
 //api call for player list
   componentDidMount() {
     var params = {};
-    params.type = "playerlist";
-    params.caller = "caller";
-    params.apiKey = "apiKey";
-    params.filterData = "userId";
-    params.filterBy = "Association";
+    params.type = "assocPlayers";
+    
    
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then(res => {
         if (!res["status"]) {
           console.log("api error" + res["status"])
@@ -115,7 +112,16 @@ class PlayerList extends React.Component {
                       
                     },
                       { field: "gender", title: "Gender", defaultSort: "asc" },
-                      { field: "academy", title: "Academy" },
+                      { field: "academy", title: "Academy",
+                      render: (rowData) => (
+                          
+                        <Titlize value={rowData.academy} />
+                       
+
+
+                       
+                      ),
+                    },
                       { field: "affiliationId", title: "Affiliation Id" }
                     ]}
                   data={playerList}

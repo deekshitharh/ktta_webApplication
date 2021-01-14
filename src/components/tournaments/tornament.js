@@ -51,22 +51,21 @@ class Tournament extends React.Component {
 
     let params = {};
    
-    params.type = "upcoming";
-    params.filterData = "userId";
-    params.apiKey = "apikey";
-    params.caller = "caller";
-
-    params.sportID = "interestedDomainName"
+    params.type = "tourList";
+   
+   
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+      
+    ApiCall("POST", params,"coreApi")
+ 
       .then((res) => res.json())
       .then((res) => {
 
-        if (res.status === "success" && res.resultID) {
+        if (res.status === "success") {
             this.setState({
            loading: false,
-           tournamentData: res["resultID"],
-           tourval: res["resultID"],
+           tournamentData: res["data"],
+            tourval: res["data"],
            tournamentval: res["tournamentList"],
            tname: ""
         });
@@ -80,10 +79,10 @@ class Tournament extends React.Component {
 
       
         }
-        else if (res.error) {
+        else if (res.status=="failure") {
 
           this.setState({
-
+            tournamentData: res["data"],
             loading: false,
             "emessage": "Something went wrong!!!"
 
@@ -180,7 +179,7 @@ class Tournament extends React.Component {
   render() {
     const { classes } = this.props;
     const { tournamentData, tourType, open, loading, tname, commitiedata} = this.state;
-   
+   console.log("tourdata", tournamentData.length)
 
     return (
       <React.Fragment>
@@ -340,6 +339,8 @@ class Tournament extends React.Component {
                   
                
               )}
+
+              
             </Paper>
           </Grid>
         </div>

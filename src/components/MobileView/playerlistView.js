@@ -44,14 +44,10 @@ class ResponsivePlayerList extends React.Component {
 
 
         var params = {};
-        params.type = "playerlist";
-        params.caller = "caller";
-        params.apiKey = "apiKey";
-        params.filterData = "userId";
-        params.filterBy = "Association";
-        //params.client_key = "ktta";
+        params.type = "assocPlayers";
+       
         this.setState({ loading: true });
-        ApiCall("POST", params, "core")
+        ApiCall("POST", params, "coreApi")
             .then(res => {
                 if (!res["status"]) {
                     console.log("api error" + res["status"])

@@ -64,13 +64,9 @@ class PlayerRanking extends React.Component {
     params.eventName = name;
     params.playerId = id;
   
-    params.caller = "caller";
-    params.apiKey = "apikey";
-    params.sportID = "interestedDomainName";
-
-    params.filterData = "userId";
+   
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -89,18 +85,15 @@ class PlayerRanking extends React.Component {
       open: false,
     });
   };
-
+//api call for players under each event category
   componentDidMount() {
     var params = {};
     params.type = "assocRank";
     params.eventName = this.state.value;
-      params.caller = "caller";
-      params.apiKey = "apikey";
-      params.sportID = "interestedDomainName";
-    params.filterData = "userId";
+    
 
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => {
         if (!res["status"]) {
           console.log("api error" + res["status"]);
@@ -124,16 +117,10 @@ class PlayerRanking extends React.Component {
     var params = {};
     params.type = "assocRank";
     params.eventName = value;
-    //params.client_key = "ktta";
-    params.caller = "caller";
-      params.apiKey = "apikey";
-      params.sportID = "interestedDomainName";
-    params.filterData = "userId";
 
-    // this.onButtonclick(value)
     this.setState({ value: value, loading: true });
 
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         this.setState({

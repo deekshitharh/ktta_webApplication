@@ -39,16 +39,15 @@ class Viewentries extends React.Component {
   componentDidMount() {
     const { tournamentId, value } = this.state;
     var params = {};
-    params.type = "list";
+    params.type = "viewEntries";
     params.tournamentId = tournamentId;
     params.eventId = value;
 
-    params.caller = "caller";
-    params.apiKey = "apikey";
+    
 
     //params.client_key = "ktta";
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((response) => response.json())
       .then((data) => {
         this.setState({
@@ -69,13 +68,13 @@ class Viewentries extends React.Component {
     params.eventId = value;
     params.caller = "caller";
     params.apiKey = "apikey";
-    params.type = "list";
+    params.type = "viewEntries";
  
 
    
     this.setState({ value: value, loading: true });
 
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((response) => response.json())
       .then((data) => {
         this.setState({

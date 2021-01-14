@@ -48,13 +48,9 @@ class ResponsiveRanking extends React.Component {
     params.eventName = name;
     params.playerId = id;
   
-    params.caller = "caller";
-    params.apiKey = "apikey";
-    params.sportID = "interestedDomainName";
-
-    params.filterData = "userId";
+   
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         this.setState({
@@ -78,13 +74,10 @@ class ResponsiveRanking extends React.Component {
     var params = {};
     params.type = "assocRank";
     params.eventName = this.state.value;
-    params.caller = "caller";
-      params.apiKey = "apikey";
-      params.sportID = "interestedDomainName";
-    params.filterData = "userId";
+   
 
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => {
         if (!res["status"]) {
           console.log("api error" + res["status"]);
@@ -110,14 +103,11 @@ class ResponsiveRanking extends React.Component {
     params.type = "assocRank";
     params.eventName = value;
 
-    params.caller = "caller";
-      params.apiKey = "apikey";
-      params.sportID = "interestedDomainName";
-    params.filterData = "userId";
+  
 
     this.setState({ value: value, loading: true });
 
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         this.setState({

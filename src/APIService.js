@@ -6,11 +6,13 @@ import { urls } from "./globalUrls";
    let methodURL = urls[urlType];
  
    if (urlType !== ("payment" || "contactus"))
-   {
+   
      content.client_key = localStorage.getItem("api_key")
-     }
+     
    return fetch(methodURL, {
-    
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    },
     method: methodType,
     body: JSON.stringify(content),
   });

@@ -40,13 +40,9 @@ class ViewDraws extends React.Component {
     params.type = "downloadDraws";
     params.tournamentId = tournamentId;
     params.eventName = value;
-   // params.client_key = "ktta";
-    params.withscore = "withScores";
 
-    params.caller = "caller";
-    params.apiKey = "apikey";
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((response) => response.json())
       .then((data) => {
    
@@ -64,8 +60,8 @@ class ViewDraws extends React.Component {
   };
 
   validatepdf = (pdf) => {
-    const base64Rejex = /^([A-Za-z0-9+]{4})*([A-Za-z0-9+]{4}|[A-Za-z0-9+]{3}=|[A-Za-z0-9+]{2}==)$/;
-    //const base64Rejex = /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)$/;
+   
+  const base64Rejex = /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)$/;
     const check = base64Rejex.test(pdf); // base64Data is the base64 string
     return check;
   };

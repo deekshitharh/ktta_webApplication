@@ -1,4 +1,4 @@
 //client key configuration
 export const clients = 
-    {'ranking':'ktta', league:"TSA"}
+    {'ranking':'KTTA1', league:"TSA"}
    

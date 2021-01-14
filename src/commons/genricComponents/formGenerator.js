@@ -11,7 +11,7 @@ import { withStyles } from "@material-ui/core/styles";
 import {  withRouter } from "react-router-dom";
 
 import customStyles from "../../styles/genricStyle";
-
+///genric form genertor component for provided form schema
 class FormGenerator extends React.Component {
     constructor(props) {
         super(props);

@@ -25,7 +25,7 @@ import LocationCityIcon from '@material-ui/icons/LocationCity';
 import Titlize from "../commons/genricComponents/titlize";
 import withStyles from "@material-ui/core/styles/withStyles";
 
-import { registred_clubs } from "../formdata";
+
 import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
 
@@ -46,24 +46,22 @@ class GenicRegisteredClubs extends React.Component {
             message:"",
             registredClub: [],
             loading: false,
-            registredClubdu: registred_clubs
+            
         };
     }
 
 
 //api to get registered club data
     loadClubData = () => {
-     
+     debugger
         let params = {};
 
        
         params.type = "academylist";
 
-        params.apiKey = "apikey";
-        params.caller = "caller";
-        params.data = { stateAssociationId: "userid" }
+      
         this.setState({ loading: true });
-        ApiCall("POST", params, "core")
+        ApiCall("POST", params, "coreApi")
             .then((res) => res.json())
             .then((res) => {
                 if (res && res.status === "success" && res.data) {
@@ -91,17 +89,17 @@ class GenicRegisteredClubs extends React.Component {
 
     componentDidMount = () => {
         // this.timer = setTimeout(() => this.progress(5), 1000);
-       // this.loadClubData();
+        this.loadClubData();
     };
 
   
 
     render() {
         const { classes, type } = this.props;
-        const { message, loading, registredClubdu } = this.state
+        const { message, loading,registredClub} = this.state
 
-        const clubData = commons.genricGrid(registredClubdu, gridRows, gridColumns)
-        var random = commons.sortArray(registredClubdu, "acadamy");
+        const clubData = commons.genricGrid(registredClub, gridRows, gridColumns)
+        var random = commons.sortArray(registredClub, "acadamy");
 
         return (
 

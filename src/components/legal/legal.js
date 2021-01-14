@@ -30,7 +30,7 @@ class Legal extends React.Component {
     loadlegaldata = () => {
         let apiData = {};
         apiData.tableName = "legal";
-      //  apiData.client_key = "ktta";
+    
         apiData.type = "getData";
       
         ApiCall("POST", apiData, "getData")
