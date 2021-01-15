@@ -81,26 +81,32 @@ class Login extends React.Component {
       let apiData = {};
       apiData.type = "userLogin";
     
-      apiData.caller = "caller";
-       apiData.apiKey = "apikey";
+      
       apiData.userName = data.email;
         apiData.userPassword = data.password;
         apiData.emailOrPhoneFlag = 1;
         apiData.loginRole = "Player";
       apiData.paymentValid = "yes";
 
-      ApiCall("POST", apiData, "core")
+      ApiCall("POST", apiData, "coreApi")
         .then((response) => response.json())
-        .then((data) => {
-          if (typeof data === "object") {
-            this.setState({ loginData: data });
-            sessioncommons.setUserSession(data);
-            this.handleSuccessfulAuth();
-          } else if (typeof data === "string") {
-            this.setState({
-              requestStatus: data,
-            });
+        .then((res) => {
+          if (res.status === "success")
+          {
+               if(typeof res.data === "object")
+               {
+                this.setState({ loginData: res.data });
+                sessioncommons.setUserSession(res.data);
+                this.handleSuccessfulAuth();
+              } else if (typeof res.data === "string") {
+                this.setState({
+                  requestStatus:res.data,
+                });
+              }
+
           }
+          
+      
         })
         .catch((error) => {
           commons.errorLog(error);

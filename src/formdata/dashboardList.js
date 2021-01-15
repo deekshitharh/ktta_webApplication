@@ -15,17 +15,17 @@ export const dashboardData = [
    
 
 
-  {
-    label: "GIVE ENTRIES",
-    pathname: "/",
-    value: 0,
-    component: subscribeEvent,
-    icon: <AssignmentIcon />
-  },
+  // {
+  //   label: "GIVE ENTRIES",
+  //   pathname: "/",
+  //   value: 0,
+  //   component: subscribeEvent,
+  //   icon: <AssignmentIcon />
+  // },
   {
     label: "RESULT",
     pathname: "/",
-    value: 1,
+    value: 0,
     component: displaydraws,
     icon: <FileCopyIcon />
   },
@@ -41,7 +41,7 @@ export const dashboardData = [
     // },
   {
     label: "SCHEDULE",
-    value: 2,
+    value: 1,
     component: SceduleTournament,
     icon: <AccessTimeIcon />,
    
@@ -52,7 +52,7 @@ export const dashboardData = [
       icon: <EditIcon/>,
       component:userProfile,
     
-      value: 3
+      value: 2
     },
     
  

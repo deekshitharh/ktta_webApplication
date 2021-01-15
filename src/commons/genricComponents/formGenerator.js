@@ -9,7 +9,7 @@ import VisibilityOff from '@material-ui/icons/VisibilityOff';
 
 import { withStyles } from "@material-ui/core/styles";
 import {  withRouter } from "react-router-dom";
-
+import Titlize from "../genricComponents/titlize"
 import customStyles from "../../styles/genricStyle";
 ///genric form genertor component for provided form schema
 class FormGenerator extends React.Component {
@@ -71,12 +71,13 @@ class FormGenerator extends React.Component {
 
 //dropdown data
     showDropDown = (nestedItem) => {
+        
         if (nestedItem && nestedItem.key === "clubNameId") {
   
            // const {registredClub} =this.state
             //let genricData = [];
             this.props.data.forEach(item => {
-                nestedItem.options.push({ "value": item.clubName, "key": item.clubName })
+                nestedItem.options.push({ "value":<Titlize value={item.clubName}/>, "key": item.clubName })
 
             })
             //let x = Object.assign(nestedItem, { "options": genricData }) 

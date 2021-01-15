@@ -249,58 +249,58 @@ class Dashboard extends Component {
     componentDidMount() {
        
         this.setState({ pdfopen: false });
-        let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
+        // let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
        
 
-        this.setState({
-            loading: false,
-            ViewPdf: data,
-            pdfopen: true,
-            validPdf: true,
-        });
+        // this.setState({
+        //     loading: false,
+        //     ViewPdf: data,
+        //     pdfopen: true,
+        //     validPdf: true,
+        // });
      
-        {
-            let apiData = {};
-            apiData.tableName = "playerdetails";
+        // {
+        //     let apiData = {};
+        //     apiData.tableName = "playerdetails";
            
-            apiData.type = "getData"
-            this.setState({ pdata:true, loading: true });
-            ApiCall("POST", apiData, "getData")
+        //     apiData.type = "getData"
+        //     this.setState({ pdata:true, loading: true });
+        //     ApiCall("POST", apiData, "getData")
 
-                .then(res => res.json())
-                .then((res) => {
-                    if (res && res.status === "success" && res.getData) {
+        //         .then(res => res.json())
+        //         .then((res) => {
+        //             if (res && res.status === "success" && res.getData) {
 
-                        this.setState({
-                            loading: false,
-                            pdata: false,
-                            playerDetails: res["getData"],
+        //                 this.setState({
+        //                     loading: false,
+        //                     pdata: false,
+        //                     playerDetails: res["getData"],
 
-                        });
+        //                 });
 
-                    }
+        //             }
 
                   
 
-                    sessioncommons.setplayerSession(res["getData"])
+        //             sessioncommons.setplayerSession(res["getData"])
                  
 
-                }).then((res) => {
+        //         }).then((res) => {
                  
                  
                    
-                        this.checkidverification();
+        //                 this.checkidverification();
                   
 
-                })
+        //         })
                 
                 
                 
-                .catch(error => {
-                    commons.errorLog(error)
-                });
+        //         .catch(error => {
+        //             commons.errorLog(error)
+        //         });
 
-        }
+        // }
 
 
 
@@ -440,12 +440,12 @@ class Dashboard extends Component {
                                                             <Grid container align="center">
                                                                
                                                                    
-                                                                    <Grid item md={12} sm={10} xs={11}>
+                                                                    {/* <Grid item md={12} sm={10} xs={11}>
 
                                                                         <Typography gutterBottom variant="h4">
                                                                             {tname.tournamentName}
                                                                         </Typography>
-                                                                    </Grid>
+                                                                    </Grid> */}
 
                                                                 
 

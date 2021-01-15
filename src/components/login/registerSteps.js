@@ -109,12 +109,11 @@ class registerSteps extends React.Component {
     });
 
     let apiData = {};
-    apiData.type = "regotp";
-    apiData.caller = "caller";
-      apiData.apiKey = "apikey";
+    apiData.type = "regOtp";
+  
     apiData.emailId = data.emailAddress;
       this.setState({ loading: true });
-    ApiCall("POST", apiData, "core")
+    ApiCall("POST", apiData, "coreApi")
       .then(res => res.json())
       .then(res => {
         if (res.status === "failure") {
@@ -214,9 +213,9 @@ class registerSteps extends React.Component {
                   <Stepper activeStep={activeStep}
                     orientation={orientation ? "vertical" :"horizontal"}
                     alternativeLabel>
-                    {stepperdata.map((steps) => {
+                    {stepperdata.map((steps,index) => {
                       return (
-                        <Step key={steps}>
+                        <Step key={index}>
                           <StepLabel>{steps.label}</StepLabel>
                         </Step>
                       );

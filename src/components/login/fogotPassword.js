@@ -98,13 +98,12 @@ class FogotPassword extends React.Component {
     });
 
     let apiData = {};
-    apiData.type = "forgot";
+    apiData.type = "forgotOtp";
   
-    apiData.caller = "caller";
-     apiData.apiKey = "apikey";
+    
     apiData.emailId = data.email;
      this.setState({ loading: true });
-    ApiCall("POST", apiData, "core")
+    ApiCall("POST", apiData, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "failure"){
@@ -157,16 +156,15 @@ class FogotPassword extends React.Component {
       });
 
       let apiData = {};
-      apiData.type = "newpass";
+      apiData.type = "setPassword";
     
-      apiData.caller = "caller"; 
-      apiData.apiKey = "apikey";
+    
       apiData.verificationCode = data.otp;
         apiData.userId = data.email;
         apiData.password = data.confirmPassword;
 
       this.setState({ loading: true });
-      ApiCall("POST", apiData, "core")
+      ApiCall("POST", apiData, "coreApi")
         .then((res) => res.json())
         .then((res) => {
           if (res.message) {

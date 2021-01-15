@@ -49,8 +49,7 @@ class userInfo extends React.Component {
       
         params.type = "fetchProfile";
 
-        params.apiKey = "apikey";
-        params.caller = "caller";
+      
         
         var result = {};
         result['userId'] = loggeduser.userId

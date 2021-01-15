@@ -13,7 +13,6 @@ import Login from "./components/login/login"
 import Dashboard from "./components/login/dashboardcomp/dashboard"
 import FogotPassword from "./components/login/fogotPassword"
 import registerSteps from "./components/login/registerSteps"
-import playerRegister from "./components/login/registerPlayer"
 import clubAssoc from "./responsiveComp/clubAssoc"
 import  showdraws from "./components/login/dashboardcomp/userVerification/showdraws"
 import playerRankViews from "./responsiveComp/ranking"
@@ -61,6 +60,12 @@ const AppRoutes = (props1) => {
           path="/login"
           render={props => renderComponent(Login, props, props1)}
         />
+        {/* <PrivateRoute
+          exact
+          path="/login"
+          component={Login}
+        
+        /> */}
         <PrivateRoute
           exact
           path="/dashboard"
@@ -78,11 +83,7 @@ const AppRoutes = (props1) => {
           path="/entriesDraws/:id"
           render={props => renderComponent(ViewsDraws, props, props1)}
         />
-        <Route
-          exact
-          path="/registerPlayer4"
-          render={props => renderComponent(playerRegister, props, props1)}
-        />
+      
         <Route
           exact
           path="/registerSteps"

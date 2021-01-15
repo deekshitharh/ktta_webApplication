@@ -99,6 +99,101 @@ formValidation.verifyPassword = (obj) => {
 
 }
 
+formValidation.validatePasswodData = async (obj,x) => {
+ 
+    obj.map(item => {
+        if (item.value != undefined && item.value != null && item.type !== "number" && item.value.toString().length) {
+            item.value = (typeof (item["value"]) == "string") ? item["value"].trim() : item["value"]
+
+        }
+        let value = item["value"];
+
+        if (item.type == "number" && item.value.toString().length > 0) item.value = parseInt(value)
+        // if (item.type == "number" && item.value.toString().length == 0) item.value = 0
+
+
+
+        item.error = ""
+
+        if (item.type == "date") {
+           
+     
+            var idate = commons.checkFuturedate(item.value);
+
+         
+            if (idate)
+
+            {
+               item["error"] = "DOB cannot be future"
+            }
+            else {
+               item["error"] = ""
+            }
+       
+        }
+
+
+
+        if (item.required) {
+
+            if (item.value == undefined ||
+                (item.value != undefined && item.value.toString().length === 0)
+            ) {
+                item["error"] = item.displayName + " required";
+            }
+        }
+
+
+
+        let fieldObj = regularExpData.find(obj => obj.name.toLowerCase() === item["key"].toLowerCase())
+        if (fieldObj && fieldObj.regExp) {
+
+            if (value!= undefined && value.toString().length > 0
+                //&& (item.type === "number" && item.value != 0)
+
+            ) {
+                let status = fieldObj.regExp.test(value) ? true : false;
+                if (status) {
+                    item["error"] = "";
+                    if (item.verify)
+                    {
+                        if (item.value === x) {
+                            item["error"] = "";
+
+                        }
+                       
+                        else
+                            item['error'] = "Invalid otp";
+                    }
+                 
+                }
+                else
+                    item['error'] = fieldObj.message;
+            }
+
+        }
+
+        // else if (fieldObj === undefined) {
+        //     item["error"] = "";
+        // }
+
+
+    })
+
+    obj = await formValidation.verifyPassword(obj);
+
+
+
+    return obj;
+}
+
+
+
+
+
+
+
+
  //formvalidation
 formValidation.genricFromValidation = async (obj,x) => {
 
@@ -144,9 +239,9 @@ formValidation.genricFromValidation = async (obj,x) => {
                 item["error"] = item.displayName + " required";
             }
 
-            else {
-                item["error"]=""
-            }
+            // else {
+            //     item["error"]=""
+            // }
         }
 
 

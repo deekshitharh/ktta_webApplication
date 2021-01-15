@@ -55,11 +55,8 @@ class playerRegister extends React.Component {
   
     params.type = "academylist";
 
-    params.apiKey = "apikey";
-    params.caller = "caller";
-    params.data = { stateAssociationId: "userid" };
 
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (!res["status"]) {
@@ -79,6 +76,7 @@ class playerRegister extends React.Component {
 
   componentDidMount() {
       //registration change fields
+      this.loadClubData();
     let emailvalue = this.state.emailfield;
 
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
@@ -184,7 +182,8 @@ class playerRegister extends React.Component {
   };
 
 //api call to server to store the transaction_id/form fileds
-  submitfom = async (id, amount) => {
+  submitfom = async () => {
+
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
     let apiData = {};
@@ -197,8 +196,8 @@ class playerRegister extends React.Component {
     apiData.password = data.password;
     apiData.clubNameId = data.clubNameId;
     apiData.regOverride = true;
-    apiData.transactionID = id;
-      apiData.transactionAmount = amount;
+    // apiData.transactionID = id;
+    //   apiData.transactionAmount = amount;
       apiData.approvalCode = "TSA";
     apiData.role = "Player";
     apiData.academy = "none";
@@ -228,7 +227,7 @@ class playerRegister extends React.Component {
   };
 //function for form validation
   verifyForm = async (e) => {
-    
+  
     e.preventDefault();
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
@@ -245,6 +244,7 @@ class playerRegister extends React.Component {
     this.setState({ formData: formData });
 
     if (result === undefined) {
+      
       this.displayRazorpay(data);
     }
   };
@@ -365,7 +365,7 @@ class playerRegister extends React.Component {
                                 })} */}
 
                   <Button
-                    onClick={this.verifyForm}
+                    onClick={this. verifyForm}
                     style={{ marginTop: 10 }}
                     fullWidth
                   >
