@@ -50,14 +50,13 @@ class subscribeEvent extends React.Component {
     let tournamentdata = sessioncommons.getTournament();
     let params = {};
 
-    params.type = "events";
+    params.type = "fetchEvents";
     params.userId = loggeduser.userId;
     params.tournamentId = tournamentdata.tournamentId;
-      params.apiKey = "apikey";
-    params.caller = "caller";
+      
 
     this.setState({ loading: true });
-    ApiCall("POST", params, "core")
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (!res["status"]) {
@@ -116,7 +115,7 @@ class subscribeEvent extends React.Component {
   };
 
   componentDidMount() {
-    this.updateData();
+   this.updateData();
   }
 
   // subscribecalcultion = (ro, value) => {
@@ -287,11 +286,20 @@ class subscribeEvent extends React.Component {
 //api call for  oder_id for payment 
   loadpaymentdata = async () => {
     let loggeduser = sessioncommons.getUser();
-    let timeStamp = loggeduser.affiliationId + "_" + Math.floor(Date.now());
+   
     let apiData = {};
+    apiData.client_key= "KTTA1";
     apiData.amount = (parseInt(this.state.checkedFees) * 100).toString();
-      apiData.receipt = timeStamp;
-    await ApiCall("POST", apiData, "payment")
+      apiData.type="create_order";
+      fetch('https://sports-whiz.herokuapp.com/sports', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(apiData)
+            
+      })
+    
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -346,21 +354,19 @@ class subscribeEvent extends React.Component {
     let params = {};
 
     params.type = "eventSubscribe";
-      params.caller = "caller";
-      params.apiKey = "apikey";
-      params.data = {
-      userId: loggeduser.userId,
-      tournamentId: tournamentdata.tournamentId,
-      subscribeID: result.subscribeId,
-      unSubscribeID: result.unSubscribeId,
-      transactionID: transactionID,
-      transactionAmount: checkedFees,
-      transactionType: "none",
-      oldSubscribeID: result.oldSubscribeId,
-    };
-
+    
+    
+    params.userId= loggeduser.userId;
+    params.tournamentId= tournamentdata.tournamentId;
+    params.subscribeID= result.subscribeId;
+    params.unSubscribeID= result.unSubscribeId;
+    params.transactionID= transactionID;
+    params.transactionAmount= checkedFees;
+    params.transactionType= "none";
+    params.oldSubscribeID= result.oldSubscribeId;
+    
     this.setState({ loading: true });
-    await ApiCall("POST", params, "core")
+    await ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res.message === "success") {

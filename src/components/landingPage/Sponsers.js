@@ -6,7 +6,7 @@ import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
 
-
+import pageBanner from "../../config/bannerConfig";
 import { ApiCall } from "../../APIService";
 import Divider from "@material-ui/core/Divider";
 
@@ -26,11 +26,11 @@ export default class Sponsers extends React.Component {
 //api call fo sponsers data
   loadSponsersData = () => {
     let apiData = {};
-    apiData.tableName = "sponsers";
+    apiData.entity = "sponsors";
     
-    apiData.type = "getData";
+   
 
-    ApiCall("POST", apiData, "getData")
+    ApiCall("POST", apiData, "fetchData")
       .then((res) => res.json())
       .then((res) => {
         if (!res["status"]) {
@@ -40,8 +40,8 @@ export default class Sponsers extends React.Component {
       })
       .then((res) => {
         this.setState({
-          sponsers: res["getData"],
-          filepath: res["imagePath"],
+          sponsers: res["data"],
+        
         });
       })
       .catch((error) => {
@@ -56,7 +56,7 @@ export default class Sponsers extends React.Component {
   render() {
     const { classes } = this.props;
     const { sponsers, filepath } = this.state;
-    
+    const defaultlogo = pageBanner("sponsers");
 
     return (
       <React.Fragment>
@@ -83,7 +83,13 @@ export default class Sponsers extends React.Component {
                           width: 100,
                           marginTop: 20,
                         }}
-                       alt="" src={API_URL + `${filepath}` + "/" + `${newsRow.image}`}
+                       alt="" 
+                       src={defaultlogo}
+                       // src={
+                       //   newsRow.url
+                       //     ? newsRow.url
+                       //     : ""
+                       // }
                       ></img>
                     </Grid>
                   );

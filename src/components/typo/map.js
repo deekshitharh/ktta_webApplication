@@ -2,7 +2,7 @@ import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
 import React, { Component } from "react";
 import Grid from "@material-ui/core/Grid";
 import Container from '@material-ui/core/Container';
-
+import InfoComponent from "../../commons/genricComponents/infoComponent"
 import SingleLineGridList from "../contact/assocList"
 import Typography from "@material-ui/core/Typography";
 const style = {
@@ -126,7 +126,9 @@ export class MapContainer extends Component {
           </Grid>
 
           <Grid item md={4} sm={12} xs={12}>
-            <Container maxWidth="sm"> <SingleLineGridList handleMapshow={this.handleViewMap}/></Container>
+            <Container maxWidth="sm"> 
+            <SingleLineGridList handleMapshow={this.handleViewMap}/>
+            </Container>
 
              
 

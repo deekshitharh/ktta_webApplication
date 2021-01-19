@@ -9,7 +9,7 @@ import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
 import Typography from "@material-ui/core/Typography";
-
+import pageBanner from "../config/bannerConfig";
 import Paper from "@material-ui/core/Paper";
 import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
@@ -41,17 +41,15 @@ const gridRows = 3;
 //api fo getting news
     loadNewsData = () => {
         let apiData = {};
-        apiData.tableName = "news";
-        apiData.client_key = "ktta";
-        apiData.type = "getData";
+        apiData.entity="news";
         this.setState({ loading: true });
-        ApiCall("POST", apiData, "getData")
+        ApiCall("POST", apiData, "fetchData")
             .then((res) => res.json())
             .then((res) => {
                 this.setState({
                     loading: false,
-                    newsData: res["getData"],
-                    filepath: res["imagePath"],
+                    newsData: res["data"],
+                   
                 });
             })
             .catch((error) => {
@@ -65,9 +63,10 @@ const gridRows = 3;
     render() {
         const { classes, type } = this.props;
         const { newsData, loading, filepath} = this.state;
-        let filteredata = newsData.filter(item => item.image && item.title !=='');
+      
+        let filteredata = newsData.filter(item => item.url && item.title !=='');
         const newsValues = commons.genricGrid(filteredata, gridRows, gridColumns);
-
+        const defaultlogo = pageBanner("news");
 
         return (
           <div className={classes.root}>
@@ -101,20 +100,18 @@ const gridRows = 3;
                                   md={gridColumnData.md}
                                   xs={gridColumnData.xs}
                                   key={newsIndex}
-                                  style={{ display: "flex" }}
+                                  //style={{ display: "flex" }}
                                 >
                                   <Card style={{ display: "flex", margin: 5 }}>
                                     <CardMedia
                                       component="img"
                                       // image={newsRow.img}
                                       className={classes.horiCardMedia}
+                                     // src={defaultlogo}
                                       src={
-                                        newsRow.image
-                                          ? API_URL +
-                                            `${filepath}` +
-                                            "/" +
-                                            `${newsRow.image}`
-                                          : ""
+                                        newsRow.url
+                                          ? newsRow.url
+                                          :  defaultlogo
                                       }
                                     />
                                     <CardContent
@@ -165,7 +162,9 @@ const gridRows = 3;
                     {newsData.length ? (
                       newsData.map((value, index) => {
                         return (
-                          <Card className={classes.card} key={index}>
+                          <Card 
+                          className={classes.card} 
+                          key={index}>
                             <Grid container>
                               <Grid
                                 item
@@ -176,13 +175,11 @@ const gridRows = 3;
                                 <CardMedia
                                   component="img"
                                   alt=""
+                              
                                   src={
-                                    value.image
-                                      ? API_URL +
-                                        `${filepath}` +
-                                        "/" +
-                                        `${value.image}`
-                                      : ""
+                                    value.url
+                                      ?  value.url
+                                      : defaultlogo
                                   }
                                 />
                               </Grid>
@@ -201,8 +198,8 @@ const gridRows = 3;
                                   <Typography>
                                     <LinesEllipsis
                                       text={
-                                        value.description !== null
-                                          ? ReactHtmlParser(value.description)
+                                        value.desc !== null
+                                          ? ReactHtmlParser(value.desc)
                                           : ""
                                       }
                                       ellipsis="..."

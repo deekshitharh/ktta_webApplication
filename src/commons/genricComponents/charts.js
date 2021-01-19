@@ -102,9 +102,12 @@ const Graph = () => {
            <div className="ct-chart"/>
        
        );  
+
+       
 };
 
  class Statistics extends Component {
+
   render() {
    
 

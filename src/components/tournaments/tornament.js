@@ -108,10 +108,10 @@ class Tournament extends React.Component {
    
   };
 
-  
+
 
   onsubmitdata = (tdata) => {
-    debugger
+   
    let  tournamentval ={};
     tournamentval.tournamentId = tdata._id;
     tournamentval.tournamentName = tdata.eventName;
@@ -136,20 +136,18 @@ class Tournament extends React.Component {
     var params = {};
 
 
-    params.tableName = "league_committee";
-    params.type = "getDataByTournamentId";
-    //params.client_key = "ktta";
+    params.entity = "leagueCommittee";
     params.tournamentId = id;
 
 
 
-    ApiCall("POST", params, "getData")
+    ApiCall("POST", params, "fetchData")
       .then(response => response.json())
       .then((data) => {
         this.setState({
           open: true,
           tname: name,
-          commitiedata: data["getData"]
+          commitiedata: data["data"]
         });
       })
       .catch((error) => {
@@ -209,7 +207,7 @@ class Tournament extends React.Component {
                     value.eventEndDate,
                     value.eventSubscriptionLastDate
                   );
-                  console.log("futue", tournamentType);
+                 
                   return (
                     <Card className={classes.tornamentcard} key={index}>
                       <Grid
@@ -319,6 +317,7 @@ class Tournament extends React.Component {
                             ) : (
                               <div>
                                 <Button
+                                
                                   component={Link}
                                   to={`/entriesDraws/${value._id}`}
                                 >

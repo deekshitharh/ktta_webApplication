@@ -37,14 +37,14 @@ const transitionDuration = 1000;
 const gridColumns = 4;
 const gridRows = 2;
 
-//genric component for dispalying the data in landing page  and detailing page of RegisteredClubs component
+//genric component for dispalying the data in landing page  and detailing page of Registeredassociation component
 
-class GenicRegisteredClubs extends React.Component {
+class GenicRegisteredAssoc extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
             message:"",
-            registredClub: [],
+            registredAssoc: [],
             loading: false,
             
         };
@@ -52,12 +52,12 @@ class GenicRegisteredClubs extends React.Component {
 
 
 //api to get registered club data
-    loadClubData = () => {
-    
+    loadAssocData = () => {
+     
         let params = {};
 
        
-        params.type = "academylist";
+        params.type = "getAcademyListForGivenAssoc";
 
       
         this.setState({ loading: true });
@@ -68,7 +68,7 @@ class GenicRegisteredClubs extends React.Component {
               
                     this.setState({
                         loading: false,
-                        registredClub: res["data"],
+                        registredAssoc: res["data"],
                     });
 
                     }
@@ -89,17 +89,17 @@ class GenicRegisteredClubs extends React.Component {
 
     componentDidMount = () => {
         // this.timer = setTimeout(() => this.progress(5), 1000);
-        this.loadClubData();
+        this.loadAssocData();
     };
 
   
 
     render() {
         const { classes, type } = this.props;
-        const { message, loading,registredClub} = this.state
+        const { message, loading,registredAssoc} = this.state
 
-        const clubData = commons.genricGrid(registredClub, gridRows, gridColumns)
-        var random = commons.sortArray(registredClub, "acadamy");
+        const clubData = commons.genricGrid(registredAssoc, gridRows, gridColumns)
+        var random = commons.sortArray(registredAssoc, "assoc");
 
         return (
 
@@ -110,9 +110,9 @@ class GenicRegisteredClubs extends React.Component {
                         <div style={{ display: "flex" }}>
                             <Typography variant="h6" component="h6" style={{ flex: 1 }}>
                                 {" "}
-                                Registered Clubs
+                                Registered Associations
                                 </Typography>
-                            <ViewMorePage pathname="/registreredclubs_Assoc" title="MORE" index={false} />
+                                <ViewMorePage pathname="/registreredclubs_Assoc" title="MORE" index={true}/>
                         </div>
                         <Divider />
 
@@ -124,7 +124,7 @@ class GenicRegisteredClubs extends React.Component {
                             {clubData.map((clubRow, clubIndex) => {
 
                                 let clubs = commons.shuffleArray(clubRow.colums);
-                                let sorted = commons.sortArray(clubs, "acadamy");
+                                let sorted = commons.sortArray(clubs, "assoc");
                                 return (<Grid container
 
                                     key={clubIndex}
@@ -301,4 +301,4 @@ class GenicRegisteredClubs extends React.Component {
     }
 }
 
-export default withStyles(customStyles)(GenicRegisteredClubs);
+export default withStyles(customStyles)(GenicRegisteredAssoc);

@@ -66,7 +66,8 @@ const customStyles = (theme) => ({
 
 drawstable:
 {
-width:"50%",
+width:"25%",
+marginTop:"30px",
 borderSpacing: "0 5px",
 borderCollapse: "separate"
 },

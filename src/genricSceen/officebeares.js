@@ -23,6 +23,7 @@ import { ApiCall } from "../APIService";
 import { API_URL } from "../globalUrls";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { commons } from "../commons";
+import pageBanner from "../config/bannerConfig";
 import InfoComponent from "../commons/genricComponents/infoComponent";
 //genric component for dispalying the data in landing page  and detailing page of officebearers component
 class GenricOfficebearers extends React.Component {
@@ -42,11 +43,10 @@ class GenricOfficebearers extends React.Component {
 
 
 
-        params.tableName = "officebearers";
-        //params.client_key = "ktta";
-        params.type = "getData";
+        params.entity = "officeBearers";
+       
         this.setState({ loading: true });
-        ApiCall("POST", params, "getData")
+        ApiCall("POST", params, "fetchData")
 
             .then(res => res.json())
             .then(res => {
@@ -59,8 +59,8 @@ class GenricOfficebearers extends React.Component {
 
                 this.setState({
                     loading: false,
-                    officeData: res["getData"],
-                    imagepath: res["imagePath"]
+                    officeData: res["data"],
+                   
                 });
             })
             .catch(error => {
@@ -73,16 +73,11 @@ class GenricOfficebearers extends React.Component {
         this.loadOfficebearersData();
     };
 
-
-
-
-
-
-    render() {
+        render() {
         const { classes,type } = this.props;
-        const { officeData, imagepath, loading } = this.state
-        let filteredImage = officeData.filter(item => item.image != null);
-
+        const { officeData, loading } = this.state;
+        let filteredImage = officeData.filter(item => item.url!= "");
+        const defaultlogo = pageBanner("OfficeBeaers");
         let filteredData = filteredImage.slice(0, 4);
         return (
           <div className={classes.root}>
@@ -118,18 +113,16 @@ class GenricOfficebearers extends React.Component {
                               <CardMedia
                                 className={classes.media}
                                 component="img"
+                               //   src={defaultlogo}
                                 src={
-                                  value.image
-                                    ? API_URL +
-                                      `${imagepath}` +
-                                      "/" +
-                                      `${value.image}`
-                                    : ""
+                                  value.url
+                                    ?  value.url
+                                    : defaultlogo
                                 }
                               />
-                              <CardContent style={{ textAlign: "center" }}>
+                              <CardContent style={{textAlign:"center"}}>
                                 <Typography gutterBottom variant="h6">
-                                  <Titlize value={value.name} />
+                                  <Titlize value={value.name}/>
                                 </Typography>
 
                                 <Typography
@@ -174,7 +167,7 @@ class GenricOfficebearers extends React.Component {
               </React.Fragment>
             ) : (
               <React.Fragment>
-                  <Topbar index={4}  />
+                  <Topbar index={0}  />
                 <div className={classes.root}>
                   {/* <Grid container justify="center"> */}
                   <RefreshLoader
@@ -200,13 +193,11 @@ class GenricOfficebearers extends React.Component {
                                 <CardMedia
                                   className={classes.media}
                                   component="img"
+                                  
                                   src={
-                                    value.image
-                                      ? API_URL +
-                                        `${imagepath}` +
-                                        "/" +
-                                        `${value.image}`
-                                      : ""
+                                    value.url
+                                      ?  value.url
+                                      : defaultlogo
                                   }
                                 />
 

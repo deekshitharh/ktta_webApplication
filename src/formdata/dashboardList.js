@@ -10,26 +10,19 @@ import EditIcon from '@material-ui/icons/Edit';
 import subscribeEvent from "../components/login/dashboardcomp/userVerification/GiveEntries"
 import SceduleTournament from "../components/login/dashboardcomp/userVerification/scheduletour"
 import userProfile from "../components/login/dashboardcomp/userVerification/userProfile"
-import displaydraws from "../components/login/dashboardcomp/userVerification/showResults"
+
 export const dashboardData = [
    
 
 
-  // {
-  //   label: "GIVE ENTRIES",
-  //   pathname: "/",
-  //   value: 0,
-  //   component: subscribeEvent,
-  //   icon: <AssignmentIcon />
-  // },
   {
-    label: "RESULT",
+    label: "GIVE ENTRIES",
     pathname: "/",
     value: 0,
-    component: displaydraws,
-    icon: <FileCopyIcon />
+    component: subscribeEvent,
+    icon: <AssignmentIcon />
   },
-  
+
   
  
  

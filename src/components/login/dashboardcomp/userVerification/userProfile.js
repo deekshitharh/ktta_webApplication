@@ -2,7 +2,7 @@ import React from "react";
 import Button from "@material-ui/core/Button";
 import customStyles from "../../../../styles/genricStyle";
 import FormGenerator from "../../../../commons/genricComponents/formGenerator"
-import SnackPopup from "../../../../commons/genricComponents/snackbar"
+
 import { ApiCall } from "../../../../APIService";
 import Grid from "@material-ui/core/Grid";
 import { sessioncommons } from "../../../../commons";
@@ -12,6 +12,7 @@ import formValidation from "../../../../commons/formfunction";
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
 import CardContent from '@material-ui/core/CardContent';
+import SnackPopup from "../../../../commons/genricComponents/snackbar";
 
 import { commons } from "../../../../commons";
 import RefreshLoader from "../../../../commons/genricComponents/pageloader"
@@ -51,11 +52,11 @@ class userInfo extends React.Component {
 
       
         
-        var result = {};
-        result['userId'] = loggeduser.userId
-        params.data = JSON.stringify(result);
+      
+        params.userId = loggeduser.userId
+      
         this.setState({ loading: true });
-        ApiCall("POST", params, "core")
+        ApiCall("POST", params, "coreApi")
             .then(res => res.json())
             .then(res => {
                 if (res.status === "success" && res.result) {
@@ -167,26 +168,26 @@ class userInfo extends React.Component {
 
            
             var result = {};
-            var params = {};
-            params.apiKey = "apikey";
-            params.caller = "caller";
-            params.type = "editProfile";
+          
+            // params.apiKey = "apikey";
+            // params.caller = "caller";
+            result.type = "setProfile";
         
             
             result.userId = loggeduser.userId;
-            result.userName = data.userName;
-            result.gender = data.gender
-            result.phoneNumber = data.phoneNo
-            result.dateOfBirth = data.DOB;
+            // result.userName = data.userName;
+            // result.gender = data.gender
+            // result.phoneNumber = data.phoneNo
+            // result.dateOfBirth = data.DOB;
 
       
           
             result.pinCode = data.pinCode;
-            result.address = data.address;
+           // result.address = data.address;
             result.city = data.city;
-            params.data = JSON.stringify(result);
+           
             this.setState({ loading: true });
-            ApiCall("POST", params, "core")
+            ApiCall("POST", result, "coreApi")
                 .then(res => res.json())
                 .then(res => {
                     if (res) {

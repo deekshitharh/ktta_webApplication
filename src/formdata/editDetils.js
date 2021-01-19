@@ -33,6 +33,7 @@ export const editData = [
         id: "userName",
         displayName: "Username",
         order: 4,
+        disabled: true,
         type: "string",
         error: "",
         value: "",
@@ -59,6 +60,7 @@ export const editData = [
         id: "gender",
         displayName: "Gender",
         order: 12,
+        disabled: true,
         select: true,
         type: "select",
         error: "",
@@ -86,7 +88,7 @@ export const editData = [
     {
         key: "address",
         id: "address",
-      
+        disabled: true,
         displayName: "Address",
         order: 5,
         type: "string",

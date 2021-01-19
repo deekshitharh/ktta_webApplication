@@ -79,7 +79,7 @@ commons.gridData= (apidata) => {
 
     let genricData = [];
     let i;
-    for (i = 0; i < (apidata.length-1); i++) {
+    for (i = 0; i <=2; i++) {
         genricData.push(apidata[i])
     }
 

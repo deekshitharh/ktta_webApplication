@@ -29,11 +29,11 @@ class Legal extends React.Component {
 
     loadlegaldata = () => {
         let apiData = {};
-        apiData.tableName = "legal";
+       
     
-        apiData.type = "getData";
+        apiData.entity = "legal";
       
-        ApiCall("POST", apiData, "getData")
+        ApiCall("POST",  apiData, "fetchData")
        
             .then((res) => {
 
@@ -48,11 +48,11 @@ class Legal extends React.Component {
 
             .then((res) => {
 
-                if (res && res.status === "success" && res.getData) {
+                if (res && res.status === "success" && res.data) {
 
                     this.setState({
-                        legalData: res["getData"],
-                        pdfPath: res["imagePath"],
+                        legalData: res["data"],
+                        
                     });
 
                 }    
@@ -95,19 +95,7 @@ class Legal extends React.Component {
             <Topbar index={2}  />
             <div className={classes.root}>
               <Paper className={classes.officepaper}>
-                {emptyData.length ? (
-                  <Grid item md={12} sm={12} xs={12}>
-                    <Typography
-                      gutterBottom
-                      variant="h2"
-                      style={{ marginLeft: "5px" }}
-                    >
-                      {emptyData}
-                    </Typography>
-                  </Grid>
-                ) : (
-                  ""
-                )}
+        
                 
                   {
                     legalData.length ? (
@@ -150,7 +138,7 @@ class Legal extends React.Component {
                               component="div"
                               variant="body1"
                             >
-                              {ReactHtmlParser(value.description)}
+                              {ReactHtmlParser(value.desc)}
                             </Typography>
                           </Grid>
 
@@ -164,13 +152,8 @@ class Legal extends React.Component {
                             <Button
                               children={false}
                               target="_"
-                              href={
-                                API_URL +
-                                `${pdfPath}` +
-                                "/" +
-                                `${value.documentName}`
-                              }
-                              color="primary"
+                              href={legalData.url}
+                           
                               size="large"
                               //onClick={(e) => this.handleViewPdf(value.documentName)}
                               // style={{ alignContent: "flex-end" }}
@@ -190,6 +173,7 @@ class Legal extends React.Component {
                   message="No Data available yet!!!"
                 />
               )}
+
               </Paper>
             </div>
           </React.Fragment>

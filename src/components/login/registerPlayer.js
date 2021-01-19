@@ -42,8 +42,8 @@ class playerRegister extends React.Component {
       loading: false,
       regfees: "1",
       paymentid: "",
-      registredClubdu: registred_clubs,
-    };
+      
+    }
     this.verifyForm = this.verifyForm.bind(this);
 
     this.handleDialog = this.handleDialog.bind(this);
@@ -165,11 +165,12 @@ class playerRegister extends React.Component {
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
 
-    let timeStamp = data.email + "_" + Math.floor(Date.now());
+   // let timeStamp = data.email + "_" + Math.floor(Date.now());
     let apiData = {};
+    apiData.type ="create_order";
     apiData.amount = (parseInt(this.state.regfees) * 100).toString();
-      apiData.receipt = timeStamp;
-    await ApiCall("POST", apiData, "playreg")
+      
+    await ApiCall("POST",apiData,"coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -182,29 +183,35 @@ class playerRegister extends React.Component {
   };
 
 //api call to server to store the transaction_id/form fileds
-  submitfom = async () => {
+  submitfom = async (id,amount) => {
 
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
-    let apiData = {};
-    apiData.type = "playerreg";
-    apiData.caller = "caller";
-    apiData.apiKey = "apikey";
+    let apiData = {}
+    apiData.client_key= "TSA";
+    apiData.type="playerReg";
+ 
     apiData.userName = data.name;
     apiData.verificationCode = data.otp;
     apiData.emailAddress = data.email;
     apiData.password = data.password;
     apiData.clubNameId = data.clubNameId;
-    apiData.regOverride = true;
-    // apiData.transactionID = id;
-    //   apiData.transactionAmount = amount;
+    
+     apiData.transactionID = id;
+      apiData.transactionAmount = amount;
       apiData.approvalCode = "TSA";
-    apiData.role = "Player";
-    apiData.academy = "none";
-    apiData.associationId = "";
+    
+   
     apiData.dob = data.DOB;
     this.setState({ loading: true });
-    await ApiCall("POST", apiData, "core")
+    await fetch('https://sports-whiz.herokuapp.com/sports', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json;charset=utf-8'
+      },
+      body: JSON.stringify(apiData)
+          
+    })
       .then((res) => res.json())
       .then((res) => {
         if (res && res.data) {
@@ -244,7 +251,7 @@ class playerRegister extends React.Component {
     this.setState({ formData: formData });
 
     if (result === undefined) {
-      
+     
       this.displayRazorpay(data);
     }
   };

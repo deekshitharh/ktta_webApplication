@@ -59,6 +59,7 @@ class Contact extends React.Component {
       if (item.error.length) return item;
     })
    this.setState({ formdata: formInputDataValid });
+   debugger
     if (result === undefined) {
       const data = {};
       const formvalues = [...this.state.formdata];
@@ -66,24 +67,24 @@ class Contact extends React.Component {
         data[obj.id] = obj.value;
       });
       var params = {};
-
-     
-        params.emailId =data.email;
+      params.name=data.name
+      params.entity = "contactUs";
+        params.email =data.email;
         params.subject = data.subject;
-      params.description = data.Messege;
+      params.message = data.Messege;
 
       
 
-      ApiCall("POST", params, "contactus")
+      ApiCall("POST", params, "createData")
         .then(response => response.json())
         .then(data => {
        
-          if (data.mailStatus) {
+          if (data.status) {
 
             this.setState({
             
               reqmsg: true,
-              requestStatus: data.mailStatus
+              requestStatus:data.status
             });
 
             this.resetForm();

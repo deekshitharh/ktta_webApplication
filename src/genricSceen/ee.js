@@ -6,3 +6,28 @@ fetch('https://sports-whiz.herokuapp.com/sports', {
     body: JSON.stringify(params)
         
   })
+
+
+
+  {ELEMENT_DATA.map((row, index) => {
+    return  Object.keys(row).map((o, i) => {
+       
+return(
+        <TableRow key={index}>
+          <TableCell
+            classes={{ root: classes.drawtable }}
+            align="center"
+            component="th"
+            scope="row"
+          >
+           {row[o]}
+          </TableCell>
+     
+        </TableRow>
+      )
+
+      })
+
+
+
+    

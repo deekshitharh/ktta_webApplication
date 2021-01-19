@@ -77,7 +77,7 @@ class FormGenerator extends React.Component {
            // const {registredClub} =this.state
             //let genricData = [];
             this.props.data.forEach(item => {
-                nestedItem.options.push({ "value":<Titlize value={item.clubName}/>, "key": item.clubName })
+                nestedItem.options.push({ "value": item.clubName, "key": item.clubName })
 
             })
             //let x = Object.assign(nestedItem, { "options": genricData }) 

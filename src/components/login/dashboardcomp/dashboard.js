@@ -22,6 +22,7 @@ import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
+
 import { fileCall } from "../../../APIService"
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
@@ -63,7 +64,7 @@ class Dashboard extends Component {
             notup: false,
             uploaded: false,
 
-            tournamentId: this.props.match.params.id,
+            //tournamentId: this.props.match.params.id,
             pdfopen: false,
             prosvalue:"Prospectus",
             download:false,
@@ -85,7 +86,7 @@ class Dashboard extends Component {
 
     handleChange = (event, index) => {
         
-       
+       debugger
 
         let Found = dashboardData.find(item => item.value === index);
         this.setState({
@@ -99,7 +100,7 @@ class Dashboard extends Component {
 
         let Found = dashboardData.find(item => item.value === index);
 
-        if (Found) return <div><Found.component /></div>
+        if (Found) return <div><Found.component/></div>
 
 
         return false;
@@ -423,29 +424,28 @@ class Dashboard extends Component {
                                  
                                     <Paper className={classes.contentpaper}>
 
-                                           
+{/*                                            
                                             {pdata &&
                                                 <Grid align="center" justify="center" container >
                                                     <Grid>
                                                         <RefreshLoader display="normal" loading={loading} />
                                                     </Grid>
-                                                </Grid>}
+                                                </Grid>} */}
 
                                             <Grid  container>
-                                                {uploaded &&
+                                               
                                                     
                                                       
 
                                                       
                                                             <Grid container align="center">
                                                                
-                                                                   
-                                                                    {/* <Grid item md={12} sm={10} xs={11}>
-
-                                                                        <Typography gutterBottom variant="h4">
-                                                                            {tname.tournamentName}
-                                                                        </Typography>
-                                                                    </Grid> */}
+                                                            {pdata &&
+                                                <Grid align="center" justify="center" container >
+                                                    <Grid>
+                                                        <RefreshLoader style="normal" loading={loading} />
+                                                    </Grid>
+                                                </Grid>}
 
                                                                 
 
@@ -462,7 +462,7 @@ class Dashboard extends Component {
 
 
 
-                                                }
+                                                
 
                                                 {notup ?
                                                     (<Card className={classes.card} style={{ margin: '10px' }}>
