@@ -23,7 +23,7 @@ import ListItemText from "@material-ui/core/ListItemText";
 import ListItemIcon from '@material-ui/core/ListItemIcon';
 import List from '@material-ui/core/List';
 
-import { fileCall } from "../../../APIService"
+
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import {  withRouter } from "react-router-dom";
@@ -37,7 +37,6 @@ import {
     Paper,
    
 } from "@material-ui/core";
-import SnackPopup from "../../../commons/genricComponents/snackbar"
 import { sessioncommons } from "../../../commons"
 import RefreshLoader from "../../../commons/genricComponents/pageloader"
 import DescriptionIcon from '@material-ui/icons/Description';
@@ -56,14 +55,14 @@ class Dashboard extends Component {
             error: {},
             open: true,
             "message": '',
-            playerDetails: [],
+            playerDetails: {},
             requestStatus: "",
             uploadedstatus: {},
             iduploaded: null,
             loading: false,
             notup: false,
             uploaded: false,
-
+            userStatus:null,
             //tournamentId: this.props.match.params.id,
             pdfopen: false,
             prosvalue:"Prospectus",
@@ -86,8 +85,7 @@ class Dashboard extends Component {
 
     handleChange = (event, index) => {
         
-       debugger
-
+      
         let Found = dashboardData.find(item => item.value === index);
         this.setState({
             value: Found.value,
@@ -113,127 +111,11 @@ class Dashboard extends Component {
         });
     }
 
-    onSubmit = (e) => {
-        e.preventDefault();
-      
-      
-        
-     
-        let fileVal = formValidation.validateFile(this.state.uploadedFile);
-        this.setState({ message: fileVal });
-        if (fileVal) {
-            if (!fileVal.status) {
-                this.setState({ "message": fileVal.msg })
-            }
-            else {
-                this.setState({ "message": fileVal.msg })
-                let loggeduser = sessioncommons.getUser()
-                let params = {};
-               
-                params.playerName = loggeduser.userName;
-                params.affiliationId = loggeduser.affiliationId;
-                params.playerEmail = loggeduser.emailAddress;
-                params.file = this.state.uploadedFile;
-
-                let fData = new FormData();
-
-                for (let key in params) {
-                    fData.append(key, params[key]);
-                }
-                this.setState({ loading: true });
-                fileCall("POST", fData, "playerupload")
-                    .then((res) => res.json())
-                    .then(res => {
-                        if (res.recordAdded && res.message) {
-                          
-
-                            this.setState({
-                                loading: false,
-
-                                uploadedstatus: res.message
-                            })
-
-                           
-                           
-                        }
-
-                        
-                    })
-                    .then((res) => {
-                        setTimeout(() => {
-                            this.onReset();
-                        }, 1000);
-                    })
-
-              
-                    .catch((error)=>{
-                        this.setState({
-                            loading: false,
-                            iduploaded: false,
-                            message: "Please try after some  time",
-                        });
-
-                        console.log("upload error " + error);
-                    });
-
-              
-            }
-        }
-    };
+  
 
 
-    onChange = (e) => {
-        this.setState({
-            uploadedFile: e.target.files[0],
-           
-        });
-    };
+ 
 
-//reset file data
-    onReset() {
-        this.refs.file.value = "";
-        this.setState({
-            uploaded: true,
-            notup: false
-        });
-    }
-//check if player uploded the doc
-    checkidverification = () => {
-    
-        let loggeduser = sessioncommons.getUser()
-        let playerdata = sessioncommons.getplayerDetails()
-
-        if (loggeduser && playerdata) {
-            let affiliationId = loggeduser.affiliationId;
-            let userId = playerdata.find(
-                (obj) => affiliationId === obj["player_affliation_id"]
-            );
-
-            if (userId) {
-                this.setState(
-                    {
-                       
-                        notup: true,
-                    },
-                 
-                );
-            } else {
-                this.setState(
-                    {
-
-                        
-                        uploaded:true,
-                    },
-                 
-                );
-            }
-        }
-
-
-
-
-
-    };
     
 
    
@@ -250,58 +132,10 @@ class Dashboard extends Component {
     componentDidMount() {
        
         this.setState({ pdfopen: false });
-        // let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
+        let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
+      
+
        
-
-        // this.setState({
-        //     loading: false,
-        //     ViewPdf: data,
-        //     pdfopen: true,
-        //     validPdf: true,
-        // });
-     
-        // {
-        //     let apiData = {};
-        //     apiData.tableName = "playerdetails";
-           
-        //     apiData.type = "getData"
-        //     this.setState({ pdata:true, loading: true });
-        //     ApiCall("POST", apiData, "getData")
-
-        //         .then(res => res.json())
-        //         .then((res) => {
-        //             if (res && res.status === "success" && res.getData) {
-
-        //                 this.setState({
-        //                     loading: false,
-        //                     pdata: false,
-        //                     playerDetails: res["getData"],
-
-        //                 });
-
-        //             }
-
-                  
-
-        //             sessioncommons.setplayerSession(res["getData"])
-                 
-
-        //         }).then((res) => {
-                 
-                 
-                   
-        //                 this.checkidverification();
-                  
-
-        //         })
-                
-                
-                
-        //         .catch(error => {
-        //             commons.errorLog(error)
-        //         });
-
-        // }
 
 
 
@@ -313,6 +147,7 @@ class Dashboard extends Component {
               pdfopen,
             validPdf,
             ViewPdf,
+            userStatus,
             prosvalue,
            } = this.state
       
@@ -424,97 +259,33 @@ class Dashboard extends Component {
                                  
                                     <Paper className={classes.contentpaper}>
 
-{/*                                            
+                                           
                                             {pdata &&
-                                                <Grid align="center" justify="center" container >
-                                                    <Grid>
-                                                        <RefreshLoader display="normal" loading={loading} />
-                                                    </Grid>
-                                                </Grid>} */}
-
-                                            <Grid  container>
-                                               
-                                                    
-                                                      
-
-                                                      
-                                                            <Grid container align="center">
-                                                               
-                                                            {pdata &&
                                                 <Grid align="center" justify="center" container >
                                                     <Grid>
                                                         <RefreshLoader style="normal" loading={loading} />
                                                     </Grid>
                                                 </Grid>}
 
-                                                                
+                                            <Grid  container>
+                                             
 
-                                                                <Grid item md={12}>
-                                                                    {this.showComp(value)}
-                                                                </Grid>
-                                                            </Grid>
+                                                    <Grid container align="center">
+                                                       
+                                                           
+                                                            <Grid item md={12} sm={10} xs={11}>
 
-
-
-                                                        
-
-                                                   
-
-
-
-                                                
-
-                                                {notup ?
-                                                    (<Card className={classes.card} style={{ margin: '10px' }}>
-                                                        <CardHeader
-                                                            title="DOB proof for verification"
-                                                        />
-                                                        <CardContent>
-
-
-                                                            <RefreshLoader display="normal" loading={loading} />
-
-                                                            <Grid item md={12} sm={12} xs={12}>
-
-                                                                <input
-                                                                    accept="image/*"
-                                                                    ref="file"
-                                                                    id="contained-button-file"
-                                                                    type="file"
-                                                                    onChange={this.onChange}
-                                                                />
-
-                                                                <label htmlFor="contained-button-file">
-                                                                    <Button
-                                                                        size="small"
-                                                                        startIcon={<ArrowUpwardIcon />}
-                                                                        component="span"
-                                                                        onClick={this.onSubmit}
-                                                                    >
-                                                                        Upload
-                    </Button>
-                                                                </label>
-
-                                                                <Typography variant="body1" color="error">
-                                                                    {" "}
-                                                                    {message.length ? message : ""}
+                                                                <Typography gutterBottom variant="h4">
+                                                                    {tname.tournamentName}
                                                                 </Typography>
-                                                                {uploadedstatus.length ? (
-                                                                    <SnackPopup
-                                                                        message={uploadedstatus}
-                                                                        type="success"
-                                                                    />
-                                                                ) : (
-                                                                        ""
-                                                                    )}
                                                             </Grid>
 
-                                                        </CardContent>
+                                                            <Divider/>
 
-
-
-                                                    </Card>
-                                                    ) : ""}
+                                                        <Grid item md={12}>
+                                                            {this.showComp(value)}
+                                                        </Grid>
+                                                    </Grid>
                                             </Grid>
                                         </Paper>
 

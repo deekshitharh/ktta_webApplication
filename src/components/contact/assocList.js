@@ -64,7 +64,7 @@ class SingleLineGridList extends Component {
         <div className={classes.gridroot}>
                {/* {!DaData.length &&  
                 <Grid container align="strech">
-   <InfoComponent variant="h4" message={message}/>
+   <InfoComponent variant="h4" message= "District association not found yet!!!"/>
 
                 </Grid>} */}
             

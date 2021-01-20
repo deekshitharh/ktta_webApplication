@@ -71,7 +71,7 @@ class Topbar extends Component {
       });
   };
   componentDidMount = () => {
-    this.loadMediaData();
+   // this.loadMediaData();
   };
 
   handleDrawerClick1 = (event, item, index) => {
@@ -416,7 +416,7 @@ class Topbar extends Component {
                 )}
               </Grid>
             </Grid>
-            <Box display="flex" flexDirection="row">
+            {/* <Box display="flex" flexDirection="row">
               <Typography variant="subtitle1" align="center">
                 Light
               </Typography>
@@ -424,7 +424,7 @@ class Topbar extends Component {
               <Typography variant="subtitle1" align="center">
                 Dark
               </Typography>
-            </Box>
+            </Box> */}
           </Toolbar>
         </AppBar>
       </div>

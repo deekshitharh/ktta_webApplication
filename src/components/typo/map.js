@@ -56,7 +56,7 @@ export class MapContainer extends Component {
  
 //function for displaying map markers
   displayMarkers = (assocval) => {
-    const { mapcode, initialAssoc}=this.state
+    const { mapcode,initialAssoc}=this.state
       return (
         <Marker
           onClick={this.onMarkerClick}

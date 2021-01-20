@@ -190,7 +190,6 @@ class playerRegister extends React.Component {
     let apiData = {}
     apiData.client_key= "TSA";
     apiData.type="playerReg";
- 
     apiData.userName = data.name;
     apiData.verificationCode = data.otp;
     apiData.emailAddress = data.email;

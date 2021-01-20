@@ -116,7 +116,7 @@ const gridRows = 3;
                                     />
                                     <CardContent
                                       component={Link}
-                                      to={`/detailednews/${newsRow.id}`}
+                                      to={`/detailednews/${newsRow._id}`}
                                     >
                                       <Typography
                                         className={classes.newsfont}
@@ -218,7 +218,7 @@ const gridRows = 3;
                                     //   myCustomProps: value.id,
                                     //   myCustomProps2: filepath
                                     // }}
-                                    to={`/detailednews/${value.id}`}
+                                    to={`/detailednews/${value._id}`}
                                   >
                                     Read more
                                   </Button>

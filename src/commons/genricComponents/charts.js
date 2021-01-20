@@ -17,7 +17,7 @@ const playerStat = {
  
   data: {
     labels: ["MP", "FP", "T", "MM", "FM"],
-    series: [1850, 1000, 1655, 1588, 1422],
+    series: [657, 210, 10, 180, 220],
   },
   
   options: {

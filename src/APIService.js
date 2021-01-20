@@ -5,7 +5,7 @@ import { urls } from "./globalUrls";
   
    let methodURL = urls[urlType];
  
-   if (urlType !== ("payment" || "contactus"))
+   if (urlType !== ("payment"))
    
      content.client_key = localStorage.getItem("api_key")
     

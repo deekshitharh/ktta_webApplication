@@ -38,8 +38,6 @@ class PlayerList extends React.Component {
   componentDidMount() {
     var params = {};
     params.type = "assocPlayers";
-    
-   
     this.setState({ loading: true });
     ApiCall("POST", params, "coreApi")
       .then(res => {

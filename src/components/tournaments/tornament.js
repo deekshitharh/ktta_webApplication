@@ -1,6 +1,6 @@
 import React from "react";
 import CardContent from "@material-ui/core/CardContent";
-import ScheduleIcon from '@material-ui/icons/Schedule';
+import ScheduleIcon from "@material-ui/icons/Schedule";
 import Card from "@material-ui/core/Card";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
@@ -9,30 +9,30 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import Topbar from "../landingPage/TopBar";
 import Paper from "@material-ui/core/Paper";
 import CalendarTodayIcon from "@material-ui/icons/CalendarToday";
-import { sessioncommons } from "../../commons"
+import { sessioncommons } from "../../commons";
 import RoomIcon from "@material-ui/icons/Room";
-import CardActions from '@material-ui/core/CardActions';
-import Button from '@material-ui/core/Button';
-import LeagueInfo from "./prolegue"
-import { } from "../../APIService"
+import CardActions from "@material-ui/core/CardActions";
+import Button from "@material-ui/core/Button";
+import LeagueInfo from "./prolegue";
+import {} from "../../APIService";
 import { commons } from "../../commons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHandPointRight } from '@fortawesome/free-solid-svg-icons'
+import { faHandPointRight } from "@fortawesome/free-solid-svg-icons";
 import Grid from "@material-ui/core/Grid";
-import customStyles from "../../styles/genricStyle"
-import RefreshLoader from "../../commons/genricComponents/pageloader"
-import CommitieData from "./commitedetails"
+import customStyles from "../../styles/genricStyle";
+import RefreshLoader from "../../commons/genricComponents/pageloader";
+import CommitieData from "./commitedetails";
 import { ApiCall } from "../../APIService";
-import { Link as CoreLink } from '@material-ui/core';
-import InfoComponent from "../../commons/genricComponents/infoComponent"
+import { Link as CoreLink } from "@material-ui/core";
+import InfoComponent from "../../commons/genricComponents/infoComponent";
 //displying the tounamnet list user cn register/view
 class Tournament extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       loading: false,
-      emessage:"",
-  
+      emessage: "",
+
       tournamentData: [],
       eventList: [],
       commitie: false,
@@ -41,148 +41,111 @@ class Tournament extends React.Component {
       playerDetails: [],
       open: false,
       commitiedata: [],
-      tournamentval: []
+      tournamentval: [],
     };
-    this.handleChildUpdate = this.handleChildUpdate.bind(this)
-
+    this.handleChildUpdate = this.handleChildUpdate.bind(this);
   }
-//api call to display the tounamnet list "upcomming/past"
+  //api call to display the tounamnet list "upcomming/past"
   loadTournamentData = () => {
-
     let params = {};
-   
+
     params.type = "tourList";
-   
-   
+
     this.setState({ loading: true });
-      
-    ApiCall("POST", params,"coreApi")
- 
+
+    ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
-
         if (res.status === "success") {
-            this.setState({
-           loading: false,
-           tournamentData: res["data"],
+          this.setState({
+            loading: false,
+            tournamentData: res["data"],
             tourval: res["data"],
-           tournamentval: res["tournamentList"],
-           tname: ""
-        });
-
-
-       
-
-
-
-
-
-      
-        }
-        else if (res.status=="failure") {
-
+            tournamentval: res["tournamentList"],
+            tname: "",
+          });
+        } else if (res.status == "failure") {
           this.setState({
             tournamentData: res["data"],
             loading: false,
-            "emessage": "Something went wrong!!!"
-
+            emessage: "Something went wrong!!!",
           });
         }
-
-
-
-     
       })
 
-
-
-
       .catch((error) => {
-        commons.errorLog(error)
-
+        commons.errorLog(error);
       });
   };
 
   componentDidMount = () => {
     this.loadTournamentData();
-   
   };
 
-
-
   onsubmitdata = (tdata) => {
-   
-   let  tournamentval ={};
+    let tournamentval = {};
+    tournamentval.tournamentId = tdata._id;
     tournamentval.tournamentId = tdata._id;
     tournamentval.tournamentName = tdata.eventName;
-    sessioncommons.setTournament(tournamentval)
+    sessioncommons.setTournament(tournamentval);
     this.props.history.push({
-      pathname: '/login',
+      pathname: "/login",
     });
-
-  }
-
+  };
 
   handleClose = () => {
     this.setState({
-      open: false
-
+      open: false,
     });
   };
-//api function to get committie data
+  //api function to get committie data
   showCommitie = (id, name) => {
-
-
     var params = {};
-
 
     params.entity = "leagueCommittee";
     params.tournamentId = id;
 
-
-
     ApiCall("POST", params, "fetchData")
-      .then(response => response.json())
+      .then((response) => response.json())
       .then((data) => {
         this.setState({
           open: true,
           tname: name,
-          commitiedata: data["data"]
+          commitiedata: data["data"],
         });
       })
       .catch((error) => {
-        commons.errorLog(error)
-
+        commons.errorLog(error);
       });
-
-
   };
 
-//update the  type and fetch the tournamnet data based client key "ranking/leugue"
+  //update the  type and fetch the tournamnet data based client key "ranking/leugue"
   handleChildUpdate(tourType) {
-
-    const {  tourval } = this.state
+    const { tourval } = this.state;
 
     if (tourType === "ranking")
-
       this.setState({
         tourType: "ranking",
         tournamentData: tourval,
-
-      })
-    else
-      this.setState({ tourType: "leauge", tournamentData: tourval })
-
+      });
+    else this.setState({ tourType: "leauge", tournamentData: tourval });
   }
   render() {
     const { classes } = this.props;
-    const { tournamentData, tourType, open, loading, tname, commitiedata} = this.state;
-   console.log("tourdata", tournamentData.length)
+    const {
+      tournamentData,
+      tourType,
+      open,
+      loading,
+      tname,
+      commitiedata,
+    } = this.state;
+    console.log("tourdata", tournamentData.length);
 
     return (
       <React.Fragment>
         <CssBaseline />
-        <Topbar index={3}  />
+        <Topbar index={3} />
 
         <div className={classes.root}>
           <LeagueInfo
@@ -191,12 +154,7 @@ class Tournament extends React.Component {
             //loading={loading}
           />
 
-          <Grid
-            align="center"
-            justify="center"
-            container
-          
-          >
+          <Grid align="center" justify="center" container>
             <RefreshLoader display="overlay" loading={loading} />
 
             <Paper className={classes.tourpaper}>
@@ -207,7 +165,7 @@ class Tournament extends React.Component {
                     value.eventEndDate,
                     value.eventSubscriptionLastDate
                   );
-                 
+
                   return (
                     <Card className={classes.tornamentcard} key={index}>
                       <Grid
@@ -281,8 +239,9 @@ class Tournament extends React.Component {
                                   style={{ marginLeft: "5px" }}
                                 >
                                   Event dates:
-                                  {commons.formatDate(value.eventStartDate)} to{" "}
-                                  {commons.formatDate(value.eventEndDate)}
+                                  {commons.formatDate(
+                                    value.eventStartDate
+                                  )} to {commons.formatDate(value.eventEndDate)}
                                 </Typography>
                               </Grid>
                               <Grid item xs={1} md={1} sm={2}>
@@ -305,11 +264,7 @@ class Tournament extends React.Component {
 
                           <CardActions style={{ justifyContent: "flex-end" }}>
                             {tournamentType === "future" ? (
-                              <Button
-                                onClick={() =>
-                                  this.onsubmitdata(value)
-                                }
-                              >
+                              <Button onClick={() => this.onsubmitdata(value)}>
                                 Register
                               </Button>
                             ) : tournamentType === "closed" ? (
@@ -317,7 +272,6 @@ class Tournament extends React.Component {
                             ) : (
                               <div>
                                 <Button
-                                
                                   component={Link}
                                   to={`/entriesDraws/${value._id}`}
                                 >
@@ -332,14 +286,11 @@ class Tournament extends React.Component {
                   );
                 })
               ) : (
-                <InfoComponent variant="h3" message="No Tournament announced yet!!!!"/>
-                 
-                
-                  
-               
+                <InfoComponent
+                  variant="h3"
+                  message="No Tournament announced yet!!!!"
+                />
               )}
-
-              
             </Paper>
           </Grid>
         </div>

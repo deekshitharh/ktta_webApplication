@@ -61,7 +61,7 @@ class registerSteps extends React.Component {
     const { formData } = this.state
     let filteredata = [formData.find(item => item.id === "email")]
 
-    let formInputDataValid = await formValidation.validatelogin(filteredata);
+    let formInputDataValid = await formValidation.genricFromValidation(filteredata);
     let result = formInputDataValid.find((item) => {
 
       if (item.error.length)
@@ -278,7 +278,7 @@ class registerSteps extends React.Component {
 
                         </CardContent>
 
-                        {(otpbutton && checked) ? <Button
+                        {(otpbutton && checked)? <Button
                           style={{ marginTop: 15 }}
                           size="small"
                           onClick={this.generateOtp}>Generate OTP</Button> : ""}

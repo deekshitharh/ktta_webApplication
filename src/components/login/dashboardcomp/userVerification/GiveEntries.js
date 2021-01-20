@@ -13,8 +13,13 @@ import { ApiCall } from "../../../../APIService";
 import { sessioncommons } from "../../../../commons";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-
-
+import Card from '@material-ui/core/Card';
+import CardHeader from '@material-ui/core/CardHeader';
+import CardContent from '@material-ui/core/CardContent';
+import Grid from "@material-ui/core/Grid";
+import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import Typography from "@material-ui/core/Typography";
+import formValidation from "../../../../commons/formfunction"
 import MaterialTable from "material-table";
 import { tableIcons } from "../../../../formdata";
 import { commons } from "../../../../commons";
@@ -28,8 +33,11 @@ class subscribeEvent extends React.Component {
       subsciptionData: "",
       eventlist: [],
       order_id: {},
+      uploadedstatus: {},
       checkedEvent: [],
       data: [],
+      message:"",
+      userStatus:null,
       emptyuser: "",
       result: {
         oldSubscribeId: [],
@@ -44,6 +52,152 @@ class subscribeEvent extends React.Component {
       displayName: "Event Details",
     };
   }
+
+  checkidverification = () => {
+    debugger
+    let loggeduser = sessioncommons.getUser();
+    let apiData = {};
+    apiData.client_key="KTTA1";
+    apiData.entity="userDoc"
+    apiData.userId = loggeduser.userId;
+
+    this.setState({ pdata: true });
+    fetch('https://sports-whiz.herokuapp.com/app/fetchEntity', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json;charset=utf-8'
+        },
+        body: JSON.stringify(apiData)
+    }) .then((res) => res.json())
+    .then((res) => {
+    if (res.status === "success") {
+        this.setState({
+            pdata: false,
+            userStatus:false,
+         
+        });
+      } else if (res.status == "failure") {
+        this.setState({
+            pdata: false,
+          userStatus: true,
+         
+        });
+      }
+    })
+    // playerdata = sessioncommons.getplayerDetails()
+
+  
+
+
+
+
+
+};
+
+
+onSubmitFile = (e) => {
+  e.preventDefault();
+
+
+  
+
+  let fileVal = formValidation.validateFile(this.state.uploadedFile);
+  debugger
+  this.setState({ message: fileVal });
+  if (fileVal) {
+      if (!fileVal.status) {
+          this.setState({ "message": fileVal.msg })
+      }
+      else {
+          this.setState({ "message": fileVal.msg })
+          let loggeduser = sessioncommons.getUser()
+          let params = {};
+         
+         params.client_key = "KTTA1";
+         params.entity = "userDoc"
+         params.title = loggeduser.userName;
+         params.file = this.state.uploadedFile;
+         params.userId =  loggeduser.userId;
+      let fData = new FormData();
+
+          for (let key in params) {
+              fData.append(key, params[key]);
+          }
+          this.setState({ loading:true });
+          fetch('https://sports-whiz.herokuapp.com/app/createEntity', {
+      method: 'POST',
+     
+      body: fData
+  }) .then((res) => res.json())
+  .then((res) => {
+                  if (res.status=="success") {
+                    
+
+                      this.setState({
+                          loading: false,
+                        
+                          uploadedstatus: "File uploaded successfully"
+                      })
+
+                      setTimeout(() => {
+                          this.onReset();
+                      }, 1000);
+                     
+                     
+                  } else if (res.status == "failure") {
+                      this.setState({
+                          loading: false,
+                          iduploaded: false,
+                          message: "Please try after some  time",
+                      });
+                    }
+
+                  
+              })
+              // .then((res) => {
+              //     setTimeout(() => {
+              //         this.onReset();
+              //     }, 1000);
+              // })
+
+        
+              .catch((error)=>{
+                  this.setState({
+                      loading: false,
+                      iduploaded: false,
+                      message: "Please try after some  time",
+                  });
+
+                  console.log("upload error " + error);
+              });
+
+        
+      }
+  }
+};
+
+
+onChange = (e) => {
+  this.setState({
+      uploadedFile: e.target.files[0],
+     
+  });
+};
+
+//reset file data
+onReset() {
+  this.refs.file.value = "";
+  this.setState({
+      userStatus: false,
+     
+  });
+}
+
+
+
+
+
+
 //load the event list for the given userid
   updateData = () => {
     let loggeduser = sessioncommons.getUser();
@@ -116,6 +270,7 @@ class subscribeEvent extends React.Component {
 
   componentDidMount() {
    this.updateData();
+   this.checkidverification();
   }
 
   // subscribecalcultion = (ro, value) => {
@@ -390,13 +545,14 @@ class subscribeEvent extends React.Component {
     const { classes } = this.props;
     const {
       eventlist,
-     
+      userStatus,
       displayName,
       checkedFees,
       result,
+      message,
       loading,
       subsciptionData,
-     
+      uploadedstatus
     } = this.state;
 
     return (
@@ -405,61 +561,118 @@ class subscribeEvent extends React.Component {
 
         <div className={classes.root}>
           {/* <Grid container justify="center"> */}
+          {userStatus ?
+                                                    (
+                                                    <Grid container  style={{justifyContent:"center"}} align="center">
+                                                         <Grid>
+                                      
+                                    </Grid>
+                                                    <Card className={classes.card} style={{ margin: '10px' }}>
+                                                    
+                                                        <CardHeader
+                                                            title="DOB proof for verification"
+                                                        />
+                                                        <CardContent>
 
-          <MaterialTable
-            title={displayName}
-            columns={[
-              {
-                field: "eventName",
-                title: "EventName",
-              },
-              {
-                field: "eventfee",
-                title: "EventFees",
 
-              
-              },
-              {
-                title: "Total",
-                align: "right",
-              
-              },
-            ]}
-          
+                                                           
 
-            data={eventlist}
-            isLoading={loading}
-            icons={tableIcons}
-            options={{
-              toolbar: true,
-              showTextRowsSelected: false,
-              padding: "dense",
-              maxBodyHeight: 600,
-              search: false,
-              selection: true,
-              paging: false,
-              filtering: false,
-              
-              headerStyle: {
-                backgroundColor: "#f44336a6",
-                color: "#FFF",
-              },
-              rowStyle: {
-                color: "#000000",
-              },
-              selectionProps: (rowData) => ({
-                disabled: result.oldSubscribeId.indexOf(rowData.abbName) !== -1,
-                checked: rowData.subscibedEvent || false,
-                onClick: (e) => {
-                  this.updateSelection(e, rowData);
-                },
-              }),
-            }}
-            onSelectionChange={(rows) => {
-              this.selectionChange(rows);
-            }}
-          />
-          {!loading ? (
+                                                            <Grid item md={12} sm={12} xs={12}>
+
+                                                                <input
+                                                                    accept="image/*"
+                                                                    ref="file"
+                                                                    id="contained-button-file"
+                                                                    type="file"
+                                                                    onChange={this.onChange}
+                                                                />
+
+                                                                <label htmlFor="contained-button-file">
+                                                                    <Button
+                                                                        size="small"
+                                                                        startIcon={<ArrowUpwardIcon />}
+                                                                        component="span"
+                                                                        onClick={this.onSubmitFile}
+                                                                    >
+                                                                        Upload
+                    </Button>
+                                                                </label>
+
+                                                                <Typography variant="body1" color="error">
+                                                                    {" "}
+                                                                    {message.length ? message : ""}
+                                                                </Typography>
+                                                                {uploadedstatus.length ? (
+                                                                    <SnackPopup
+                                                                        message={uploadedstatus}
+                                                                        type="success"
+                                                                    />
+                                                                ) : (
+                                                                        ""
+                                                                    )}
+                                                            </Grid>
+
+                                                        </CardContent>
+
+
+
+                                                    </Card>
+                                                    </Grid>
+                                                    ):  <MaterialTable
+                                                    title={displayName}
+                                                    columns={[
+                                                      {
+                                                        field: "eventName",
+                                                        title: "EventName",
+                                                      },
+                                                      {
+                                                        field: "eventfee",
+                                                        title: "EventFees",
+                                        
+                                                      
+                                                      },
+                                                      {
+                                                        title: "Total",
+                                                        align: "right",
+                                                      
+                                                      },
+                                                    ]}
+                                                  
+                                        
+                                                    data={eventlist}
+                                                    isLoading={loading}
+                                                    icons={tableIcons}
+                                                    options={{
+                                                      toolbar: true,
+                                                      showTextRowsSelected: false,
+                                                      padding: "dense",
+                                                      maxBodyHeight: 600,
+                                                      search: false,
+                                                      selection: true,
+                                                      paging: false,
+                                                      filtering: false,
+                                                      
+                                                      headerStyle: {
+                                                        backgroundColor: "#f44336a6",
+                                                        color: "#FFF",
+                                                      },
+                                                      rowStyle: {
+                                                        color: "#000000",
+                                                      },
+                                                      selectionProps: (rowData) => ({
+                                                        disabled: result.oldSubscribeId.indexOf(rowData.abbName) !== -1,
+                                                        checked: rowData.subscibedEvent || false,
+                                                        onClick: (e) => {
+                                                          this.updateSelection(e, rowData);
+                                                        },
+                                                      }),
+                                                    }}
+                                                    onSelectionChange={(rows) => {
+                                                      this.selectionChange(rows);
+                                                    }}
+                                                  />}
+        
+          {!loading && !userStatus ? (
             <React.Fragment>
               <TableContainer component={Paper}>
                 <Table aria-label="spanning table">

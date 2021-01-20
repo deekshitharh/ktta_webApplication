@@ -7,13 +7,13 @@ import Paper from "@material-ui/core/Paper";
 
 import Typography from "@material-ui/core/Typography";
 import Topbar from "../landingPage/TopBar";
-
+import RefreshLoader from "../../commons/genricComponents/pageloader";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { ApiCall } from "../../APIService";
 import { API_URL } from "../../globalUrls";
 import Divider from "@material-ui/core/Divider";
 import { commons } from "../../commons";
-
+import InfoComponent from "../../commons/genricComponents/infoComponent";
 import ReactHtmlParser from "react-html-parser";
 //detailing component of newsPage 
 class DetailedNews extends React.Component {
@@ -23,23 +23,25 @@ class DetailedNews extends React.Component {
       news_id: this.props.match.params.id, //id from  news info
       filepath: "",
       newsDetails: [],
+      loading: false
     };
   }
   //api for getting detail news based on id
   loadetailedData = () => {
+    debugger
     const { news_id } = this.state;
     let apiData = {};
-    apiData.tableName = "news";
-   
-    apiData.type = "getDataById";
-
-    apiData.id = news_id;
-    ApiCall("POST", apiData, "getDataById")
+    apiData.entity="news";
+    
+    this.setState({ loading: true });
+    ApiCall("POST", apiData, "fetchData")
+  
       .then((res) => res.json())
       .then((res) => {
         this.setState({
-          newsDetails: res["getData"],
-          filepath: res["imagePath"],
+          loading: false,
+          newsDetails: res["data"],
+        
         });
       })
       .catch((error) => {
@@ -54,15 +56,17 @@ class DetailedNews extends React.Component {
   render() {
     const { classes } = this.props;
 
-    const { filepath,  newsDetails } = this.state;
-
+    const { filepath,  newsDetails,news_id,loading } = this.state;
+    const found = newsDetails.filter(element => element._id == news_id );
+    console.log("hey",found)
     return (
       <React.Fragment>
         <CssBaseline />
         <Topbar index={0} />
-
+        <RefreshLoader display="overlay" loading={loading} />
         <div className={classes.root}>
-          {newsDetails.map((value, index) => {
+          {found.length? (
+          found.map((value, index) => {
             return (
               <Paper className={classes.paper} key={index}>
                 <Grid container align="center">
@@ -77,8 +81,8 @@ class DetailedNews extends React.Component {
                       style={{ width: 400, height: 200 }}
                       alt=""
                       src={
-                        value.image
-                          ? API_URL + `${filepath}` + "/" + `${value.image}`
+                        value.url
+                          ?  value.url
                           : ""
                       }
                     ></img>
@@ -87,7 +91,7 @@ class DetailedNews extends React.Component {
                 <Grid container justify="center">
                   <Grid item md={12} xs={12} sm={12} style={{ padding: 20 }}>
                     <Typography variant="h4">
-                      {value.title ? ReactHtmlParser(value.title) : ""}
+                      {  value.title ? ReactHtmlParser(  value.title) : ""}
                     </Typography>
                     <Divider/>
                   </Grid>
@@ -95,15 +99,21 @@ class DetailedNews extends React.Component {
                     <Paper className={classes.paper}>
                       <Typography variant="h6">
                         {value.description !== null
-                          ? ReactHtmlParser(value.description)
+                          ? ReactHtmlParser(  value.desc)
                           : ""}
                       </Typography>
                     </Paper>
                   </Grid>
                 </Grid>
               </Paper>
-            );
-          })}
+               );
+              })
+            ) : (
+              <InfoComponent
+                variant="h4"
+                message="No Data available yet!!!"
+              />
+            )}
         </div>
       </React.Fragment>
     );
