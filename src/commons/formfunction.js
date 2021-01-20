@@ -80,7 +80,7 @@ formValidation.validatePasswodData = async (obj,x) => {
                 item["error"] = item.displayName + " required";
             }
 
-            else if(item.disabled){
+            else {
                 item["error"]=""
             }
         }

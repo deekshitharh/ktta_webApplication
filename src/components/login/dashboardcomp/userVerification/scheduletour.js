@@ -144,7 +144,7 @@ class SceduleTournament extends React.Component {
                       filtering: false,
                      
                       paging:true,
-                      pageSize:5,       // make initial page size
+                      pageSize:5, // make initial page size
                        //to make page size fix in case of less data rows
                       pageSizeOptions:[6,12,20,50],
                       headerStyle: {

@@ -36,7 +36,7 @@ export const regularExpData = [
     {
         name: "password",
         regExp: /^[a-zA-Z\d\!@#\$%&\*]{6,15}$/i,
-        "message": "password accepts only alphabets,charcters, and number of 6 length"
+        "message": "password accepts only alphabets, characters, and number of 6 length"
     },
     {
         name: "confirmpassword",

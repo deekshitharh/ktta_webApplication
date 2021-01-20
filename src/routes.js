@@ -9,7 +9,7 @@ import newsInfo from "./components/news/newsinfo";
 import DetailedNews from "./components/news/detailednews";
 import { withStyles } from "@material-ui/core/styles";
 import customStyles from "./styles/genricStyle";
-import Login from "./components/login/login"
+import Login from "./components/login/login";
 import Dashboard from "./components/login/dashboardcomp/dashboard"
 import FogotPassword from "./components/login/fogotPassword"
 import registerSteps from "./components/login/registerSteps"
@@ -20,9 +20,9 @@ import playerListViews from "./responsiveComp/playerList"
 import ViewsDraws from "./responsiveComp/viewsDraws"
 import PrivateRoute from "./PrivateRoutes"
 function renderComponent(Component, defaultProps, customProps) {
-  console.log(" routes..default", defaultProps)
+ 
   let props = { ...defaultProps, ...customProps };
-  console.log(" props.default", props)
+ 
   let StyledComponent = withStyles(customStyles)(Component);
   return <StyledComponent {...props} />;
 }
@@ -30,7 +30,7 @@ function renderComponent(Component, defaultProps, customProps) {
 
 //route component for handling routes
 const AppRoutes = (props1) => {
-  console.log("appproutes",props1)
+ 
   return (
     <HashRouter>
       <Switch>
@@ -60,12 +60,7 @@ const AppRoutes = (props1) => {
           path="/login"
           render={props => renderComponent(Login, props, props1)}
         />
-        {/* <PrivateRoute
-          exact
-          path="/login"
-          component={Login}
-        
-        /> */}
+   
         <PrivateRoute
           exact
           path="/dashboard"

@@ -143,7 +143,7 @@ class userInfo extends React.Component {
         let loggeduser = sessioncommons.getUser();
         let formData = this.state.userProfile;
      
-        formData = await formValidation.genricFromValidation(formData);
+        formData = await formValidation.validatePasswodData(formData);
        
         let errResult = formData.find((item) => {
 
