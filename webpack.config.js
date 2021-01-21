@@ -12,7 +12,7 @@ module.exports = {
     publicPath: '/'
   },
    devServer: {
-  //host:"192.168.1.7",
+  //host:"192.168.1.101",
   inline:true,
     port: 8081,
     historyApiFallback: {

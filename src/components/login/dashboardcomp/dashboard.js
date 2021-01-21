@@ -76,11 +76,12 @@ class Dashboard extends Component {
     handleDrawerOpen = () => {
         this.setState({ open: true })
     };
-    handleDrawerClose = () => {
+    handleDrawerClose = () =>{
         this.setState({ open: false })
     };
     logout = () => {
-        this.setState({ logout: !this.state.logout })
+        
+    this.setState({logout:true})
     }
 
     handleChange = (event, index) => {
@@ -133,13 +134,7 @@ class Dashboard extends Component {
        
         this.setState({ pdfopen: false });
         let data = "http://karnatakatt.com/pdf/fp-prospectus.pdf"
-      
-
-       
-
-
-
-    }
+      }
 
     render() {
         const { classes } = this.props;
@@ -275,7 +270,7 @@ class Dashboard extends Component {
                                                            
                                                             <Grid item md={12} sm={10} xs={11}>
 
-                                                                <Typography gutterBottom variant="h4">
+                                                                <Typography gutterBottom variant="h3">
                                                                     {tname.tournamentName}
                                                                 </Typography>
                                                             </Grid>

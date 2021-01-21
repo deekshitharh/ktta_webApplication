@@ -44,10 +44,10 @@ class Home extends Component {
             </Grid>
           </Grid>
           <Grid container>
-            <Grid item md={8} sm={12} xs={12} style={{ padding: "10px" }}>
+            <Grid item md={8} sm={12} xs={12} className={classes.homegrid}>
               <NewsContent classes={classes} />
             </Grid>
-            <Grid item md={4} sm={12} xs={12} style={{ padding: "10px" }}>
+            <Grid item md={4} sm={12} xs={12} className={classes.homegrid}>
               <StandingContent classes={classes} />
             </Grid>
           </Grid>
@@ -56,21 +56,21 @@ class Home extends Component {
           </Grid>
 
           <Grid container alignItems="stretch">
-            <Grid item md={6} sm={12} xs={12} style={{ padding: "10px" }}>
+            <Grid item md={6} sm={12} xs={12} className={classes.homegrid}>
               <RegisteredClubs classes={classes} />
             </Grid>
-            <Grid item md={6} sm={12} xs={12} style={{ padding: "10px" }}>
+            <Grid item md={6} sm={12} xs={12} className={classes.homegrid}>
               <RegisteredAssoc classes={classes} />
             </Grid>
           </Grid>
 
           <Grid container>
-            <Grid item md={12} sm={12} xs={12} style={{ padding: "10px" }}>
+            <Grid item md={12} sm={12} xs={12} className={classes.homegrid}>
               <Sponsers classes={classes} />
             </Grid>
           </Grid>
 
-          <Grid container style={{ padding: "10px" }}>
+          <Grid container className={classes.homegrid}>
             <OfficeBearers classes={classes} />
           </Grid>
           <Footer classes={classes} />

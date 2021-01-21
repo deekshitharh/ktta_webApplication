@@ -37,7 +37,7 @@ const transitionDuration = 1000;
 const gridColumns = 4;
 const gridRows = 2;
 
-//genric component for dispalying the data in landing page  and detailing page of RegisteredClubs component
+//genric component for dispalying the data in landing page  and detailing page of about/RegisteredClubs.js component
 
 class GenicRegisteredClubs extends React.Component {
     constructor(props) {
@@ -107,14 +107,14 @@ class GenicRegisteredClubs extends React.Component {
 
                 {type === "landing" ?
                     <React.Fragment>
-                        <div style={{ display: "flex" }}>
-                            <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+                        <div className={classes.flexView}>
+                            <Typography variant="h6" component="h6" className={classes.statistics}>
                                 {" "}
                                 Registered Clubs
                                 </Typography>
                             <ViewMorePage pathname="/registreredclubs_Assoc" title="MORE" index={false} />
                         </div>
-                        <Divider />
+                        <Divider/>
 
                         <Grid align="center" justify="center" container>
                             <Grid>
@@ -153,7 +153,7 @@ class GenicRegisteredClubs extends React.Component {
                                         );
 
                                         }) : (<Typography
-                                            color="error" variant="subtitle2" style={{ margin: '5px', width: '500px', overflowWrap: 'break-word' }}>
+                                            color="error" variant="subtitle2" className={classes.errorInfo}>
                                         {message}</Typography>)}
 
                                 </Grid>
@@ -204,7 +204,8 @@ class GenicRegisteredClubs extends React.Component {
                                                                     md={11}
                                                                     xs={11}
                                                                     sm={11}
-                                                                    style={{ paddingLeft: "5px" }}
+                                                                    className={classes.clubCard}
+
                                                                 >
                                                                     <Typography
                                                                         gutterBottom
@@ -228,7 +229,7 @@ class GenicRegisteredClubs extends React.Component {
                                                                     md={11}
                                                                     xs={11}
                                                                     sm={11}
-                                                                    style={{ paddingLeft: "5px" }}
+                                                                    className={classes.clubCard}
                                                                 >
                                                                     <Typography
                                                                         gutterBottom
@@ -249,7 +250,7 @@ class GenicRegisteredClubs extends React.Component {
                                                                     <Typography
                                                                         gutterBottom
                                                                         variant="subtitle1"
-                                                                        style={{ paddingLeft: "5px" }}
+                                                                        className={classes.clubCard}
                                                                     >
                                                                         {value.phoneNumber}
                                                                     </Typography>
@@ -264,7 +265,7 @@ class GenicRegisteredClubs extends React.Component {
                                                                     <Typography
                                                                         gutterBottom
                                                                         variant="subtitle1"
-                                                                        style={{ paddingLeft: "5px" }}
+                                                                        className={classes.clubCard}
                                                                     >
                                                                         {value.address}
                                                                     </Typography>

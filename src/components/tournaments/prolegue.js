@@ -1,8 +1,11 @@
 import React from "react";
 
+import { Link, withRouter } from "react-router-dom";
 
 import Grid from "@material-ui/core/Grid";
 
+import { withStyles } from "@material-ui/core/styles";
+import customStyles from "../../styles/genricStyle";
 
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
@@ -52,7 +55,7 @@ class LeagueInfo extends React.Component {
   };
 
   render() {
-   
+   const {classes}=this.props;
     const { value } = this.state;
    
     return (
@@ -60,7 +63,7 @@ class LeagueInfo extends React.Component {
         <CssBaseline />
         <Grid container align="center">
           <ToggleButtonGroup
-            style={{ margin: 10 }}
+            className={classes.textclass}
             value={value}
             exclusive
             selected
@@ -83,4 +86,5 @@ class LeagueInfo extends React.Component {
     );
   }
 }
-export default (LeagueInfo);
+export default withRouter(withStyles(customStyles)(LeagueInfo));
+

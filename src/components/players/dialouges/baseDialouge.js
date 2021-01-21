@@ -31,7 +31,7 @@ class BaseDialog extends Component {
         const {  open, fullscreen,value , onClose} = this.props;
         return (
             <Dialog
-                fullscreen={fullscreen ? true: false}
+               // fullscreen={fullscreen ? true: false}
                     open={open}
                     onClose={onClose}
                     aria-labelledby="alert-dialog-title"

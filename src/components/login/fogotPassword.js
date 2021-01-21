@@ -69,7 +69,7 @@ class FogotPassword extends React.Component {
 //otp valdiation
   showotpval = async () => {
     const { formData } = this.state;
-    let filteredata = [formData.find((item) => item.id === "email")];
+    let filteredata = [formData.find((item) => item.id === "emailAddress")];
 
     let formInputDataValid = await formValidation.genricFromValidation(filteredata);
     let result = formInputDataValid.find((item) => {
@@ -94,14 +94,14 @@ class FogotPassword extends React.Component {
     const data = {};
     const formvalues = [...this.state.formData];
     formvalues.map((obj) => {
-      data[obj.key] = obj.value;
+      data[obj.id] = obj.value;
     });
 
     let apiData = {};
     apiData.type = "forgotOtp";
   
     
-    apiData.emailId = data.email;
+    apiData.emailId = data.emailAddress;
      this.setState({ loading: true });
     ApiCall("POST", apiData, "coreApi")
       .then((res) => res.json())
@@ -158,9 +158,8 @@ class FogotPassword extends React.Component {
       let apiData = {};
       apiData.type = "setPassword";
     
-    
-      apiData.verificationCode = data.otp;
-        apiData.userId = data.email;
+       apiData.verificationCode = data.otp;
+        apiData.userId = data.emailAddress;
         apiData.password = data.confirmPassword;
 
       this.setState({ loading: true });
@@ -190,18 +189,18 @@ class FogotPassword extends React.Component {
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });
     formDataInput.find((item) => {
-      if (item.key === e.target.name) {
+      if (item.id === e.target.name) {
         item.type === "number"
           ? (item.value = parseInt(e.target.value))
           : (item.value = e.target.value);
 
-        if (item.key === e.target.name && item.type !== "string")
+        if (item.id === e.target.name && item.type !== "string")
           item.value = e.target.value;
         if (item.type === "date") {
           //  let formatDate = moment(e.target.value).format('DD-MM-YYYY');
           //  item.value = formatDate
         }
-        if (item.key === e.target.name && item.type === "string") {
+        if (item.id === e.target.name && item.id === "emailAddress") {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
           this.showotpval();
@@ -337,8 +336,8 @@ class FogotPassword extends React.Component {
                       )}
                       <DialogActions>
                         <Button
-                          color="primary"
-                          autoFocus
+                         
+                         
                           onClick={this.handleDialog}
                         >
                           Ok

@@ -206,7 +206,7 @@ class Tournament extends React.Component {
                                     <FontAwesomeIcon
                                       icon={faHandPointRight}
                                       size="1x"
-                                      style={{ width: "2em", color: "black" }}
+                                      className={classes.commitieicon}
                                     />
                                   </CoreLink>
                                 ) : (
@@ -223,7 +223,7 @@ class Tournament extends React.Component {
                                 <Typography
                                   gutterBottom
                                   variant="body1"
-                                  style={{ marginLeft: "5px" }}
+                                  className={classes.commitiegrid}
                                 >
                                   {value.domainName}
                                 </Typography>
@@ -236,7 +236,7 @@ class Tournament extends React.Component {
                                 <Typography
                                   gutterBottom
                                   variant="body1"
-                                  style={{ marginLeft: "5px" }}
+                                  className={classes.commitiegrid}
                                 >
                                   Event dates:
                                   {commons.formatDate(
@@ -251,7 +251,7 @@ class Tournament extends React.Component {
                                 <Typography
                                   gutterBottom
                                   variant="body1"
-                                  style={{ marginLeft: "5px" }}
+                                   className={classes.commitiegrid}
                                 >
                                   Last date for registration:{" "}
                                   {commons.formatDate(
@@ -262,7 +262,7 @@ class Tournament extends React.Component {
                             </Grid>
                           </CardContent>
 
-                          <CardActions style={{ justifyContent: "flex-end" }}>
+                          <CardActions   className={classes.commitiecard}>
                             {tournamentType === "future" ? (
                               <Button onClick={() => this.onsubmitdata(value)}>
                                 Register

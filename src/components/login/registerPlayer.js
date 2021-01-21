@@ -2,7 +2,7 @@ import React from "react";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
-import {  withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Paper from "@material-ui/core/Paper";
@@ -42,19 +42,16 @@ class playerRegister extends React.Component {
       loading: false,
       regfees: "1",
       paymentid: "",
-      
-    }
+    };
     this.verifyForm = this.verifyForm.bind(this);
 
     this.handleDialog = this.handleDialog.bind(this);
   }
-//api call for club data  which is used in dropdown  in registration form
+  //api call for club data  which is used in dropdown  in registration form
   loadClubData = () => {
     let params = {};
 
-  
     params.type = "academylist";
-
 
     ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
@@ -75,15 +72,14 @@ class playerRegister extends React.Component {
   };
 
   componentDidMount() {
-      //registration change fields
-      this.loadClubData();
+    //registration change fields
+    this.loadClubData();
     let emailvalue = this.state.emailfield;
 
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-   
 
     formDataControl.map((item, index) => {
-      if (item.key === "emailAddress") {
+      if (item.id === "emailAddress") {
         item["value"] = emailvalue[0].value;
       }
     });
@@ -93,15 +89,14 @@ class playerRegister extends React.Component {
     });
   }
 
-//clear fileds if registration fails
+  //clear fileds if registration fails
   resetForm = () => {
     let emailvalue = this.state.emailfield;
 
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-   
 
     formDataControl.map((item, index) => {
-      if (item.key === "emailAddress") {
+      if (item.id === "emailAddress") {
         item["value"] = emailvalue[0].value;
       }
     });
@@ -118,12 +113,9 @@ class playerRegister extends React.Component {
     this.props.history.push("/login");
   };
 
-
-
-
-//displaying payement modal
+  //displaying payement modal
   displayRazorpay = async (formdata) => {
-    const res = await commons.loadScript (
+    const res = await commons.loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
@@ -131,9 +123,9 @@ class playerRegister extends React.Component {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-//function to get order_id to pass to options 
+    //function to get order_id to pass to options
     await this.loadpaymentdata();
-     const options = {
+    const options = {
       key: "rzp_live_kApuBzXGZuYXGG",
       currency: "INR",
       amount: (parseInt(this.state.regfees) * 100).toString(),
@@ -160,17 +152,17 @@ class playerRegister extends React.Component {
     });
     paymentObject.open();
   };
-//api call for  oder_id for payment 
+  //api call for  oder_id for payment
   loadpaymentdata = async () => {
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
 
-   // let timeStamp = data.email + "_" + Math.floor(Date.now());
+    // let timeStamp = data.email + "_" + Math.floor(Date.now());
     let apiData = {};
-    apiData.type ="create_order";
+    apiData.type = "create_order";
     apiData.amount = (parseInt(this.state.regfees) * 100).toString();
-      
-    await ApiCall("POST",apiData,"coreApi")
+
+    await ApiCall("POST", apiData, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -182,34 +174,31 @@ class playerRegister extends React.Component {
       });
   };
 
-//api call to server to store the transaction_id/form fileds
-  submitfom = async (id,amount) => {
-
+  //api call to server to store the transaction_id/form fileds
+  submitfom = async (id, amount) => {
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
-    let apiData = {}
-    apiData.client_key= "TSA";
-    apiData.type="playerReg";
+    let apiData = {};
+    apiData.client_key = "TSA";
+    apiData.type = "playerReg";
     apiData.userName = data.name;
     apiData.verificationCode = data.otp;
     apiData.emailAddress = data.email;
     apiData.password = data.password;
     apiData.clubNameId = data.clubNameId;
-    
-     apiData.transactionID = id;
-      apiData.transactionAmount = amount;
-      apiData.approvalCode = "TSA";
-    
-   
+
+    apiData.transactionID = id;
+    apiData.transactionAmount = amount;
+    apiData.approvalCode = "TSA";
+
     apiData.dob = data.DOB;
     this.setState({ loading: true });
-    await fetch('https://sports-whiz.herokuapp.com/sports', {
-      method: 'POST',
+    await fetch("https://sports-whiz.herokuapp.com/sports", {
+      method: "POST",
       headers: {
-        'Content-Type': 'application/json;charset=utf-8'
+        "Content-Type": "application/json;charset=utf-8",
       },
-      body: JSON.stringify(apiData)
-          
+      body: JSON.stringify(apiData),
     })
       .then((res) => res.json())
       .then((res) => {
@@ -231,9 +220,9 @@ class playerRegister extends React.Component {
         commons.errorLog(error);
       });
   };
-//function for form validation
+  //function for form validation
   verifyForm = async (e) => {
-  
+    debugger
     e.preventDefault();
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
@@ -242,7 +231,7 @@ class playerRegister extends React.Component {
       formData,
       this.state.otpcode
     );
- 
+
     let result = formData.find((item) => {
       if (item && item.error.length) return item;
     });
@@ -250,35 +239,32 @@ class playerRegister extends React.Component {
     this.setState({ formData: formData });
 
     if (result === undefined) {
-     
       this.displayRazorpay(data);
     }
   };
 
   //change handler for input fileds of form.
   onChange = (e) => {
+    
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });
     formDataInput.find((item) => {
-      if (item.key === e.target.name) {
+      if (item.id === e.target.name) {
         item.type === "number"
           ? (item.value = parseInt(e.target.value))
           : (item.value = e.target.value);
 
-        if (item.key === e.target.name && item.type !== "string")
+        if (item.id === e.target.name && item.type !== "string")
           item.value = e.target.value;
         if (item.type === "date") {
-       
           item.value = e.target.value;
-
-         
         }
 
-        if (item.key === e.target.name && item.id === "email") {
+        if (item.id === e.target.name && item.id === "emailAddress") {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
           this.showotpval();
-        } else if (item.key === e.target.name && item.type === "string")
+        } else if (item.id === e.target.name && item.type === "string")
           item.value = e.target.value;
       }
     });
@@ -289,8 +275,6 @@ class playerRegister extends React.Component {
     const { classes } = this.props;
     const {
       formData,
-     
-      
       pwdStatus,
       registredClub,
       pwdMessage,
@@ -300,7 +284,7 @@ class playerRegister extends React.Component {
 
     let role_groups = formValidation.chunkArray(2, formData);
 
-    console.log(formData);
+    console.log("regee", registredClub);
 
     return (
       <React.Fragment>
@@ -318,7 +302,6 @@ class playerRegister extends React.Component {
                 flexDirection: "column",
                 alignItems: "center",
               }}
-              
             >
               <RefreshLoader display="overlay" loading={loading} />
             </Grid>
@@ -371,7 +354,7 @@ class playerRegister extends React.Component {
                                 })} */}
 
                   <Button
-                    onClick={this. verifyForm}
+                    onClick={this.verifyForm}
                     style={{ marginTop: 10 }}
                     fullWidth
                   >

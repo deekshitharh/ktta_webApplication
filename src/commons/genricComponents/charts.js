@@ -1,7 +1,7 @@
 import Chartist from "chartist";
 import Legend from "chartist-plugin-legend";
 
-import {  withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
@@ -14,12 +14,11 @@ var delays2 = 80,
   durations2 = 500;
 
 const playerStat = {
- 
   data: {
     labels: ["MP", "FP", "T", "MM", "FM"],
     series: [657, 210, 10, 180, 220],
   },
-  
+
   options: {
     plugins: [
       Chartist.plugins.legend({
@@ -30,11 +29,10 @@ const playerStat = {
           "#Male Matches",
           "#Female Matches",
         ],
-        
       }),
     ],
 
-        axisX: {
+    axisX: {
       showGrid: true,
       position: "end",
     },
@@ -42,11 +40,9 @@ const playerStat = {
       showGrid: true,
       position: "end",
     },
-   
-    
-       
-        low:0,
-      
+
+    low: 0,
+
     distributeSeries: true,
   },
 
@@ -80,7 +76,6 @@ const playerStat = {
   },
 };
 
-
 const Graph = () => {
   useEffect(() => {
     const script = document.createElement("link");
@@ -88,36 +83,21 @@ const Graph = () => {
     script.rel = "stylesheet";
     script.type = "text/css";
     document.getElementsByClassName("ct-chart")[0].appendChild(script);
-
-   new Chartist.Bar(
-     ".ct-chart",
-     playerStat.data,
-     playerStat.options,
-     playerStat.responsiveOptions,
-     playerStat.animation
-   );
+    new Chartist.Bar(
+      ".ct-chart",
+      playerStat.data,
+      playerStat.options,
+      playerStat.responsiveOptions,
+      playerStat.animation
+    );
   });
-       return (
-        
-           <div className="ct-chart"/>
-       
-       );  
-
-       
+  return <div className="ct-chart" />;
 };
 
- class Statistics extends Component {
-
+class Statistics extends Component {
   render() {
-   
-
-    return (
-    
-        <Graph />
-     
-    );
+    return <Graph />;
   }
 }
 
 export default withRouter(withStyles(customStyles)(Statistics));
-

@@ -1,7 +1,7 @@
 import ViewEntries  from "../components/tournaments/ViewsDraws/viewEntries";
 import displaydraws from "../components/tournaments/ViewsDraws/showResults"
 import ViewDraws from "../components/tournaments/ViewsDraws/draws";
-//menus for schema for View Entries/draws
+//menus for schema for View  Entries/draws 
 export const tournamentmenu = [
     {
         label: "Result",

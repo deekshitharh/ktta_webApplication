@@ -55,7 +55,6 @@ class Topbar extends Component {
   loadMediaData = () => {
     let apiData = {};
     apiData.tableName = "aboutus";
-    //apiData.client_key = "ktta";
     apiData.type = "getData";
 
     ApiCall("POST", apiData, "getData")

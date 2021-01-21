@@ -109,7 +109,7 @@ class Viewentries extends React.Component {
                 {buttonArr.map((item, index) => {
                   return (
                     <ToggleButtonGroup
-                      style={{ margin: 5 }}
+                    className={classes.textclass}
                       value={value}
                       exclusive
                       key={index}
@@ -155,13 +155,7 @@ class Viewentries extends React.Component {
                       textAlign: "left",
                     },
                     filtering: true,
-                    // headerStyle: {
-                    //   backgroundColor: "#f44336a6",
-                    //   color: "#FFF",
-                    // },
-                    // rowStyle: {
-                    //   color: "#000000",
-                    // },
+                 
                   }}
                   components={{
                     Toolbar: (props) => (

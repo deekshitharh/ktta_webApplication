@@ -99,7 +99,7 @@ class ViewDraws extends React.Component {
                 {buttonArr.map((item, index) => {
                   return (
                     <ToggleButtonGroup
-                      style={{ margin: 5 }}
+                    className={classes. commitiedata}
                       value={value}
                       exclusive
                       key={index}

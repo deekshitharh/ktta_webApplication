@@ -1,4 +1,4 @@
-//genric table fields for ranking in mobile view
+//genric table fields for ranking in mobile view playerRankViews.js
 
 export const rankingResponsiveTable  = [
  

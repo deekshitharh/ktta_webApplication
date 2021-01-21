@@ -1,42 +1,53 @@
-
-//form schema for contact us
-
+//form schema for contact us in contact.js component
+//form schema for passwod channge in fogot password.js componet
+//id ->for finding the target field value
+//displayName ->for field name
+//error ->for storing  filed error
+//required-> for required filed
+//type->type of value
+//verify for otp verifcation
 const fileds = [
-
   {
-    "id": "name", "displayName": "Name", "order": 1, "key": "userName", adorment: "account", label: "Name",
-    "type": "string", "error": "", "value": "", "required": true
+    id: "userName",
+    displayName: "Name",
+    adorment: "account",
+    label: "Name",
+    type: "string",
+    error: "",
+    value: "",
+    required: true,
   },
 
-
   {
-    "id": "email", "displayName": "Email", "order": 2, "key": "emailAddress", adorment: "email", label: "Email-Id",
-    "type": "string", "error": "", "value": "", "required": true
+    id: "email",
+    displayName: "Email",
+    adorment: "email",
+    label: "Email-Id",
+    type: "string",
+    error: "",
+    value: "",
+    required: true,
   },
 
-
- 
   {
     id: "subject",
-    "displayName": "subject",
+    displayName: "subject",
     label: "Subject",
     adorment: "subject",
     type: "text",
     value: "",
-    key:"subject",
-    "required": true
+    required: true,
   },
   {
     id: "Messege",
-    "displayName": "Messege",
+    displayName: "Messege",
     label: "Messege",
     adorment: "message",
     type: "text",
     value: "",
-    key: "message",
-    "required": true,
-     "multiline": true,
-    "rows": "5",
+    required: true,
+    multiline: true,
+  
   },
 ];
 

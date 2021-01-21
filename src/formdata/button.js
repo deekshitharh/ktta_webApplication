@@ -1,20 +1,19 @@
- //button schema for event category for player ranking 
- export const selectButtons = [
+//button schema for event category for player ranking ranking.js
+//id for button id
+export const selectButtons = [
   {
-    
     name: "CG",
     id: 1,
     value: "Cadet Girl's Singles",
   },
   {
-  
     name: "CB",
     id: 2,
     value: "Cadet Boy's Singles",
   },
   {
     name: "SJG",
-  
+
     id: 3,
     value: "Sub-junior Girl's Singles",
   },
@@ -22,7 +21,6 @@
   {
     name: "JG",
     id: 5,
-    
 
     value: "Junior Girl's Singles",
   },
@@ -30,14 +28,11 @@
     name: "JB",
     id: 6,
 
-   
-
     value: "Junior Boy's Singles",
   },
   {
     name: "YG",
     id: 7,
-    
 
     value: "Youth Girl's Singles",
   },
@@ -60,14 +55,14 @@
     selected: false,
 
     value: "Men's Singles",
-   },
-   {
-     name: "MCB",
-     id: 11,
-     selected: false,
+  },
+  {
+    name: "MCB",
+    id: 11,
+    selected: false,
 
-     value: "Mini Cadet Boy's Singles",
-   },
+    value: "Mini Cadet Boy's Singles",
+  },
   //  {
   //    name: "MCG",
   //    id: 12,
@@ -152,6 +147,4 @@
 
   //    value: " Junior Girl's Doubles",
   //  },
-
-
 ];

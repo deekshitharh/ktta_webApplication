@@ -6,15 +6,13 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import customStyles from "../../styles/genricStyle";
 import { withRouter } from "react-router-dom";
 class Footer extends Component {
-    render() {
-       
+  render() {
+        const { classes } = this.props;
         return (
             <div >
                 <Grid
                     container
-                    style={{
-                        backgroundColor: "#303030", color: 'white', padding: '10px'
-                    }}
+                    className={classes.footer}
                 >
                     <Grid item xs={12} sm={12} md={6}>
                         <Typography variant="subtitle1">
@@ -24,7 +22,7 @@ class Footer extends Component {
                   </Typography>
                     </Grid>
 
-                    <Grid item xs={12} sm={12} md={6} style={{ textAlign: 'right' }}>
+                    <Grid item xs={12} sm={12} md={6} className={classes.textright}>
                         <Typography variant="subtitle1" >
                             Developed & Managed by Whizdata
               </Typography>

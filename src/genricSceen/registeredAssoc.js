@@ -107,8 +107,8 @@ class GenicRegisteredAssoc extends React.Component {
 
                 {type === "landing" ?
                     <React.Fragment>
-                        <div style={{ display: "flex" }}>
-                            <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+                        <div  className={classes.flexView}>
+                            <Typography variant="h6" component="h6" className={classes.statistics}>
                                 {" "}
                                 Registered Associations
                                 </Typography>
@@ -172,7 +172,7 @@ class GenicRegisteredAssoc extends React.Component {
                         <RefreshLoader type="linear" loading={loading} variant="determinate" />
 
                         <div className={classes.root}>
-                            {/* <Grid container justify="center"> */}
+                          
 
                             <Slide direction="down" in={true} timeout={transitionDuration} mountOnEnter unmountOnExit>
 

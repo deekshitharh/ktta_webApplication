@@ -62,24 +62,20 @@ class SingleLineGridList extends Component {
     const style = { width: "1.1em", color: "black" }
     return (
         <div className={classes.gridroot}>
-               {/* {!DaData.length &&  
-                <Grid container align="strech">
-   <InfoComponent variant="h4" message= "District association not found yet!!!"/>
-
-                </Grid>} */}
+            
             
             <GridList cellHeight="auto"  className={classes.gridList} cols={1} >
                 {DaData.map((tile) => {
                   return (
                       <GridListTile >
                         <Grid container align="strech">
-                            <Grid item style={{ display: 'flex' }}>
-                                  <Card style={{ height: "100%",display: 'flex', justifyContent: 'space-between', flexDirection: 'column' }} variant="outlined">
+                            <Grid item className={classes.flexView}>
+                                  <Card className={classes.assocCard} variant="outlined">
                                       <CardContent >
-                                          <Grid item  md={12} style={{ padding: 5}}>
+                                          <Grid item  md={12} className={classes.asscocgrid}>
                                               <Link
-
-                                                  style={{ cursor: "pointer" }}
+className={classes.assocLink}
+                                               
                                                   onClick={() => this.props.handleMapshow(tile)}
                                               >
                                                   <Typography  gutterBottom>
@@ -93,13 +89,13 @@ class SingleLineGridList extends Component {
                                                       <Titlize value={tile.associationName} />
 
                                                   </Typography>
-                                                  <Divider style={{ margin: 4 }} />
+                                                  <Divider className={classes.assocdiv}/>
 
                                               </Link>
 
                                           </Grid>
                                                          
-                                          <Grid md={12} style={{ padding: 5 }}>
+                                          <Grid md={12} className={classes.asscocgrid}>
                                               <Typography gutterBottom >
                                                   <Fontawsome
                                                       name="contact"

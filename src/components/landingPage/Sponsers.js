@@ -63,33 +63,25 @@ export default class Sponsers extends React.Component {
         <div className={classes.root}>
           {/* <Grid container justify="center"> */}
 
-          <div style={{ display: "flex" }}>
-            <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+          <div className={classes.flexView}>
+            <Typography variant="h6" component="h6" className={classes.regclubs}>
               {" "}
               Sponsors
             </Typography>
           </div>
-          <Divider />
+          <Divider/>
 
-          <Paper style={{ marginTop: 20 }}>
+          <Paper className={classes.sponsergid}>
             <Grid container spacing={1} justify="center">
               {sponsers.length ? (
                 sponsers.map((newsRow, newsIndex) => {
                   return (
                     <Grid key={newsIndex} item>
                       <img
-                        style={{
-                          height: 100,
-                          width: 100,
-                          marginTop: 20,
-                        }}
+                      className={classes.sponserimg}
                        alt="" 
                        src={defaultlogo}
-                       // src={
-                       //   newsRow.url
-                       //     ? newsRow.url
-                       //     : ""
-                       // }
+                    
                       ></img>
                     </Grid>
                   );

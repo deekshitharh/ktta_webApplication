@@ -82,7 +82,7 @@ class ClubAssociation extends Component {
                                         md={8}
                                         sm={8}
                                         xs={8}
-                                        style={{ justifyContent: "left" }}
+                                        className={classes.viewClubs}
                                     >
 
 

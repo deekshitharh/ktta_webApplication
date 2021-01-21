@@ -66,15 +66,15 @@ class userInfo extends React.Component {
                   
                     formDataInput.map((item, index) => {
 
-                        if (item.key === "dateOfBirth") {
-                            item["value"] = moment(profile[item.key]).format('YYYY-MM-DD')
+                        if (item.id === "dateOfBirth") {
+                            item["value"] = moment(profile[item.id]).format('YYYY-MM-DD')
                         }
-                        else if (item.key === "gender")
+                        else if (item.id === "gender")
                         {
-                            item["value"] = profile[item.key].toLowerCase();  
+                            item["value"] = profile[item.id].toLowerCase();  
                             }
                         else {
-                            item["value"] = profile[item.key] ? profile[item.key] : ''
+                            item["value"] = profile[item.id] ? profile[item.id] : ''
 
                         }
 
@@ -158,7 +158,7 @@ class userInfo extends React.Component {
             const data = {};
             const formvalues = this.state.formData;
             formvalues.map((obj) => {
-                if (obj.key === "dateOfBirth")
+                if (obj.id === "dateOfBirth")
                 
                     data[obj.id] = moment(obj.value).format('DD MMM YYYY');
                 else {
@@ -168,22 +168,16 @@ class userInfo extends React.Component {
 
            
             var result = {};
-          
-            // params.apiKey = "apikey";
-            // params.caller = "caller";
-            result.type = "setProfile";
+           result.type = "setProfile";
         
             
             result.userId = loggeduser.userId;
-            // result.userName = data.userName;
-            // result.gender = data.gender
-            // result.phoneNumber = data.phoneNo
-            // result.dateOfBirth = data.DOB;
+            
 
       
           
             result.pinCode = data.pinCode;
-           // result.address = data.address;
+           
             result.city = data.city;
            
             this.setState({ loading: true });
@@ -220,10 +214,10 @@ class userInfo extends React.Component {
         formDataInput.find((item) => {
 
 
-            if (item.key === e.target.name) {
+            if (item.id === e.target.name) {
                 (item.type === "number") ? item.value = parseInt(e.target.value) : item.value = e.target.value;
 
-                if (item.key === e.target.name && item.type !== "string") item.value = e.target.value;
+                if (item.id === e.target.name && item.type !== "string") item.value = e.target.value;
                 if (item.type === "date") {
                 
                     //let formatDate = moment(e.target.value).format('DD MMM YYYY');
@@ -234,11 +228,11 @@ class userInfo extends React.Component {
 
                 }
 
-                if (item.key === e.target.name && item.id === "email") {
+                if (item.id === e.target.name && item.id === "emailAddress") {
                     item.value = e.target.value;
                  
                 }
-                else if (item.key === e.target.name && item.type === "string") item.value = e.target.value;
+                else if (item.id === e.target.name && item.type === "string") item.value = e.target.value;
 
             }
 

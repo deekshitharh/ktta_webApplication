@@ -82,7 +82,7 @@ class Login extends React.Component {
       apiData.type = "userLogin";
     
       
-      apiData.userName = data.email;
+      apiData.userName = data.emailAddress;
         apiData.userPassword = data.password;
         apiData.emailOrPhoneFlag = 1;
         apiData.loginRole = "Player";
@@ -237,7 +237,7 @@ class Login extends React.Component {
                     </Grid>
                   </Grid>
 
-                  {requestStatus.length ? (
+                  {requestStatus ? (
                     <SnackPopup message={requestStatus} type="error" />
                   ) : (
                     ""

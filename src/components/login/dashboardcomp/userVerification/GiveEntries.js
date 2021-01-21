@@ -84,7 +84,7 @@ class subscribeEvent extends React.Component {
         });
       }
     })
-    // playerdata = sessioncommons.getplayerDetails()
+
 
   
 

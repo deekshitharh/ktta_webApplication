@@ -21,7 +21,7 @@ class StatisticsContent extends Component {
     return (
       <div className={classes.root}>
         <Paper elevation={3}>
-          <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+          <Typography variant="h6" component="h6"className={classes.statistics}>
             {" "}
             Statistics
           </Typography>

@@ -69,8 +69,8 @@ export default class StandingContent extends Component {
         return (
           <div className={classes.root}>
             <Paper elevation={3}>
-              <div style={{ display: "flex" }}>
-                <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+              <div className={classes.flexView}>
+                <Typography variant="h6" component="h6"className={classes.statistics}>
                   Top Rank Players
                 </Typography>
                 <ViewMorePage pathname="/player_ranking" title="VIEW ALL" />

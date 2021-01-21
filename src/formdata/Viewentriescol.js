@@ -1,4 +1,4 @@
- //genric table fields for viewing entries of different  event categories
+//genric table fields for viewing entries of different  event categories giveEnties.js
 
  export const columns = [
     { field: "playerName", title: "Name"  ,filtering: false },

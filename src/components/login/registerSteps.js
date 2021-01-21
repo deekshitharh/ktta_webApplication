@@ -59,7 +59,7 @@ class registerSteps extends React.Component {
 //email veification
   validateEmail = async () => {
     const { formData } = this.state
-    let filteredata = [formData.find(item => item.id === "email")]
+    let filteredata = [formData.find(item => item.id === "emailAddress")]
 
     let formInputDataValid = await formValidation.genricFromValidation(filteredata);
     let result = formInputDataValid.find((item) => {
@@ -104,7 +104,7 @@ class registerSteps extends React.Component {
     formvalues.map((obj) => {
 
      
-      data[obj.key] = obj.value
+      data[obj.id] = obj.value
 
     });
 
@@ -155,7 +155,7 @@ class registerSteps extends React.Component {
 
       
 
-        if (item.key === e.target.name && item.id === "email") {
+        if (item.id === e.target.id && item.id === "emailAddress") {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
           this.validateEmail()
@@ -182,7 +182,7 @@ class registerSteps extends React.Component {
  
 
   componentDidMount() {
-    const value = formFileds.filter(word => word.id ==="email")
+    const value = formFileds.filter(word => word.id ==="emailAddress")
     let formDataControl = [...JSON.parse(JSON.stringify(value))];
   
 

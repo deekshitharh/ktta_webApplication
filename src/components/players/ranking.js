@@ -176,7 +176,7 @@ class PlayerRanking extends React.Component {
                     {buttonArr.map((item, index) => {
                       return (
                         <ToggleButtonGroup
-                          style={{ margin: 5 }}
+                        className={classes.textclass}
                           value={value}
                           exclusive
                           key={index}
@@ -210,7 +210,7 @@ class PlayerRanking extends React.Component {
                         render: (rowData) => (
                           <Typography component="div">
                             <Link
-                              style={{ cursor: "pointer" }}
+                            className={classes.assocLink}
                               onClick={(e) =>
                                 this.handleDetailDisplay(
                                   rowData.userId,

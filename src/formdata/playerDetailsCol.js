@@ -1,4 +1,4 @@
-//genric table fields for  player details in ranking component 
+//genric table fields for  player details in ranking.js component 
 
 export const playerDetailscol = [
     { field: "id", title: "SL No" },

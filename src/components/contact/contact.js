@@ -154,7 +154,7 @@ class Contact extends React.Component {
                       return (
                         <TextField
                           key={index}
-                          style={{ margin: 10 }}
+                          className={classes.textclass}
                           variant="outlined"
                           fullWidth
                           required={
@@ -188,7 +188,7 @@ class Contact extends React.Component {
                               input: classes.input
                             },
                               startAdornment: (
-                                <FieldIcon name={formval.adorment} size="" style={{}} type="mat"/>
+                                <FieldIcon name={formval.adorment} size=""  type="mat"/>
                               )
                           }}
                         />

@@ -1,4 +1,4 @@
-//top bar menu schema
+//top bar menu schema used in TopBar.js component
 
 import React from "react";
 
@@ -36,12 +36,7 @@ export const menuData = [
     value: 2,
     icon: <FileCopyIcon />,
     pathname: "/legal"
-    // choices: [
-    //   { name: "DIRECTIVES", pathname:"/directives" },
-    //   { name: "STATE RANKING EVENTS-RULES", pathname: "/player_ranking" },
-    //   { name: "GENERAL BODY MEETING", pathname: "/player_ranking" },
-    //   { name: "FORMS", pathname: "/player_ranking" }
-    // ]
+   
   },
     {
       label: "EVENTS",
@@ -49,20 +44,7 @@ export const menuData = [
       pathname: "/tornamentlist",
       value: 3
     },
-    //  {
-    //   label: "ABOUT",
-    //   value: 4,
-    //   choices: [
-      
-    //     { name: "OFFICE BEARERS ", pathname: "/officebereres" },
-    //     { name: "REGISTERED CLUBS/ASSOCIATIONS", pathname: "/registreredclubs_Assoc"}
-    //   ]
-    // },
-    // {
-    //   label: "NEWS",
-    //   value: 5,
-    //   pathname: "/newsdata"
-    // },
+ 
     {
       label: "CONTACT",
       icon: <ContactsIcon />,

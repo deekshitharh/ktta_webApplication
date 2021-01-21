@@ -7,7 +7,7 @@ import BaseDialog from "../players/dialouges/baseDialouge"
 
 import LocationCityIcon from '@material-ui/icons/LocationCity';
 import Grid from "@material-ui/core/Grid";
-import newsStyle from '../../styles/genricStyle'
+import customStyles from '../../styles/genricStyle'
 
 import CardContent from "@material-ui/core/CardContent";
 
@@ -23,7 +23,7 @@ import {commons} from "../../commons"
 //dilouge component for mobile view to display additionl fields 
 class ResponsiveListDailouge extends Component {
     render() {
-        const { playername, playerdata } = this.props;
+        const { playername,classes, playerdata } = this.props;
       
         let playerInfo = playerdata.find(item => item.userName === playername);
      
@@ -36,12 +36,7 @@ class ResponsiveListDailouge extends Component {
                             item
                             sm={12}
                             xs={12}
-                            style={{
-
-                                marginBottom: 20,
-
-                            }}
-
+                            className={classes.responsiveDailouge}
                         >
                             <Card
                                 
@@ -51,7 +46,7 @@ class ResponsiveListDailouge extends Component {
                                     {playerInfo
                                         ? <Titlize value={playerInfo.userName} />
                                         : ""}
-                                    style={{ textAlign: "center" }}
+                                        className={classes.textcentre}
                                 />
 
                                 <CardContent>
@@ -84,7 +79,7 @@ class ResponsiveListDailouge extends Component {
                                             <Typography
                                                 gutterBottom
                                                 variant="subtitle1"
-                                                style={{ paddingLeft: "10px" }}
+                                                className={classes.responsivepadding}
                                             >
                                                 {playerInfo
                                                     ? commons.formatterDate(playerInfo.dateOfBirth)
@@ -100,7 +95,7 @@ class ResponsiveListDailouge extends Component {
                                             <Typography
                                                 gutterBottom
                                                 variant="subtitle1"
-                                                style={{ paddingLeft: "10px" }}
+                                                className={classes.responsivepadding}
                                             >
                                                 {playerInfo
                                                     ? <Titlize value={playerInfo.affiliationId} />
@@ -129,7 +124,7 @@ class ResponsiveListDailouge extends Component {
                                                         <Typography
                                                             gutterBottom
                                                             variant="subtitle1"
-                                                            style={{ paddingLeft: "10px" }}
+                                                            className={classes.responsivepadding}
                                                         >Male</Typography>
                                                     </Grid>
                                                             
@@ -148,7 +143,7 @@ class ResponsiveListDailouge extends Component {
                                                         <Typography
                                                             gutterBottom
                                                             variant="subtitle1"
-                                                            style={{ paddingLeft: "10px" }}>Female</Typography>
+                                                            className={classes.responsivepadding}>Female</Typography>
                                                     </Grid>
                                                         </React.Fragment>
                                                        
@@ -173,4 +168,4 @@ class ResponsiveListDailouge extends Component {
     }
 }
 
-export default withRouter(withStyles(newsStyle)(ResponsiveListDailouge));
+export default withRouter(withStyles(customStyles)(ResponsiveListDailouge));

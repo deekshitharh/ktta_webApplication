@@ -19,6 +19,7 @@ import customStyles from "../../styles/genricStyle";
     };
 
     render() {
+        // props:messege, type ie success/error as 
         const { message, classes ,type } = this.props;
         return (
      <Snackbar

@@ -6,7 +6,7 @@ import Responsive from "./reponsive";
 import { clients } from "./config/clientConfig";
 
 
-
+//app component that displays the whole child componets
 class App extends Component {
   componentDidMount = () => {
     if (!localStorage.getItem("api_key")) {

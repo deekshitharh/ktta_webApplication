@@ -178,14 +178,13 @@ class showdraws extends React.Component {
     const ELEMENT_DATA = Object.values(detailsGroupedByRow).map((rowItem) => {
       return this.showdatval(rowItem, "row");
     });
-console.log("heyy", ELEMENT_DATA)
-    console.log("element", ELEMENT_DATA);
+
     return (
       <React.Fragment>
         <CssBaseline/>
 
         <div className={classes.root}>
-          <AppBar style={{ backgroundColor: "#e50606e3" }} position="static">
+          <AppBar className={classes.drawsAppbar} position="static">
             <Toolbar variant="dense">
               <Typography variant="h6" color="inherit">
                 {drawinfo}
@@ -193,14 +192,14 @@ console.log("heyy", ELEMENT_DATA)
             </Toolbar>
           </AppBar>
           <Container maxWidth="lg">
-            <Table style={{ flex: 1 }} size="small" aria-label="a dense table">
+            <Table   className={classes. regclubs} size="small" aria-label="a dense table">
               <TableHead>
                 <TableRow>
                   {rowdata.map((outerElement, index) => {
                     return (
                       <TableCell
                         align="center"
-                        style={{ cursor: "pointer" }}
+                     className={classes.assocLink}
                         onClick={() => this.handleClick(outerElement, index)}
                       >
                         <Box
@@ -242,7 +241,7 @@ console.log("heyy", ELEMENT_DATA)
                   <Grid container>
                     <Grid item md={12} sm={8} xs={8}>
                       <Typography>
-                        <span style={{ borderBottom: "3px solid #32407b" }}>
+                        <span className={classes.drawsboder}>
                           {outerElement.roundName}
                         </span>
                       </Typography>
@@ -264,10 +263,7 @@ console.log("heyy", ELEMENT_DATA)
 
                         return (
                           <Paper
-                            style={{
-                              padding: 20,
-                              margin: 10,
-                            }}
+                          className={classes.drawspaper}
                           >
                             <Grid container>
                               <Grid container></Grid>
@@ -297,12 +293,7 @@ console.log("heyy", ELEMENT_DATA)
                                     xs={3}
                                     sm={3}
                                     md={4}
-                                    style={{
-                                      whiteSpace: "nowrap",
-
-                                      overflow: "hidden",
-                                      textOverflow: "ellipsis",
-                                    }}
+                                    className={classes.drawstext}
                                   >
                                     <Titlize value={showWinner} />
                                   </Grid>
@@ -312,12 +303,7 @@ console.log("heyy", ELEMENT_DATA)
                                   xs={3}
                                   sm={3}
                                   md={4}
-                                  style={{
-                                    whiteSpace: "nowrap",
-
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                  }}
+                                  className={classes.drawstext}
                                 >
                                   <Titlize value={x.players.playerA} />
                                 </Grid>
@@ -373,12 +359,7 @@ console.log("heyy", ELEMENT_DATA)
                                     xs={3}
                                     sm={3}
                                     md={4}
-                                    style={{
-                                      whiteSpace: "nowrap",
-
-                                      overflow: "hidden",
-                                      textOverflow: "ellipsis",
-                                    }}
+                                    className={classes.drawstext}
                                   >
                                     <Titlize value={showWinner} />
                                   </Grid>
@@ -388,12 +369,7 @@ console.log("heyy", ELEMENT_DATA)
                                   xs={3}
                                   sm={3}
                                   md={4}
-                                  style={{
-                                    whiteSpace: "nowrap",
-
-                                    overflow: "hidden",
-                                    textOverflow: "ellipsis",
-                                  }}
+                                  className={classes.drawstext}
                                 >
                                   <Titlize value={x.players.playerB} />
                                 </Grid>

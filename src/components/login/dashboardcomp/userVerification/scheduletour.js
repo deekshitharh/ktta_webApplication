@@ -89,7 +89,7 @@ class SceduleTournament extends React.Component {
 
           <Paper elavation={10} square={false}>
             {userStatus.length?<InfoComponent
-                  variant="h3"
+                  variant="h4"
                   message={userStatus}
                 />:<Grid container align="center">
                 <Grid item md={12} sm={12} xs={12}>

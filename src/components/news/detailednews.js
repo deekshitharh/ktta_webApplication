@@ -26,7 +26,7 @@ class DetailedNews extends React.Component {
       loading: false
     };
   }
-  //api for getting detail news based on id
+  //api for getting news
   loadetailedData = () => {
     debugger
     const { news_id } = this.state;
@@ -58,7 +58,7 @@ class DetailedNews extends React.Component {
 
     const { filepath,  newsDetails,news_id,loading } = this.state;
     const found = newsDetails.filter(element => element._id == news_id );
-    console.log("hey",found)
+    
     return (
       <React.Fragment>
         <CssBaseline />

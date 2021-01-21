@@ -16,16 +16,14 @@ import Titlize from "../commons/genricComponents/titlize";
 import customStyles from "../styles/genricStyle";
 
 import Topbar from "../components/landingPage/TopBar";
-//import {newsData} from "../../formdata"
 import RefreshLoader from "../commons/genricComponents/pageloader";
 
 import { ApiCall } from "../APIService";
-import { API_URL } from "../globalUrls";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { commons } from "../commons";
 import pageBanner from "../config/bannerConfig";
 import InfoComponent from "../commons/genricComponents/infoComponent";
-//genric component for dispalying the data in landing page  and detailing page of officebearers component
+//genric component for dispalying the data in landing page  and detailing page of about/officebearers.js component
 class GenricOfficebearers extends React.Component {
     constructor(props) {
         super(props);
@@ -83,8 +81,8 @@ class GenricOfficebearers extends React.Component {
           <div className={classes.root}>
             {type === "landing" ? (
               <React.Fragment>
-                <div style={{ display: "flex" }}>
-                  <Typography variant="h6" component="h6" style={{ flex: 1 }}>
+                <div className={classes.flexView}>
+                  <Typography variant="h6" component="h6" className={classes.statistics}>
                     {" "}
                     Office Bearers
                   </Typography>
@@ -106,21 +104,21 @@ class GenricOfficebearers extends React.Component {
                             xs={12}
                             md={3}
                             sm={6}
-                            style={{ display: "flex" }}
+                            className={classes.flexView}
                             key={index}
                           >
                             <Card className={classes.imagecard}>
                               <CardMedia
                                 className={classes.media}
                                 component="img"
-                               //   src={defaultlogo}
+                              
                                 src={
                                   value.url
                                     ?  value.url
                                     : defaultlogo
                                 }
                               />
-                              <CardContent style={{textAlign:"center"}}>
+                              <CardContent className={classes.textcentre}>
                                 <Typography gutterBottom variant="h6">
                                   <Titlize value={value.name}/>
                                 </Typography>
@@ -169,7 +167,7 @@ class GenricOfficebearers extends React.Component {
               <React.Fragment>
                   <Topbar index={0}  />
                 <div className={classes.root}>
-                  {/* <Grid container justify="center"> */}
+                  
                   <RefreshLoader
                     type="linear"
                     loading={loading}

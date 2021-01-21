@@ -1,14 +1,11 @@
 //regular expression rules for form fileds
-
+//used for validtion in  login.js,registerPlayer.js,fogotPassword.js,userProfile.js,contact us components
 export const regularExpData = [
    
-   
-  
-       {
+{
         name: "userName",
-        regExp:   /^[a-zA-Z ]{3,15}$/,
-        
-           message: "Enter characters between 3 to 15"
+        regExp:/^[a-zA-Z ]{3,15}$/,
+        message:"Enter characters between 3 to 15"
 
     },
     {
@@ -27,11 +24,7 @@ export const regularExpData = [
         regExp: /^\d{6}$/,
         "message": "Invalid Pincode"
     },
-    // {
-    //     name: "dob",
-    //     regExp: /^([12]\d{3}-(0[1-9]|1[0-2])-(0[1-9]|[12]\d|3[01]))$/i,
-    //     message: "Invalid DOB"
-    // },
+   
   
     {
         name: "password",
@@ -55,23 +48,13 @@ export const regularExpData = [
         regExp: /^.{5,15}$/i,
         "message": "password required with minimum 5 characters"
     },
-    // {
-    //     name: "isallusersdisabled",
-    //     regExp: /^(true|false)$/,
-    //     "message": "all users disabled/enabled selection required"
-    // },
+   
     {
         name: 'gender',
         regExp: /^male$|^female$/,
         "message": "Allowed gender : male/female"
     },
-    {
-        name: 'afftype',
-        regExp: /^type1$/,
-        message: "Allowed Affiliation Type : type1"
-        // regExp: /^type1$|^custom$/,
-        //"message": "Allowed Affiliation Type : type1/custom"
-    },
+ 
    
     
 ]
