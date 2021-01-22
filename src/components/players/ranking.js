@@ -139,8 +139,6 @@ class PlayerRanking extends React.Component {
       tableIcons,
     } = this.state;
 
-    // console.log("data of ranking" + JSON.stringify(this.state.ranking))
-
     return (
       <React.Fragment>
         <CssBaseline />

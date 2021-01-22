@@ -67,7 +67,7 @@ commons.genricGrid = (apidata, gridrows, gridColumns) => {
 
   return genricData;
 };
-//data array that needs to displayed in draws compone
+//data array that needs to displayed in showdraws.js component for that displays grid layou based on rowdata
 commons.gridData = (apidata) => {
   let genricData = [];
   let i;
@@ -78,7 +78,7 @@ commons.gridData = (apidata) => {
   return genricData;
 };
 
-//format the date used in tournament file
+//format the date used in tournament.js file
 commons.formatterDate = (inputDate) => {
   inputDate = inputDate.substring(0, 10).split(/\D/g);
   inputDate = inputDate[2] + "-" + inputDate[1] + "-" + inputDate[0];
@@ -89,7 +89,7 @@ commons.abrrevatedData = (val) => {
   const data = val.substring(0, 4);
   return data.toUpperCase();
 };
-//check shuffle array function fo displying random data each time load
+//check shuffle array function fo displying random data each time load used in registeredclubs.js and registeredassoc.js,newsPage.js
 commons.shuffleArray = (array) => {
   for (let i = array.length - 1; i > 0; i--) {
     const j = Math.floor(Math.random() * (i + 1));
@@ -97,7 +97,8 @@ commons.shuffleArray = (array) => {
   }
   return array;
 };
-//check futuredate
+//check futuredate for dob that  n registerplayer.js field to avoid dob as future date
+//function is used in formfunction for validtion of dob.
 commons.checkFuturedate = (date) => {
   var today = new Date().getTime(),
     idate = date.split("-");

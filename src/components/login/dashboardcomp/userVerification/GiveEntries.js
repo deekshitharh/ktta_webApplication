@@ -159,12 +159,7 @@ class subscribeEvent extends React.Component {
     this.setState({ loading: true });
     ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
-      .then((res) => {
-        if (!res["status"]) {
-          // console.log("api error" + res["status"]);
-        }
-        return res;
-      })
+
       .then((res) => {
         if (res.data && res.data.length > 0) {
           res.data.forEach((el) => {

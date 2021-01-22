@@ -49,7 +49,7 @@ const AppRoutes = (props1) => {
         />
         <Route
           exact
-          path="/showdraws/:id"
+          path="/showdraws/:ename/:eid"
           render={props => renderComponent(showdraws, props, props1)}
         />
 

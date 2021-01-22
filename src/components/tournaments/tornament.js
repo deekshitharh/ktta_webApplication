@@ -137,7 +137,6 @@ class Tournament extends React.Component {
       tname,
       commitiedata,
     } = this.state;
-    console.log("tourdata", tournamentData.length);
 
     return (
       <React.Fragment>

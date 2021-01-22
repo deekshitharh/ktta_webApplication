@@ -155,7 +155,7 @@ class Topbar extends Component {
                 <Collapse in={open} timeout="auto" unmountOnExit>
                   <List component="div" disablePadding>
                     {item.choices.map((nestedItem, index) => {
-                      console.log("state", nestedclick);
+                 
                       return (
                         <ListItem
                           key={index}
