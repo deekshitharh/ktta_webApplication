@@ -23,6 +23,7 @@ const transitionDuration = 1000;
 const gridColumns = 4;
 const gridRows = 2;
 //genric component for dispalying the data in landing page  and detailing page of Registeredassociation component
+//used in registeredAssoc.js file.
 class GenicRegisteredAssoc extends React.Component {
   constructor(props) {
     super(props);

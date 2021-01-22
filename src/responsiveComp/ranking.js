@@ -2,7 +2,7 @@ import React from 'react';
 import { Desktop, Tablet, Mobile} from "../views"
 import ResponsiveRanking from "../components/MobileView/rankingView"
 import PlayerRanking from "../components/players/ranking"
-//genric component to display the PlayerRanking in mobile/desktop/tablet
+//genric component to display the PlayerRanking.js in mobile/desktop/tablet
 
 const playerRankViews = (props) => {
     const { classes } = props;

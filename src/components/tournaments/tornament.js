@@ -25,8 +25,8 @@ import CommitieData from "./commitedetails";
 import { ApiCall } from "../../APIService";
 import { Link as CoreLink } from "@material-ui/core";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
-//displaying the tounamnet list user can register/view entries/draws
-//past and upcooming tournaments data
+//displaying the tounamnet list user can  register or /view entries/draws based onpast and upcomming tournaments data
+//past and upcomming tournaments data
 class Tournament extends React.Component {
   constructor(props) {
     super(props);

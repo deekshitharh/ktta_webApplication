@@ -8,6 +8,7 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { sessioncommons } from "../../commons";
 import { clients } from "../../config/clientConfig";
+//leauge component that displays the results based on the button toggle value used 
 class LeagueInfo extends React.Component {
   constructor(props) {
     super(props);

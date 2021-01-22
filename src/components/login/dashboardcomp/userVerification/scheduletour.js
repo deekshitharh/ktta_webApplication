@@ -11,7 +11,7 @@ import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { tableIcons } from "../../../../formdata";
 import { schedule } from "../../../../formdata";
-// schedule  component for given tournament schedule
+// schedule  component for given tournament schedule used in dshboard.js
 class SceduleTournament extends React.Component {
   constructor(props) {
     super(props);

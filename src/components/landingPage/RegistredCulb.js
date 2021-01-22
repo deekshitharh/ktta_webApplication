@@ -1,11 +1,7 @@
 import React from "react";
-
 import customStyles from "../../styles/genricStyle";
-
 import withStyles from "@material-ui/core/styles/withStyles";
-
 import { withRouter } from "react-router-dom";
-
 import GenicRegisteredClubs from "../../genricSceen/registerdClub";
 //genric component for newscomponent
   //based on prop as landing page  which displays data required for as per RegisteredClubs component

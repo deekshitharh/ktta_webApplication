@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
-
 import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
@@ -12,7 +11,6 @@ import Paper from "@material-ui/core/Paper";
 import { ApiCall } from "../../APIService";
 import formValidation from "../../commons/formfunction";
 import Container from "@material-ui/core/Container";
-
 import { changePasswordForm } from "../../formdata";
 import FormGenerator from "../../commons/genricComponents/formGenerator";
 import Avatar from "@material-ui/core/Avatar";

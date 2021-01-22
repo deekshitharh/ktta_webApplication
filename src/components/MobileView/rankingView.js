@@ -25,7 +25,7 @@ import { ApiCall } from "../../APIService";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../commons";
-//mobile view component for Ranking
+//mobile view component for Ranking used in rankingview.js
 class ResponsiveRanking extends React.Component {
   constructor(props) {
     super(props);

@@ -25,7 +25,7 @@ import { tableIcons } from "../../../../formdata";
 import { commons } from "../../../../commons";
 
 let selectionFlag = false;
-//event subscription componet used in dashboard componet
+//event subscription componet used in dashboard.js componet
 class subscribeEvent extends React.Component {
   constructor(props) {
     super(props);

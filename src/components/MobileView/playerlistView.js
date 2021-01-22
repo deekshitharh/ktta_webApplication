@@ -14,7 +14,7 @@ import Link from "@material-ui/core/Link";
 
 import { commons } from "../../commons";
 
-//mobile view component for PlayerList
+//mobile view component for PlayerList used in playerlistView.js
 
 class ResponsivePlayerList extends React.Component {
   constructor(props) {

@@ -12,7 +12,7 @@ const icons = {
   message: MessageIcon,
   password: LockOutlinedIcon,
 };
-//function for material ui component with props as icon name
+//function for material ui component with props as icon name component is used in contactus.js,login.js for displaying form fields icon.
 //props as name
 const showIcon = (name) => {
   const Icon = icons[name];

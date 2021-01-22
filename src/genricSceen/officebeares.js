@@ -18,6 +18,7 @@ import { commons } from "../commons";
 import pageBanner from "../config/bannerConfig";
 import InfoComponent from "../commons/genricComponents/infoComponent";
 //genric component for dispalying the data in landing page  and detailing page of about/officebearers.js component
+//used in officeBearers.js
 class GenricOfficebearers extends React.Component {
   constructor(props) {
     super(props);

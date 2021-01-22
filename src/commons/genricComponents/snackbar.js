@@ -5,7 +5,8 @@ import { withStyles } from "@material-ui/core/styles";
 
 import { withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
-//genric snack bar component
+//genric snack bar component to difine success/error messges in contact.js,login.js,giveEntries.js,urlProfile.js,showresults.js
+//for success/error api messages.
 class SnackPopup extends React.Component {
   constructor(props) {
     super(props);

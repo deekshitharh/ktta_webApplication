@@ -17,7 +17,6 @@ import LinesEllipsis from "react-lines-ellipsis";
 import ReactHtmlParser from "react-html-parser";
 import Button from "@material-ui/core/Button";
 import Topbar from "../components/landingPage/TopBar";
-//import {newsData} from "../../formdata"
 import RefreshLoader from "../commons/genricComponents/pageloader";
 import { uiCommons } from "../commons";
 import { ApiCall } from "../APIService";
@@ -26,7 +25,8 @@ import { commons } from "../commons";
 import InfoComponent from "../commons/genricComponents/infoComponent";
 const gridColumns = 2;
 const gridRows = 3;
-//genric component for dispalying the data in landing page  and detailing page of news/newsinfo.js component
+//genric component for dispalying the data in landing page and detailing page of news/newsinfo.js component
+//used in newInfo.js
 class GenricNewsContent extends Component {
   constructor(props) {
     super(props);

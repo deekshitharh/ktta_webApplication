@@ -34,7 +34,7 @@ const icons = {
   instagram: faInstagram,
   twitter: faTwitter,
 };
-
+//font awesome icon function used in tournament.js,matchresults.js,assoclist.js,standingContent.js,mediaExtract.js,commitedetails.js,showdraws.js,showresults.js files to display the icons
 const showIcon = (name, size, style) => {
   const Icon = icons[name];
   return Icon ? (

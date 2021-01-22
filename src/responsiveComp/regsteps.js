@@ -1,7 +1,7 @@
 import React from 'react';
 import { Desktop, Tablet, Mobile } from "../views"
 import Topbar from "../components/landingPage/TopBar"
-//genric component to display the registerSteps in mobile/desktop/tablet
+//genric component to display the registerSteps.js in mobile/desktop/tablet
 
 const playerRegistration = (props) => {
     const { classes } = props;

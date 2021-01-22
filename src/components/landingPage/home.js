@@ -16,8 +16,8 @@ import customStyles from "../../styles/genricStyle";
 import banner1 from "../../images/tball.jpg";
 import BannerImage from "../../commons/genricComponents/imageClass";
 import MediaWidget from "../socialMediaExtracts/mediaExtracts";
-//home page component for RegisteredClubs,RegisteredAssoc,OfficeBearers,StatisticsContent,Topbar
-//MediaWidget,Sponsers,NewsContent,StandingContent
+//parent component for displaying RegisteredClubs,RegisteredAssoc,OfficeBearers,StatisticsContent,Topbar
+//MediaWidget,Sponsers,NewsContent,StandingContent,footer
 class Home extends Component {
 
 //theme change functionality  

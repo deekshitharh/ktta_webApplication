@@ -1,4 +1,9 @@
 //form schema for player registration
+//id ->for finding the target field value
+//displayName ->for field name
+//error ->for storing  field error
+//required-> for required filed
+//type->type of value
 export const registration = [
   {
     displayName: "Email ID",

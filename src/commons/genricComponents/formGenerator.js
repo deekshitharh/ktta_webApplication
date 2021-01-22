@@ -8,7 +8,7 @@ import VisibilityOff from "@material-ui/icons/VisibilityOff";
 import { withStyles } from "@material-ui/core/styles";
 import { withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
-///genric form genertor component for provided form schema
+///genric form component  provided  for form schema for fogotpassword.js,registerPlayer.js,registerSteps.js,userProfile.js,
 class FormGenerator extends React.Component {
   constructor(props) {
     super(props);
@@ -22,7 +22,7 @@ class FormGenerator extends React.Component {
   componentDidMount() {
     if (this.props.formList) this.setState({ formList: this.props.formList });
   }
-//recieving form data props from the register.js, forgotpassword.js,
+  //recieving form data props from the register.js, forgotpassword.js,fogotpassword.js,registerPlayer.js,registerSteps.js,userProfile.js,
   componentDidUpdate(prevProps) {
     if (prevProps.formList !== this.props.formList) {
       if (this.props.formList) this.setState({ formList: this.props.formList });

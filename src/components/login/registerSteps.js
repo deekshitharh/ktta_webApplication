@@ -24,7 +24,7 @@ import { steps } from "../../formdata";
 import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Checkbox from "@material-ui/core/Checkbox";
 import Avatar from "@material-ui/core/Avatar";
-//registerSteps component for email verification and player registration
+// parent registerSteps component for email verification and player registration
 class registerSteps extends React.Component {
   constructor(props) {
     super(props);

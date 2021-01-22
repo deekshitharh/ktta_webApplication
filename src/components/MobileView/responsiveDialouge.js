@@ -20,7 +20,7 @@ import RoomIcon from "@material-ui/icons/Room";
 import { rankingResponsiveTable } from "../../formdata";
 
 import Titlize from "../../commons/genricComponents/titlize";
-//mobile view component for player ranking dailouge display for additional details view
+//mobile view component for player ranking dailouge display for additional details view used in rankingview.js
 
 class ResponsiveDailouge extends Component {
   render() {

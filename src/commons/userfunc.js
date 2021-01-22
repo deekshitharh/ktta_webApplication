@@ -1,7 +1,7 @@
 import moment from "moment";
 
 const commons = {};
-//genic api error
+//genic api error for all api's component.
 commons.errorLog = (e) => {
   console.log(e);
 };
@@ -32,7 +32,7 @@ commons.loadScript = (src) => {
   });
 };
 
-//genric function to filter form fileds to send as params to api
+//genric function to filter form fileds to send as params to api used in registerPlayer.js while sending pram to api.
 commons.displayfileds = (formvalues) => {
   const data = {};
 

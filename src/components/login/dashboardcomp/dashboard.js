@@ -35,6 +35,7 @@ import { sessioncommons } from "../../../commons";
 import RefreshLoader from "../../../commons/genricComponents/pageloader";
 import DescriptionIcon from "@material-ui/icons/Description";
 //dashboard component  redirected after login
+//parent compoent for givenetries.js,userprofile.js,viewprospectus.js
 class Dashboard extends Component {
   constructor(props) {
     super(props);

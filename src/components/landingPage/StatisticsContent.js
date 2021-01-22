@@ -2,17 +2,13 @@ import React, { Component } from "react";
 import Typography from "@material-ui/core/Typography";
 import Paper from "@material-ui/core/Paper";
 import Statistics from "../../commons/genricComponents/charts";
-
 import Card from "@material-ui/core/Card";
 import { withStyles } from "@material-ui/core/styles";
-// import "../../styles/legend.css"
-
 import { withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import { ApiCall } from "../../APIService";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
 // parent component for  graph component  used in home.js
-
 class StatisticsContent extends Component {
   constructor(props) {
     super(props);

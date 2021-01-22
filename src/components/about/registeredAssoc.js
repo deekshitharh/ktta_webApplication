@@ -2,7 +2,7 @@ import React from "react";
 import customStyles from "../../styles/genricStyle";
 import withStyles from "@material-ui/core/styles/withStyles";
 import GenicRegisteredAssoc from "../../genricSceen/registeredAssoc";
-//genric component of RegisteredAssoc component
+//genric component of RegisteredAssoc component used in home.js
 class RegisterdAssoc extends React.Component {
   render() {
     return (

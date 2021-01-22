@@ -2,9 +2,8 @@ import { regularExpData } from "../formdata";
 import { commons } from "../commons";
 const formValidation = {};
 const fileSizeLimit = 1 * 1000 * 1000;
-
-//password vadiation used in login.js,registerplayer.js,forgotpssword component forms
-//form fileds as param
+//password valdiation used in login.js,registerplayer.js,forgotpssword component forms
+//form fields as param
 formValidation.verifyPassword = (obj) => {
   let passwordObj = obj.find((obj) => obj.id.toLowerCase() === "password");
   let confirmPasswordObj = obj.find(

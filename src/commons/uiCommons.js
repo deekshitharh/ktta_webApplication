@@ -1,7 +1,7 @@
 const uiCommons = {};
 
 //genric grid layout function used in newsPage.js,showsdraws.js,registeredclub.js,registredassoc.js
-//pram:diplying grid based on coloum value
+//pram:displaying grid based on coloum value
 uiCommons.getGrid = (noOfColumns) => {
   let gridResponse = {};
   switch (noOfColumns) {

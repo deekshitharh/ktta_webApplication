@@ -24,7 +24,7 @@ const gridColumns = 4;
 const gridRows = 2;
 
 //genric component for dispalying the data in landing page  and detailing page of about/RegisteredClubs.js component
-
+//used in registeredclubs.js
 class GenicRegisteredClubs extends React.Component {
   constructor(props) {
     super(props);

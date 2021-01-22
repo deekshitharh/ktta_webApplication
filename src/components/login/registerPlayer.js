@@ -23,7 +23,7 @@ import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
 import { DialogActions } from "@material-ui/core";
-//player registration component
+//player registration component used as stepper componet in register steps
 class playerRegister extends React.Component {
   constructor(props) {
     super(props);

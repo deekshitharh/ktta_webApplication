@@ -20,7 +20,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Titlize from "../../commons/genricComponents/titlize";
 import EventIcon from '@material-ui/icons/Event';
 import {commons} from "../../commons"
-//dilouge component for mobile view to display additional fields for  playerlist
+//dilouge component for mobile view to display additional fields for  playerlist used in playerlistView.js 
 class ResponsiveListDailouge extends Component {
     render() {
         const { playername,classes, playerdata } = this.props;

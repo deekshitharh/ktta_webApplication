@@ -1,5 +1,4 @@
 import React from "react";
-//import AuthService from "../service/AuthService";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Divider from "@material-ui/core/Divider";
@@ -13,11 +12,10 @@ import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Topbar from "../landingPage/TopBar";
-//import { APIService } from "../service";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import Titlize from "../../commons/genricComponents/titlize";
-//legal component of navigation bar
+//legal component of navigation bar displays legal informtion which allows the user to downlod pdf(legal info pdf)
 class Legal extends React.Component {
     constructor(props) {
         super(props);

@@ -13,7 +13,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
 import { ApiCall } from "../../APIService";
 import Fontawsome from "../../commons/genricComponents/fontAwsomicon";
-//gridlist component to display the district association data which is used in contact.js component
+//gridlist component to display the district association data which is used in map.js component
 class SingleLineGridList extends Component {
   constructor(props) {
     super(props);
@@ -25,7 +25,6 @@ class SingleLineGridList extends Component {
   //api call district association
   loadDaData = () => {
     let apiData = {};
-    apiData.client_key = "APTTA";
     apiData.type = "getDAListForGivenAssoc";
      ApiCall("POST",  apiData, "coreApi")
       .then((res) => res.json())

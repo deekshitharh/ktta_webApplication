@@ -4,7 +4,7 @@ import { withStyles } from "@material-ui/core/styles";
 import customStyles from "../../styles/genricStyle";
 import ChevronRightIcon from "@material-ui/icons/ChevronRight";
 import { Link, withRouter } from "react-router-dom";
-//view more page component for linking for registered clubs,association,top rankplyers news,officebearers detailing page 
+//view more page component for linking for registered clubs,association,top rankplayers, news,officebearers to respective detailing page 
 class ViewMorePage extends Component {
   componentDidMount() {}
 

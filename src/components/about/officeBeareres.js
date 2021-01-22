@@ -6,7 +6,7 @@ import GenricOfficebearers from "../../genricSceen/officebeares";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-//genric component of office bearers
+//genric component of office bearers used in home.js
 class Officebearers extends React.Component {
   constructor(props) {
     super(props);

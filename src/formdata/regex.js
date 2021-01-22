@@ -1,5 +1,8 @@
 //regular expression rules for form fileds
-//used for validtion in  login.js,registerPlayer.js,fogotPassword.js,userProfile.js,contact us components
+//used for validtion in  login.js,registerPlayer.js,fogotPassword.js,userProfile.js,contact us  form components
+//name should match the id name of form schema
+// regExp for condition matching value entered .
+//message if match fails.
 export const regularExpData = [
   {
     name: "userName",

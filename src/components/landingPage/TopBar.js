@@ -16,7 +16,6 @@ import ExpandMore from "@material-ui/icons/ExpandMore";
 import { ApiCall } from "../../APIService";
 import { API_URL } from "../../globalUrls";
 import { commons } from "../../commons";
-// color:#d90404
 import customStyles from "../../styles/genricStyle";
 import {
   List,
@@ -30,7 +29,7 @@ import {
   MenuItem,
 } from "@material-ui/core";
 import pageBanner from "../../config/bannerConfig";
-//naviagtion bar component
+//naviagtion bar component for menuData 
 class Topbar extends Component {
   constructor(props) {
     super(props);

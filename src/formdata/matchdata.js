@@ -1,4 +1,5 @@
-//dummy jason format to display draws in showdraws.js
+//dummy jason format to display draws can be used in api call of showdraws.js
+//this file is not used in showdraws.js file,before api integration the file was used for testing.
 export const mresults = {
   roundDetails: [
     {

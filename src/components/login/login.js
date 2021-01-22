@@ -1,5 +1,4 @@
 import React from "react";
-
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
@@ -24,7 +23,7 @@ function cloneArray(arrayToClone) {
   let clonedArray = arrayToClone.map((item) => ({ ...item }));
   return clonedArray;
 }
-//login component for user login
+//login component for user login componet used in routes.js
 class Login extends React.Component {
   constructor(props) {
     super(props);

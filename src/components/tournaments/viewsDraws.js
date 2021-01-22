@@ -7,7 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import { tournamentmenu } from "../../formdata";
 import { AppBar, Toolbar, Tabs, Tab } from "@material-ui/core";
-//parent component for view for displaying match results,download draws,viewing entries.
+//parent component for view for displaying matchresults,downloaddraws.js,viewentries.js
 class Entriesdraws extends Component {
   constructor(props) {
     super(props);

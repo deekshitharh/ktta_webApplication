@@ -8,7 +8,9 @@ import customStyles from "../../styles/genricStyle";
 
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-//page loader component
+import showResults from "../../components/tournaments/ViewsDraws/showResults";
+// page loader component for fogotpassword.js,registerPlayer.js,registerSteps.js,userProfile.js,officebearers,
+// newsPage.js,registeedclub.js,showResults.js, for animation of loading for api calls.
 class RefreshLoader extends React.Component {
   constructor(props) {
     super(props);
@@ -34,6 +36,7 @@ class RefreshLoader extends React.Component {
       this.timer = setTimeout(() => this.progress(completed + diff), 1000);
     }
   }
+  //for overlay page loader
 
   showloader = (display, classes, loading) => {
     if (display === "overlay" && loading) {
@@ -53,7 +56,8 @@ class RefreshLoader extends React.Component {
       );
     }
   };
- showlinear = (type, classes, loading) => {
+  //for liner page loader
+  showlinear = (type, classes, loading) => {
     if (type === "linear" && loading) {
       return (
         <div>

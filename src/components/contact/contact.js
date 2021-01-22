@@ -12,7 +12,7 @@ import formValidation from "../../commons/formfunction";
 import Container from "@material-ui/core/Container";
 import FieldIcon from "../../commons/genricComponents/fieldIcon";
 import { ApiCall } from "../../APIService";
-//contact us component of contact us menu of navigation bar
+//contact us component of contact us menu of navigation bar with map component,contact us fileds,
 class Contact extends React.Component {
   constructor(props) {
     super(props);
@@ -111,8 +111,7 @@ class Contact extends React.Component {
           <Container maxWidth="lg">
             <Paper className={classes.paper}>
               <MapContainer />
-
-              <Paper className={classes.formclass}>
+            <Paper className={classes.formclass}>
                 <Grid container>
                   <Grid item md={6}>
                     <form noValidate autoComplete="off">

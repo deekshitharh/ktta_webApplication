@@ -10,7 +10,7 @@ import { ApiCall } from "../../APIService";
 import Divider from "@material-ui/core/Divider";
 import { commons } from "../../commons";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
-//sponsers component used in home.js component
+//sponsers component used in home.js component displaying sponsers images.
 export default class Sponsers extends React.Component {
   constructor(props) {
     super(props);

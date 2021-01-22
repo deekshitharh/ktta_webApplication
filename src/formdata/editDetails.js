@@ -4,7 +4,7 @@
 //error ->for storing  filed error
 //required-> for required filed
 //type ->type of value
-//value -> filed value
+//value -> field value
 export const editData = [
   {
     id: "dateOfBirth",

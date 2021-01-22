@@ -5,7 +5,7 @@ import customStyles from "../../styles/genricStyle";
 import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
 import { useEffect } from "react";
-//graph component (chartist) used in statistics.js
+//graph component (chartist) used in statistics.js for diplaying chart data.
 
 var delays2 = 80,
   durations2 = 500;
