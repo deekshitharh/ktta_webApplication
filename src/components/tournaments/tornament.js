@@ -33,7 +33,6 @@ class Tournament extends React.Component {
     this.state = {
       loading: false,
       emessage: "",
-
       tournamentData: [],
       eventList: [],
       commitie: false,
@@ -49,11 +48,8 @@ class Tournament extends React.Component {
   //api call to display the tounamnet list "upcomming/past"
   loadTournamentData = () => {
     let params = {};
-
     params.type = "tourList";
-
     this.setState({ loading: true });
-
     ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
@@ -82,7 +78,7 @@ class Tournament extends React.Component {
   componentDidMount = () => {
     this.loadTournamentData();
   };
-
+//onsubmit functionality that redirects to login
   onsubmitdata = (tdata) => {
     let tournamentval = {};
     tournamentval.tournamentId = tdata._id;
@@ -152,7 +148,6 @@ class Tournament extends React.Component {
           <LeagueInfo
             handleChildUpdate={this.handleChildUpdate}
             loadtdata={this.loadTournamentData}
-           
           />
 
           <Grid align="center" justify="center" container>
@@ -177,7 +172,6 @@ class Tournament extends React.Component {
                         xs={12}
                         md={12}
                       >
-                        
                         <Grid item xs={12} md={12}>
                           <CardContent>
                             <Grid container>
@@ -253,7 +247,7 @@ class Tournament extends React.Component {
                                 <Typography
                                   gutterBottom
                                   variant="body1"
-                                   className={classes.commitiegrid}
+                                  className={classes.commitiegrid}
                                 >
                                   Last date for registration:{" "}
                                   {commons.formatDate(
@@ -264,7 +258,7 @@ class Tournament extends React.Component {
                             </Grid>
                           </CardContent>
 
-                          <CardActions   className={classes.commitiecard}>
+                          <CardActions className={classes.commitiecard}>
                             {tournamentType === "future" ? (
                               <Button onClick={() => this.onsubmitdata(value)}>
                                 Register

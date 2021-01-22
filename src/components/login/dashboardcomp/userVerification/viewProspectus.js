@@ -56,7 +56,7 @@ class viewProspectus extends React.Component {
             ViewPdf={ViewPdf}
             tounamentgroup={value}
             onClose={this.handleClose}
-            test={true}
+            download={true}
           />
         </div>
       </React.Fragment>

@@ -1,8 +1,6 @@
 import React from 'react';
 import { Desktop, Tablet, Mobile } from "../views"
 import ResponsivePlayerList from "../components/MobileView/playerlistView"
-
-
 import PlayerList from "../components/players/playerList"
 //genric component to display the playerList component in mobile/desktop/tablet
 

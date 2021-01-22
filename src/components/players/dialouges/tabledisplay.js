@@ -12,7 +12,7 @@ import { playerDetailscol } from "../../../formdata";
 import CloseIcon from "@material-ui/icons/Close";
 
 //dialouge compnoent for detiling view of player details used in player rank component
-
+//props:data is playerarray,playename,"onclose" dialouge close.
 class TableDialog extends Component {
   render() {
     const { data, playername, classes, loading, onClose } = this.props;

@@ -1,15 +1,12 @@
 import React from "react";
-
 import { withRouter } from "react-router-dom";
 import { ApiCall } from "../../../APIService";
-
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Paper from "@material-ui/core/Paper";
 import customStyles from "../../../styles/genricStyle";
-
 import MaterialTable, { MTableToolbar } from "material-table";
 import Titlize from "../../../commons/genricComponents/titlize";
 import { selectButtons, tableIcons } from "../../../formdata";
@@ -17,7 +14,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../../commons";
 
-//compoent for viewing entries for each event category
+//compoent for viewing entries  of players for each event category
 class Viewentries extends React.Component {
   constructor(props) {
     super(props);
@@ -54,8 +51,7 @@ class Viewentries extends React.Component {
 
   onChange = (event, value) => {
     const { tournamentId } = this.state;
-
-    var params = {};
+     var params = {};
     params.tournamentId = tournamentId;
     params.eventId = value;
     params.caller = "caller";

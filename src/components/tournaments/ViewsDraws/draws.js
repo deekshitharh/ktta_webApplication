@@ -4,7 +4,6 @@ import Downloadpdf from "./drawsDialouge";
 import Grid from "@material-ui/core/Grid";
 import { withStyles } from "@material-ui/core/styles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-//import Titleize from 'react-titleize';
 import Paper from "@material-ui/core/Paper";
 import customStyles from "../../../styles/genricStyle";
 import { selectButtons } from "../../../formdata";
@@ -17,7 +16,7 @@ import { commons } from "../../../commons";
 class ViewDraws extends React.Component {
   constructor(props) {
     super(props);
-      this.state = {
+    this.state = {
       loading: false,
       tournamentId: this.props.match.params.id,
       open: false,
@@ -56,7 +55,7 @@ class ViewDraws extends React.Component {
         commons.errorLog(error);
       });
   };
-
+//pdf validation(recieevs pdf base string as param)
   validatepdf = (pdf) => {
     const base64Rejex = /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)$/;
     const check = base64Rejex.test(pdf); // base64Data is the base64 string

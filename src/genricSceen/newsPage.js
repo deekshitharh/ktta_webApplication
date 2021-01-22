@@ -1,10 +1,8 @@
 import React, { Component } from "react";
 import withStyles from "@material-ui/core/styles/withStyles";
 import { Link, withRouter } from "react-router-dom";
-
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
-
 import Grid from "@material-ui/core/Grid";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -71,9 +69,12 @@ class GenricNewsContent extends Component {
       <div className={classes.root}>
         {type === "landing" ? (
           <Paper elevation={3}>
-            <div  className={classes.flexView}>
-              <Typography variant="h6" component="h6" 
-              className={classes.regclubs}>
+            <div className={classes.flexView}>
+              <Typography
+                variant="h6"
+                component="h6"
+                className={classes.regclubs}
+              >
                 {" "}
                 Latest News
               </Typography>
@@ -100,7 +101,6 @@ class GenricNewsContent extends Component {
                               md={gridColumnData.md}
                               xs={gridColumnData.xs}
                               key={newsIndex}
-                           
                             >
                               <Card className={classes.newsCard}>
                                 <CardMedia
@@ -154,7 +154,12 @@ class GenricNewsContent extends Component {
                     return (
                       <Card className={classes.card} key={index}>
                         <Grid container>
-                          <Grid item xs={12} md={4}  className={classes.gridpaper} >
+                          <Grid
+                            item
+                            xs={12}
+                            md={4}
+                            className={classes.gridpaper}
+                          >
                             <CardMedia
                               component="img"
                               alt=""

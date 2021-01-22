@@ -1,9 +1,9 @@
 import React, { Component } from "react";
-import Paper from '@material-ui/core/Paper';
+import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
-import Container from '@material-ui/core/Container';
-import Fontawsome from "../../commons/genricComponents/fontAwsomicon"
-import  { useEffect } from 'react'
+import Container from "@material-ui/core/Container";
+import Fontawsome from "../../commons/genricComponents/fontAwsomicon";
+import { useEffect } from "react";
 //function to load twitter url
 const Twitter = () => {
   useEffect(() => {
@@ -20,17 +20,15 @@ const Twitter = () => {
           data-height="500"
           data-chrome="noheader nofooter noborders"
           href="https://twitter.com/KarnatakaTT"
-        >
-        </a>
+        ></a>
       </div>
     </section>
   );
-}
+};
 //iframe component to load media feed in home.js component
 export default class MediaWidget extends Component {
   render() {
     const { classes } = this.props;
-
 
     return (
       <div className={classes.root}>
@@ -51,23 +49,22 @@ export default class MediaWidget extends Component {
                       }}
                     />
                   </Grid>
-                  <Grid 
-                    sm={12} xs={12} md={12}
-                  >
+                  <Grid sm={12} xs={12} md={12}>
                     <iframe
                       src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/KarnatakaTT/%2Ffacebook&tabs=timeline&width=340&height=500&small_header=false&adapt_container_width=true&hide_cover=false&show_facepile=true&appId"
-                      width="340" height="500"
+                      width="340"
+                      height="500"
                       scrolling="no"
                       title="facebook"
                       frameBorder="0"
                       allowFullScreen={true}
-                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share">
-                    </iframe>
+                      allow="autoplay; clipboard-write; encrypted-media; picture-in-picture; web-share"
+                    ></iframe>
                   </Grid>
                 </Grid>
               </Grid>
 
-              <Grid item sm={4} xs={12} md={4} >
+              <Grid item sm={4} xs={12} md={4}>
                 <Grid container align="center" justify="center">
                   <Grid item sm={12} xs={12} md={12}>
                     <Fontawsome
@@ -87,7 +84,7 @@ export default class MediaWidget extends Component {
                 </Grid>
               </Grid>
 
-              <Grid item sm={4} xs={12} md={4} >
+              <Grid item sm={4} xs={12} md={4}>
                 <Grid container align="center" justify="center">
                   <Grid item sm={12} xs={12} md={12}>
                     <Fontawsome
@@ -126,10 +123,7 @@ export default class MediaWidget extends Component {
               </Grid>
             </Grid>
           </Paper>
-
-
         </Container>
-
       </div>
     );
   }

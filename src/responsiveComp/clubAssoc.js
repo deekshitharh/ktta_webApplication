@@ -3,7 +3,6 @@ import { Desktop, Tablet, Mobile } from "../views"
 import ClubAssociation from "../components/about/ClubAsscoc"
 import { aboutMenu } from "../formdata"
 import Topbar from "../components/landingPage/TopBar"
-
 import Mobileview from "../components/MobileView/mobileView"
 //genric component to display the registered association component  in mobile/desktop/tablet
 const clubAssoc = (props) => {

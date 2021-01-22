@@ -3,7 +3,6 @@ import Grid from "@material-ui/core/Grid";
 import customStyles from "../../../styles/genricStyle";
 import Fontawsome from "../../../commons/genricComponents/fontAwsomicon";
 import Paper from "@material-ui/core/Paper";
-
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Table from "@material-ui/core/Table";
@@ -11,16 +10,11 @@ import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
 import { commons } from "../../../commons";
 import SnackPopup from "../../../commons/genricComponents/snackbar";
-
 import { ApiCall } from "../../../APIService";
-import Container from "@material-ui/core/Container";
 import TableRow from "@material-ui/core/TableRow";
 import RefreshLoader from "../../../commons/genricComponents/pageloader";
-
 import { drawresults, mresults } from "../../../formdata";
-
 import { withRouter } from "react-router-dom";
-
 import { sessioncommons } from "../../../commons";
 //displaying view component to that redirects to showsdraws component based on event ctegory
 class displaydraws extends React.Component {

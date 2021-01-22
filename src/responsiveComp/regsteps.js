@@ -1,6 +1,5 @@
 import React from 'react';
 import { Desktop, Tablet, Mobile } from "../views"
-
 import Topbar from "../components/landingPage/TopBar"
 //genric component to display the registerSteps in mobile/desktop/tablet
 

@@ -20,9 +20,7 @@ import playerListViews from "./responsiveComp/playerList"
 import ViewsDraws from "./responsiveComp/viewsDraws"
 import PrivateRoute from "./PrivateRoutes"
 function renderComponent(Component, defaultProps, customProps) {
- 
   let props = { ...defaultProps, ...customProps };
- 
   let StyledComponent = withStyles(customStyles)(Component);
   return <StyledComponent {...props} />;
 }

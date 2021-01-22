@@ -1,29 +1,22 @@
 import React from "react";
-
 import Container from "@material-ui/core/Container";
 import customStyles from "../../../styles/genricStyle";
 import Divider from "@material-ui/core/Divider";
 import Titlize from "../../../commons/genricComponents/titlize";
-
 import Grid from "@material-ui/core/Grid";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import Table from "@material-ui/core/Table";
 import TableBody from "@material-ui/core/TableBody";
 import TableCell from "@material-ui/core/TableCell";
-
 import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import { commons } from "../../../commons";
 import Fontawsome from "../../../commons/genricComponents/fontAwsomicon";
 import { uiCommons } from "../../../commons";
-
-//import { drawresults, mresults, } from "../../../../formdata"
-
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import Typography from "@material-ui/core/Typography";
-
 import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import { sessioncommons } from "../../../commons";
@@ -71,7 +64,6 @@ class showdraws extends React.Component {
 
   //reducer function to  to get indiviual row details
   showdatval = (xs, key) => {
-   
     return xs.reduce((rv, x) => {
       rv["round" + x.col] = this.getDots(x.dots);
       // j.row = x.row;
@@ -103,7 +95,7 @@ class showdraws extends React.Component {
     const containsAll = (a1, a2) => {
       return a1.every((arr2Item) => a2.includes(arr2Item));
     };
-      update.map((el) => {
+    update.map((el) => {
       let a1 = el.scores.setScoresA;
       let a2 = el.scores.setScoresB;
       let y = containsAll(a1, a2);
@@ -121,7 +113,6 @@ class showdraws extends React.Component {
 
   //click handler to change the data based on rounds
   handleClick = (r, index) => {
-  
     let allResult = [];
     let filterdata = [];
     for (let index = r.roundNumber; index < r.roundNumber + 3; index++) {
@@ -178,7 +169,7 @@ class showdraws extends React.Component {
 
     return (
       <React.Fragment>
-        <CssBaseline/>
+        <CssBaseline />
 
         <div className={classes.root}>
           <AppBar className={classes.drawsAppbar} position="static">
@@ -189,14 +180,18 @@ class showdraws extends React.Component {
             </Toolbar>
           </AppBar>
           <Container maxWidth="lg">
-            <Table   className={classes. regclubs} size="small" aria-label="a dense table">
+            <Table
+              className={classes.regclubs}
+              size="small"
+              aria-label="a dense table"
+            >
               <TableHead>
                 <TableRow>
                   {rowdata.map((outerElement, index) => {
                     return (
                       <TableCell
                         align="center"
-                     className={classes.assocLink}
+                        className={classes.assocLink}
                         onClick={() => this.handleClick(outerElement, index)}
                       >
                         <Box
@@ -214,12 +209,13 @@ class showdraws extends React.Component {
               <TableBody>
                 {ELEMENT_DATA.map((row, index) => (
                   <TableRow key={index}>
-                    {Object.keys(row).map((o,i) => (
+                    {Object.keys(row).map((o, i) => (
                       <TableCell
                         classes={{ root: classes.drawtable }}
                         align="center"
                         component="th"
-                        scope="row">
+                        scope="row"
+                      >
                         {row[o]}
                       </TableCell>
                     ))}
@@ -259,9 +255,7 @@ class showdraws extends React.Component {
                         );
 
                         return (
-                          <Paper
-                          className={classes.drawspaper}
-                          >
+                          <Paper className={classes.drawspaper}>
                             <Grid container>
                               <Grid container></Grid>
                               <Grid xs={1} sm={1} md={1}>

@@ -16,16 +16,13 @@ import ExpansionPanelSummary from "@material-ui/core/ExpansionPanelSummary";
 import ExpansionPanelDetails from "@material-ui/core/ExpansionPanelDetails";
 
 import ExpandMoreIcon from "@material-ui/icons/ExpandMore";
-
 import Titlize from "../../commons/genricComponents/titlize";
 import customStyles from "../../styles/genricStyle";
 import Link from "@material-ui/core/Link";
 import { withRouter } from "react-router-dom";
-
 import TableDialog from "./dialouges/tabledisplay";
 import MaterialTable, { MTableToolbar } from "material-table";
 import { selectButtons, tableIcons } from "../../formdata";
-
 import { ApiCall } from "../../APIService";
 import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
