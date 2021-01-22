@@ -8,7 +8,6 @@ import Grid from "@material-ui/core/Grid";
 import StatisticsContent from "./StatisticsContent";
 import OfficeBearers from "./OfficeBearers";
 import RegisteredClubs from "./RegistredCulb";
-
 import RegisteredAssoc from "./RegisteredAssoc";
 import Sponsers from "./Sponsers";
 import { withStyles } from "@material-ui/core/styles";
@@ -17,13 +16,13 @@ import customStyles from "../../styles/genricStyle";
 import banner1 from "../../images/tball.jpg";
 import BannerImage from "../../commons/genricComponents/imageClass";
 import MediaWidget from "../socialMediaExtracts/mediaExtracts";
+//home page component for RegisteredClubs,RegisteredAssoc,OfficeBearers,StatisticsContent,Topbar
+//MediaWidget,Sponsers,NewsContent,StandingContent
 class Home extends Component {
 
-
-//theme change functionality
+//theme change functionality  
   tokenChange = (themeColor) => {
     this.props.handlechange(themeColor)
-    console.log("landing", themeColor, this.props )
    
   };
 

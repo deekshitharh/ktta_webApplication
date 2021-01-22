@@ -20,7 +20,7 @@ import MailOutlineIcon from '@material-ui/icons/MailOutline';
 import Titlize from "../../commons/genricComponents/titlize";
 import EventIcon from '@material-ui/icons/Event';
 import {commons} from "../../commons"
-//dilouge component for mobile view to display additionl fields 
+//dilouge component for mobile view to display additional fields for  playerlist
 class ResponsiveListDailouge extends Component {
     render() {
         const { playername,classes, playerdata } = this.props;
@@ -62,7 +62,7 @@ class ResponsiveListDailouge extends Component {
                                             <Typography
                                                 gutterBottom
                                                 variant="subtitle1"
-                                                style={{ paddingLeft: "12px" }}
+                                                className={classes.responsiveTablePadding}
                                             >
                                                 {playerInfo
                                                     ? playerInfo.emailAddress

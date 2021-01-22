@@ -25,7 +25,8 @@ import CommitieData from "./commitedetails";
 import { ApiCall } from "../../APIService";
 import { Link as CoreLink } from "@material-ui/core";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
-//displying the tounamnet list user cn register/view
+//displaying the tounamnet list user can register/view entries/draws
+//past and upcooming tournaments data
 class Tournament extends React.Component {
   constructor(props) {
     super(props);
@@ -151,7 +152,7 @@ class Tournament extends React.Component {
           <LeagueInfo
             handleChildUpdate={this.handleChildUpdate}
             loadtdata={this.loadTournamentData}
-            //loading={loading}
+           
           />
 
           <Grid align="center" justify="center" container>
@@ -176,10 +177,11 @@ class Tournament extends React.Component {
                         xs={12}
                         md={12}
                       >
+                        
                         <Grid item xs={12} md={12}>
                           <CardContent>
                             <Grid container>
-                              <Grid style={{ flex: 1 }}>
+                              <Grid className={classes.statistics}>
                                 <Typography gutterBottom variant="body1">
                                   {" "}
                                   <b>

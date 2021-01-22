@@ -1,6 +1,5 @@
 // generic  import file form fomatdata files
 import { menuData } from "./menuData";
-import { standingData } from "./standings";
 import { playerDetailscol } from "./playerDetailsCol";
 import { statisticsData } from "./statistics";
 import { tournamentmenu } from "./viewDrawsMenu";
@@ -31,7 +30,6 @@ export {
   changePasswordForm,
   regularExpData,
   menuData,
-  standingData,
   statisticsData,
   selectButtons,
   tableIcons,

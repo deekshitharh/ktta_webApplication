@@ -11,7 +11,7 @@ function renderComponent(Component, defaultProps, customProps) {
     let StyledComponent = withStyles(customStyles)(Component);
     return <StyledComponent {...props} />;
 }
-//private route componet defintion for dashboard component
+//private route component defintion used in dashboard component
 class PrivateRoute extends React.Component {
 
     constructor(props) {

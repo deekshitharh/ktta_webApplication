@@ -1,5 +1,6 @@
-//button schema for event category for player ranking ranking.js
+//button schema for event category for player ranking in ranking.js,draws.js,rankingview.js
 //id for button id
+//name :event category name
 export const selectButtons = [
   {
     name: "CG",

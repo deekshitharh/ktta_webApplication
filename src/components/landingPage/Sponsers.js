@@ -5,16 +5,12 @@ import Paper from "@material-ui/core/Paper";
 
 import Grid from "@material-ui/core/Grid";
 
-
 import pageBanner from "../../config/bannerConfig";
 import { ApiCall } from "../../APIService";
 import Divider from "@material-ui/core/Divider";
-
-import { API_URL } from "../../globalUrls";
 import { commons } from "../../commons";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
-
-
+//sponsers component used in home.js component
 export default class Sponsers extends React.Component {
   constructor(props) {
     super(props);
@@ -23,13 +19,10 @@ export default class Sponsers extends React.Component {
       filepath: "",
     };
   }
-//api call fo sponsers data
+  //api call fo sponsers data
   loadSponsersData = () => {
     let apiData = {};
     apiData.entity = "sponsors";
-    
-   
-
     ApiCall("POST", apiData, "fetchData")
       .then((res) => res.json())
       .then((res) => {
@@ -41,11 +34,10 @@ export default class Sponsers extends React.Component {
       .then((res) => {
         this.setState({
           sponsers: res["data"],
-        
         });
       })
       .catch((error) => {
-        commons.errorLog(error)
+        commons.errorLog(error);
       });
   };
 
@@ -64,12 +56,16 @@ export default class Sponsers extends React.Component {
           {/* <Grid container justify="center"> */}
 
           <div className={classes.flexView}>
-            <Typography variant="h6" component="h6" className={classes.regclubs}>
+            <Typography
+              variant="h6"
+              component="h6"
+              className={classes.regclubs}
+            >
               {" "}
               Sponsors
             </Typography>
           </div>
-          <Divider/>
+          <Divider />
 
           <Paper className={classes.sponsergid}>
             <Grid container spacing={1} justify="center">
@@ -78,10 +74,9 @@ export default class Sponsers extends React.Component {
                   return (
                     <Grid key={newsIndex} item>
                       <img
-                      className={classes.sponserimg}
-                       alt="" 
-                       src={defaultlogo}
-                    
+                        className={classes.sponserimg}
+                        alt=""
+                        src={defaultlogo}
                       ></img>
                     </Grid>
                   );

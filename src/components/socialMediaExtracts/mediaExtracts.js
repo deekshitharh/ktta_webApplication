@@ -26,7 +26,7 @@ const Twitter = () => {
     </section>
   );
 }
-
+//iframe component to load media feed in home.js component
 export default class MediaWidget extends Component {
   render() {
     const { classes } = this.props;

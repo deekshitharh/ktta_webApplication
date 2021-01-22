@@ -159,7 +159,7 @@ class ResponsiveRanking extends React.Component {
                     {buttonArr.map((item, index) => {
                       return (
                         <ToggleButtonGroup
-                          style={{ margin: 5 }}
+                        className={classes.commitiedata}
                           value={value}
                           exclusive
                           key={index}
@@ -225,10 +225,7 @@ class ResponsiveRanking extends React.Component {
                             <div>
                               <MTableToolbar {...props} />
                               <div
-                                style={{
-                                  padding: "0px 10px",
-                                  textAlign: "left",
-                                }}
+                                 className={classes.entriesgrid}
                               >
                                 <Typography variant="h6" gutterBottom>
                                   Players Ranking

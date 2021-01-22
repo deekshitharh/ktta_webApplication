@@ -13,12 +13,11 @@ import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { ApiCall } from "../../../APIService";
 import RefreshLoader from "../../../commons/genricComponents/pageloader";
 import { commons } from "../../../commons";
-//downloding draws  view component
+//downloding draws view component to download draws based on event category
 class ViewDraws extends React.Component {
   constructor(props) {
     super(props);
-
-    this.state = {
+      this.state = {
       loading: false,
       tournamentId: this.props.match.params.id,
       open: false,
@@ -45,7 +44,6 @@ class ViewDraws extends React.Component {
     ApiCall("POST", params, "coreApi")
       .then((response) => response.json())
       .then((data) => {
-   
         const validPdf = this.validatepdf(data);
         this.setState({
           loading: false,
@@ -55,13 +53,12 @@ class ViewDraws extends React.Component {
         });
       })
       .catch((error) => {
-        commons.errorLog(error)
+        commons.errorLog(error);
       });
   };
 
   validatepdf = (pdf) => {
-   
-  const base64Rejex = /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)$/;
+    const base64Rejex = /^([A-Za-z0-9+\/]{4})*([A-Za-z0-9+\/]{4}|[A-Za-z0-9+\/]{3}=|[A-Za-z0-9+\/]{2}==)$/;
     const check = base64Rejex.test(pdf); // base64Data is the base64 string
     return check;
   };
@@ -85,21 +82,18 @@ class ViewDraws extends React.Component {
       tournamentId,
     } = this.state;
 
-    
-
     return (
       <React.Fragment>
         <CssBaseline />
-
         <div className={classes.root}>
           <Grid container justify="center">
             <RefreshLoader display="overlay" loading={loading} />
             <Paper>
-              <Grid  item md={12} sm={12}>
+              <Grid item md={12} sm={12}>
                 {buttonArr.map((item, index) => {
                   return (
                     <ToggleButtonGroup
-                    className={classes. commitiedata}
+                      className={classes.commitiedata}
                       value={value}
                       exclusive
                       key={index}

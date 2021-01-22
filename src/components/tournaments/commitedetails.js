@@ -10,7 +10,7 @@ import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
 import Fontawsome from "../../commons/genricComponents/fontAwsomicon";
 import Titlize from "../../commons/genricComponents/titlize";
-//componet for commitie data under each tournament
+//componet for commitie data under each tournament in tournamnet.js
 class CommitieData extends React.Component {
   render() {
     const { data, name } = this.props;

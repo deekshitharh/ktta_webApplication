@@ -1,10 +1,6 @@
 import React from "react";
-
-//import AuthService from "../service/AuthService";
-
 import Grid from "@material-ui/core/Grid";
 import Paper from "@material-ui/core/Paper";
-
 import Typography from "@material-ui/core/Typography";
 import Topbar from "../landingPage/TopBar";
 import RefreshLoader from "../../commons/genricComponents/pageloader";
@@ -15,7 +11,7 @@ import Divider from "@material-ui/core/Divider";
 import { commons } from "../../commons";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
 import ReactHtmlParser from "react-html-parser";
-//detailing component of newsPage 
+//detailing component of newsPage used in newsinfo.js
 class DetailedNews extends React.Component {
   constructor(props) {
     super(props);
@@ -23,25 +19,23 @@ class DetailedNews extends React.Component {
       news_id: this.props.match.params.id, //id from  news info
       filepath: "",
       newsDetails: [],
-      loading: false
+      loading: false,
     };
   }
   //api for getting news
   loadetailedData = () => {
-    debugger
+    debugger;
     const { news_id } = this.state;
     let apiData = {};
-    apiData.entity="news";
-    
+    apiData.entity = "news";
+
     this.setState({ loading: true });
     ApiCall("POST", apiData, "fetchData")
-  
       .then((res) => res.json())
       .then((res) => {
         this.setState({
           loading: false,
           newsDetails: res["data"],
-        
         });
       })
       .catch((error) => {
@@ -56,64 +50,57 @@ class DetailedNews extends React.Component {
   render() {
     const { classes } = this.props;
 
-    const { filepath,  newsDetails,news_id,loading } = this.state;
-    const found = newsDetails.filter(element => element._id == news_id );
-    
+    const { filepath, newsDetails, news_id, loading } = this.state;
+    const found = newsDetails.filter((element) => element._id == news_id);
+
     return (
       <React.Fragment>
         <CssBaseline />
         <Topbar index={0} />
         <RefreshLoader display="overlay" loading={loading} />
         <div className={classes.root}>
-          {found.length? (
-          found.map((value, index) => {
-            return (
-              <Paper className={classes.paper} key={index}>
-                <Grid container align="center">
-                  <Grid
-                    item
-                    md={12}
-                    xs={12}
-                    sm={12}
-                 
-                  >
-                    <img
-                      style={{ width: 400, height: 200 }}
-                      alt=""
-                      src={
-                        value.url
-                          ?  value.url
-                          : ""
-                      }
-                    ></img>
+          {found.length ? (
+            found.map((value, index) => {
+              return (
+                <Paper className={classes.paper} key={index}>
+                  <Grid container align="center">
+                    <Grid item md={12} xs={12} sm={12}>
+                      <img
+                        className={classes.detailedNews}
+                        alt=""
+                        src={value.url ? value.url : ""}
+                      ></img>
+                    </Grid>
                   </Grid>
-                </Grid>
-                <Grid container justify="center">
-                  <Grid item md={12} xs={12} sm={12} style={{ padding: 20 }}>
-                    <Typography variant="h4">
-                      {  value.title ? ReactHtmlParser(  value.title) : ""}
-                    </Typography>
-                    <Divider/>
-                  </Grid>
-                  <Grid item md={12} xs={12} sm={12}>
-                    <Paper className={classes.paper}>
-                      <Typography variant="h6">
-                        {value.description !== null
-                          ? ReactHtmlParser(  value.desc)
-                          : ""}
+                  <Grid container justify="center">
+                    <Grid
+                      item
+                      md={12}
+                      xs={12}
+                      sm={12}
+                      className={classes.detiledgrid}
+                    >
+                      <Typography variant="h4">
+                        {value.title ? ReactHtmlParser(value.title) : ""}
                       </Typography>
-                    </Paper>
+                      <Divider />
+                    </Grid>
+                    <Grid item md={12} xs={12} sm={12}>
+                      <Paper className={classes.paper}>
+                        <Typography variant="h6">
+                          {value.description !== null
+                            ? ReactHtmlParser(value.desc)
+                            : ""}
+                        </Typography>
+                      </Paper>
+                    </Grid>
                   </Grid>
-                </Grid>
-              </Paper>
-               );
-              })
-            ) : (
-              <InfoComponent
-                variant="h4"
-                message="No Data available yet!!!"
-              />
-            )}
+                </Paper>
+              );
+            })
+          ) : (
+            <InfoComponent variant="h4" message="No Data available yet!!!" />
+          )}
         </div>
       </React.Fragment>
     );

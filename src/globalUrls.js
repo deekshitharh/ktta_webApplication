@@ -1,3 +1,4 @@
+//url schema for api calls for all api calls
 export const API_URL = "http://www.goto5s.com/";
 export const APPSPECIFIC_URL="https://sports-whiz.herokuapp.com/app/"
 export const API_NAME="https://sports-whiz.herokuapp.com/"

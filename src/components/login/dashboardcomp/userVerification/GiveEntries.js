@@ -1,4 +1,3 @@
-
 import React from "react";
 import Button from "@material-ui/core/Button";
 import TableBody from "@material-ui/core/TableBody";
@@ -10,21 +9,23 @@ import TableRow from "@material-ui/core/TableRow";
 import SnackPopup from "../../../../commons/genricComponents/snackbar";
 import Paper from "@material-ui/core/Paper";
 import { ApiCall } from "../../../../APIService";
+import { fileCall } from "../../../../APIService";
 import { sessioncommons } from "../../../../commons";
 import withStyles from "@material-ui/core/styles/withStyles";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Card from '@material-ui/core/Card';
-import CardHeader from '@material-ui/core/CardHeader';
-import CardContent from '@material-ui/core/CardContent';
+import Card from "@material-ui/core/Card";
+import CardHeader from "@material-ui/core/CardHeader";
+import CardContent from "@material-ui/core/CardContent";
 import Grid from "@material-ui/core/Grid";
-import ArrowUpwardIcon from '@material-ui/icons/ArrowUpward';
+import ArrowUpwardIcon from "@material-ui/icons/ArrowUpward";
 import Typography from "@material-ui/core/Typography";
-import formValidation from "../../../../commons/formfunction"
+import formValidation from "../../../../commons/formfunction";
 import MaterialTable from "material-table";
 import { tableIcons } from "../../../../formdata";
 import { commons } from "../../../../commons";
 
 let selectionFlag = false;
+//event subscription componet used in dashboard componet
 class subscribeEvent extends React.Component {
   constructor(props) {
     super(props);
@@ -36,8 +37,8 @@ class subscribeEvent extends React.Component {
       uploadedstatus: {},
       checkedEvent: [],
       data: [],
-      message:"",
-      userStatus:null,
+      message: "",
+      userStatus: null,
       emptyuser: "",
       result: {
         oldSubscribeId: [],
@@ -48,157 +49,104 @@ class subscribeEvent extends React.Component {
       subscibedEvent: [],
       showpayment: false,
       eventFeeslist: {},
-      // fees: 0,
       displayName: "Event Details",
     };
   }
-
+  //api call to check if the user has uploded the dob proof data
   checkidverification = () => {
-    debugger
     let loggeduser = sessioncommons.getUser();
     let apiData = {};
-    apiData.client_key="KTTA1";
-    apiData.entity="userDoc"
+    apiData.entity = "userDoc";
     apiData.userId = loggeduser.userId;
 
-    this.setState({ pdata: true });
-    fetch('https://sports-whiz.herokuapp.com/app/fetchEntity', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(apiData)
-    }) .then((res) => res.json())
-    .then((res) => {
-    if (res.status === "success") {
-        this.setState({
+    ApiCall("POST", apiData, "fetchData")
+      .then((res) => res.json())
+      .then((res) => {
+        if (res.status === "success") {
+          this.setState({
             pdata: false,
-            userStatus:false,
-         
-        });
-      } else if (res.status == "failure") {
-        this.setState({
+            userStatus: false,
+          });
+        } else if (res.status == "failure") {
+          this.setState({
             pdata: false,
-          userStatus: true,
-         
-        });
-      }
-    })
-
-
-  
-
-
-
-
-
-};
-
-
-onSubmitFile = (e) => {
-  e.preventDefault();
-
-
-  
-
-  let fileVal = formValidation.validateFile(this.state.uploadedFile);
-  debugger
-  this.setState({ message: fileVal });
-  if (fileVal) {
+            userStatus: true,
+          });
+        }
+      });
+  };
+  //submit file componet dob upload document
+  onSubmitFile = (e) => {
+    e.preventDefault();
+    let fileVal = formValidation.validateFile(this.state.uploadedFile);
+    this.setState({ message: fileVal });
+    if (fileVal) {
       if (!fileVal.status) {
-          this.setState({ "message": fileVal.msg })
-      }
-      else {
-          this.setState({ "message": fileVal.msg })
-          let loggeduser = sessioncommons.getUser()
-          let params = {};
-         
-         params.client_key = "KTTA1";
-         params.entity = "userDoc"
-         params.title = loggeduser.userName;
-         params.file = this.state.uploadedFile;
-         params.userId =  loggeduser.userId;
-      let fData = new FormData();
+        this.setState({ message: fileVal.msg });
+      } else {
+        this.setState({ message: fileVal.msg });
+        let loggeduser = sessioncommons.getUser();
+        let params = {};
+        params.entity = "userDoc";
+        params.title = loggeduser.userName;
+        params.file = this.state.uploadedFile;
+        params.userId = loggeduser.userId;
+        let fData = new FormData();
 
-          for (let key in params) {
-              fData.append(key, params[key]);
-          }
-          this.setState({ loading:true });
-          fetch('https://sports-whiz.herokuapp.com/app/createEntity', {
-      method: 'POST',
-     
-      body: fData
-  }) .then((res) => res.json())
-  .then((res) => {
-                  if (res.status=="success") {
-                    
+        for (let key in params) {
+          fData.append(key, params[key]);
+        }
+        this.setState({ loading: true });
+        fileCall("POST", fData, "createData")
+          .then((res) => res.json())
+          .then((res) => {
+            if (res.status == "success") {
+              this.setState({
+                loading: false,
 
-                      this.setState({
-                          loading: false,
-                        
-                          uploadedstatus: "File uploaded successfully"
-                      })
-
-                      setTimeout(() => {
-                          this.onReset();
-                      }, 1000);
-                     
-                     
-                  } else if (res.status == "failure") {
-                      this.setState({
-                          loading: false,
-                          iduploaded: false,
-                          message: "Please try after some  time",
-                      });
-                    }
-
-                  
-              })
-              // .then((res) => {
-              //     setTimeout(() => {
-              //         this.onReset();
-              //     }, 1000);
-              // })
-
-        
-              .catch((error)=>{
-                  this.setState({
-                      loading: false,
-                      iduploaded: false,
-                      message: "Please try after some  time",
-                  });
-
-                  console.log("upload error " + error);
+                uploadedstatus: "File uploaded successfully",
               });
 
-        
+              setTimeout(() => {
+                this.onReset();
+              }, 1000);
+            } else if (res.status == "failure") {
+              this.setState({
+                loading: false,
+                iduploaded: false,
+                message: "Please try after some  time",
+              });
+            }
+          })
+
+          .catch((error) => {
+            this.setState({
+              loading: false,
+              iduploaded: false,
+              message: "Please try after some  time",
+            });
+
+            console.log("upload error " + error);
+          });
       }
-  }
-};
-
-
-onChange = (e) => {
-  this.setState({
+    }
+  };
+  //onchange for file handler
+  onChange = (e) => {
+    this.setState({
       uploadedFile: e.target.files[0],
-     
-  });
-};
+    });
+  };
 
-//reset file data
-onReset() {
-  this.refs.file.value = "";
-  this.setState({
+  //reset file data
+  onReset() {
+    this.refs.file.value = "";
+    this.setState({
       userStatus: false,
-     
-  });
-}
+    });
+  }
 
-
-
-
-
-
-//load the event list for the given userid
+  //load the event list for the given userid
   updateData = () => {
     let loggeduser = sessioncommons.getUser();
     let tournamentdata = sessioncommons.getTournament();
@@ -207,7 +155,6 @@ onReset() {
     params.type = "fetchEvents";
     params.userId = loggeduser.userId;
     params.tournamentId = tournamentdata.tournamentId;
-      
 
     this.setState({ loading: true });
     ApiCall("POST", params, "coreApi")
@@ -228,7 +175,7 @@ onReset() {
           });
 
           let feeTotal;
-        
+
           const oldSubId = [];
           res.data.forEach((e) => {
             if (e.hasOwnProperty("eventParticipants")) {
@@ -236,8 +183,6 @@ onReset() {
                 e.subscibedEvent = true;
                 oldSubId.push(e.abbName);
                 feeTotal = 0;
-                // const z = feeList.push(e.eventfee);
-                // feeTotal = feeList.reduce((accumulator, currentValue) => parseInt(accumulator) +parseInt(currentValue), 0)
               } else {
                 e.subscibedEvent = false;
               }
@@ -252,8 +197,6 @@ onReset() {
                 oldSubscribeId: oldSubId,
               },
               eventlist: res["data"],
-              // checkedEvent: checkedEvent,
-              // checkedFees: l
             });
           });
         } else if (res.message) {
@@ -269,63 +212,11 @@ onReset() {
   };
 
   componentDidMount() {
-   this.updateData();
-   this.checkidverification();
+    this.updateData();
+    this.checkidverification();
   }
 
-  // subscribecalcultion = (ro, value) => {
-  //
-  //   const subsribedlist = []
-  //   const feeList = [];
-  //   let feeTotal;
-  //   const row = [...this.state.eventlist];
-  //   if (value === "limited") {
-  //     row.forEach(ro => {
-  //       if (ro._id === r._id) ro.subscibedEvent = e.target.checked;
-  //       if (ro.subscibedEvent) {
-
-  //         if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
-  //           const z = subsribedlist.push(ro.eventfee);
-  //           feeTotal = "Already subscribed"
-  //         }
-  //         else {
-  //           const z = feeList.push(ro.eventfee);
-
-  //           feeTotal = JSON.stringify(feeList.reduce((accumulator, currentValue) => parseInt(accumulator) + parseInt(currentValue), 0))
-  //         }
-  //       }
-  //     });
-
-  //     }
-  //   else if (value == "checkedAll")
-  //   {
-  //     row.forEach(ro => {
-  //       const selectedAll = rows.length === this.state.eventlist.length;
-  //       ro.subscibedEvent = selectedAll;
-  //       if (selectedAll) {
-
-  //         if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
-  //           const z = subsribedlist.push(ro.eventfee);
-  //           feeTotal = "Already subscribed"
-  //         }
-  //         else {
-  //           const z = feeList.push(ro.eventfee);
-
-  //           feeTotal = JSON.stringify(feeList.reduce((accumulator, currentValue) => parseInt(accumulator) + parseInt(currentValue), 0))
-  //         }
-  //       }
-
-  //     });
-
-  //     }
-
-  //   this.setState({
-  //     eventlist: row,
-  //     checkedFees: feeTotal
-  //   });
-
-  // }
-
+  //selection function for checkbox selection based on row change
   selectionChange = (rows) => {
     const subsribedlist = [];
     let feeTotal;
@@ -344,7 +235,7 @@ onReset() {
             subsribedlist.push(ro.eventfee);
             feeTotal = 0;
           } else {
-             feeList.push(ro.eventfee);
+            feeList.push(ro.eventfee);
 
             feeTotal = JSON.stringify(
               feeList.reduce(
@@ -363,7 +254,7 @@ onReset() {
       });
     }
   };
-
+  //update function for checkbox selection based on row selected
   updateSelection = (e, r) => {
     const subsribedlist = [];
     const feeList = [];
@@ -374,10 +265,9 @@ onReset() {
       if (ro._id === r._id) ro.subscibedEvent = e.target.checked;
       if (ro.subscibedEvent) {
         if (this.state.result.oldSubscribeId.includes(ro.abbName)) {
-           subsribedlist.push(ro.eventfee);
-        
+          subsribedlist.push(ro.eventfee);
         } else {
-            feeList.push(ro.eventfee);
+          feeList.push(ro.eventfee);
 
           feeTotal = JSON.stringify(
             feeList.reduce(
@@ -396,13 +286,10 @@ onReset() {
     });
   };
 
-
-//function payment gateway(razor pay)
+  //function payment gateway(razor pay)
   displayRazorpay = async () => {
-  
-
     let loggeduser = sessioncommons.getUser();
-    const res = await commons.loadScript (
+    const res = await commons.loadScript(
       "https://checkout.razorpay.com/v1/checkout.js"
     );
 
@@ -410,7 +297,7 @@ onReset() {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-//function to get order_id to pass to options
+    //function to get order_id to pass to options
     await this.loadpaymentdata();
 
     const options = {
@@ -423,7 +310,7 @@ onReset() {
 
       handler: (response) => {
         if (response.razorpay_payment_id) {
-          this.calculate(response.razorpay_payment_id);//calculate the fees
+          this.calculate(response.razorpay_payment_id); //calculate the fees
         }
       },
       prefill: {
@@ -438,23 +325,21 @@ onReset() {
     });
     paymentObject.open();
   };
-//api call for  oder_id for payment 
+  //api call for  oder_id for payment
   loadpaymentdata = async () => {
     let loggeduser = sessioncommons.getUser();
-   
+
     let apiData = {};
-    apiData.client_key= "KTTA1";
+    apiData.client_key = "KTTA1";
     apiData.amount = (parseInt(this.state.checkedFees) * 100).toString();
-      apiData.type="create_order";
-      fetch('https://sports-whiz.herokuapp.com/sports', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json;charset=utf-8'
-        },
-        body: JSON.stringify(apiData)
-            
-      })
-    
+    apiData.type = "create_order";
+    fetch("https://sports-whiz.herokuapp.com/sports", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json;charset=utf-8",
+      },
+      body: JSON.stringify(apiData),
+    })
       .then((res) => res.json())
       .then((res) => {
         if (res) {
@@ -465,7 +350,7 @@ onReset() {
         commons.errorLog(error);
       });
   };
-//fee calculation function
+  //fee calculation function
   calculate = (transactionID) => {
     const newSubId = [];
     let unSubId = [];
@@ -495,45 +380,38 @@ onReset() {
         result: result,
       },
       () => {
-        this.onSubmit(transactionID);//api call to sever to store the trnsaction id 
+        this.onSubmit(transactionID); //api call to sever to store the trnsaction id
       }
     );
   };
-  
-  //api call to sever to store the transaction id 
+
+  //api call to sever to store the transaction id
   onSubmit = async (transactionID) => {
     const { result, checkedFees } = this.state;
-
     let loggeduser = sessioncommons.getUser();
     let tournamentdata = sessioncommons.getTournament();
     let params = {};
-
     params.type = "eventSubscribe";
-    
-    
-    params.userId= loggeduser.userId;
-    params.tournamentId= tournamentdata.tournamentId;
-    params.subscribeID= result.subscribeId;
-    params.unSubscribeID= result.unSubscribeId;
-    params.transactionID= transactionID;
-    params.transactionAmount= checkedFees;
-    params.transactionType= "none";
-    params.oldSubscribeID= result.oldSubscribeId;
-    
+    params.userId = loggeduser.userId;
+    params.tournamentId = tournamentdata.tournamentId;
+    params.subscribeID = result.subscribeId;
+    params.unSubscribeID = result.unSubscribeId;
+    params.transactionID = transactionID;
+    params.transactionAmount = checkedFees;
+    params.transactionType = "none";
+    params.oldSubscribeID = result.oldSubscribeId;
+
     this.setState({ loading: true });
     await ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res.message === "success") {
           this.setState({ subsciptionData: res.message, loading: false });
-        } else {
-          // this.setState({ "pwdStatus": true, "dialogOpen": true, loading: false })
-          // this.resetForm();
-        }
+        } 
       })
 
       .then((res) => {
-        this.updateData();//call the event list api with the upated subscibed/unsubscibed events for the logged user.
+        this.updateData(); //call the event list api with the upated subscibed/unsubscibed events for the logged user.
       })
 
       .catch((error) => {
@@ -552,126 +430,104 @@ onReset() {
       message,
       loading,
       subsciptionData,
-      uploadedstatus
+      uploadedstatus,
     } = this.state;
 
     return (
       <React.Fragment>
         <CssBaseline />
-
         <div className={classes.root}>
-          {/* <Grid container justify="center"> */}
-          {userStatus ?
-                                                    (
-                                                    <Grid container  style={{justifyContent:"center"}} align="center">
-                                                         <Grid>
-                                      
-                                    </Grid>
-                                                    <Card className={classes.card} style={{ margin: '10px' }}>
-                                                    
-                                                        <CardHeader
-                                                            title="DOB proof for verification"
-                                                        />
-                                                        <CardContent>
+          {userStatus ? (
+            <Grid container className={classes.giveEntriesgrid} align="center">
+              <Grid></Grid>
+              <Card className={classes.card}>
+                <CardHeader title="DOB proof for verification" />
+                <CardContent>
+                  <Grid item md={12} sm={12} xs={12}>
+                    <input
+                      accept="image/*"
+                      ref="file"
+                      id="contained-button-file"
+                      type="file"
+                      onChange={this.onChange}
+                    />
 
+                    <label htmlFor="contained-button-file">
+                      <Button
+                        size="small"
+                        startIcon={<ArrowUpwardIcon />}
+                        component="span"
+                        onClick={this.onSubmitFile}
+                      >
+                        Upload
+                      </Button>
+                    </label>
 
-                                                           
+                    <Typography variant="body1" color="error">
+                      {" "}
+                      {message.length ? message : ""}
+                    </Typography>
+                    {uploadedstatus.length ? (
+                      <SnackPopup message={uploadedstatus} type="success" />
+                    ) : (
+                      ""
+                    )}
+                  </Grid>
+                </CardContent>
+              </Card>
+            </Grid>
+          ) : (
+            <MaterialTable
+              title={displayName}
+              columns={[
+                {
+                  field: "eventName",
+                  title: "EventName",
+                },
+                {
+                  field: "eventfee",
+                  title: "EventFees",
+                },
+                {
+                  title: "Total",
+                  align: "right",
+                },
+              ]}
+              data={eventlist}
+              isLoading={loading}
+              icons={tableIcons}
+              options={{
+                toolbar: true,
+                showTextRowsSelected: false,
+                padding: "dense",
+                maxBodyHeight: 600,
+                search: false,
+                selection: true,
+                paging: false,
+                filtering: false,
 
-                                                            <Grid item md={12} sm={12} xs={12}>
+                headerStyle: {
+                  backgroundColor: "#f44336a6",
+                  color: "#FFF",
+                },
+                rowStyle: {
+                  color: "#000000",
+                },
+                selectionProps: (rowData) => ({
+                  disabled:
+                    result.oldSubscribeId.indexOf(rowData.abbName) !== -1,
+                  checked: rowData.subscibedEvent || false,
+                  onClick: (e) => {
+                    this.updateSelection(e, rowData);
+                  },
+                }),
+              }}
+              onSelectionChange={(rows) => {
+                this.selectionChange(rows);
+              }}
+            />
+          )}
 
-                                                                <input
-                                                                    accept="image/*"
-                                                                    ref="file"
-                                                                    id="contained-button-file"
-                                                                    type="file"
-                                                                    onChange={this.onChange}
-                                                                />
-
-                                                                <label htmlFor="contained-button-file">
-                                                                    <Button
-                                                                        size="small"
-                                                                        startIcon={<ArrowUpwardIcon />}
-                                                                        component="span"
-                                                                        onClick={this.onSubmitFile}
-                                                                    >
-                                                                        Upload
-                    </Button>
-                                                                </label>
-
-                                                                <Typography variant="body1" color="error">
-                                                                    {" "}
-                                                                    {message.length ? message : ""}
-                                                                </Typography>
-                                                                {uploadedstatus.length ? (
-                                                                    <SnackPopup
-                                                                        message={uploadedstatus}
-                                                                        type="success"
-                                                                    />
-                                                                ) : (
-                                                                        ""
-                                                                    )}
-                                                            </Grid>
-
-                                                        </CardContent>
-
-
-
-                                                    </Card>
-                                                    </Grid>
-                                                    ):  <MaterialTable
-                                                    title={displayName}
-                                                    columns={[
-                                                      {
-                                                        field: "eventName",
-                                                        title: "EventName",
-                                                      },
-                                                      {
-                                                        field: "eventfee",
-                                                        title: "EventFees",
-                                        
-                                                      
-                                                      },
-                                                      {
-                                                        title: "Total",
-                                                        align: "right",
-                                                      
-                                                      },
-                                                    ]}
-                                                  
-                                        
-                                                    data={eventlist}
-                                                    isLoading={loading}
-                                                    icons={tableIcons}
-                                                    options={{
-                                                      toolbar: true,
-                                                      showTextRowsSelected: false,
-                                                      padding: "dense",
-                                                      maxBodyHeight: 600,
-                                                      search: false,
-                                                      selection: true,
-                                                      paging: false,
-                                                      filtering: false,
-                                                      
-                                                      headerStyle: {
-                                                        backgroundColor: "#f44336a6",
-                                                        color: "#FFF",
-                                                      },
-                                                      rowStyle: {
-                                                        color: "#000000",
-                                                      },
-                                                      selectionProps: (rowData) => ({
-                                                        disabled: result.oldSubscribeId.indexOf(rowData.abbName) !== -1,
-                                                        checked: rowData.subscibedEvent || false,
-                                                        onClick: (e) => {
-                                                          this.updateSelection(e, rowData);
-                                                        },
-                                                      }),
-                                                    }}
-                                                    onSelectionChange={(rows) => {
-                                                      this.selectionChange(rows);
-                                                    }}
-                                                  />}
-        
           {!loading && !userStatus ? (
             <React.Fragment>
               <TableContainer component={Paper}>
@@ -679,7 +535,7 @@ onReset() {
                   <TableBody>
                     <TableRow>
                       <TableCell>
-                        Event Event Registration Fee (Non-Refundable)
+                        Event Registration Fee (Non-Refundable)
                       </TableCell>
                       <TableCell>{checkedFees}</TableCell>
                     </TableRow>
@@ -712,5 +568,4 @@ onReset() {
     );
   }
 }
-
 export default withStyles(customStyles)(subscribeEvent);

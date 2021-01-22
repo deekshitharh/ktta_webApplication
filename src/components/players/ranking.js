@@ -31,7 +31,7 @@ import ToggleButton from "@material-ui/lab/ToggleButton";
 import ToggleButtonGroup from "@material-ui/lab/ToggleButtonGroup";
 import { commons } from "../../commons";
 
-
+//player Ranking component for navigation menu playerlist in ranking menu
 
 const IconLeftExpansionPanelSummary = withStyles({
   expandIcon: {
@@ -40,8 +40,6 @@ const IconLeftExpansionPanelSummary = withStyles({
 })(ExpansionPanelSummary);
 
 class PlayerRanking extends React.Component {
-  // const[alignment, setAlignment] = React.useState('left');
-
   constructor(props) {
     super(props);
 
@@ -56,15 +54,14 @@ class PlayerRanking extends React.Component {
       ranking: [],
     };
   }
-//function to display the player details on click of playername
+  //function to display the player details on click of playername
 
   handleDetailDisplay = (id, name, username) => {
     var params = {};
     params.type = "playerRankData";
     params.eventName = name;
     params.playerId = id;
-  
-   
+
     this.setState({ loading: true });
     ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
@@ -85,12 +82,11 @@ class PlayerRanking extends React.Component {
       open: false,
     });
   };
-//api call for players under each event category
+  //api call for players under each event category
   componentDidMount() {
     var params = {};
     params.type = "assocRank";
     params.eventName = this.state.value;
-    
 
     this.setState({ loading: true });
     ApiCall("POST", params, "coreApi")
@@ -176,7 +172,7 @@ class PlayerRanking extends React.Component {
                     {buttonArr.map((item, index) => {
                       return (
                         <ToggleButtonGroup
-                        className={classes.textclass}
+                          className={classes.textclass}
                           value={value}
                           exclusive
                           key={index}
@@ -210,7 +206,7 @@ class PlayerRanking extends React.Component {
                         render: (rowData) => (
                           <Typography component="div">
                             <Link
-                            className={classes.assocLink}
+                              className={classes.assocLink}
                               onClick={(e) =>
                                 this.handleDetailDisplay(
                                   rowData.userId,
@@ -270,9 +266,7 @@ class PlayerRanking extends React.Component {
                       Toolbar: (props) => (
                         <div>
                           <MTableToolbar {...props} />
-                          <div
-                            style={{ padding: "0px 10px", textAlign: "left" }}
-                          >
+                          <div className={classes.entriesgrid}>
                             <Typography variant="h6" gutterBottom>
                               Players Details
                             </Typography>

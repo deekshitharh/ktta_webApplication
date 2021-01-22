@@ -1,24 +1,19 @@
 import React, { Component } from "react";
-
 import GridList from "@material-ui/core/GridList";
 import GridListTile from "@material-ui/core/GridListTile";
-
 import { commons } from "../../commons";
-
 import customStyles from "../../styles/genricStyle";
 import withStyles from "@material-ui/core/styles/withStyles";
 import Typography from "@material-ui/core/Typography";
 import Card from "@material-ui/core/Card";
 import Grid from "@material-ui/core/Grid";
 import Titlize from "../../commons/genricComponents/titlize";
-
 import Link from "@material-ui/core/Link";
 import CardContent from "@material-ui/core/CardContent";
 import Divider from "@material-ui/core/Divider";
-
 import { ApiCall } from "../../APIService";
 import Fontawsome from "../../commons/genricComponents/fontAwsomicon";
-import InfoComponent from "../../commons/genricComponents/infoComponent";
+//gridlist component to display the district association data which is used in contact.js component
 class SingleLineGridList extends Component {
   constructor(props) {
     super(props);
@@ -30,11 +25,9 @@ class SingleLineGridList extends Component {
   //api call district association
   loadDaData = () => {
     let apiData = {};
-
     apiData.client_key = "APTTA";
     apiData.type = "getDAListForGivenAssoc";
-
-    ApiCall("POST",  apiData, "coreApi")
+     ApiCall("POST",  apiData, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res.status === "success") {

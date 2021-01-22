@@ -5,7 +5,7 @@ import Grid from "@material-ui/core/Grid";
 import ListItemIcon from "@material-ui/core/ListItemIcon";
 import MenuIcon from "@material-ui/icons/Menu";
 import IconButton from "@material-ui/core/IconButton";
-import { Typography, Switch, Box} from "@material-ui/core";
+import { Typography, Switch, Box } from "@material-ui/core";
 import ListItem from "@material-ui/core/ListItem";
 import ListItemText from "@material-ui/core/ListItemText";
 import SwipeableDrawer from "@material-ui/core/SwipeableDrawer";
@@ -28,12 +28,9 @@ import {
   Popper,
   MenuList,
   MenuItem,
- 
 } from "@material-ui/core";
-
 import pageBanner from "../../config/bannerConfig";
-//import Theme from "./styles/customTheme.js";
-
+//naviagtion bar component
 class Topbar extends Component {
   constructor(props) {
     super(props);
@@ -51,7 +48,7 @@ class Topbar extends Component {
       currentLabel: "HOME",
     };
   }
- 
+//call top bar api for logo fetch
   loadMediaData = () => {
     let apiData = {};
     apiData.tableName = "aboutus";
@@ -69,13 +66,8 @@ class Topbar extends Component {
         commons.errorLog(error);
       });
   };
-  componentDidMount = () => {
-   // this.loadMediaData();
-  };
 
   handleDrawerClick1 = (event, item, index) => {
-   
-    //const { nestedclick } = this.state;
     this.setState({
       nestedclick: index,
     });
@@ -87,15 +79,12 @@ class Topbar extends Component {
       open: !open,
     });
   };
-
+  //on tabchange handle
   handleChange = (event, value) => {
     this.setState({ value: value });
   };
   //function of tab click
   handleMenuClick = (e, item) => {
-    console.log("new file");
-    // if (e.target.textContent === "PLAYERS")
-    // og('label name', e.target.textContent)
     this.setState({
       currentLabel: item.label,
     });
@@ -111,69 +100,44 @@ class Topbar extends Component {
 
     this.setState({
       open: true,
-
       anchorEl: currentTarget,
-      //value: item.value,
-
       menuList: curMenuList,
     });
   };
-
+  //handle menu close of tabs
   handleMenuClose = () => {
     const currentLabel = this.state.value;
-    //const val = menuData.filter(item => `#${item.pathname}` === location || item.choices?.filter(choice => `#${choice.pathname}` === location))[0].value
     const val = menuData.find((item) => item.value === currentLabel).value;
-
     this.setState({
       open: false,
       anchorEl: null,
       value: val,
     });
   };
+  //theme change handler
   handleThemeChange = (x) => {
-    let checked = x.target.checked
+    let checked = x.target.checked;
     this.setState((prevState) => ({
       darkState: !prevState.darkState,
     }));
-   
-
-    this.props.tokenChange(checked ? "dark" : "light");
-    checked 
+   this.props.tokenChange(checked ? "dark" : "light");
+    checked
       ? localStorage.setItem("theme", "dark")
       : localStorage.setItem("theme", "light");
   };
 
-
-
-
-  handleClick1 = (event, index) => {
-    //const { nestedclick } = this.state;
-   
-    
-    this.setState({ nestedclick: index });
-  
-  };
- 
-
   handleInputSearch = () => {};
-
+  //mobile menu open handler
   mobileMenuOpen = (event) => {
     this.setState({ menuDrawer: true });
   };
-
+  //mobile menu close handler
   mobileMenuClose = (event) => {
     this.setState({ menuDrawer: false });
   };
 
   renderMenu = () => {
-    const {
-     
-      open,
-      nestedclick,
-     
-      value,
-    
-    } = this.state;
+    const { open, nestedclick, value } = this.state;
     return menuData && menuData.length ? (
       <List>
         {menuData.map((item, index1) => {
@@ -247,22 +211,15 @@ class Topbar extends Component {
 
   render() {
     const { classes, tab } = this.props;
-    
+
     const {
-      anchorEl,
-      
-      open,
-      darkState,
-    
-      filepath,
+      anchorEl,open,
+      darkState,filepath,
       logopath,
       menuList,
-      
     } = this.state;
     const defaultlogo = pageBanner("topBar");
-  
-   
-   
+
     return (
       <div
         className={classes.root}
@@ -271,7 +228,6 @@ class Topbar extends Component {
         <AppBar position="relative" color="default">
           <Toolbar>
             <Grid container spacing={2}>
-              {/* <Grid item xs={12} className={classes.flex}> */}
               {logopath.length === 0 ? (
                 <Grid
                   item
@@ -282,8 +238,6 @@ class Topbar extends Component {
                     objectFit: "cover",
                     width: "100%",
                     maxWidth: "100%",
-                    //backgroundSize: "cover",
-                    // backgroundPositionX: 'left',
                     background: `url(${defaultlogo} )  bottom no-repeat `,
                     backgroundPosition: "left",
                     backgroundSize: "contain",
@@ -304,9 +258,9 @@ class Topbar extends Component {
                       objectFit: "cover",
                       width: "100%",
                       maxWidth: "100%",
-                      //backgroundSize: "cover",
-                      // backgroundPositionX: 'left',
-                      background: `url(${API_URL + `${filepath}` + "/" + `${value.logo}`} )  bottom no-repeat `,
+                      background: `url(${
+                        API_URL + `${filepath}` + "/" + `${value.logo}`
+                      } )  bottom no-repeat `,
                       backgroundPosition: "left",
                       backgroundSize: "contain",
                     }}
@@ -342,14 +296,6 @@ class Topbar extends Component {
 
                         {this.renderMenu()}
                       </SwipeableDrawer>
-                      {/* <Grid
-                      alignItems="flex-start"
-                      justify="flex-end"
-                      direction="row"
-                      md={8}
-                      container
-                    > */}
-
                       <Tabs
                         value={this.state.value}
                         indicatorColor="primary"
@@ -365,7 +311,6 @@ class Topbar extends Component {
                               selected
                               onChange={this.handleChange}
                               onMouseOver={(e) => this.handleMenuOpen(e, item)}
-                              //onClick={(e)=> this.handleMenuClick(e ,item)}
                               component={Link}
                               to={{
                                 pathname: item.pathname,
@@ -397,7 +342,6 @@ class Topbar extends Component {
                                       search: this.props.location.search,
                                     }}
                                     key={index}
-                                    //onClick={(e) => this.handleMenuClick(e, value)}
                                     onClick={this.handleMenuClose}
                                   >
                                     {value.name}

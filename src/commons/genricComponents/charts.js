@@ -1,14 +1,11 @@
 import Chartist from "chartist";
 import Legend from "chartist-plugin-legend";
-
 import { withRouter } from "react-router-dom";
 import customStyles from "../../styles/genricStyle";
 import { withStyles } from "@material-ui/core/styles";
 import React, { Component } from "react";
-
 import { useEffect } from "react";
-
-//graph componet (chartist)
+//graph component (chartist) used in statistics.js
 
 var delays2 = 80,
   durations2 = 500;
@@ -93,10 +90,10 @@ const Graph = () => {
   });
   return <div className="ct-chart" />;
 };
-
+//homepage.js graph component
 class Statistics extends Component {
   render() {
-    return <Graph />;
+    return <Graph/>;
   }
 }
 

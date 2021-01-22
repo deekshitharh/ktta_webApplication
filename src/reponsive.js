@@ -10,7 +10,7 @@ import React, { useEffect } from "react";
 const Responsive = (props) => {
   const [themeState, setThemeState] = React.useState("dark");
  
-  
+  //initial theme setting on application load.
   useEffect(() => {
     localStorage.setItem("theme", "dark");
     setThemeState("dark");

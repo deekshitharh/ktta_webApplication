@@ -22,8 +22,8 @@ import RefreshLoader from "../../commons/genricComponents/pageloader";
 import DialogContent from "@material-ui/core/DialogContent";
 import DialogContentText from "@material-ui/core/DialogContentText";
 import DialogTitle from "@material-ui/core/DialogTitle";
-
 import { DialogActions } from "@material-ui/core";
+//player registration component
 class playerRegister extends React.Component {
   constructor(props) {
     super(props);
@@ -50,9 +50,7 @@ class playerRegister extends React.Component {
   //api call for club data  which is used in dropdown  in registration form
   loadClubData = () => {
     let params = {};
-
     params.type = "academylist";
-
     ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
@@ -75,15 +73,12 @@ class playerRegister extends React.Component {
     //registration change fields
     this.loadClubData();
     let emailvalue = this.state.emailfield;
-
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-
     formDataControl.map((item, index) => {
       if (item.id === "emailAddress") {
         item["value"] = emailvalue[0].value;
       }
     });
-
     this.setState({
       formData: formDataControl,
     });
@@ -92,10 +87,8 @@ class playerRegister extends React.Component {
   //clear fileds if registration fails
   resetForm = () => {
     let emailvalue = this.state.emailfield;
-
     let formDataControl = [...JSON.parse(JSON.stringify(registration))];
-
-    formDataControl.map((item, index) => {
+    formDataControl.map((item) => {
       if (item.id === "emailAddress") {
         item["value"] = emailvalue[0].value;
       }
@@ -123,7 +116,7 @@ class playerRegister extends React.Component {
       alert("Razorpay SDK failed to load. Are you online?");
       return;
     }
-    //function to get order_id to pass to options
+    //function to get order_id to pass to options of razorpay modal
     await this.loadpaymentdata();
     const options = {
       key: "rzp_live_kApuBzXGZuYXGG",
@@ -179,27 +172,18 @@ class playerRegister extends React.Component {
     const formvalues = this.state.formData;
     let data = commons.displayfileds(formvalues);
     let apiData = {};
-    apiData.client_key = "TSA";
     apiData.type = "playerReg";
     apiData.userName = data.name;
     apiData.verificationCode = data.otp;
     apiData.emailAddress = data.email;
     apiData.password = data.password;
     apiData.clubNameId = data.clubNameId;
-
     apiData.transactionID = id;
     apiData.transactionAmount = amount;
     apiData.approvalCode = "TSA";
-
     apiData.dob = data.DOB;
     this.setState({ loading: true });
-    await fetch("https://sports-whiz.herokuapp.com/sports", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json;charset=utf-8",
-      },
-      body: JSON.stringify(apiData),
-    })
+    await ApiCall("POST", params, "coreApi")
       .then((res) => res.json())
       .then((res) => {
         if (res && res.data) {
@@ -222,7 +206,7 @@ class playerRegister extends React.Component {
   };
   //function for form validation
   verifyForm = async (e) => {
-    debugger
+    debugger;
     e.preventDefault();
     this.setState({ pwdMessage: "" });
     let formData = this.state.formData;
@@ -245,7 +229,6 @@ class playerRegister extends React.Component {
 
   //change handler for input fileds of form.
   onChange = (e) => {
-    
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });
     formDataInput.find((item) => {
@@ -284,8 +267,6 @@ class playerRegister extends React.Component {
 
     let role_groups = formValidation.chunkArray(2, formData);
 
-    console.log("regee", registredClub);
-
     return (
       <React.Fragment>
         <CssBaseline />
@@ -296,27 +277,16 @@ class playerRegister extends React.Component {
               justify="center"
               alignItems="center"
               container
-              style={{
-                marginTop: 10,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
+              className={classes.fogotGrid}
             >
               <RefreshLoader display="overlay" loading={loading} />
             </Grid>
 
             <Container maxWidth="sm">
-              <Card style={{ margin: "10px" }}>
+              <Card className={classes.loginCard}>
                 <CardHeader
                   avatar={
-                    <Avatar
-                      aria-label="recipe"
-                      style={{
-                        margin: 8,
-                        backgroundColor: "red",
-                      }}
-                    >
+                    <Avatar aria-label="recipe" className={classes.avatar}>
                       R
                     </Avatar>
                   }
@@ -329,47 +299,18 @@ class playerRegister extends React.Component {
                     groupBy={2}
                     onChange={this.onChange}
                   />
-                  {/* {formData.map((item, index) => {
-                                    const styleObj = {};
-                                    if (item.hidden) styleObj["display"] = "none";
-
-                                    return (<TextField
-                                        key={index}
-                                        variant='outlined'
-                                        type={item.type}
-                                        disabled={item.disabled ? true : false}
-                                        hidden={item.hidden ? true : false}
-                                        label={item.hidden ? '' : item.displayName}
-                                        name={item.key}
-                                        fullWidth
-                                        margin="normal"
-                                        value={item.value}
-                                        onChange={this.onChange}
-                                        error={item.error.length ? true : false}
-                                        helperText={item.error}
-                                        autoComplete="off"
-                                        style={styleObj}
-                                    />)
-
-                                })} */}
-
                   <Button
                     onClick={this.verifyForm}
-                    style={{ marginTop: 10 }}
+                    className={classes.sponsergid}
                     fullWidth
                   >
                     Register
                   </Button>
 
-                  <div style={{ display: "flex", flexDirection: "row" }}>
+                  <div className={classes.fogotdialougegrid}>
                     {pwdStatus ? (
                       <div>
-                        <span
-                          style={{ float: "left" }}
-                          className={classes.success}
-                        >
-                          {pwdMessage}
-                        </span>
+                        <span className={classes.success}>{pwdMessage}</span>
                         <Dialog
                           open={dialogOpen}
                           aria-labelledby="alert-dialog-title"
@@ -395,9 +336,7 @@ class playerRegister extends React.Component {
                         </Dialog>
                       </div>
                     ) : (
-                      <span style={{ float: "left" }} className={classes.error}>
-                        {pwdMessage}
-                      </span>
+                      <span className={classes.error}>{pwdMessage}</span>
                     )}
                   </div>
                 </CardContent>

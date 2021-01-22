@@ -17,6 +17,7 @@ import Topbar from "../landingPage/TopBar";
 import InfoComponent from "../../commons/genricComponents/infoComponent";
 import PictureAsPdfIcon from "@material-ui/icons/PictureAsPdf";
 import Titlize from "../../commons/genricComponents/titlize";
+//legal component of navigation bar
 class Legal extends React.Component {
     constructor(props) {
         super(props);
@@ -104,20 +105,13 @@ class Legal extends React.Component {
                   return (
                     <React.Fragment key={index}>
                       <Paper className={classes.officepaper}>
-                        <Grid
-                          container
-                          style={{ marginTop: 10 }}
-                        
-                        >
+                        <Grid container className={classes.legalgrid}>
                           <Grid
                             item
                             md={12}
                             sm={12}
                             xs={12}
-                            style={{
-                              backgroundColor: "rgba(0, 0, 0, 0.05)",
-                              color: "black",
-                            }}
+                            className={classes.legalstyle}
                           >
                             <Typography
                               gutterBottom
@@ -129,7 +123,7 @@ class Legal extends React.Component {
                                 <Titlize value={value.title} />
                               </b>
                             </Typography>
-                            <Divider style={{ height: "3px" }} />
+                            <Divider className={classes.divider} />
                           </Grid>
 
                           <Grid item md={12} sm={12} xs={12}>
@@ -142,23 +136,16 @@ class Legal extends React.Component {
                             </Typography>
                           </Grid>
 
-                          <Grid
-                            item
-                            md={12}
-                            sm={12}
-                            xs={12}
-                            // style={{ display: flex}}
-                          >
+                          <Grid item md={12} sm={12} xs={12}>
                             <Button
                               children={false}
-                              target="_"
-                              href={legalData.url}
-                           
+                              
+                              href={value.url}
                               size="large"
-                              //onClick={(e) => this.handleViewPdf(value.documentName)}
-                              // style={{ alignContent: "flex-end" }}
                               startIcon={
-                                <PictureAsPdfIcon style={{ color: "white" }} />
+                                <PictureAsPdfIcon
+                                  className={classes.closeicon}
+                                />
                               }
                             ></Button>
                           </Grid>

@@ -156,16 +156,12 @@ formValidation.genricFromValidation = async (obj,otpval) => {
         }
       } else item["error"] = fieldObj.message;
     }
-
-    // else if (fieldObj === undefined) {
-    //     item["error"] = "";
-    // }
   });
 
   obj = await formValidation.verifyPassword(obj);
   return obj;
 };
-//file validation in uploading file   used in giveEntries.js
+//file validation in uploading file used in giveEntries.js
 formValidation.validateFile = (file) => {
   let resJson = { status: true, msg: "" };
   if (file === null) {
@@ -182,20 +178,5 @@ formValidation.validateFile = (file) => {
   return resJson;
 };
 
-formValidation.validateFile = (file) => {
-  let resJson = { status: true, msg: "" };
-  if (file == null) {
-    resJson["status"] = false;
-    resJson["msg"] = "File cannot be empty";
-  }
-  if (file) {
-    if (file.size > fileSizeLimit) {
-      resJson["msg"] = "File cannot exceed 1 MB";
-      resJson["status"] = false;
-    }
-  }
-
-  return resJson;
-};
 
 export default formValidation;

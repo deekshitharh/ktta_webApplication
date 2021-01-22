@@ -1,9 +1,6 @@
 //top bar menu schema used in TopBar.js component
-
 import React from "react";
-
 import HomeIcon from '@material-ui/icons/Home';
-
 import TodayIcon from '@material-ui/icons/Today';
 import EmojiPeopleIcon from '@material-ui/icons/EmojiPeople';
 import ContactsIcon from '@material-ui/icons/Contacts';

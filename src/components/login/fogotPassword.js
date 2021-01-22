@@ -4,7 +4,7 @@ import Button from "@material-ui/core/Button";
 import { withStyles } from "@material-ui/core/styles";
 import Typography from "@material-ui/core/Typography";
 
-import {withRouter } from "react-router-dom";
+import { withRouter } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import customStyles from "../../styles/genricStyle";
 import Topbar from "../../components/landingPage/TopBar";
@@ -24,6 +24,7 @@ import LockOpenIcon from "@material-ui/icons/LockOpen";
 import { DialogActions } from "@material-ui/core";
 import { commons } from "../../commons";
 import RefreshLoader from "../../commons/genricComponents/pageloader";
+//forgot password component redirected from login component
 class FogotPassword extends React.Component {
   constructor(props) {
     super(props);
@@ -46,16 +47,14 @@ class FogotPassword extends React.Component {
   componentDidMount() {
     //password change fields
     let formDataControl = [...JSON.parse(JSON.stringify(changePasswordForm))];
-  
 
     this.setState({
       formData: formDataControl,
     });
   }
-//form reset
+  //form reset
   resetForm = () => {
     let formDataControl = [...JSON.parse(JSON.stringify(changePasswordForm))];
-  
 
     this.setState({
       formData: formDataControl,
@@ -66,15 +65,16 @@ class FogotPassword extends React.Component {
     this.setState({ dialogOpen: false });
     this.props.history.push("/login");
   };
-//otp valdiation
+  //otp valdiation
   showotpval = async () => {
     const { formData } = this.state;
     let filteredata = [formData.find((item) => item.id === "emailAddress")];
 
-    let formInputDataValid = await formValidation.genricFromValidation(filteredata);
+    let formInputDataValid = await formValidation.genricFromValidation(
+      filteredata
+    );
     let result = formInputDataValid.find((item) => {
       if (item.error.length) return item;
-  
     });
 
     this.setState({ otpbutton: false, otpMessage: "", pwdMessage: "" });
@@ -83,7 +83,7 @@ class FogotPassword extends React.Component {
       this.setState({ otpbutton: true });
     }
   };
-//api call for otp generation
+  //api call for otp generation
   generateOtp = () => {
     this.setState({
       otpStatus: false,
@@ -99,16 +99,13 @@ class FogotPassword extends React.Component {
 
     let apiData = {};
     apiData.type = "forgotOtp";
-  
-    
+
     apiData.emailId = data.emailAddress;
-     this.setState({ loading: true });
+    this.setState({ loading: true });
     ApiCall("POST", apiData, "coreApi")
       .then((res) => res.json())
       .then((res) => {
-        if (res.status === "failure"){
-
-        
+        if (res.status === "failure") {
           this.setState({
             otpbutton: false,
             loading: false,
@@ -124,14 +121,14 @@ class FogotPassword extends React.Component {
             otpcode: res.verificationCode,
           });
         } else if (res.errors) {
-          this.setState({ otpMessage: res.errors.toString() })
+          this.setState({ otpMessage: res.errors.toString() });
         }
       })
       .catch((error) => {
         commons.errorLog(error);
       });
   };
-//api call for submitting new password
+  //api call for submitting new password
   verifyForm = async (e) => {
     e.preventDefault();
     this.setState({ pwdMessage: "" });
@@ -157,10 +154,9 @@ class FogotPassword extends React.Component {
 
       let apiData = {};
       apiData.type = "setPassword";
-    
-       apiData.verificationCode = data.otp;
-        apiData.userId = data.emailAddress;
-        apiData.password = data.confirmPassword;
+      apiData.verificationCode = data.otp;
+      apiData.userId = data.emailAddress;
+      apiData.password = data.confirmPassword;
 
       this.setState({ loading: true });
       ApiCall("POST", apiData, "coreApi")
@@ -184,7 +180,7 @@ class FogotPassword extends React.Component {
         });
     }
   };
- //change handler for input fileds of form.
+  //change handler for input fileds of form.
   onChange = (e) => {
     let formDataInput = [...this.state.formData];
     this.setState({ otpMessage: "" });
@@ -193,13 +189,8 @@ class FogotPassword extends React.Component {
         item.type === "number"
           ? (item.value = parseInt(e.target.value))
           : (item.value = e.target.value);
-
         if (item.id === e.target.name && item.type !== "string")
           item.value = e.target.value;
-        if (item.type === "date") {
-          //  let formatDate = moment(e.target.value).format('DD-MM-YYYY');
-          //  item.value = formatDate
-        }
         if (item.id === e.target.name && item.id === "emailAddress") {
           item.value = e.target.value;
           this.setState({ formData: formDataInput });
@@ -213,7 +204,6 @@ class FogotPassword extends React.Component {
   render() {
     const { classes } = this.props;
     const {
-    
       otpStatus,
       pwdStatus,
       otpMessage,
@@ -234,20 +224,9 @@ class FogotPassword extends React.Component {
               justify="center"
               alignItems="center"
               container
-              style={{
-                marginTop: 10,
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-              }}
-           
+              className={classes.fogotGrid}
             >
-              <Avatar
-                style={{
-                  margin: 8,
-                  backgroundColor: "red",
-                }}
-              >
+              <Avatar className={classes.avatar}>
                 <LockOpenIcon />
               </Avatar>
               <Typography component="h1" variant="h5">
@@ -262,32 +241,10 @@ class FogotPassword extends React.Component {
                   onChange={this.onChange}
                   xx={123}
                 />
-                {/* {formData.map((item, index) => {
-                                    const styleObj = {};
-                                    if (item.hidden) styleObj["display"] = "none";
 
-                                    return (<TextField
-                                        key={index}
-                                        variant='outlined'
-                                        type={item.type}
-                                        disabled={item.disabled ? true : false}
-                                        hidden={item.hidden ? true : false}
-                                        label={item.hidden ? '' : item.displayName}
-                                        name={item.key}
-                                        fullWidth
-                                        margin="normal"
-                                        value={item.value}
-                                        onChange={this.onChange}
-                                        error={item.error.length ? true : false}
-                                        helperText={item.error}
-                                        autoComplete="off"
-                                        style={styleObj}
-                                    />)
-
-                                })} */}
                 {otpbutton ? (
                   <Button
-                    style={{ marginBottom: 10 }}
+                    className={classes.otpbutton}
                     size="small"
                     onClick={this.generateOtp}
                   >
@@ -311,7 +268,7 @@ class FogotPassword extends React.Component {
                   <span className={classes.error}> {otpMessage}</span>
                 )}
 
-                <div style={{ display: "flex", flexDirection: "row" }}>
+                <div className={classes.fogotdialougegrid}>
                   <div>
                     <Dialog
                       open={dialogOpen}
@@ -335,13 +292,7 @@ class FogotPassword extends React.Component {
                         </DialogContent>
                       )}
                       <DialogActions>
-                        <Button
-                         
-                         
-                          onClick={this.handleDialog}
-                        >
-                          Ok
-                        </Button>
+                        <Button onClick={this.handleDialog}>Ok</Button>
                       </DialogActions>
                     </Dialog>
                   </div>

@@ -12,6 +12,6 @@ export const aboutMenu = [
   {
     label: "Registered Associations",
     value: 1,
-    component: RegisteredAssoc,
+    component:RegisteredAssoc,
   },
 ];

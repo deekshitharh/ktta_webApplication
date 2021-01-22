@@ -4,7 +4,7 @@ import ResponsivePlayerList from "../components/MobileView/playerlistView"
 
 
 import PlayerList from "../components/players/playerList"
-//genric component to display the playerList in mobile/desktop/tablet
+//genric component to display the playerList component in mobile/desktop/tablet
 
 const playerListViews = (props) => {
     const { classes } = props;

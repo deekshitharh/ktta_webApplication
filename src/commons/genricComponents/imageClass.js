@@ -1,5 +1,5 @@
 import React from "react";
-//function for banner image
+//function for banner image homepage.js
 //takes image as props
 function BannerImage(props) {
   return (

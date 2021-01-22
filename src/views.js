@@ -1,3 +1,5 @@
+//functionlity to display componets based on  desktop/mobile/tab
+
 import { useMediaQuery } from "react-responsive";
 
 const Desktop = ({ children }) => {
@@ -12,8 +14,4 @@ const Mobile = ({ children }) => {
     const isMobile = useMediaQuery({ maxWidth: 767 });
     return isMobile ? children : null;
 };
-// const Default = ({ children }) => {
-//   const isNotMobile = useMediaQuery({ minWidth: 768 });
-//   return isNotMobile ? children : null;
-// };
 export { Desktop, Tablet, Mobile };

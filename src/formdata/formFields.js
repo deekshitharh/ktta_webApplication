@@ -1,5 +1,4 @@
 //form schema for login
-
 //form schema for passwod channge in fogot password.js componet
 //id ->for finding the target field value
 //displayName ->for field name

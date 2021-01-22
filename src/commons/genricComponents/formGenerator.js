@@ -22,13 +22,13 @@ class FormGenerator extends React.Component {
   componentDidMount() {
     if (this.props.formList) this.setState({ formList: this.props.formList });
   }
-
+//recieving form data props from the register.js, forgotpassword.js,
   componentDidUpdate(prevProps) {
     if (prevProps.formList !== this.props.formList) {
       if (this.props.formList) this.setState({ formList: this.props.formList });
     }
   }
-  //show hidden password
+  //show hidden password used in registerplayer.js form
   handleClickShowPassword = (item) => {
     if (!this.props.groups) {
       let formDataInput = [...this.state.formList];
@@ -58,7 +58,8 @@ class FormGenerator extends React.Component {
     }
   };
 
-  //dropdown data
+  //dropdown data in register.js component
+  //param as clubs data where use can select the required clubs
   showDropDown = (nestedItem) => {
     if (nestedItem && nestedItem.id == "clubNameId") {
       const dropDownOptions = this.props.data.map((option, index) => {

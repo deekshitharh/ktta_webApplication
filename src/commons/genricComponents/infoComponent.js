@@ -1,9 +1,8 @@
 import Typography from "@material-ui/core/Typography";
 import React from "react";
-import customStyles from "../../styles/genricStyle";
 
 //genric api message display component
-// props:varient,and relevant api message
+//props for typography varient,and relevant api message
 function InfoComponent(props) {
   return (
     <Typography

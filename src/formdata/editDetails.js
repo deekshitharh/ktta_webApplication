@@ -1,4 +1,4 @@
-//form schema for edit fields
+//form schema for edit fields in userprofile.js
 //id ->for finding the target field value
 //displayName ->for field name
 //error ->for storing  filed error

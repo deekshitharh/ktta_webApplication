@@ -14,10 +14,8 @@ import Divider from "@material-ui/core/Divider";
 import ViewMorePage from "../components/landingPage/linkpage";
 import Titlize from "../commons/genricComponents/titlize";
 import customStyles from "../styles/genricStyle";
-
 import Topbar from "../components/landingPage/TopBar";
 import RefreshLoader from "../commons/genricComponents/pageloader";
-
 import { ApiCall } from "../APIService";
 import MailOutlineIcon from "@material-ui/icons/MailOutline";
 import { commons } from "../commons";
@@ -184,7 +182,7 @@ class GenricOfficebearers extends React.Component {
                               md={3}
                               sm={6}
                               xs={12}
-                              style={{ display: "flex" }}
+                              className={classes.flexView}
                               key={index}
                             >
                               <Card className={classes.imagecard}>
@@ -199,7 +197,7 @@ class GenricOfficebearers extends React.Component {
                                   }
                                 />
 
-                                <CardContent style={{ textAlign: "center" }}>
+                                <CardContent className={classes.textcentre}>
                                   <Typography gutterBottom variant="h6">
                                     <Titlize value={value.name} />
                                   </Typography>

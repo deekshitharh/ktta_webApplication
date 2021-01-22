@@ -5,6 +5,7 @@ import CopyrightIcon from '@material-ui/icons/Copyright';
 import withStyles from "@material-ui/core/styles/withStyles";
 import customStyles from "../../styles/genricStyle";
 import { withRouter } from "react-router-dom";
+//footer component used in landing page component.
 class Footer extends Component {
   render() {
         const { classes } = this.props;

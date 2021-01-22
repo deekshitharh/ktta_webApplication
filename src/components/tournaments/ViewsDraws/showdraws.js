@@ -28,7 +28,6 @@ import Paper from "@material-ui/core/Paper";
 import Box from "@material-ui/core/Box";
 import { sessioncommons } from "../../../commons";
 const gridColumns = 3;
-
 class showdraws extends React.Component {
   constructor(props) {
     super(props);
@@ -36,7 +35,6 @@ class showdraws extends React.Component {
       selected: 0,
       value: "round1",
       drawinfo: this.props.match.params.id,
-      //drawdata: mresults,
       rowdata: sessioncommons.getdrawData().roundDetails,
       rowmatchdata: sessioncommons.getdrawData().roundMatchDetails,
       drawmatchRecords: sessioncommons.getdrawData().matchRecords,
@@ -105,8 +103,7 @@ class showdraws extends React.Component {
     const containsAll = (a1, a2) => {
       return a1.every((arr2Item) => a2.includes(arr2Item));
     };
-
-    update.map((el) => {
+      update.map((el) => {
       let a1 = el.scores.setScoresA;
       let a2 = el.scores.setScoresB;
       let y = containsAll(a1, a2);

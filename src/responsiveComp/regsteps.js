@@ -6,8 +6,7 @@ import Topbar from "../components/landingPage/TopBar"
 
 const playerRegistration = (props) => {
     const { classes } = props;
-
-    return (<div>
+     return (<div>
         <Desktop>
             <registerSteps classes={classes} />
         </Desktop>

@@ -107,6 +107,7 @@ commons.checkFuturedate = (date) => {
   return datecheck;
 };
 //array sort in home page for registred clubs/association on abrrevation data
+//params as array and type based on array to be sorted
 commons.sortArray = (array, type) => {
   return array.sort((a, b) => {
     if (type === "acadamy") {

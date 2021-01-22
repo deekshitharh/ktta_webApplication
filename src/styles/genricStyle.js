@@ -1,4 +1,4 @@
-//genric style setting for the all the component
+//component specific style setting for the all the components 
 const d2 = 240;
 
 const customStyles = (theme) => ({
@@ -91,7 +91,24 @@ const customStyles = (theme) => ({
   statistics: {
     flex: 1,
   },
+  graphtext: {
+    margin: 10,
+  },
+  logoutTextfont: {
+    fontSize: 20,
+  },
+  logoutText: {
+    verticalAlign: "middle",
+    display: "inline-flex",
+  },
 
+  giveEntriesgrid: {
+    justifyContent: "center",
+  },
+
+  dashboardtext: {
+    marginRight: 30,
+  },
   homegrid: {
     padding: 10,
   },
@@ -114,18 +131,29 @@ const customStyles = (theme) => ({
     overflowWrap: "break-word",
   },
 
-  drawsAppbar:{
-    backgroundColor: "#e50606e3"
+  drawsAppbar: {
+    backgroundColor: "#e50606e3",
   },
-  drawsboder:{
-    borderBottom: "3px solid #32407b"
+  drawsboder: {
+    borderBottom: "3px solid #32407b",
   },
-responsiveDailouge:{
-  marginBottom: 20,
-},
-  drawspaper:{
+  responsiveDailouge: {
+    marginBottom: 20,
+  },
+
+  regstyle: {
+    padding: 8,
+  },
+  drawspaper: {
     padding: 20,
     margin: 10,
+  },
+  loginCard: {
+    margin: "10px",
+  },
+
+  detiledgrid: {
+    padding: 20,
   },
   regclubs: {
     flex: 1,
@@ -135,6 +163,11 @@ responsiveDailouge:{
   },
   assocLink: {
     cursor: "pointer",
+  },
+
+  viewmorelink: {
+    textDecoration: "none",
+    borderRadius: 0,
   },
   sponserimg: {
     height: 100,
@@ -151,12 +184,15 @@ responsiveDailouge:{
     width: "1.2em",
     color: "black",
   },
-responsivepadding:{
-  paddingLeft: "10px"
-},
-responsiveicon:{
-  width: "0.9em"
-},
+  responsivepadding: {
+    paddingLeft: "10px",
+  },
+  responsiveicon: {
+    width: "0.9em",
+  },
+  responsiveTablePadding: {
+    paddingLeft: "12px",
+  },
   drawstext: {
     whiteSpace: "nowrap",
 
@@ -166,11 +202,44 @@ responsiveicon:{
   commitiedata: {
     margin: 5,
   },
-  textcentre:{
+  avatar: {
+    margin: 8,
+    backgroundColor: "red",
+  },
+  otpbutton: {
+    marginBottom: 10,
+  },
+  regotp: {
+    marginTop: 15,
+  },
+  fogotGrid: {
+    marginTop: 10,
+    display: "flex",
+    flexDirection: "column",
+    alignItems: "center",
+  },
+  fogotdialougegrid: {
+    display: "flex",
+    flexDirection: "row",
+  },
+  detailedNews: {
+    width: 400,
+    height: 200,
+  },
+  entriesgrid: {
+    padding: "0px 10px",
+    textAlign: "left",
+  },
+  textcentre: {
     textAlign: "center",
   },
   textright: {
     textAlign: "right",
+  },
+  errortext: {
+    margin: "5px",
+    width: "500px",
+    overflowWrap: "break-word",
   },
 
   asscocgrid: {
@@ -181,6 +250,10 @@ responsiveicon:{
   },
   divider: {
     height: 2,
+  },
+  resulticon: {
+    width: "0.9em",
+    color: "#D85B6D",
   },
   viewClubs: {
     justifyContent: "left",
@@ -212,11 +285,28 @@ responsiveicon:{
     borderSpacing: "0 5px",
     borderCollapse: "separate",
   },
-
+  tableicon: {
+    backgroundColor: "red",
+    margin: 10,
+    padding: 5,
+  },
+  closeicon: {
+    color: "white",
+  },
+  legalstyle: {
+    backgroundColor: "rgba(0, 0, 0, 0.05)",
+    color: "black",
+  },
+  legalgrid: {
+    marginTop: 10,
+  },
+  passwordstatus: {
+    display: "flex",
+    flexDirection: "row",
+  },
   appBar: {
     position: "relative",
     boxShadow: "none",
-
     paddingBottom: "10px",
   },
   inline: {
@@ -233,7 +323,6 @@ responsiveicon:{
     display: "flex",
     height: 100,
     border: "3px solid whitesmoke",
-
     justifyContent: "space-between",
   },
 
@@ -357,9 +446,7 @@ responsiveicon:{
   tabItem: {
     padding: "7px 30px",
     minWidth: "auto",
-
     fontSize: 15,
-
     "&$selected": {},
   },
 
@@ -390,7 +477,6 @@ responsiveicon:{
   },
 
   horiCardMedia: {
-    //flex:1,
     flexDirection: "column",
     width: "40%",
 
@@ -444,8 +530,6 @@ responsiveicon:{
 
   dashboardpaper: {
     padding: theme.spacing(4),
-    // background: "linear-gradient(to right, #ff0000a3 50%, black 50%)" ,
-
     background: "#69779bf5",
   },
   grid: {
@@ -453,6 +537,7 @@ responsiveicon:{
   },
 
   tornamentcard: { marginBottom: 10 },
+  dashboardcomp: { marginBottom: 15 },
 
   buttonend: {
     justifyContent: "flex-end",
@@ -643,17 +728,6 @@ responsiveicon:{
   },
   fixedHeight: {
     height: "100%",
-  },
-
-  image5: {
-    backgroundImage: "url(https://source.unsplash.com/random)",
-    backgroundRepeat: "no-repeat",
-    backgroundColor:
-      theme.palette.type === "light"
-        ? theme.palette.grey[50]
-        : theme.palette.grey[900],
-    backgroundSize: "cover",
-    backgroundPosition: "center",
   },
 });
 

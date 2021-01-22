@@ -72,8 +72,7 @@ class RefreshLoader extends React.Component {
 
   render() {
     const { loading, type, classes, display } = this.props;
-
-    //props: loding,type of loader and  display type of loader
+    //props: loading, type of loader and  display type of loader
     return (
       <React.Fragment>
         <CssBaseline />
